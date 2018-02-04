@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button, { IButtonProps } from "../../shared/button/Button";
+import Icon from "../../shared/icon/Icon";
 
 import "./MenuEntry.scss";
 
@@ -13,7 +14,9 @@ type Props = IButtonProps & IMenuEntry;
 
 const MenuEntry: React.StatelessComponent<Props> = props => (
   <Button className="menu-entry" {...props}>
-    <div className="menu-entry__icon">{props.icon}</div>
+    <div className="menu-entry__icon">
+      <Icon name={props.icon} />
+    </div>
 
     <div className="menu-entry__name">{props.name}</div>
   </Button>

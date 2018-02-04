@@ -13,22 +13,22 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 class MainMenu extends React.Component<Props, {}> {
   private menuEntries: IMenuEntry[] = [
     {
-      icon: "",
+      icon: "test-tube",
       name: "Tests",
       route: ""
     },
     {
-      icon: "",
+      icon: "periodic-table",
       name: "Periodic Table",
       route: ""
     },
     {
-      icon: "",
+      icon: "scale-balance",
       name: "Mass Calculator",
       route: ""
     },
     {
-      icon: "",
+      icon: "info",
       name: "About",
       route: ""
     }
