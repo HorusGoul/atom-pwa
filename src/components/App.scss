@@ -8,7 +8,7 @@
 
   &__content {
     @include themify($themes) {
-      background-color: themed("primary");
+      background-color: themed("backgroundColor");
       color: themed("textColorPrimary");
     }
   }

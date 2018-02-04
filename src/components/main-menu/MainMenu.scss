@@ -1,12 +1,15 @@
+@import "../../scss/common.scss";
 @import "../../scss/theming.scss";
 
 .main-menu {
-  max-width: 768px;
-  height: 100%;
-  margin: 0 auto;
+  @extend %page;
 
   display: flex;
   flex-direction: column;
+
+  @include themify($themes) {
+    background-color: themed("primary");
+  }
 
   &__entries {
     margin-top: auto;
