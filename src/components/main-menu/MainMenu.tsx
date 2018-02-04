@@ -15,22 +15,22 @@ class MainMenu extends React.Component<Props, {}> {
     {
       icon: "test-tube",
       name: "Tests",
-      route: ""
+      route: "/tests"
     },
     {
       icon: "periodic-table",
       name: "Periodic Table",
-      route: ""
+      route: "/periodic-table"
     },
     {
       icon: "scale-balance",
       name: "Mass Calculator",
-      route: ""
+      route: "/mass-calculator"
     },
     {
       icon: "info",
       name: "About",
-      route: ""
+      route: "/about"
     }
   ];
 
@@ -39,15 +39,25 @@ class MainMenu extends React.Component<Props, {}> {
       <div className="main-menu">
         <div className="main-menu__entries">
           {this.menuEntries.map((menuEntry, index) => (
-            <MenuEntry key={index} {...menuEntry} />
+            <MenuEntry
+              key={index}
+              {...menuEntry}
+              onClick={this.onEntryClickListener(menuEntry)}
+            />
           ))}
         </div>
       </div>
     );
   }
 
-  private goTo(route: string) {
+  private onEntryClickListener(menuEntry: IMenuEntry) {
+    return () => this.onEntryClick(menuEntry);
+  }
+
+  private onEntryClick(menuEntry: IMenuEntry) {
     const { history } = this.props;
+
+    history.push(menuEntry.route);
   }
 }
 
