@@ -1,0 +1,12 @@
+@import "../../../scss/helpers.scss";
+@import "../../../scss/theming.scss";
+
+.card {
+  @include themify($themes) {
+    background-color: themed("cardBackgroundColor");
+    color: themed("contentTextColor");
+    fill: themed("contentTextColor");
+  }
+
+  @include box-shadow($level: 1);
+}

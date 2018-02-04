@@ -1,0 +1,29 @@
+.test-entry {
+  margin: 16px;
+  padding: 16px;
+
+  border-radius: 2px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 20pt;
+  }
+
+  &__settings-button {
+    margin-left: auto;
+  }
+
+  &__description {
+    font-size: 10pt;
+    padding: 8px 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
