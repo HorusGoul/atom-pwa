@@ -1,0 +1,17 @@
+.menu-entry {
+  flex: 1;
+  min-width: 50%;
+
+  padding: 16px;
+
+  &__name {
+    padding: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  &__icon {
+    padding: 8px;
+  }
+}

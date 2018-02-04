@@ -1,5 +1,17 @@
 @import "~normalize.css";
 
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body,
 button,
 input,

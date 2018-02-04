@@ -1,1 +1,6 @@
-$themes: (dark: (accent: #00897b, primary: #141f1e, primaryDarker: #081211));
+$themes: (
+  dark : (accent: #00897b, primary: #141f1e, primaryDarker: #081211, textColorPrimary:
+        #ffffff),
+  light : (accent: #00897b, primary: #00897b, primaryDarker: #01665c, textColorPrimary:
+        #ffffff)
+);

@@ -1,0 +1,15 @@
+@import "../scss/theming.scss";
+
+.app {
+  &,
+  &__content {
+    height: 100%;
+  }
+
+  &__content {
+    @include themify($themes) {
+      background-color: themed("primary");
+      color: themed("textColorPrimary");
+    }
+  }
+}
