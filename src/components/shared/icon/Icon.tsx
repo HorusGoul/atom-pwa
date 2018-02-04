@@ -2,7 +2,7 @@ import * as autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
 
-interface IIconProps {
+export interface IIconProps {
   name: string;
   className?: string;
 }
@@ -13,7 +13,7 @@ interface IIconState {
 
 class Icon extends React.Component<IIconProps, IIconState> {
   public state: IIconState = {
-    content: null
+    content: ""
   };
 
   public componentDidMount() {
@@ -23,10 +23,6 @@ class Icon extends React.Component<IIconProps, IIconState> {
   public render() {
     const { name, className } = this.props;
     const { content } = this.state;
-
-    if (!content) {
-      return null;
-    }
 
     const iconClass = classNames("icon", className);
 

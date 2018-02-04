@@ -1,0 +1,25 @@
+@import "../../../scss/common.scss";
+@import "../../../scss/theming.scss";
+
+.navbar {
+  height: 56px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  @include themify($themes) {
+    background-color: themed("primary");
+    color: themed("textColorPrimary");
+    fill: themed("textColorPrimary");
+  }
+
+  &__back-button {
+    height: 100%;
+  }
+
+  &__title {
+    padding-left: 16px;
+    font-size: 14pt;
+  }
+}
