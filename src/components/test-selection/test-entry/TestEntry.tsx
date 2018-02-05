@@ -13,11 +13,23 @@ export interface ITestEntry {
   settingsRoute: string;
 }
 
-type Props = ITestEntry;
+interface ITestEntryProps extends ITestEntry {
+  onPracticeClick?: () => void;
+  onSettingsClick?: () => void;
+}
+
+type Props = ITestEntryProps;
 
 class TestEntry extends React.Component<Props, {}> {
   public render() {
-    const { title, description, testRoute, settingsRoute } = this.props;
+    const {
+      title,
+      description,
+      testRoute,
+      settingsRoute,
+      onPracticeClick,
+      onSettingsClick
+    } = this.props;
 
     return (
       <Card className="test-entry">
@@ -27,13 +39,14 @@ class TestEntry extends React.Component<Props, {}> {
           <IconButton
             className="test-entry__settings-button"
             iconName="settings"
+            onClick={onSettingsClick}
           />
         </div>
 
         <div className="test-entry__description">{description}</div>
 
         <div className="test-entry__footer">
-          <Button>Practice</Button>
+          <Button onClick={onPracticeClick}>Practice</Button>
         </div>
       </Card>
     );
