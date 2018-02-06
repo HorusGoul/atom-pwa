@@ -1,0 +1,35 @@
+@import "../../../scss/common.scss";
+@import "../../../scss/theming.scss";
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+
+  margin: 16px;
+  border-radius: 2px;
+
+  &__title {
+    padding: 16px;
+  }
+
+  &__question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+
+    font-size: 32pt;
+    font-weight: bold;
+
+    @include themify($themes) {
+      background-color: themed("accent");
+      color: themed("textColorPrimary");
+    }
+  }
+
+  &__answers {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
