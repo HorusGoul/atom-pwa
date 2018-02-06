@@ -8,4 +8,8 @@
     background-color: themed("primary");
     color: themed("textColorPrimary");
   }
+
+  &__test {
+    flex: 1;
+  }
 }

@@ -4,9 +4,6 @@
 .main-menu {
   @extend %page;
 
-  display: flex;
-  flex-direction: column;
-
   @include themify($themes) {
     background-color: themed("primary");
   }
