@@ -2,6 +2,8 @@ import * as autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
 
+const iconCache: { [key: string]: string } = {};
+
 export interface IIconProps {
   name: string;
   className?: string;
@@ -44,10 +46,21 @@ class Icon extends React.Component<IIconProps, IIconState> {
   }
 
   private async getPath(iconName: string): Promise<string> {
-    let iconContent: string = await import(`../../../images/icons/${iconName}.svg`);
-    const fetchIconResponse = await fetch(iconContent);
+    let iconContent: string = iconCache[iconName];
 
-    iconContent = await fetchIconResponse.text();
+    if (!iconContent) {
+      iconContent = iconCache[iconName] = await this.fetchIconContent(iconName);
+    }
+
+    return iconContent;
+  }
+
+  private async fetchIconContent(iconName: string): Promise<string> {
+    const fetchIconResponse = await fetch(
+      require(`../../../images/icons/${iconName}.svg`)
+    );
+
+    let iconContent = await fetchIconResponse.text();
     iconContent = iconContent.replace(/<svg.*?>/gm, "");
     iconContent = iconContent.replace(/<\/svg>/gm, "");
 
