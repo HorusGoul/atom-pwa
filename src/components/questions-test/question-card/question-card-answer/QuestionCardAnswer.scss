@@ -1,5 +1,14 @@
+@import "../../../../scss/common.scss";
+@import "../../../../scss/theming.scss";
+
 .question-card-answer {
   min-width: 50%;
   flex: 1;
   font-weight: bold;
+
+  &--wrong {
+    @include themify($themes) {
+      color: themed("danger");
+    }
+  }
 }
