@@ -1,11 +1,13 @@
+import { IElement } from "./Element";
+
 class ElementManager {
-  private elements: any[];
+  private elements: IElement[];
 
   public loadElements() {
     this.elements = require("./data/elements.json");
   }
 
-  public getElements(): any[] {
+  public getElements(): IElement[] {
     return this.elements;
   }
 }
