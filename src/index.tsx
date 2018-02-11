@@ -7,6 +7,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import "./main.scss";
 
+import ElementManager from "./ElementManager";
+ElementManager.loadElements();
+
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 
