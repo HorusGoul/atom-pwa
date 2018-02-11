@@ -1,45 +1,47 @@
 import * as React from "react";
 
 import { IQuestionCardAnswer } from "./question-card/question-card-answer/QuestionCardAnswer";
-import QuestionCard from "./question-card/QuestionCard";
+import QuestionCard, { IQuestionCard } from "./question-card/QuestionCard";
 
 import "./QuestionsTest.scss";
 
-class QuestionsTest extends React.Component<{}, {}> {
+interface IQuestionTestProps {
+  questions: IQuestionCard[];
+  onQuestionAnswer?: (
+    question: IQuestionCard,
+    answer: IQuestionCardAnswer
+  ) => void;
+}
+
+class QuestionsTest extends React.Component<IQuestionTestProps, {}> {
   public render() {
-    const question = "Br";
-    const answers = [
-      {
-        answer: "+1 +5",
-        right: false
-      },
-      {
-        answer: "+1",
-        right: false
-      },
-      {
-        answer: "+2 +4 +6 / -2",
-        right: false
-      },
-      {
-        answer: "+1 +3 +5 +7 / -1",
-        right: true
-      }
-    ];
+    const { questions } = this.props;
+    const hasQuestions = !!questions.length;
 
     return (
       <div className="questions-test">
-        <QuestionCard
-          question="Br"
-          answers={answers}
-          onAnswerClick={this.onAnswerClick}
-        />
+        {hasQuestions && (
+          <QuestionCard
+            question={questions[0]}
+            onAnswerClick={this.onAnswerClickListener(questions[0])}
+          />
+        )}
       </div>
     );
   }
 
-  private onAnswerClick(answer: IQuestionCardAnswer) {
-    return;
+  private onAnswerClickListener(question: IQuestionCard) {
+    return (answer: IQuestionCardAnswer) =>
+      this.onQuestionAnswerClick(question, answer);
+  }
+
+  private onQuestionAnswerClick(
+    question: IQuestionCard,
+    answer: IQuestionCardAnswer
+  ) {
+    if (this.props.onQuestionAnswer) {
+      this.props.onQuestionAnswer(question, answer);
+    }
   }
 }
 

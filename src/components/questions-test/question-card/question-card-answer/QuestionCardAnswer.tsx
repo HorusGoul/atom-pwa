@@ -10,7 +10,9 @@ export interface IQuestionCardAnswer {
   right: boolean;
 }
 
-type Props = IButtonProps & IQuestionCardAnswer;
+interface IQuestionCardAnswerProps extends IButtonProps {
+  answer: IQuestionCardAnswer;
+}
 
 interface IQuestionCardAnswerState {
   clicked: boolean;
@@ -18,15 +20,23 @@ interface IQuestionCardAnswerState {
 
 @autobind
 class QuestionCardAnswer extends React.Component<
-  Props,
+  IQuestionCardAnswerProps,
   IQuestionCardAnswerState
 > {
   public state: IQuestionCardAnswerState = {
     clicked: false
   };
 
+  public componentWillReceiveProps(nextProps: IQuestionCardAnswerProps) {
+    if (nextProps.answer !== this.props.answer) {
+      this.setState({
+        clicked: false
+      });
+    }
+  }
+
   public render() {
-    const { answer, right } = this.props;
+    const { answer, right } = this.props.answer;
     const { clicked } = this.state;
 
     const answerClass = classNames("question-card-answer", {

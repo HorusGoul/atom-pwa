@@ -13,27 +13,27 @@ export interface IQuestionCard {
   answers: IQuestionCardAnswer[];
 }
 
-interface IQuestionCardProps extends IQuestionCard {
+interface IQuestionCardProps {
+  question: IQuestionCard;
   onAnswerClick?: (answer: IQuestionCardAnswer) => void;
 }
 
 @autobind
 class QuestionCard extends React.Component<IQuestionCardProps, {}> {
   public render() {
-    const { question, answers } = this.props;
+    const { question } = this.props;
 
     return (
       <Card className="question-card">
         <div className="question-card__title">Select the correct valence:</div>
 
-        <div className="question-card__question">Br</div>
+        <div className="question-card__question">{question.question}</div>
 
         <div className="question-card__answers">
-          {answers.map((answer, index) => (
+          {question.answers.map((answer, index) => (
             <QuestionCardAnswer
               key={index}
-              answer={answer.answer}
-              right={answer.right}
+              answer={answer}
               onClick={this.onQuestionCardAnswerClickListener(answer)}
             />
           ))}
