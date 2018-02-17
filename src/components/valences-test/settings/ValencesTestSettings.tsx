@@ -41,6 +41,12 @@ export function setDefaultValencesTestSettings() {
   AppSettings.save();
 }
 
+import {
+  AutoSizer,
+  List,
+  ListRowProps,
+  WindowScroller
+} from "react-virtualized";
 import "./ValencesTestSettings.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
@@ -59,6 +65,7 @@ class ValencesTestSettings extends React.Component<
   };
 
   private settings: IValencesTestSettings = getValencesTestSettings();
+  private listComponent: List;
 
   public componentDidMount() {
     this.setElementStates();
@@ -99,14 +106,48 @@ class ValencesTestSettings extends React.Component<
             />
           </div>
 
-          {elementStates.map(elementState => (
-            <TestElementSettings
-              key={elementState.atomic}
-              setting={elementState}
-              onClick={this.onTestElementSettingsClick}
-            />
-          ))}
+          <WindowScroller>
+            {({ height, isScrolling, onChildScroll, scrollTop }) => (
+              <AutoSizer disableHeight={true}>
+                {({ width }) => (
+                  <List
+                    ref={this.setListComponent}
+                    autoHeight={true}
+                    height={height}
+                    isScrolling={isScrolling}
+                    onScroll={onChildScroll}
+                    overscanRowCount={2}
+                    rowCount={elementStates.length}
+                    rowHeight={64}
+                    rowRenderer={this.rowRenderer}
+                    width={width}
+                    scrollTop={scrollTop}
+                  />
+                )}
+              </AutoSizer>
+            )}
+          </WindowScroller>
         </div>
+      </div>
+    );
+  }
+
+  private setListComponent(list: List) {
+    this.listComponent = list;
+  }
+
+  private rowRenderer(props: ListRowProps) {
+    const { index, key, style } = props;
+
+    const { elementStates } = this.state;
+    const elementState = elementStates[index];
+
+    return (
+      <div key={key} style={style}>
+        <TestElementSettings
+          setting={elementState}
+          onClick={this.onTestElementSettingsClick}
+        />
       </div>
     );
   }
@@ -159,6 +200,8 @@ class ValencesTestSettings extends React.Component<
     this.setState({
       elementStates: [...elements]
     });
+
+    this.listComponent.forceUpdateGrid();
   }
 }
 
