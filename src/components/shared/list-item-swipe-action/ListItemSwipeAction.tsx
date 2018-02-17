@@ -17,6 +17,7 @@ interface IListItemSwipeActionState {
   translateX: string;
   lastPosition: number;
   opacity: number;
+  height: string;
 }
 
 @autobind
@@ -25,6 +26,7 @@ class ListItemSwipeAction extends React.Component<
   IListItemSwipeActionState
 > {
   public state: IListItemSwipeActionState = {
+    height: "auto",
     lastPosition: 0,
     opacity: 1,
     translateX: "0%"
@@ -47,12 +49,12 @@ class ListItemSwipeAction extends React.Component<
 
   public render() {
     const { className, frontContent, backContent } = this.props;
-    const { translateX, opacity } = this.state;
+    const { translateX, opacity, height } = this.state;
 
     return (
       <div
         className={classNames("swipe-delete", className)}
-        style={{ opacity }}
+        style={{ opacity, height }}
       >
         <div
           ref={div => (this.frontDiv = div)}
@@ -120,6 +122,7 @@ class ListItemSwipeAction extends React.Component<
 
   private onAction() {
     const animateObject = {
+      height: this.frontDiv.clientHeight,
       opacity: 1
     };
 
@@ -129,14 +132,14 @@ class ListItemSwipeAction extends React.Component<
           this.props.onAction();
         }
       },
-      duration: 180,
-      easing: "easeInQuad",
+      duration: 250,
+      easing: "linear",
+      height: 0,
       opacity: 0,
       targets: animateObject,
       update: () => {
-        window.console.log(animateObject);
-
         this.setState({
+          height: `${animateObject.height}px`,
           opacity: animateObject.opacity
         });
       }
