@@ -22,5 +22,8 @@ export interface IElement {
   valency: string;
   wrongValences: string[];
   realname: any;
-  testState: any;
+  testState: {
+    valencesTest: boolean;
+    ptTest: boolean;
+  };
 }

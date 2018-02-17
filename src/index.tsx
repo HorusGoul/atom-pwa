@@ -7,6 +7,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import "./main.scss";
 
+import AppSettings from "./AppSettings";
+AppSettings.loadSettings();
+
 import ElementManager from "./ElementManager";
 ElementManager.loadElements();
 

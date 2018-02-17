@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import * as _ from "lodash";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import AppSettings, { IValencesTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
@@ -13,8 +14,12 @@ import "./ValencesTest.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
 
+interface IValencesTestQuestionCard extends IQuestionCard {
+  data: IElement;
+}
+
 interface IValencesTestState {
-  questions: IQuestionCard[];
+  questions: IValencesTestQuestionCard[];
 }
 
 @autobind
@@ -23,7 +28,10 @@ class ValencesTest extends React.Component<Props, {}> {
     questions: []
   };
 
+  private settings: IValencesTestSettings;
+
   public componentDidMount() {
+    this.loadSettings();
     this.createTestQuestions();
   }
 
@@ -54,16 +62,56 @@ class ValencesTest extends React.Component<Props, {}> {
     history.goBack();
   }
 
-  private onQuestionAnswer(
-    question: IQuestionCard,
-    answer: IQuestionCardAnswer
-  ) {
-    if (answer.right) {
-      this.removeQuestion(question);
+  private loadSettings() {
+    this.settings = AppSettings.settings.tests.valences;
+
+    const settings = this.settings;
+
+    if (!settings.elements) {
+      this.createSettings();
     }
   }
 
-  private removeQuestion(question: IQuestionCard) {
+  private createSettings() {
+    const elements = ElementManager.getElements();
+    this.settings.elements = [];
+
+    elements.forEach(element => {
+      this.settings.elements.push({
+        atomic: element.atomic,
+        enabled: element.testState.valencesTest,
+        stats: {
+          right: 0,
+          times: 0,
+          wrong: 0
+        }
+      });
+    });
+
+    AppSettings.save();
+  }
+
+  private onQuestionAnswer(
+    question: IValencesTestQuestionCard,
+    answer: IQuestionCardAnswer
+  ) {
+    const elementSetting = this.settings.elements.find(
+      element => element.atomic === question.data.atomic
+    );
+
+    elementSetting.stats.times++;
+
+    if (answer.right) {
+      this.removeQuestion(question);
+      elementSetting.stats.right++;
+    } else {
+      elementSetting.stats.wrong++;
+    }
+
+    AppSettings.save();
+  }
+
+  private removeQuestion(question: IValencesTestQuestionCard) {
     const { questions } = this.state;
 
     this.setState({
@@ -72,9 +120,9 @@ class ValencesTest extends React.Component<Props, {}> {
   }
 
   private createTestQuestions() {
-    const elements = ElementManager.getElements();
-    const questions = elements
-      .filter(element => element.valency)
+    const questions = this.settings.elements
+      .filter(element => element.enabled)
+      .map(element => ElementManager.getElement(element.atomic))
       .map(element => this.createQuestion(element));
 
     this.setState({
@@ -82,9 +130,10 @@ class ValencesTest extends React.Component<Props, {}> {
     });
   }
 
-  private createQuestion(element: IElement): IQuestionCard {
+  private createQuestion(element: IElement): IValencesTestQuestionCard {
     return {
       answers: this.createQuestionAnswers(element),
+      data: element,
       question: element.symbol
     };
   }

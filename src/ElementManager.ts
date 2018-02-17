@@ -10,6 +10,10 @@ class ElementManager {
   public getElements(): IElement[] {
     return this.elements;
   }
+
+  public getElement(atomic: number) {
+    return this.elements.find(element => element.atomic === atomic);
+  }
 }
 
 export default new ElementManager();

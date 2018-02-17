@@ -11,6 +11,7 @@ import "./QuestionCard.scss";
 export interface IQuestionCard {
   question: string;
   answers: IQuestionCardAnswer[];
+  data?: any;
 }
 
 interface IQuestionCardProps {
