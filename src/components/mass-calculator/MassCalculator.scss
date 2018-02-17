@@ -1,10 +1,89 @@
 @import "../../scss/common.scss";
 @import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
 
 .mass-calculator {
   @extend %page;
 
   @include themify($themes) {
     color: themed("contentTextColor");
+  }
+
+  &__result-bar {
+    display: flex;
+    padding: 16px;
+    z-index: 2;
+
+    @include box-shadow($level: 1);
+
+    &__text {
+      font-size: 10pt;
+      text-transform: uppercase;
+    }
+
+    &__value {
+      margin-left: auto;
+    }
+  }
+
+  &__swipe-item {
+    @include themify($themes) {
+      background-color: themed("danger");
+      fill: themed("textColorDanger");
+    }
+  }
+
+  &__element {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 8px 16px;
+    text-transform: none;
+
+    @include box-shadow($level: 1);
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+    }
+
+    &__symbol {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      padding-left: 16px;
+      text-align: start;
+    }
+
+    &__name {
+      font-size: 14pt;
+    }
+
+    &__group {
+      font-size: 11pt;
+      padding-top: 4px;
+    }
+
+    &__quantity {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+
+      &__text {
+        font-size: 12px;
+      }
+
+      &__number {
+        padding-top: 4px;
+      }
+    }
   }
 }
