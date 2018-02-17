@@ -1,0 +1,39 @@
+@import "../../../scss/common.scss";
+@import "../../../scss/theming.scss";
+
+.valences-test-settings {
+  @extend %page;
+
+  &__content {
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+      color: themed("contentTextColor");
+      fill: themed("contentTextColor");
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    @include themify($themes) {
+      color: transparentize(themed("contentTextColor"), 0.22);
+      fill: transparentize(themed("contentTextColor"), 0.22);
+    }
+
+    > * {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+
+  &__text {
+    padding: 16px;
+
+    @include themify($themes) {
+      color: transparentize(themed("contentTextColor"), 0.44);
+    }
+  }
+}

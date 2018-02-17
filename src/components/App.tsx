@@ -6,6 +6,7 @@ import TestSelection from "./test-selection/TestSelection";
 import ValencesTest from "./valences-test/ValencesTest";
 
 import "./App.scss";
+import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 
 class App extends React.Component<{}, {}> {
   public render() {
@@ -19,6 +20,11 @@ class App extends React.Component<{}, {}> {
               exact={true}
               path="/tests/valences"
               component={ValencesTest}
+            />
+            <Route
+              exact={true}
+              path="/tests/valences/settings"
+              component={ValencesTestSettings}
             />
           </Switch>
         </div>

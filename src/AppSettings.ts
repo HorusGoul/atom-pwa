@@ -1,6 +1,6 @@
 import defaultSettings from "./defaultSettings";
 
-interface ITestElementSettings {
+export interface ITestElementSettings {
   atomic: number;
   enabled: boolean;
   stats: {

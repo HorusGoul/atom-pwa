@@ -9,6 +9,10 @@ import { IQuestionCardAnswer } from "../questions-test/question-card/question-ca
 import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
 import Navbar from "../shared/navbar/Navbar";
+import {
+  getValencesTestSettings,
+  setDefaultValencesTestSettings
+} from "./settings/ValencesTestSettings";
 
 import "./ValencesTest.scss";
 
@@ -28,10 +32,9 @@ class ValencesTest extends React.Component<Props, {}> {
     questions: []
   };
 
-  private settings: IValencesTestSettings;
+  private settings: IValencesTestSettings = getValencesTestSettings();
 
   public componentDidMount() {
-    this.loadSettings();
     this.createTestQuestions();
   }
 
@@ -60,35 +63,6 @@ class ValencesTest extends React.Component<Props, {}> {
     const { history } = this.props;
 
     history.goBack();
-  }
-
-  private loadSettings() {
-    this.settings = AppSettings.settings.tests.valences;
-
-    const settings = this.settings;
-
-    if (!settings.elements) {
-      this.createSettings();
-    }
-  }
-
-  private createSettings() {
-    const elements = ElementManager.getElements();
-    this.settings.elements = [];
-
-    elements.forEach(element => {
-      this.settings.elements.push({
-        atomic: element.atomic,
-        enabled: element.testState.valencesTest,
-        stats: {
-          right: 0,
-          times: 0,
-          wrong: 0
-        }
-      });
-    });
-
-    AppSettings.save();
   }
 
   private onQuestionAnswer(

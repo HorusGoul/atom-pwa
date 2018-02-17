@@ -1,0 +1,80 @@
+@import "../../../scss/common.scss";
+@import "../../../scss/theming.scss";
+
+.checkbox {
+  display: inline-flex;
+
+  > label {
+    display: inline-flex;
+    width: auto;
+    font-size: 12px;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &__input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-transform: none;
+    width: 1px;
+  }
+
+  &__input:checked + &__content {
+    @include themify($themes) {
+      background-color: themed("accent");
+    }
+
+    path {
+      animation: 250ms linear 0s checkbox-path-animation;
+    }
+  }
+
+  &__content {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include themify($themes) {
+      border: themed("accent") 1px solid;
+    }
+
+    transition: background-color 100ms linear;
+
+    path {
+      stroke-dasharray: 20;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &__label {
+    margin: 0 8px;
+
+    &:empty {
+      margin: 0;
+    }
+  }
+}
+
+@keyframes checkbox-path-animation {
+  0%,
+  50% {
+    stroke-dashoffset: 20;
+  }
+
+  50% {
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 0.1);
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

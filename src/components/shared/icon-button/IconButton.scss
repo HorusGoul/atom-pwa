@@ -1,0 +1,12 @@
+.icon-button {
+  justify-content: flex-start;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    padding-top: 16px;
+  }
+}

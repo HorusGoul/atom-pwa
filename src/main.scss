@@ -20,3 +20,53 @@ textarea {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
+
+.element {
+  color: rgba(255, 255, 255, 0.75);
+  transition: background-color 250ms linear;
+
+  &.noble_gases {
+    background-color: #7e57c2;
+  }
+
+  &.alkali_metals {
+    background-color: #ef5350;
+  }
+
+  &.alkali_earth_metals {
+    background-color: #ff7043;
+  }
+
+  &.transition_metals {
+    background-color: #ff9800;
+  }
+
+  &.basic_metals {
+    background-color: #66bb6a;
+  }
+
+  &.metalloids {
+    background-color: #26c6da;
+  }
+
+  &.amphigens,
+  &.hydrogen {
+    background-color: #42a5f5;
+  }
+
+  &.halogens {
+    background-color: #5c6bc0;
+  }
+
+  &.lanthanoids {
+    background-color: #7e57c2;
+  }
+
+  &.actinoids {
+    background-color: #ab47bc;
+  }
+
+  &.clear {
+    background-color: #78909c;
+  }
+}
