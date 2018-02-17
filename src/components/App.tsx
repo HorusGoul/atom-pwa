@@ -7,6 +7,7 @@ import ValencesTest from "./valences-test/ValencesTest";
 
 import "./App.scss";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
+import MassCalculator from "./mass-calculator/MassCalculator";
 
 class App extends React.Component<{}, {}> {
   public render() {
@@ -25,6 +26,11 @@ class App extends React.Component<{}, {}> {
               exact={true}
               path="/tests/valences/settings"
               component={ValencesTestSettings}
+            />
+            <Route
+              exact={true}
+              path="/mass-calculator"
+              component={MassCalculator}
             />
           </Switch>
         </div>

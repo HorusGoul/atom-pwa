@@ -1,0 +1,10 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+
+.mass-calculator {
+  @extend %page;
+
+  @include themify($themes) {
+    color: themed("contentTextColor");
+  }
+}
