@@ -1,0 +1,23 @@
+.swipe-delete {
+  position: relative;
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  &__front {
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    z-index: 1;
+  }
+
+  &__back {
+    position: absolute;
+    z-index: 0;
+  }
+}
