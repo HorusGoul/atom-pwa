@@ -29,6 +29,7 @@
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-portal": "3.2.0",
     "react-router-dom": "^4.2.2",
     "react-virtualized": "^9.18.5"
   },
@@ -40,6 +41,7 @@
     "@types/node": "^9.4.0",
     "@types/react": "^16.0.36",
     "@types/react-dom": "^16.0.3",
+    "@types/react-portal": "^3.0.4",
     "@types/react-router-dom": "^4.2.3",
     "@types/react-virtualized": "^9.7.12",
     "@types/webpack-env": "^1.13.5",
