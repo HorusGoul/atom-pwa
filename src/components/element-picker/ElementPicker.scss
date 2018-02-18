@@ -1,0 +1,80 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.element-picker {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__search-bar {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 16px;
+    z-index: 1;
+
+    @include box-shadow($level: 1);
+
+    @include themify($themes) {
+      color: themed("primary");
+      fill: themed("primary");
+    }
+
+    &__input {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      margin: 0 0 0 16px;
+      color: inherit;
+      height: 100%;
+      padding: 0;
+
+      &::placeholder {
+        @include themify($themes) {
+          color: transparentize(themed("primary"), 0.44);
+        }
+      }
+    }
+  }
+
+  &__element-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &__element {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 8px 16px;
+    text-transform: none;
+
+    &__symbol {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      padding-left: 16px;
+      text-align: start;
+    }
+
+    &__name {
+      font-size: 14pt;
+    }
+
+    &__group {
+      font-size: 11pt;
+      padding-top: 4px;
+    }
+  }
+}
