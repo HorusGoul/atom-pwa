@@ -8,6 +8,7 @@ import Button from "../shared/button/Button";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
 import Navbar from "../shared/navbar/Navbar";
 import "./MassCalculator.scss";
+import IconButton from "../shared/icon-button/IconButton";
 
 interface IMassCalculatorElement {
   atomic: number;
@@ -49,6 +50,16 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           </span>
         </div>
 
+        <div className="mass-calculator__controls">
+          <IconButton iconName="periodic-table" text="Add Element" />
+
+          <IconButton
+            onClick={this.clearElements}
+            iconName="restore"
+            text="Clear"
+          />
+        </div>
+
         <div className="mass-calculator__element-list">
           {elements.map(element => (
             <ListItemSwipeAction
@@ -64,6 +75,12 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         </div>
       </div>
     );
+  }
+
+  private clearElements() {
+    this.setState({
+      elements: []
+    });
   }
 
   private onActionBuildListener(atomic: number) {
