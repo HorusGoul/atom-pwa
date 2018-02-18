@@ -30,9 +30,18 @@ class Modal extends React.Component<IModalProps, IModalState> {
     open: this.props.open
   };
 
+  public componentDidMount() {
+    this.bodyOverflow(this.state.open);
+  }
+
+  public componentWillUnmount() {
+    this.bodyOverflow(false);
+  }
+
   public componentWillReceiveProps(nextProps: IModalProps) {
     if (nextProps.open !== this.props.open) {
       this.setState({ open: nextProps.open });
+      this.bodyOverflow(nextProps.open);
     }
   }
 
@@ -52,6 +61,10 @@ class Modal extends React.Component<IModalProps, IModalState> {
         </React.Fragment>
       </Portal>
     );
+  }
+
+  private bodyOverflow(open: boolean) {
+    document.body.style.overflow = open ? "hidden" : "initial";
   }
 
   private open() {
