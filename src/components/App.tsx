@@ -6,13 +6,17 @@ import TestSelection from "./test-selection/TestSelection";
 import ValencesTest from "./valences-test/ValencesTest";
 
 import "./App.scss";
-import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 import MassCalculator from "./mass-calculator/MassCalculator";
+import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 
 class App extends React.Component<{}, {}> {
+  public componentWillMount() {
+    document.body.className = "theme-light";
+  }
+
   public render() {
     return (
-      <div className="app theme-light">
+      <div className="app">
         <div className="app__content">
           <Switch>
             <Route exact={true} path="/" component={MainMenu} />
