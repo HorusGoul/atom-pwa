@@ -4,11 +4,13 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
+import ElementPicker from "../element-picker/ElementPicker";
 import Button from "../shared/button/Button";
+import IconButton from "../shared/icon-button/IconButton";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
+import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
 import "./MassCalculator.scss";
-import IconButton from "../shared/icon-button/IconButton";
 
 interface IMassCalculatorElement {
   atomic: number;
@@ -19,20 +21,22 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 
 interface IMassCalculatorState {
   elements: IMassCalculatorElement[];
+  addElementModalOpen: boolean;
 }
 
 @autobind
 class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   public state: IMassCalculatorState = {
+    addElementModalOpen: false,
     elements: [
-      { atomic: 1, quantity: 1 },
-      { atomic: 2, quantity: 1 },
-      { atomic: 3, quantity: 1 }
+      { atomic: 67, quantity: 1 },
+      { atomic: 44, quantity: 1 },
+      { atomic: 16, quantity: 1 }
     ]
   };
 
   public render() {
-    const { elements } = this.state;
+    const { elements, addElementModalOpen } = this.state;
 
     return (
       <div className="mass-calculator">
@@ -51,11 +55,15 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         </div>
 
         <div className="mass-calculator__controls">
-          <IconButton iconName="periodic-table" text="Add Element" />
+          <IconButton
+            onClick={this.openAddElementModal}
+            iconName="add_circle"
+            text="Add Element"
+          />
 
           <IconButton
             onClick={this.clearElements}
-            iconName="restore"
+            iconName="clear_all"
             text="Clear"
           />
         </div>
@@ -73,8 +81,67 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
             />
           ))}
         </div>
+
+        <Modal
+          className="mass-calculator__add-element-modal"
+          open={addElementModalOpen}
+          onClose={this.onCloseAddElementModal}
+        >
+          <ElementPicker onElement={this.elementPickerOnElement} />
+        </Modal>
       </div>
     );
+  }
+
+  private elementPickerOnElement(element: IElement) {
+    this.addElement(element.atomic);
+
+    this.setState({
+      addElementModalOpen: false
+    });
+  }
+
+  private addElement(atomic: number) {
+    const { elements } = this.state;
+    const currentElement = elements.find(element => element.atomic === atomic);
+
+    if (currentElement) {
+      return this.modifyQuantity(atomic, currentElement.quantity + 1);
+    }
+
+    this.setState({
+      elements: [...elements, { atomic, quantity: 1 }]
+    });
+  }
+
+  private modifyQuantity(atomic: number, quantity: number) {
+    const { elements } = this.state;
+
+    const newElements = [...elements]
+      .map(element => {
+        if (element.atomic === atomic) {
+          return { ...element, quantity };
+        }
+
+        return element;
+      })
+      .filter(element => element.quantity > 0);
+
+    this.setState({
+      elements: newElements
+    });
+  }
+
+  private openAddElementModal() {
+    this.setState({
+      addElementModalOpen: true
+    });
+  }
+
+  private onCloseAddElementModal() {
+    this.setState({
+      addElementModalOpen: false
+    });
   }
 
   private clearElements() {
@@ -118,7 +185,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           <span className="mass-calculator__element__name">{element.name}</span>
 
           <span className="mass-calculator__element__group">
-            {element.atomicMass}
+            {element.atomicMass} g / mol
           </span>
         </div>
 

@@ -103,4 +103,20 @@
       font-size: 12px;
     }
   }
+
+  &__add-element-modal {
+    max-width: 288px;
+    max-height: 80%;
+    height: 480px;
+    padding: 0;
+    overflow: hidden;
+
+    @include box-shadow($level: 2);
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+      color: transparentize(themed("contentTextColor"), 0.22);
+      fill: transparentize(themed("contentTextColor"), 0.22);
+    }
+  }
 }
