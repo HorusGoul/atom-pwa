@@ -124,8 +124,48 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           backButton={true}
           onBackButtonClick={this.onCloseAddElementModal}
         />
+
+        <div className="mass-calculator__modify-element-modal__controls">
+          <IconButton iconName="remove" onClick={this.onDecreaseAmountClick} />
+
+          <input
+            className="mass-calculator__modify-element-modal__amount-input"
+            type="tel"
+            name="amount"
+            value={massCalculatorElement.quantity}
+            onChange={this.onAmountInputChange}
+          />
+
+          <IconButton iconName="add" onClick={this.onIncreaseAmountClick} />
+        </div>
+
+        <div className="mass-calculator__modify-element-modal__text">
+          Change the amount of the selected item. If you leave it at 0, the
+          element will be removed.
+        </div>
       </React.Fragment>
     );
+  }
+
+  private getElementToModify() {
+    const { modifyElementModal, elements } = this.state;
+    return elements[modifyElementModal.elementIndex];
+  }
+
+  private onAmountInputChange(event: React.FormEvent<HTMLInputElement>) {
+    const amount = parseInt(event.currentTarget.value, 10);
+    const element = this.getElementToModify();
+    this.modifyQuantity(element.atomic, amount);
+  }
+
+  private onIncreaseAmountClick() {
+    const element = this.getElementToModify();
+    this.modifyQuantity(element.atomic, element.quantity + 1);
+  }
+
+  private onDecreaseAmountClick() {
+    const element = this.getElementToModify();
+    this.modifyQuantity(element.atomic, element.quantity - 1);
   }
 
   private openModifyElementModal(element: IMassCalculatorElement) {
@@ -140,9 +180,10 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   }
 
   private onCloseModifyElementModal() {
-    const { modifyElementModal } = this.state;
+    const { modifyElementModal, elements } = this.state;
 
     this.setState({
+      elements: elements.filter(element => element.quantity > 0),
       modifyElementModal: {
         ...modifyElementModal,
         open: false
@@ -172,17 +213,21 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   }
 
   private modifyQuantity(atomic: number, quantity: number) {
+    quantity = quantity ? quantity : 0;
+
+    if (quantity < 0 || quantity > 999) {
+      return;
+    }
+
     const { elements } = this.state;
 
-    const newElements = [...elements]
-      .map(element => {
-        if (element.atomic === atomic) {
-          return { ...element, quantity };
-        }
+    const newElements = [...elements].map(element => {
+      if (element.atomic === atomic) {
+        return { ...element, quantity };
+      }
 
-        return element;
-      })
-      .filter(element => element.quantity > 0);
+      return element;
+    });
 
     this.setState({
       elements: newElements

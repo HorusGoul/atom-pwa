@@ -131,6 +131,39 @@
       color: transparentize(themed("contentTextColor"), 0.22);
       fill: transparentize(themed("contentTextColor"), 0.22);
     }
+
+    &__text {
+      padding: 16px;
+
+      @include themify($themes) {
+        color: transparentize(themed("contentTextColor"), 0.44);
+      }
+    }
+
+    &__controls {
+      display: flex;
+      align-items: center;
+      padding-top: 16px;
+
+      > * {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+
+    &__amount-input {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      font-size: 32pt;
+      width: 100%;
+      background-color: transparent;
+
+      @include themify($themes) {
+        color: themed("accent");
+      }
+    }
   }
 }
 
