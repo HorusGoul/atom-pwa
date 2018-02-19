@@ -17,8 +17,8 @@
     @include box-shadow($level: 1);
 
     @include themify($themes) {
-      color: themed("primary");
-      fill: themed("primary");
+      color: themed("accent");
+      fill: themed("accent");
     }
 
     &__input {
@@ -32,7 +32,7 @@
 
       &::placeholder {
         @include themify($themes) {
-          color: transparentize(themed("primary"), 0.44);
+          color: transparentize(themed("accent"), 0.44);
         }
       }
     }
