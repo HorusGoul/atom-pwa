@@ -38,8 +38,8 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
       { atomic: 16, quantity: 1 }
     ],
     modifyElementModal: {
-      elementIndex: 0,
-      open: true
+      elementIndex: null,
+      open: false
     }
   };
 
@@ -95,13 +95,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           <ElementPicker onElement={this.elementPickerOnElement} />
         </Modal>
 
-        <Modal
-          className="mass-calculator__modify-element-modal"
-          open={modifyElementModal.open}
-          onClose={this.onCloseModifyElementModal}
-        >
-          {this.buildModifyElementModal()}
-        </Modal>
+        {this.buildModifyElementModal()}
       </div>
     );
   }
@@ -118,13 +112,13 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     const element = ElementManager.getElement(massCalculatorElement.atomic);
 
     return (
-      <React.Fragment>
-        <Navbar
-          title={element.name}
-          backButton={true}
-          onBackButtonClick={this.onCloseAddElementModal}
-        />
-
+      <Modal
+        title={element.name}
+        closeButton={true}
+        className="mass-calculator__modify-element-modal"
+        open={modifyElementModal.open}
+        onClose={this.onCloseModifyElementModal}
+      >
         <div className="mass-calculator__modify-element-modal__controls">
           <IconButton iconName="remove" onClick={this.onDecreaseAmountClick} />
 
@@ -143,7 +137,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           Change the amount of the selected item. If you leave it at 0, the
           element will be removed.
         </div>
-      </React.Fragment>
+      </Modal>
     );
   }
 
