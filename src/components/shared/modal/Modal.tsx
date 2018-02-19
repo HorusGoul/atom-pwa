@@ -6,12 +6,15 @@ import * as Portal from "react-portal";
 import "./Modal.scss";
 
 import Overlay from "../overlay/Overlay";
+import IconButton from "../icon-button/IconButton";
 
 interface IModalProps {
   open: boolean;
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
+  title?: string;
+  closeButton?: boolean;
 }
 
 interface IModalState {
@@ -21,9 +24,11 @@ interface IModalState {
 @autobind
 class Modal extends React.Component<IModalProps, IModalState> {
   public static defaultProps: IModalProps = {
+    closeButton: false,
     onClose: null,
     onOpen: null,
-    open: false
+    open: false,
+    title: null
   };
 
   public state: IModalState = {
@@ -46,6 +51,9 @@ class Modal extends React.Component<IModalProps, IModalState> {
   }
 
   public render() {
+    const { title, closeButton } = this.props;
+    const showHeader = !!title || closeButton;
+
     return (
       <Portal
         isOpened={this.state.open}
@@ -56,6 +64,20 @@ class Modal extends React.Component<IModalProps, IModalState> {
           <Overlay open={this.state.open} onClick={this.close} />
 
           <div className={classNames("modal", this.props.className)}>
+            {showHeader && (
+              <div className="modal__header">
+                {title && <span className="modal__header__title">{title}</span>}
+
+                {closeButton && (
+                  <IconButton
+                    className="modal__header__close-button"
+                    iconName="close"
+                    onClick={this.close}
+                  />
+                )}
+              </div>
+            )}
+
             {this.props.children}
           </div>
         </React.Fragment>
