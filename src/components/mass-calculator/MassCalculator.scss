@@ -27,10 +27,7 @@
   }
 
   &__swipe-item {
-    @include themify($themes) {
-      background-color: themed("danger");
-      fill: themed("textColorDanger");
-    }
+    animation: element-enter 180ms linear forwards;
   }
 
   &__element {
@@ -118,5 +115,15 @@
       color: transparentize(themed("contentTextColor"), 0.22);
       fill: transparentize(themed("contentTextColor"), 0.22);
     }
+  }
+}
+
+@keyframes element-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
