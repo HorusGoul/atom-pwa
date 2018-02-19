@@ -116,6 +116,22 @@
       fill: transparentize(themed("contentTextColor"), 0.22);
     }
   }
+
+  &__modify-element-modal {
+    padding: 0;
+    overflow: hidden;
+    max-width: 288px;
+    max-height: 80%;
+    height: auto;
+
+    @include box-shadow($level: 2);
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+      color: transparentize(themed("contentTextColor"), 0.22);
+      fill: transparentize(themed("contentTextColor"), 0.22);
+    }
+  }
 }
 
 @keyframes element-enter {

@@ -22,6 +22,10 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 interface IMassCalculatorState {
   elements: IMassCalculatorElement[];
   addElementModalOpen: boolean;
+  modifyElementModal: {
+    open: boolean;
+    elementIndex: number;
+  };
 }
 
 @autobind
@@ -32,11 +36,15 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
       { atomic: 67, quantity: 1 },
       { atomic: 44, quantity: 1 },
       { atomic: 16, quantity: 1 }
-    ]
+    ],
+    modifyElementModal: {
+      elementIndex: 0,
+      open: true
+    }
   };
 
   public render() {
-    const { elements, addElementModalOpen } = this.state;
+    const { elements, addElementModalOpen, modifyElementModal } = this.state;
 
     return (
       <div className="mass-calculator">
@@ -73,10 +81,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
             <ListItemSwipeAction
               key={element.atomic}
               className="mass-calculator__swipe-item"
-              frontContent={this.massCalculatorElement(
-                element.atomic,
-                element.quantity
-              )}
+              frontContent={this.massCalculatorElement(element)}
               onAction={this.onActionBuildListener(element.atomic)}
             />
           ))}
@@ -89,8 +94,60 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         >
           <ElementPicker onElement={this.elementPickerOnElement} />
         </Modal>
+
+        <Modal
+          className="mass-calculator__modify-element-modal"
+          open={modifyElementModal.open}
+          onClose={this.onCloseModifyElementModal}
+        >
+          {this.buildModifyElementModal()}
+        </Modal>
       </div>
     );
+  }
+
+  private buildModifyElementModal() {
+    const { modifyElementModal, elements } = this.state;
+    const index = modifyElementModal.elementIndex;
+    const massCalculatorElement = elements[index];
+
+    if (!massCalculatorElement) {
+      return null;
+    }
+
+    const element = ElementManager.getElement(massCalculatorElement.atomic);
+
+    return (
+      <React.Fragment>
+        <Navbar
+          title={element.name}
+          backButton={true}
+          onBackButtonClick={this.onCloseAddElementModal}
+        />
+      </React.Fragment>
+    );
+  }
+
+  private openModifyElementModal(element: IMassCalculatorElement) {
+    const elementIndex = this.state.elements.indexOf(element);
+
+    this.setState({
+      modifyElementModal: {
+        elementIndex,
+        open: true
+      }
+    });
+  }
+
+  private onCloseModifyElementModal() {
+    const { modifyElementModal } = this.state;
+
+    this.setState({
+      modifyElementModal: {
+        ...modifyElementModal,
+        open: false
+      }
+    });
   }
 
   private elementPickerOnElement(element: IElement) {
@@ -166,11 +223,19 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     });
   }
 
-  private massCalculatorElement(atomic: number, quantity: number) {
+  private onMassCalculatorElementClick(element: IMassCalculatorElement) {
+    return () => this.openModifyElementModal(element);
+  }
+
+  private massCalculatorElement(massCalculatorElement: IMassCalculatorElement) {
+    const { atomic, quantity } = massCalculatorElement;
     const element = ElementManager.getElement(atomic);
 
     return (
-      <Button className="mass-calculator__element">
+      <Button
+        onClick={this.onMassCalculatorElementClick(massCalculatorElement)}
+        className="mass-calculator__element"
+      >
         <div
           className={classNames(
             "mass-calculator__element__symbol",
