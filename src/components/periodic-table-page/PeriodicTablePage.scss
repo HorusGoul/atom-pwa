@@ -1,0 +1,49 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.periodic-table-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__table {
+    flex: 1;
+    overflow: auto;
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+    }
+  }
+}
+
+.pt-element {
+  display: flex;
+  flex-direction: column;
+
+  font-weight: 600;
+  padding: 8px;
+  min-width: 72px;
+  min-height: 72px;
+  width: 100%;
+  height: 100%;
+
+  &__atomic {
+    font-size: 8pt;
+  }
+
+  &__symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 18pt;
+    padding-bottom: 4px;
+    font-weight: 700;
+  }
+
+  &__name {
+    font-size: 7pt;
+    text-align: center;
+  }
+}

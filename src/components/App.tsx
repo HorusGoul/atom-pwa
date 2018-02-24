@@ -7,6 +7,7 @@ import ValencesTest from "./valences-test/ValencesTest";
 
 import "./App.scss";
 import MassCalculator from "./mass-calculator/MassCalculator";
+import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 
 class App extends React.Component<{}, {}> {
@@ -35,6 +36,11 @@ class App extends React.Component<{}, {}> {
               exact={true}
               path="/mass-calculator"
               component={MassCalculator}
+            />
+            <Route
+              exact={true}
+              path="/periodic-table"
+              component={PeriodicTablePage}
             />
           </Switch>
         </div>

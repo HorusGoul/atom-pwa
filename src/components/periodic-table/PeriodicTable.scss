@@ -1,0 +1,36 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.periodic-table {
+  overflow: auto;
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  @include themify($themes) {
+    color: themed("contentTextColor");
+  }
+
+  &__row {
+    display: table-row;
+  }
+
+  &__cell {
+    display: table-cell;
+
+    &--label {
+      height: 24px;
+      min-width: 24px;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: 600;
+      font-size: 10pt;
+
+      @include themify($themes) {
+        color: transparentize(themed("contentTextColor"), 0.66);
+        background-color: themed("backgroundColor");
+      }
+    }
+  }
+}
