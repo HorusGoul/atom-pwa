@@ -7,9 +7,16 @@
   flex-direction: column;
   height: 100%;
 
+  &__navbar {
+    position: fixed;
+    z-index: 1;
+
+    @include box-shadow($level: 1);
+  }
+
   &__table {
+    padding-top: 56px;
     flex: 1;
-    overflow: auto;
 
     @include themify($themes) {
       background-color: themed("cardBackgroundColor");

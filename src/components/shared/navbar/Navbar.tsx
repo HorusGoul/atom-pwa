@@ -1,4 +1,5 @@
 import autobind from "autobind-decorator";
+import classNames = require("classnames");
 import * as React from "react";
 
 import IconButton from "../icon-button/IconButton";
@@ -9,15 +10,16 @@ interface INavbarProps {
   backButton?: boolean;
   title?: string;
   onBackButtonClick?: () => void;
+  className?: string;
 }
 
 @autobind
 class Navbar extends React.Component<INavbarProps, {}> {
   public render() {
-    const { backButton, title } = this.props;
+    const { backButton, title, className } = this.props;
 
     return (
-      <div className="navbar">
+      <div className={classNames("navbar", className)}>
         {backButton && (
           <IconButton
             className="navbar__back-button"

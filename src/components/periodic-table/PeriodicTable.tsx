@@ -103,7 +103,10 @@ class PeriodicTable extends React.Component<IPeriodicTableProps, {}> {
           {row.map((element, index) => {
             if (element <= 0) {
               return (
-                <div className="periodic-table__cell periodic-table__cell--empty" />
+                <div
+                  key={`row-${i}-cell-${index}`}
+                  className="periodic-table__cell periodic-table__cell--empty"
+                />
               );
             }
 
