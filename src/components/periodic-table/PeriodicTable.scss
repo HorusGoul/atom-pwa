@@ -12,6 +12,19 @@
     color: themed("contentTextColor");
   }
 
+  &--loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__spinner {
+    width: 48px;
+    height: 48px;
+  }
+
   &__row {
     display: table-row;
   }

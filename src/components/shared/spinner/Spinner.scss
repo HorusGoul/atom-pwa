@@ -1,0 +1,23 @@
+@import "../../../scss/theming.scss";
+
+.spinner {
+  stroke-width: 2px;
+  stroke-dasharray: 48;
+
+  @include themify($themes) {
+    stroke: themed("accent");
+  }
+
+  fill: none;
+  animation: infinite-spin 750ms infinite linear;
+}
+
+@keyframes infinite-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
