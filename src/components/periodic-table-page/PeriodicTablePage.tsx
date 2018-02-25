@@ -4,6 +4,7 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import ElementManager from "../../ElementManager";
 import PeriodicTable from "../periodic-table/PeriodicTable";
+import PtElementInfo from "../pt-element/PtElementInfo";
 import Navbar from "../shared/navbar/Navbar";
 import "./PeriodicTablePage.scss";
 
@@ -30,17 +31,7 @@ class PeriodicTablePage extends React.Component<Props, {}> {
   private elementRenderer(atomic: number): JSX.Element {
     const element = ElementManager.getElement(atomic);
 
-    const elementClass = classNames("pt-element", "element", element.group);
-
-    return (
-      <div className={elementClass}>
-        <div className="pt-element__atomic">{element.atomic}</div>
-
-        <div className="pt-element__symbol">{element.symbol}</div>
-
-        <div className="pt-element__name">{element.name}</div>
-      </div>
-    );
+    return <PtElementInfo element={element} />;
   }
 
   private onNavbarBackButtonClick() {
