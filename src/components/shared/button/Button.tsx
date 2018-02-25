@@ -1,6 +1,7 @@
 import autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
+import Ink = require("react-ink");
 import "./Button.scss";
 
 export interface IButtonProps extends React.Props<{}> {
@@ -17,6 +18,8 @@ class Button extends React.Component<IButtonProps, {}> {
     return (
       <button className={buttonClass} onClick={this.onClick}>
         {this.props.children}
+
+        <Ink />
       </button>
     );
   }
