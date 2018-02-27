@@ -13,7 +13,10 @@ interface IPeriodicTableState {
 }
 
 @autobind
-class PeriodicTable extends React.Component<IPeriodicTableProps, {}> {
+class PeriodicTable extends React.PureComponent<
+  IPeriodicTableProps,
+  IPeriodicTableState
+> {
   public state: IPeriodicTableState = {
     render: false
   };

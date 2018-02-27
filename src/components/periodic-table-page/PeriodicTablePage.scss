@@ -22,4 +22,14 @@
       background-color: themed("cardBackgroundColor");
     }
   }
+
+  &__modal-element-info {
+    max-width: 288px;
+    max-height: 80%;
+    height: 480px;
+    padding: 0;
+    overflow: hidden;
+
+    @include box-shadow($level: 2);
+  }
 }

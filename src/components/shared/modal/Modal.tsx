@@ -2,11 +2,9 @@ import autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
 import * as Portal from "react-portal";
-
-import "./Modal.scss";
-
-import Overlay from "../overlay/Overlay";
 import IconButton from "../icon-button/IconButton";
+import Overlay from "../overlay/Overlay";
+import "./Modal.scss";
 
 interface IModalProps {
   open: boolean;
