@@ -8,6 +8,7 @@ import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
+import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
 
@@ -50,13 +51,13 @@ class PeriodicTablePage extends React.Component<
           <PeriodicTable elementRenderer={this.elementRenderer} />
         </div>
 
-        <Modal
+        <SwipeableModal
           className="periodic-table-page__modal-element-info"
           open={elementInfo.open}
           onClose={this.closeElementInfo}
         >
           <ElementInfo element={elementInfo.element} />
-        </Modal>
+        </SwipeableModal>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import "./Overlay.scss";
 interface IOverlayProps {
   open: boolean;
   onClick?: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  opacity?: number;
 }
 
 interface IOverlayState {
@@ -16,6 +17,7 @@ interface IOverlayState {
 class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   public static defaultProps: IOverlayProps = {
     onClick: null,
+    opacity: 1,
     open: false
   };
 
@@ -30,7 +32,11 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   }
 
   public render(): JSX.Element {
-    return <div className="overlay" onClick={this.onClick} />;
+    const { opacity } = this.props;
+
+    return (
+      <div className="overlay" onClick={this.onClick} style={{ opacity }} />
+    );
   }
 
   private onClick(e: React.MouseEvent<HTMLDivElement>) {

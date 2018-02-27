@@ -6,7 +6,7 @@ import IconButton from "../icon-button/IconButton";
 import Overlay from "../overlay/Overlay";
 import "./Modal.scss";
 
-interface IModalProps {
+export interface IModalProps {
   open: boolean;
   onOpen?: () => void;
   onClose?: () => void;
@@ -15,7 +15,7 @@ interface IModalProps {
   closeButton?: boolean;
 }
 
-interface IModalState {
+export interface IModalState {
   open: boolean;
 }
 

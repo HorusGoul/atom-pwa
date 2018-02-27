@@ -28,7 +28,8 @@
     max-height: 80%;
     height: 480px;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
+    will-change: transform;
 
     @include box-shadow($level: 2);
   }
