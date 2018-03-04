@@ -10,6 +10,7 @@
 
   @include themify($themes) {
     color: themed("contentTextColor");
+    background-color: themed("cardBackgroundColor");
   }
 
   &--loading {
