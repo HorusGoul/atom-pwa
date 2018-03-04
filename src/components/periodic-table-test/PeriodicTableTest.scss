@@ -71,6 +71,10 @@
 
     @include box-shadow($level: 3);
 
+    @include themify($themes) {
+      color: themed("textColorPrimary");
+    }
+
     &__label {
       position: absolute;
       bottom: 0px;

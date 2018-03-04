@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import classNames = require("classnames");
 import * as React from "react";
 import Ink = require("react-ink");
+import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
 import { IPtElementInfoProps } from "./PtElementInfo";
 
@@ -11,6 +12,7 @@ export interface IPtElementTestProps extends IPtElementInfoProps {
 
 interface IPtElementTestState {
   discovered: boolean;
+  showError: boolean;
 }
 
 @autobind
@@ -19,19 +21,23 @@ class PtElementTest extends React.Component<
   IPtElementTestState
 > {
   public state: IPtElementTestState = {
-    discovered: this.props.discovered
+    discovered: this.props.discovered,
+    showError: false
   };
+
+  private errorTimeout: number;
 
   public render() {
     const { element } = this.props;
-    const { discovered } = this.state;
+    const { discovered, showError } = this.state;
 
     return (
       <div
         onClick={this.onClick}
         className={classNames("pt-element", "element", {
           [element.group]: discovered,
-          clear: !discovered
+          clear: !discovered,
+          "pt-element--error": showError
         })}
       >
         <div className="pt-element__atomic">{element.atomic}</div>
@@ -43,6 +49,12 @@ class PtElementTest extends React.Component<
           {discovered ? element.name : "???"}
         </div>
 
+        <div className="pt-element__error">
+          <Icon name="close" />
+
+          <div>Oops!</div>
+        </div>
+
         <Ink />
       </div>
     );
@@ -52,6 +64,21 @@ class PtElementTest extends React.Component<
     this.setState({
       discovered: true
     });
+  }
+
+  public showError() {
+    if (this.errorTimeout) {
+      return;
+    }
+
+    this.setState({
+      showError: true
+    });
+
+    this.errorTimeout = window.setTimeout(() => {
+      this.setState({ showError: false });
+      this.errorTimeout = null;
+    }, 1000);
   }
 
   private onClick() {

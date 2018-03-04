@@ -1,4 +1,8 @@
+@import "../../scss/theming.scss";
+
 .pt-element {
+  $w: &;
+
   position: relative;
   font-weight: 600;
   padding: 8px;
@@ -7,6 +11,35 @@
   width: 100%;
   height: 100%;
   transition: none;
+
+  &--error #{$w}__error {
+    display: flex;
+  }
+
+  &__error {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform: scale(0, 0);
+    will-change: transform;
+
+    animation: error-animation 1s ease-in-out;
+
+    @include themify($themes) {
+      color: themed("danger");
+      fill: themed("danger");
+      background-color: themed("cardBackgroundColor");
+    }
+  }
 
   &__atomic {
     font-size: 8pt;
@@ -30,5 +63,17 @@
 
     font-size: 7pt;
     text-align: center;
+  }
+}
+
+@keyframes error-animation {
+  0%,
+  100% {
+    transform: scale(0, 0);
+  }
+
+  25%,
+  75% {
+    transform: scale(1, 1);
   }
 }

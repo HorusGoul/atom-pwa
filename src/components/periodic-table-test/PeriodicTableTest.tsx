@@ -33,7 +33,7 @@ class PeriodicTableTest extends React.Component<
   IPeriodicTableTestState
 > {
   public state: IPeriodicTableTestState = {
-    questionModalOpen: false,
+    questionModalOpen: true,
     questions: []
   };
 
@@ -131,8 +131,9 @@ class PeriodicTableTest extends React.Component<
       return;
     }
 
+    const currentQuestion = this.getCurrentQuestion();
     const elementSetting = this.settings.elements.find(
-      setting => setting.atomic === element.atomic
+      setting => setting.atomic === currentQuestion.element.atomic
     );
 
     elementSetting.stats.times++;
@@ -154,7 +155,7 @@ class PeriodicTableTest extends React.Component<
   }
 
   private onWrongAnswer(element: IElement) {
-    window.console.log("Error");
+    this.showErrorInElement(element);
   }
 
   private removeCurrentQuestion() {
@@ -171,9 +172,13 @@ class PeriodicTableTest extends React.Component<
     ptElement.discover();
   }
 
+  private showErrorInElement(element: IElement) {
+    const ptElement = this.ptElements.get(element.atomic);
+    ptElement.showError();
+  }
+
   private isAnswerRight(element: IElement): boolean {
-    const { questions } = this.state;
-    const currentQuestion = questions[0];
+    const currentQuestion = this.getCurrentQuestion();
 
     if (!currentQuestion) {
       return false;
@@ -185,6 +190,11 @@ class PeriodicTableTest extends React.Component<
     }
 
     return false;
+  }
+
+  private getCurrentQuestion(): IPeriodicTableTestQuestion {
+    const { questions } = this.state;
+    return questions.length ? questions[0] : null;
   }
 
   private isAlreadyAnswered(element: IElement): boolean {
