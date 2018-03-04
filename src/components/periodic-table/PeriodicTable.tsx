@@ -4,8 +4,15 @@ import { Spinner } from "../shared/spinner/Spinner";
 
 import "./PeriodicTable.scss";
 
+export interface IPeriodicTableElement {
+  component: React.ComponentClass;
+  props?: {
+    [key: string]: any;
+  };
+}
+
 interface IPeriodicTableProps {
-  elementRenderer: (elementId: number) => JSX.Element;
+  elementRenderer: (elementId: number) => IPeriodicTableElement;
 }
 
 interface IPeriodicTableState {
@@ -142,12 +149,16 @@ class PeriodicTable extends React.PureComponent<
               );
             }
 
+            const ptElement = this.props.elementRenderer(element);
+            const $component = ptElement.component;
+            const props = ptElement.props;
+
             return (
               <div
                 className="periodic-table__cell"
                 key={`row-${i}-cell-${index}`}
               >
-                {this.props.elementRenderer(element)}
+                <$component {...props} />
               </div>
             );
           })}

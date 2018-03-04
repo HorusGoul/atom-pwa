@@ -4,7 +4,9 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
-import PeriodicTable from "../periodic-table/PeriodicTable";
+import PeriodicTable, {
+  IPeriodicTableElement
+} from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
@@ -62,19 +64,14 @@ class PeriodicTablePage extends React.Component<
     );
   }
 
-  private elementRenderer(atomic: number): JSX.Element {
-    let ptElement = this.ptElements.get(atomic);
-
-    if (!ptElement) {
-      ptElement = new PtElementInfo({
+  private elementRenderer(atomic: number): IPeriodicTableElement {
+    return {
+      component: PtElementInfo,
+      props: {
         element: ElementManager.getElement(atomic),
         onClick: this.elementOnClick
-      });
-
-      this.ptElements.set(atomic, ptElement);
-    }
-
-    return ptElement.render();
+      }
+    };
   }
 
   private elementOnClick(element: IElement) {

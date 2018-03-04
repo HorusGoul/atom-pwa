@@ -5,7 +5,7 @@ import Ink = require("react-ink");
 import { IElement } from "../../Element";
 import "./PtElement.scss";
 
-interface IPtElementInfoProps {
+export interface IPtElementInfoProps {
   element: IElement;
   onClick?: (element: IElement) => void;
 }
