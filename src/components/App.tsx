@@ -8,6 +8,8 @@ import ValencesTest from "./valences-test/ValencesTest";
 import "./App.scss";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
+import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
+import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 
 class App extends React.Component<{}, {}> {
@@ -31,6 +33,16 @@ class App extends React.Component<{}, {}> {
               exact={true}
               path="/tests/valences/settings"
               component={ValencesTestSettings}
+            />
+            <Route
+              exact={true}
+              path="/tests/periodic-table"
+              component={PeriodicTableTest}
+            />
+            <Route
+              exact={true}
+              path="/tests/periodic-table/settings"
+              component={PeriodicTableTestSettings}
             />
             <Route
               exact={true}

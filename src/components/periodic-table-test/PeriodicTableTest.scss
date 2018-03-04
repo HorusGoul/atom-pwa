@@ -1,0 +1,36 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.periodic-table-test {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__navbar {
+    position: fixed;
+    z-index: 1;
+
+    @include box-shadow($level: 1);
+  }
+
+  &__table {
+    padding-top: 56px;
+    flex: 1;
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+    }
+  }
+
+  &__modal-element-info {
+    max-width: 288px;
+    max-height: 80%;
+    height: 480px;
+    padding: 0;
+    overflow: auto;
+    will-change: transform;
+
+    @include box-shadow($level: 2);
+  }
+}

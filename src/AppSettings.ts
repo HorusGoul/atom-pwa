@@ -14,14 +14,16 @@ export interface IValencesTestSettings {
   elements: ITestElementSettings[];
 }
 
+export interface IPeriodicTableTestSettings {
+  elements: ITestElementSettings[];
+}
+
 export interface ISettings {
   [key: string]: any;
   theme: string;
   tests: {
     valences: IValencesTestSettings;
-    periodicTable: {
-      elements: ITestElementSettings[];
-    };
+    periodicTable: IPeriodicTableTestSettings;
   };
 }
 
