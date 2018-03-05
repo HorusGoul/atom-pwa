@@ -10,6 +10,9 @@ import "./main.scss";
 import AppSettings from "./AppSettings";
 AppSettings.loadSettings();
 
+import Locale from "./Locale";
+Locale.setLocale(AppSettings.settings.locale);
+
 import ElementManager from "./ElementManager";
 ElementManager.loadElements();
 

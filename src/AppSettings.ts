@@ -21,6 +21,7 @@ export interface IPeriodicTableTestSettings {
 export interface ISettings {
   [key: string]: any;
   theme: string;
+  locale: string;
   tests: {
     valences: IValencesTestSettings;
     periodicTable: IPeriodicTableTestSettings;

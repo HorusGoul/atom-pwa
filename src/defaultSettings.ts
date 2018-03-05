@@ -1,6 +1,8 @@
 import { ISettings } from "./AppSettings";
+import Locale from "./Locale";
 
 const defaultSettings: ISettings = {
+  locale: Locale.getBrowserLocale(),
   tests: {
     periodicTable: {
       elements: null
