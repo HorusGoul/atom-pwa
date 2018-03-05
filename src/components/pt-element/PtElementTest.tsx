@@ -31,6 +31,7 @@ class PtElementTest extends React.Component<
     const { element } = this.props;
     const { discovered, showError } = this.state;
 
+    // TODO: LOCALIZE ELEMENT NAME
     return (
       <div
         onClick={this.onClick}

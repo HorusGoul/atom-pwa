@@ -10,7 +10,7 @@
   "select_valence": "Selecciona la valencia correcta",
   "about": "Versión: %s",
   "author": "Autor: Horus Lugo <horusgoul@gmail.com>",
-  "deselect_all_elements": "Desmarcar todos los elementos",
+  "deselect_all": "Desmarcar todos",
   "group_actinoids": "Actínidos",
   "group_alkali_earth_metals": "Metales alcalinoterreos",
   "group_alkali_metals": "Metales alcalinos",
@@ -31,8 +31,9 @@
     "Si piensas que esta aplicación es útil, por favor puntuala para que otros puedan encontrarla y aprender.",
   "rate_title": "¿Te gusta esta aplicacion?",
   "restore_defaults": "Volver a los valores predefinidos",
-  "select_all_elements": "Seleccionar todos los elementos",
-  "select_elements": "Selecciona los elementos que quieres aprender",
+  "select_all": "Seleccionar todos",
+  "select_elements":
+    "Selecciona los elementos que quieres aprender. Los elementos que no se muestran no están soportados por el test.",
   "settings_title": "Opciones",
   "title_activity_settings": "Opciones",
   "info":
@@ -83,5 +84,9 @@
   "spanish": "Español",
   "change_language": "Cambiar idioma",
   "app_settings": "Ajustes",
-  "language_changed": "Se ha cambiado el idioma"
+  "language_changed": "Se ha cambiado el idioma",
+  "add_element": "Añadir elemento",
+  "clear_elements": "Borrar todo",
+  "change_amount":
+    "Cambia la cantidad del elemento seleccionado. Si la dejas en 0, se eliminará."
 }

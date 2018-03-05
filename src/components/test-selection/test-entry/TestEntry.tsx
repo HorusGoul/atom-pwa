@@ -1,9 +1,8 @@
 import * as React from "react";
-
+import { i18n } from "../../../Locale";
 import Button from "../../shared/button/Button";
 import Card from "../../shared/card/Card";
 import IconButton from "../../shared/icon-button/IconButton";
-
 import "./TestEntry.scss";
 
 export interface ITestEntry {
@@ -46,7 +45,7 @@ class TestEntry extends React.Component<Props, {}> {
         <div className="test-entry__description">{description}</div>
 
         <div className="test-entry__footer">
-          <Button onClick={onPracticeClick}>Practice</Button>
+          <Button onClick={onPracticeClick}>{i18n("practice")}</Button>
         </div>
       </Card>
     );

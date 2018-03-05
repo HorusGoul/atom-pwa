@@ -11,6 +11,7 @@ import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeA
 import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
 import "./MassCalculator.scss";
+import { i18n } from "../../Locale";
 
 interface IMassCalculatorElement {
   atomic: number;
@@ -49,16 +50,18 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     return (
       <div className="mass-calculator">
         <Navbar
-          title="Mass Calculator"
+          title={i18n("mass_calculator")}
           backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
         <div className="mass-calculator__result-bar">
-          <span className="mass-calculator__result-bar__text">Total</span>
+          <span className="mass-calculator__result-bar__text">
+            {i18n("result")}
+          </span>
 
           <span className="mass-calculator__result-bar__value">
-            {this.calculateTotalValue()} g / mol
+            {this.calculateTotalValue()} {i18n("g_mol")}
           </span>
         </div>
 
@@ -66,13 +69,13 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           <IconButton
             onClick={this.openAddElementModal}
             iconName="add_circle"
-            text="Add Element"
+            text={i18n("add_element")}
           />
 
           <IconButton
             onClick={this.clearElements}
             iconName="clear_all"
-            text="Clear"
+            text={i18n("clear_elements")}
           />
         </div>
 
@@ -111,6 +114,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
 
     const element = ElementManager.getElement(massCalculatorElement.atomic);
 
+    // TODO: LOCALIZE ELEMENT NAME
     return (
       <Modal
         title={element.name}
@@ -134,8 +138,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         </div>
 
         <div className="mass-calculator__modify-element-modal__text">
-          Change the amount of the selected item. If you leave it at 0, the
-          element will be removed.
+          {i18n("change_amount")}
         </div>
       </Modal>
     );
@@ -270,6 +273,8 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     const { atomic, quantity } = massCalculatorElement;
     const element = ElementManager.getElement(atomic);
 
+    // TODO: LOCALIZE ELEMENT NAME
+
     return (
       <Button
         onClick={this.onMassCalculatorElementClick(massCalculatorElement)}
@@ -289,13 +294,13 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           <span className="mass-calculator__element__name">{element.name}</span>
 
           <span className="mass-calculator__element__group">
-            {element.atomicMass} g / mol
+            {element.atomicMass} {i18n("g_mol")}
           </span>
         </div>
 
         <div className="mass-calculator__element__quantity">
           <span className="mass-calculator__element__quantity__text">
-            AMOUNT
+            {i18n("amount")}
           </span>
 
           <span className="mass-calculator__element__quantity__number">

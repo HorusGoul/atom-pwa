@@ -4,6 +4,7 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
+import { i18n } from "../../Locale";
 import PeriodicTable, {
   IPeriodicTableElement
 } from "../periodic-table/PeriodicTable";
@@ -43,7 +44,7 @@ class PeriodicTablePage extends React.Component<
     return (
       <div className="periodic-table-page">
         <Navbar
-          title="Periodic Table"
+          title={i18n("periodic_table")}
           className="periodic-table-page__navbar"
           backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}

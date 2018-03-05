@@ -15,6 +15,7 @@ class PtElementInfo extends React.Component<IPtElementInfoProps> {
   public render() {
     const { element } = this.props;
 
+    // TODO: LOCALIZE ELEMENT NAME
     return (
       <div
         onClick={this.onClick}

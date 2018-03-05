@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IValencesTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
+import { i18n } from "../../Locale";
 import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
@@ -13,7 +14,6 @@ import {
   getValencesTestSettings,
   setDefaultValencesTestSettings
 } from "./settings/ValencesTestSettings";
-
 import "./ValencesTest.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
@@ -44,13 +44,14 @@ class ValencesTest extends React.Component<Props, {}> {
     return (
       <div className="valences-test">
         <Navbar
-          title="Valences Test"
+          title={i18n("valences_test")}
           backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
         <div className="valences-test__test">
           <QuestionsTest
+            title={i18n("select_valence")}
             questions={questions}
             onQuestionAnswer={this.onQuestionAnswer}
           />

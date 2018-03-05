@@ -1,11 +1,10 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-
+import { i18n } from "../../Locale";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestEntry, { ITestEntry } from "./test-entry/TestEntry";
-
 import "./TestSelection.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
@@ -14,18 +13,16 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 class TestSelection extends React.Component<Props, {}> {
   private testEntries: ITestEntry[] = [
     {
-      description:
-        "Memorize the valences practicing with this test, you just need to select the correct option on the list. To disable elements, go to the settings inside the test.",
+      description: i18n("valences_test_desc"),
       settingsRoute: "/tests/valences/settings",
       testRoute: "/tests/valences",
-      title: "Valences Test"
+      title: i18n("valences_test")
     },
     {
-      description:
-        "Are you able to complete the periodic table without errors? Just try to set the elements in the places they belong to. You can disable elements in the settings.",
+      description: i18n("periodic_table_test_desc"),
       settingsRoute: "/tests/periodic-table/settings",
       testRoute: "/tests/periodic-table",
-      title: "Periodic table"
+      title: i18n("periodic_table_test")
     }
   ];
 
@@ -34,7 +31,7 @@ class TestSelection extends React.Component<Props, {}> {
       <div className="test-selection">
         <Navbar
           backButton={true}
-          title="Tests"
+          title={i18n("nav_test")}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 

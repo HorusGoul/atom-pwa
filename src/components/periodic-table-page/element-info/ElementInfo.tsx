@@ -1,6 +1,7 @@
 import classNames = require("classnames");
 import * as React from "react";
 import { IElement } from "../../../Element";
+import { i18n } from "../../../Locale";
 import "./ElementInfo.scss";
 
 interface IElementInfoDataEntryProps {
@@ -30,6 +31,8 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
       return null;
     }
 
+    // TODO: LOCALIZE ELEMENT NAME
+    // TODO: ADD UNITS
     return (
       <div className="element-info">
         <div
@@ -40,64 +43,84 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
           )}
         >
           <div className="element-info__name">{element.name}</div>
-          <div className="element-info__group">{element.group}</div>
+          <div className="element-info__group">
+            {i18n(`group_${element.group}`)}
+          </div>
         </div>
 
         <div className="element-info__data-list">
-          <ElementInfoDataEntry name="Atomic number" value={element.atomic} />
-          <ElementInfoDataEntry name="Symbol" value={element.symbol} />
-          <ElementInfoDataEntry name="Mass" value={element.atomicMass} />
           <ElementInfoDataEntry
-            name="Electronic C."
+            name={i18n("element_data_atomic")}
+            value={element.atomic}
+          />
+          <ElementInfoDataEntry
+            name={i18n("element_data_symbol")}
+            value={element.symbol}
+          />
+          <ElementInfoDataEntry
+            name={i18n("element_data_atomicMass")}
+            value={element.atomicMass}
+          />
+          <ElementInfoDataEntry
+            name={i18n("element_data_electronicConfiguration")}
             value={element.electronicConfiguration}
           />
           <ElementInfoDataEntry
-            name="Electronegativity"
+            name={i18n("element_data_electronegativity")}
             value={element.electronegativity}
           />
           <ElementInfoDataEntry
-            name="Atomic radius"
+            name={i18n("element_data_atomicRadius")}
             value={element.atomicRadius}
           />
-          <ElementInfoDataEntry name="Ionic radius" value={element.ionRadius} />
           <ElementInfoDataEntry
-            name="Van der Waals radius"
+            name={i18n("element_data_ionRadius")}
+            value={element.ionRadius}
+          />
+          <ElementInfoDataEntry
+            name={i18n("element_data_vanDelWaalsRadius")}
             value={element.vanDelWaalsRadius}
           />
           <ElementInfoDataEntry
-            name="Ionization energy"
+            name={i18n("element_data_ionizationEnergy")}
             value={element.ionizationEnergy}
           />
           <ElementInfoDataEntry
-            name="Electron affinity"
+            name={i18n("element_data_electronAffinity")}
             value={element.electronAffinity}
           />
           <ElementInfoDataEntry
-            name="Oxidation states"
+            name={i18n("element_data_oxidationState")}
             value={element.oxidationStates}
           />
           <ElementInfoDataEntry
-            name="Standard status"
+            name={i18n("element_data_standardState")}
             value={element.standardState}
           />
           <ElementInfoDataEntry
-            name="Bonding type"
+            name={i18n("element_data_bondingType")}
             value={element.bondingType}
           />
           <ElementInfoDataEntry
-            name="Melting point"
+            name={i18n("element_data_meltingPoint")}
             value={element.meltingPoint}
           />
           <ElementInfoDataEntry
-            name="Boiling point"
+            name={i18n("element_data_boilingPoint")}
             value={element.boilingPoint}
           />
-          <ElementInfoDataEntry name="Density" value={element.density} />
           <ElementInfoDataEntry
-            name="Year discovered"
+            name={i18n("element_data_density")}
+            value={element.density}
+          />
+          <ElementInfoDataEntry
+            name={i18n("element_data_yearDiscovered")}
             value={element.yearDiscovered}
           />
-          <ElementInfoDataEntry name="Valency" value={element.valency} />
+          <ElementInfoDataEntry
+            name={i18n("element_data_valency")}
+            value={element.valency}
+          />
         </div>
       </div>
     );

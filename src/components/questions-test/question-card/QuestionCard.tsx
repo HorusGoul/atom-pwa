@@ -15,6 +15,7 @@ export interface IQuestionCard {
 }
 
 interface IQuestionCardProps {
+  title: string;
   question: IQuestionCard;
   onAnswerClick?: (answer: IQuestionCardAnswer) => void;
 }
@@ -22,11 +23,11 @@ interface IQuestionCardProps {
 @autobind
 class QuestionCard extends React.Component<IQuestionCardProps, {}> {
   public render() {
-    const { question } = this.props;
+    const { question, title } = this.props;
 
     return (
       <Card className="question-card">
-        <div className="question-card__title">Select the correct valence:</div>
+        <div className="question-card__title">{title}</div>
 
         <div className="question-card__question">{question.question}</div>
 

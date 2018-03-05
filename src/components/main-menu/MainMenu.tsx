@@ -4,6 +4,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import Button from "../shared/button/Button";
 
+import { i18n } from "../../Locale";
 import "./MainMenu.scss";
 import MenuEntry, { IMenuEntry } from "./menu-entry/MenuEntry";
 
@@ -14,22 +15,22 @@ class MainMenu extends React.Component<Props, {}> {
   private menuEntries: IMenuEntry[] = [
     {
       icon: "test-tube",
-      name: "Tests",
+      name: i18n("nav_test"),
       route: "/tests"
     },
     {
       icon: "periodic-table",
-      name: "Periodic Table",
+      name: i18n("periodic_table"),
       route: "/periodic-table"
     },
     {
       icon: "scale-balance",
-      name: "Mass Calculator",
+      name: i18n("mass_calculator"),
       route: "/mass-calculator"
     },
     {
       icon: "info",
-      name: "About",
+      name: i18n("nav_about"),
       route: "/about"
     }
   ];

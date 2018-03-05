@@ -1,16 +1,24 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import {
+  AutoSizer,
+  List,
+  ListRowProps,
+  WindowScroller
+} from "react-virtualized";
 import AppSettings, {
   ITestElementSettings,
   IValencesTestSettings
 } from "../../../AppSettings";
 import ElementManager from "../../../ElementManager";
+import { i18n } from "../../../Locale";
 import Button from "../../shared/button/Button";
 import Checkbox from "../../shared/checkbox/Checkbox";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
+import "./ValencesTestSettings.scss";
 
 export function getValencesTestSettings() {
   const settings = AppSettings.settings.tests.valences;
@@ -41,14 +49,6 @@ export function setDefaultValencesTestSettings() {
   AppSettings.save();
 }
 
-import {
-  AutoSizer,
-  List,
-  ListRowProps,
-  WindowScroller
-} from "react-virtualized";
-import "./ValencesTestSettings.scss";
-
 type Props = RouteComponentProps<any> & React.Props<any>;
 
 interface IValencesTestSettingsState {
@@ -77,32 +77,31 @@ class ValencesTestSettings extends React.Component<
     return (
       <div className="valences-test-settings">
         <Navbar
-          title="Settings"
+          title={i18n("nav_settings")}
           backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
         <div className="valences-test-settings__content">
           <div className="valences-test-settings__text">
-            Select the elements you want to learn. Elements not displayed aren't
-            supported in this test.
+            {i18n("select_elements")}
           </div>
 
           <div className="valences-test-settings__buttons">
             <IconButton
               onClick={this.onSelectAllButtonClick}
               iconName="check_box_true"
-              text="Select all"
+              text={i18n("select_all")}
             />
             <IconButton
               onClick={this.onDeselectAllButtonClick}
               iconName="check_box_false"
-              text="Deselect all"
+              text={i18n("deselect_all")}
             />
             <IconButton
               onClick={this.onRestoreDefaultsButtonClick}
               iconName="restore"
-              text="Restore defaults"
+              text={i18n("restore_defaults")}
             />
           </div>
 

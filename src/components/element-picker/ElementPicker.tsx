@@ -9,6 +9,7 @@ import {
 } from "react-virtualized";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
+import { i18n } from "../../Locale";
 import Button from "../shared/button/Button";
 import IconButton from "../shared/icon-button/IconButton";
 import Icon from "../shared/icon/Icon";
@@ -49,7 +50,7 @@ class ElementPicker extends React.Component<
           <input
             className="element-picker__search-bar__input"
             type="text"
-            placeholder="Search elements..."
+            placeholder={i18n("search_elements")}
             onChange={this.onSearchInputChange}
             autoFocus={true}
           />
@@ -116,11 +117,12 @@ class ElementPicker extends React.Component<
 
           <div className="element-picker__element__desc">
             <span className="element-picker__element__name">
+              {/* TODO: LOCALIZE ELEMENT NAME */}
               {element.name}
             </span>
 
             <span className="element-picker__element__group">
-              {element.group}
+              {i18n(`group_${element.group}`)}
             </span>
           </div>
         </Button>

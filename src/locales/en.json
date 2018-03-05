@@ -12,10 +12,11 @@
   "about": "Version: %s",
   "nav_settings": "Settings",
   "author": "Author: Horus Lugo <horusgoul@gmail.com>",
-  "select_elements": "Select the elements you want to learn",
+  "select_elements":
+    "Select the elements you want to learn. Elements not displayed aren't supported in this test.",
   "restore_defaults": "Restore defaults",
-  "select_all_elements": "Select all elements",
-  "deselect_all_elements": "Deselect all elements",
+  "select_all": "Select all",
+  "deselect_all": "Deselect all",
   "settings_title": "Settings",
   "periodic_table": "Periodic Table",
   "title_activity_settings": "Settings",
@@ -83,5 +84,9 @@
   "spanish": "Spanish",
   "change_language": "Change language",
   "app_settings": "App Settings",
-  "language_changed": "Language modified"
+  "language_changed": "Language modified",
+  "add_element": "Add element",
+  "clear_elements": "Clear",
+  "change_amount":
+    "Change the amount of the selected element. If you leave it at 0, the element will be removed."
 }

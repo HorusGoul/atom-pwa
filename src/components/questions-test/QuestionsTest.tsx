@@ -6,6 +6,7 @@ import QuestionCard, { IQuestionCard } from "./question-card/QuestionCard";
 import "./QuestionsTest.scss";
 
 interface IQuestionTestProps {
+  title: string;
   questions: IQuestionCard[];
   onQuestionAnswer?: (
     question: IQuestionCard,
@@ -15,13 +16,14 @@ interface IQuestionTestProps {
 
 class QuestionsTest extends React.Component<IQuestionTestProps, {}> {
   public render() {
-    const { questions } = this.props;
+    const { questions, title } = this.props;
     const hasQuestions = !!questions.length;
 
     return (
       <div className="questions-test">
         {hasQuestions && (
           <QuestionCard
+            title={title}
             question={questions[0]}
             onAnswerClick={this.onAnswerClickListener(questions[0])}
           />
