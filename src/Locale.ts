@@ -1,14 +1,17 @@
+interface ILocale {
+  [key: string]: string;
+}
+
 class Locale {
-  private currentLocales: {
-    [key: string]: string;
-  };
+  private common: ILocale = require("./locales/common.json");
+  private currentLocales: ILocale;
 
   public setLocale(localeFilename: string) {
     this.currentLocales = require(`./locales/${localeFilename}.json`);
   }
 
   public getString(localeName: string) {
-    return this.currentLocales[localeName];
+    return this.currentLocales[localeName] || this.common[localeName];
   }
 
   public getBrowserLocale() {
