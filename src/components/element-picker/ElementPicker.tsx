@@ -144,14 +144,24 @@ class ElementPicker extends React.Component<
     }
 
     const newElements = elements.filter(element => {
+      const elementLocales = getElementLocales(element);
       const symbol = element.symbol.toLowerCase();
-      const name = element.name.toLowerCase();
+      const name = elementLocales.name.toLowerCase();
+      const group = elementLocales.group.toLowerCase();
 
       if (symbol === searchValue) {
         return true;
       }
 
       if (name.includes(searchValue)) {
+        return true;
+      }
+
+      if (group.includes(searchValue)) {
+        return true;
+      }
+
+      if (parseInt(searchValue, 10) === element.atomic) {
         return true;
       }
 
