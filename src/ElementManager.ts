@@ -1,4 +1,5 @@
 import { IElement } from "./Element";
+import Locale, { i18n } from "./Locale";
 
 class ElementManager {
   private elements: IElement[];
@@ -17,3 +18,10 @@ class ElementManager {
 }
 
 export default new ElementManager();
+
+export const getElementLocales = (element: IElement) => ({
+  bondingType: i18n(`bonding_${element.bondingType}`),
+  group: i18n(`group_${element.group}`),
+  name: i18n(`element_name_${element.name.toLowerCase()}`),
+  standardState: i18n(`standard_state_${element.standardState}`)
+});

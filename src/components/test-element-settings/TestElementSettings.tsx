@@ -2,7 +2,7 @@ import autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
 import { ITestElementSettings } from "../../AppSettings";
-import ElementManager from "../../ElementManager";
+import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
 import Button from "../shared/button/Button";
 import Checkbox from "../shared/checkbox/Checkbox";
@@ -21,6 +21,7 @@ class TestElementSettings extends React.Component<
   public render() {
     const { setting } = this.props;
     const element = ElementManager.getElement(setting.atomic);
+    const elementLocales = getElementLocales(element);
 
     return (
       <Button
@@ -39,12 +40,11 @@ class TestElementSettings extends React.Component<
 
         <div className="element-selector__desc">
           <span className="element-selector__name">
-            {/* TODO: LOCALIZE ELEMENT NAME */}
-            {element.atomic}. {element.name}
+            {element.atomic}. {elementLocales.name}
           </span>
 
           <span className="element-selector__group">
-            {i18n(`group_${element.group}`)}
+            {elementLocales.group}
           </span>
         </div>
 

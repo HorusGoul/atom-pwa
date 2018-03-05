@@ -22,14 +22,7 @@
     "yearDiscovered": 1766,
     "valency": "+1 / -1",
     "wrongValences": ["+1", "-1", "-2", "0", "2"],
-    "realname": {
-      "es": "Hidrógeno",
-      "en": "Hydrogen"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 2,
@@ -54,14 +47,7 @@
     "yearDiscovered": 1868,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Helio",
-      "en": "Helium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 3,
@@ -86,14 +72,7 @@
     "yearDiscovered": 1817,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Litio",
-      "en": "Lithium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 4,
@@ -126,14 +105,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Berilio",
-      "en": "Beryllium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 5,
@@ -158,14 +130,7 @@
     "yearDiscovered": 1807,
     "valency": "+3 / -3",
     "wrongValences": ["+1 / -1", "+2 / -2", "+3", "-3", "+1 +3 +5 +7 / -1"],
-    "realname": {
-      "es": "Boro",
-      "en": "Boron"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 6,
@@ -198,14 +163,7 @@
       "-1",
       "+2 +4"
     ],
-    "realname": {
-      "es": "Carbono",
-      "en": "Carbon"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 7,
@@ -236,14 +194,7 @@
       "+1 +3 +5 +7 / -1",
       "+3 +5 / -3"
     ],
-    "realname": {
-      "es": "Nitrógeno",
-      "en": "Nitrogen"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 8,
@@ -268,14 +219,7 @@
     "yearDiscovered": 1774,
     "valency": "-2",
     "wrongValences": ["-1", "+2 -2", "+1 -1", "+1", "+2 +4 +6 / -2", "+2"],
-    "realname": {
-      "es": "Oxígeno",
-      "en": "Oxygen"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 9,
@@ -307,14 +251,7 @@
       "-2",
       "-3"
     ],
-    "realname": {
-      "es": "Fluor",
-      "en": "Fluorine"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 10,
@@ -339,14 +276,7 @@
     "yearDiscovered": 1898,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Neón",
-      "en": "Neon"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 11,
@@ -371,14 +301,7 @@
     "yearDiscovered": 1807,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Sodio",
-      "en": "Sodium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 12,
@@ -411,14 +334,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Magnesio",
-      "en": "Magnesium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 13,
@@ -450,14 +366,7 @@
       "+1 +3 +5 +7 / -1",
       "+2 +3"
     ],
-    "realname": {
-      "es": "Aluminio",
-      "en": "Aluminum"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 14,
@@ -490,14 +399,7 @@
       "-1",
       "+2 +4"
     ],
-    "realname": {
-      "es": "Silicio",
-      "en": "Silicon"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 15,
@@ -528,14 +430,7 @@
       "+2 +4 +6 / -2",
       "+1 +3 +5 +7 / -1"
     ],
-    "realname": {
-      "es": "Fósforo",
-      "en": "Phosphorus"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 16,
@@ -567,14 +462,7 @@
       "+2 +6",
       "+2"
     ],
-    "realname": {
-      "es": "Azufre",
-      "en": "Sulfur"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 17,
@@ -609,14 +497,7 @@
       "+3 +5 +7",
       "+1 +5"
     ],
-    "realname": {
-      "es": "Cloro",
-      "en": "Chlorine"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 18,
@@ -641,14 +522,7 @@
     "yearDiscovered": 1894,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Argón",
-      "en": "Argon"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 19,
@@ -673,14 +547,7 @@
     "yearDiscovered": 1807,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Potasio",
-      "en": "Potassium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 20,
@@ -713,14 +580,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Calcio",
-      "en": "Calcium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 21,
@@ -745,14 +605,7 @@
     "yearDiscovered": 1876,
     "valency": "+3",
     "wrongValences": ["+2", "+1", "+2 +4", "+2 +3", "+2 +4 / -4"],
-    "realname": {
-      "es": "Escandio",
-      "en": "Scandium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 22,
@@ -777,14 +630,7 @@
     "yearDiscovered": 1791,
     "valency": "+2 +3 +4",
     "wrongValences": ["+2", "+3", "+4", "+2 +3", "+2 +4", "+2 +4 / -4"],
-    "realname": {
-      "es": "Titanio",
-      "en": "Titanium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 23,
@@ -819,14 +665,7 @@
       "+2 +4 +6",
       "+2 +3 +4 +5 +6"
     ],
-    "realname": {
-      "es": "Vanadio",
-      "en": "Vanadium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 24,
@@ -851,14 +690,7 @@
     "yearDiscovered": null,
     "valency": "+2 +3 +4 +6",
     "wrongValences": ["+2 +3 +4 +5", "+2 +3 +4 +6 +7", "+2 +3", "+1 +2 +3 +4"],
-    "realname": {
-      "es": "Cromo",
-      "en": "Chromium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 25,
@@ -889,14 +721,7 @@
       "+1 +3 +7",
       "+1 +3 +5 +6 +7"
     ],
-    "realname": {
-      "es": "Manganeso",
-      "en": "Manganese"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 26,
@@ -921,14 +746,7 @@
     "yearDiscovered": null,
     "valency": "+2 +3",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +4", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Hierro",
-      "en": "Iron"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 27,
@@ -953,14 +771,7 @@
     "yearDiscovered": null,
     "valency": "+2 +3",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +4", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Cobalto",
-      "en": "Cobalt"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 28,
@@ -985,14 +796,7 @@
     "yearDiscovered": 1751,
     "valency": "+2 +3",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +4", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Niquel",
-      "en": "Nickel"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 29,
@@ -1017,14 +821,7 @@
     "yearDiscovered": null,
     "valency": "+1 +2",
     "wrongValences": ["+1 +3", "+2 +3", "+2 +4", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Cobre",
-      "en": "Copper"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 30,
@@ -1057,14 +854,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Cinc",
-      "en": "Zinc"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 31,
@@ -1089,14 +879,7 @@
     "yearDiscovered": 1875,
     "valency": "+1 +3",
     "wrongValences": ["+2 +4", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Galio",
-      "en": "Gallium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 32,
@@ -1121,14 +904,7 @@
     "yearDiscovered": 1886,
     "valency": "+2 +4",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Germanio",
-      "en": "Germanium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 33,
@@ -1159,14 +935,7 @@
       "+2 +4 +6 / -2",
       "+1 +3 +5 +7 / -1"
     ],
-    "realname": {
-      "es": "Arsenico",
-      "en": "Arsenic"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 34,
@@ -1198,14 +967,7 @@
       "+2 +6",
       "+2"
     ],
-    "realname": {
-      "es": "Selenio",
-      "en": "Selenium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 35,
@@ -1240,14 +1002,7 @@
       "+3 +5 +7",
       "+1 +5"
     ],
-    "realname": {
-      "es": "Bromo",
-      "en": "Bromine"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 36,
@@ -1272,14 +1027,7 @@
     "yearDiscovered": 1898,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Kriptón",
-      "en": "Krypton"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 37,
@@ -1304,14 +1052,7 @@
     "yearDiscovered": 1861,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Rubidio",
-      "en": "Rubidium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 38,
@@ -1344,14 +1085,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Estroncio",
-      "en": "Strontium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 39,
@@ -1384,14 +1118,7 @@
       "+1 +3 +5 +7 / -1",
       "+4"
     ],
-    "realname": {
-      "es": "Ytrio",
-      "en": "Yttrium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 40,
@@ -1424,14 +1151,7 @@
       "+3 +5",
       "+1 +3 +5 +7 / -1"
     ],
-    "realname": {
-      "es": "Circonio",
-      "en": "Zirconium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 41,
@@ -1456,14 +1176,7 @@
     "yearDiscovered": 1801,
     "valency": "+2 +3 +4 +5",
     "wrongValences": ["+2", "+3", "+4", "+5", "+2 +3", "+1 +3 +5", "+2 +4"],
-    "realname": {
-      "es": "Niobio",
-      "en": "Niobium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 42,
@@ -1497,14 +1210,7 @@
       "+5",
       "+6"
     ],
-    "realname": {
-      "es": "Molibdeno",
-      "en": "Molybdenum"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 43,
@@ -1535,14 +1241,7 @@
       "+2 +4 +6 / -2",
       "+1 +3 +5 +7 / -1"
     ],
-    "realname": {
-      "es": "Tecnecio",
-      "en": "Technetium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 44,
@@ -1576,14 +1275,7 @@
       "+2 +3",
       "+1 +2"
     ],
-    "realname": {
-      "es": "Rutenio",
-      "en": "Ruthenium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 45,
@@ -1617,14 +1309,7 @@
       "+4",
       "1"
     ],
-    "realname": {
-      "es": "Rodio",
-      "en": "Rhodium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 46,
@@ -1649,14 +1334,7 @@
     "yearDiscovered": 1803,
     "valency": "+2 +4",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Paladio",
-      "en": "Palladium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 47,
@@ -1681,14 +1359,7 @@
     "yearDiscovered": null,
     "valency": "+1",
     "wrongValences": ["-1", "+2", "+1 +3", "+1 / -1", "+2"],
-    "realname": {
-      "es": "Plata",
-      "en": "Silver"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 48,
@@ -1721,14 +1392,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Cadmio",
-      "en": "Cadmium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 49,
@@ -1753,14 +1417,7 @@
     "yearDiscovered": 1863,
     "valency": "+1 +3",
     "wrongValences": ["+2 +4", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Indio",
-      "en": "Indium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 50,
@@ -1785,14 +1442,7 @@
     "yearDiscovered": null,
     "valency": "+2 +4",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Estaño",
-      "en": "Tin"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 51,
@@ -1823,14 +1473,7 @@
       "+2 +4 +6 / -2",
       "+1 +3 +5 +7 / -1"
     ],
-    "realname": {
-      "es": "Antimonio",
-      "en": "Antimony"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 52,
@@ -1862,14 +1505,7 @@
       "+2 +6",
       "+2"
     ],
-    "realname": {
-      "es": "Teluro",
-      "en": "Tellurium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 53,
@@ -1904,14 +1540,7 @@
       "+3 +5 +7",
       "+1 +5"
     ],
-    "realname": {
-      "es": "Yodo",
-      "en": "Iodine"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 54,
@@ -1936,14 +1565,7 @@
     "yearDiscovered": 1898,
     "valency": "0 +1 +2 +4 +6 +8",
     "wrongValences": [],
-    "realname": {
-      "es": "Xenón",
-      "en": "Xenon"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 55,
@@ -1968,14 +1590,7 @@
     "yearDiscovered": 1860,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Cesio",
-      "en": "Cesium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 56,
@@ -2008,14 +1623,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Bario",
-      "en": "Barium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 57,
@@ -2040,14 +1648,7 @@
     "yearDiscovered": 1839,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Lantano",
-      "en": "Lanthanum"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 58,
@@ -2072,14 +1673,7 @@
     "yearDiscovered": 1803,
     "valency": "+3 +4",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Cerio",
-      "en": "Cerium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 59,
@@ -2104,14 +1698,7 @@
     "yearDiscovered": 1885,
     "valency": "+3 +4",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Praseodimio",
-      "en": "Praseodymium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 60,
@@ -2136,14 +1723,7 @@
     "yearDiscovered": 1885,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Neodimio",
-      "en": "Neodymium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 61,
@@ -2168,14 +1748,7 @@
     "yearDiscovered": 1947,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Prometio",
-      "en": "Promethium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 62,
@@ -2200,14 +1773,7 @@
     "yearDiscovered": 1853,
     "valency": "+2 +3",
     "wrongValences": ["+1", "+2", "+3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Samario",
-      "en": "Samarium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 63,
@@ -2232,14 +1798,7 @@
     "yearDiscovered": 1901,
     "valency": "+2 +3",
     "wrongValences": ["+1", "+2", "+3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Europio",
-      "en": "Europium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 64,
@@ -2264,14 +1823,7 @@
     "yearDiscovered": 1880,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Gadolinio",
-      "en": "Gadolinium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 65,
@@ -2296,14 +1848,7 @@
     "yearDiscovered": 1843,
     "valency": "+3 +4",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Terbio",
-      "en": "Terbium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 66,
@@ -2328,14 +1873,7 @@
     "yearDiscovered": 1886,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Disprosio",
-      "en": "Dysprosium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 67,
@@ -2360,14 +1898,7 @@
     "yearDiscovered": 1878,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Holmio",
-      "en": "Holmium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 68,
@@ -2392,14 +1923,7 @@
     "yearDiscovered": 1842,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Erbio",
-      "en": "Erbium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 69,
@@ -2424,14 +1948,7 @@
     "yearDiscovered": 1879,
     "valency": "+2 +3",
     "wrongValences": ["+1", "+2", "+3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Tulio",
-      "en": "Thulium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 70,
@@ -2456,14 +1973,7 @@
     "yearDiscovered": 1878,
     "valency": "+2 +3",
     "wrongValences": ["+1", "+2", "+3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Yterbio",
-      "en": "Ytterbium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 71,
@@ -2488,14 +1998,7 @@
     "yearDiscovered": 1907,
     "valency": "+3",
     "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    "realname": {
-      "es": "Lutecio",
-      "en": "Lutetium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 72,
@@ -2529,14 +2032,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Hafnio",
-      "en": "Hafnium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 73,
@@ -2570,14 +2066,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Tántalo",
-      "en": "Tantalum"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 74,
@@ -2611,14 +2100,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Wolframio",
-      "en": "Tungsten"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 75,
@@ -2652,14 +2134,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Renio",
-      "en": "Rhenium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 76,
@@ -2693,14 +2168,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Osmio",
-      "en": "Osmium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 77,
@@ -2734,14 +2202,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Iridio",
-      "en": "Iridium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 78,
@@ -2766,14 +2227,7 @@
     "yearDiscovered": null,
     "valency": "+2 +4",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Platino",
-      "en": "Platinum"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 79,
@@ -2798,14 +2252,7 @@
     "yearDiscovered": null,
     "valency": "+1 +3",
     "wrongValences": ["+2 +4", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Oro",
-      "en": "Gold"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 80,
@@ -2830,14 +2277,7 @@
     "yearDiscovered": null,
     "valency": "+1 +2",
     "wrongValences": ["+1 +3", "+2 +3", "+2 +4", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Mercurio",
-      "en": "Mercury"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 81,
@@ -2862,14 +2302,7 @@
     "yearDiscovered": 1861,
     "valency": "+1 +3",
     "wrongValences": ["+2 +4", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Talio",
-      "en": "Thallium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 82,
@@ -2894,14 +2327,7 @@
     "yearDiscovered": null,
     "valency": "+2 +4",
     "wrongValences": ["+1 +3", "+1 +2", "+2 +3", "+1 +3 +5", "+2 +4 +6", "-1"],
-    "realname": {
-      "es": "Plomo",
-      "en": "Lead"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 83,
@@ -2933,14 +2359,7 @@
       "+1 +3 +5 +7 / -1",
       "+3 +5 / -3"
     ],
-    "realname": {
-      "es": "Bismuto",
-      "en": "Bismuth"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 84,
@@ -2972,14 +2391,7 @@
       "+2 +6",
       "+2"
     ],
-    "realname": {
-      "es": "Polonio",
-      "en": "Polonium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 85,
@@ -3014,14 +2426,7 @@
       "+3 +5 +7",
       "+1 +5"
     ],
-    "realname": {
-      "es": "Astato",
-      "en": "Astatine"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 86,
@@ -3046,14 +2451,7 @@
     "yearDiscovered": 1900,
     "valency": "0 +2 +6",
     "wrongValences": [],
-    "realname": {
-      "es": "Radón",
-      "en": "Radon"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 87,
@@ -3078,14 +2476,7 @@
     "yearDiscovered": 1939,
     "valency": "+1",
     "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
-    "realname": {
-      "es": "Francio",
-      "en": "Francium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 88,
@@ -3118,14 +2509,7 @@
       "-2",
       "+3"
     ],
-    "realname": {
-      "es": "Radio",
-      "en": "Radium"
-    },
-    "testState": {
-      "valencesTest": true,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": true, "ptTest": true }
   },
   {
     "atomic": 89,
@@ -3159,14 +2543,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Actinio",
-      "en": "Actinium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 90,
@@ -3200,14 +2577,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Torio",
-      "en": "Thorium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 91,
@@ -3241,14 +2611,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Protactinio",
-      "en": "Protactinium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 92,
@@ -3282,14 +2645,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Uranio",
-      "en": "Uranium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 93,
@@ -3323,14 +2679,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Neptunio",
-      "en": "Neptunium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 94,
@@ -3364,14 +2713,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Plutonio",
-      "en": "Plutonium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 95,
@@ -3405,14 +2747,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Americio",
-      "en": "Americium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 96,
@@ -3446,14 +2781,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Curio",
-      "en": "Curium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 97,
@@ -3487,14 +2815,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Berkelio",
-      "en": "Berkelium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 98,
@@ -3528,14 +2849,7 @@
       "+1 +2 +3 +4",
       "+2 +4 +6"
     ],
-    "realname": {
-      "es": "Californio",
-      "en": "Californium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 99,
@@ -3560,14 +2874,7 @@
     "yearDiscovered": 1952,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Einstenio",
-      "en": "Einsteinium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 100,
@@ -3592,14 +2899,7 @@
     "yearDiscovered": 1952,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Fermio",
-      "en": "Fermium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 101,
@@ -3624,14 +2924,7 @@
     "yearDiscovered": 1955,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Mendelevio",
-      "en": "Mendelevium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 102,
@@ -3656,14 +2949,7 @@
     "yearDiscovered": 1957,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Nobelio",
-      "en": "Nobelium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 103,
@@ -3688,14 +2974,7 @@
     "yearDiscovered": 1961,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Lawrencio",
-      "en": "Lawrencium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 104,
@@ -3720,14 +2999,7 @@
     "yearDiscovered": 1969,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Rutherfordio",
-      "en": "Rutherfordium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 105,
@@ -3752,14 +3024,7 @@
     "yearDiscovered": 1967,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Dubnio",
-      "en": "Dubnium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 106,
@@ -3784,14 +3049,7 @@
     "yearDiscovered": 1974,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Seaborgio",
-      "en": "Seaborgium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 107,
@@ -3816,14 +3074,7 @@
     "yearDiscovered": 1976,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Bohrio",
-      "en": "Bohrium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 108,
@@ -3848,14 +3099,7 @@
     "yearDiscovered": 1984,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Hassio",
-      "en": "Hassium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 109,
@@ -3880,14 +3124,7 @@
     "yearDiscovered": 1982,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Meitnerio",
-      "en": "Meitnerium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 110,
@@ -3912,14 +3149,7 @@
     "yearDiscovered": 1994,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Darmstadio",
-      "en": "Darmstadtium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 111,
@@ -3944,14 +3174,7 @@
     "yearDiscovered": 1994,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Roentgenio",
-      "en": "Roentgenium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 112,
@@ -3976,14 +3199,7 @@
     "yearDiscovered": 1996,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Copernicio",
-      "en": "Copernicium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 113,
@@ -4008,14 +3224,7 @@
     "yearDiscovered": 2003,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Nihonio",
-      "en": "Nihonium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 114,
@@ -4040,14 +3249,7 @@
     "yearDiscovered": 1998,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Flerovio",
-      "en": "Flerovium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 115,
@@ -4072,14 +3274,7 @@
     "yearDiscovered": 2003,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Moscovio",
-      "en": "Moscovium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 116,
@@ -4104,14 +3299,7 @@
     "yearDiscovered": 2000,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Livermorio",
-      "en": "Livermorium"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 117,
@@ -4136,14 +3324,7 @@
     "yearDiscovered": 2010,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Téneso",
-      "en": "Tennessine"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   },
   {
     "atomic": 118,
@@ -4168,13 +3349,6 @@
     "yearDiscovered": 2002,
     "valency": null,
     "wrongValences": [],
-    "realname": {
-      "es": "Oganesón",
-      "en": "Oganesson"
-    },
-    "testState": {
-      "valencesTest": false,
-      "ptTest": true
-    }
+    "testState": { "valencesTest": false, "ptTest": true }
   }
 ]

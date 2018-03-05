@@ -3,6 +3,7 @@ import classNames = require("classnames");
 import * as React from "react";
 import Ink = require("react-ink");
 import { IElement } from "../../Element";
+import { getElementLocales } from "../../ElementManager";
 import "./PtElement.scss";
 
 export interface IPtElementInfoProps {
@@ -14,8 +15,8 @@ export interface IPtElementInfoProps {
 class PtElementInfo extends React.Component<IPtElementInfoProps> {
   public render() {
     const { element } = this.props;
+    const elementLocales = getElementLocales(element);
 
-    // TODO: LOCALIZE ELEMENT NAME
     return (
       <div
         onClick={this.onClick}
@@ -25,7 +26,7 @@ class PtElementInfo extends React.Component<IPtElementInfoProps> {
 
         <div className="pt-element__symbol">{element.symbol}</div>
 
-        <div className="pt-element__name">{element.name}</div>
+        <div className="pt-element__name">{elementLocales.name}</div>
 
         <Ink />
       </div>

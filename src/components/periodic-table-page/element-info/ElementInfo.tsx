@@ -1,6 +1,7 @@
 import classNames = require("classnames");
 import * as React from "react";
 import { IElement } from "../../../Element";
+import { getElementLocales } from "../../../ElementManager";
 import { i18n } from "../../../Locale";
 import "./ElementInfo.scss";
 
@@ -31,7 +32,8 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
       return null;
     }
 
-    // TODO: LOCALIZE ELEMENT NAME
+    const elementLocales = getElementLocales(element);
+
     // TODO: ADD UNITS
     return (
       <div className="element-info">
@@ -42,10 +44,8 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
             element.group
           )}
         >
-          <div className="element-info__name">{element.name}</div>
-          <div className="element-info__group">
-            {i18n(`group_${element.group}`)}
-          </div>
+          <div className="element-info__name">{elementLocales.name}</div>
+          <div className="element-info__group">{elementLocales.group}</div>
         </div>
 
         <div className="element-info__data-list">
@@ -95,11 +95,11 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
           />
           <ElementInfoDataEntry
             name={i18n("element_data_standardState")}
-            value={element.standardState}
+            value={elementLocales.standardState}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_bondingType")}
-            value={element.bondingType}
+            value={elementLocales.bondingType}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_meltingPoint")}

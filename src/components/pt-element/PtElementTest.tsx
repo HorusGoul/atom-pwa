@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import classNames = require("classnames");
 import * as React from "react";
 import Ink = require("react-ink");
+import { getElementLocales } from "../../ElementManager";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
 import { IPtElementInfoProps } from "./PtElementInfo";
@@ -30,8 +31,8 @@ class PtElementTest extends React.Component<
   public render() {
     const { element } = this.props;
     const { discovered, showError } = this.state;
+    const elementLocales = getElementLocales(element);
 
-    // TODO: LOCALIZE ELEMENT NAME
     return (
       <div
         onClick={this.onClick}
@@ -47,7 +48,7 @@ class PtElementTest extends React.Component<
           {discovered ? element.symbol : "?"}
         </div>
         <div className="pt-element__name">
-          {discovered ? element.name : "???"}
+          {discovered ? elementLocales.name : "???"}
         </div>
 
         <div className="pt-element__error">

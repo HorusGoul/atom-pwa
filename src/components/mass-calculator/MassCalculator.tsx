@@ -3,7 +3,8 @@ import * as classNames from "classnames";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
-import ElementManager from "../../ElementManager";
+import ElementManager, { getElementLocales } from "../../ElementManager";
+import { i18n } from "../../Locale";
 import ElementPicker from "../element-picker/ElementPicker";
 import Button from "../shared/button/Button";
 import IconButton from "../shared/icon-button/IconButton";
@@ -11,7 +12,6 @@ import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeA
 import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
 import "./MassCalculator.scss";
-import { i18n } from "../../Locale";
 
 interface IMassCalculatorElement {
   atomic: number;
@@ -113,11 +113,11 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     }
 
     const element = ElementManager.getElement(massCalculatorElement.atomic);
+    const elementLocales = getElementLocales(element);
 
-    // TODO: LOCALIZE ELEMENT NAME
     return (
       <Modal
-        title={element.name}
+        title={elementLocales.name}
         closeButton={true}
         className="mass-calculator__modify-element-modal"
         open={modifyElementModal.open}
@@ -272,8 +272,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   private massCalculatorElement(massCalculatorElement: IMassCalculatorElement) {
     const { atomic, quantity } = massCalculatorElement;
     const element = ElementManager.getElement(atomic);
-
-    // TODO: LOCALIZE ELEMENT NAME
+    const elementLocales = getElementLocales(element);
 
     return (
       <Button
@@ -291,7 +290,9 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         </div>
 
         <div className="mass-calculator__element__desc">
-          <span className="mass-calculator__element__name">{element.name}</span>
+          <span className="mass-calculator__element__name">
+            {elementLocales.name}
+          </span>
 
           <span className="mass-calculator__element__group">
             {element.atomicMass} {i18n("g_mol")}

@@ -8,7 +8,7 @@ import {
   WindowScroller
 } from "react-virtualized";
 import { IElement } from "../../Element";
-import ElementManager from "../../ElementManager";
+import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
 import Button from "../shared/button/Button";
 import IconButton from "../shared/icon-button/IconButton";
@@ -98,6 +98,7 @@ class ElementPicker extends React.Component<
     const { index, key, style } = props;
     const { elements } = this.state;
     const element = elements[index];
+    const elementLocales = getElementLocales(element);
 
     return (
       <div key={key} style={style}>
@@ -117,12 +118,11 @@ class ElementPicker extends React.Component<
 
           <div className="element-picker__element__desc">
             <span className="element-picker__element__name">
-              {/* TODO: LOCALIZE ELEMENT NAME */}
-              {element.name}
+              {elementLocales.name}
             </span>
 
             <span className="element-picker__element__group">
-              {i18n(`group_${element.group}`)}
+              {elementLocales.group}
             </span>
           </div>
         </Button>
