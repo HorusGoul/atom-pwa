@@ -11,4 +11,8 @@
   text-transform: uppercase;
 
   position: relative;
+
+  &--circle {
+    border-radius: 50%;
+  }
 }

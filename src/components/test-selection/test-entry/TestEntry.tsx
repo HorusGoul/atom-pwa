@@ -36,6 +36,7 @@ class TestEntry extends React.Component<Props, {}> {
           <div className="test-entry__title">{title}</div>
 
           <IconButton
+            circle={true}
             className="test-entry__settings-button"
             iconName="settings"
             onClick={onSettingsClick}

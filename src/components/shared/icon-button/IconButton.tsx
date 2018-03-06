@@ -1,15 +1,13 @@
 import * as classNames from "classnames";
 import * as React from "react";
-import Button from "../button/Button";
+import Button, { IButtonProps } from "../button/Button";
 import Icon from "../icon/Icon";
 
 import "./IconButton.scss";
 
-interface IIconButtonProps {
+interface IIconButtonProps extends IButtonProps {
   iconName: string;
   text?: string;
-  onClick?: () => void;
-  className?: string;
 }
 
 class IconButton extends React.Component<IIconButtonProps, {}> {
@@ -19,7 +17,7 @@ class IconButton extends React.Component<IIconButtonProps, {}> {
     const buttonClass = classNames("icon-button", className);
 
     return (
-      <Button className={buttonClass} onClick={onClick}>
+      <Button {...this.props} className={buttonClass}>
         <div className="icon-button__icon">
           <Icon name={iconName} />
         </div>

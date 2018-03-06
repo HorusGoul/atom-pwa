@@ -7,13 +7,20 @@ import "./Button.scss";
 export interface IButtonProps extends React.Props<{}> {
   className?: string;
   onClick?: () => void;
+  circle?: boolean;
 }
 
 @autobind
 class Button extends React.Component<IButtonProps, {}> {
   public render() {
-    const { className } = this.props;
-    const buttonClass = classNames("button", className);
+    const { className, circle } = this.props;
+    const buttonClass = classNames(
+      "button",
+      {
+        "button--circle": circle
+      },
+      className
+    );
 
     return (
       <button className={buttonClass} onClick={this.onClick}>
