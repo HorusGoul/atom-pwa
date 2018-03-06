@@ -19,12 +19,14 @@
 
     padding: 16px;
 
-    font-size: 32pt;
-    font-weight: bold;
+    &--not-styled {
+      font-size: 32pt;
+      font-weight: bold;
 
-    @include themify($themes) {
-      background-color: themed("accent");
-      color: themed("textColorPrimary");
+      @include themify($themes) {
+        background-color: themed("accent");
+        color: themed("textColorPrimary");
+      }
     }
   }
 

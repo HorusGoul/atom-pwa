@@ -6,10 +6,22 @@
 
   @include themify($themes) {
     background-color: themed("primary");
-    color: themed("textColorPrimary");
   }
 
   &__test {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      max-width: 360px;
+      width: 100%;
+    }
+  }
+
+  &__question {
+    font-size: 32pt;
+    font-weight: 600;
   }
 }

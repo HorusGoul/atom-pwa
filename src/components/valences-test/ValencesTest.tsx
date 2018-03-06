@@ -109,7 +109,8 @@ class ValencesTest extends React.Component<Props, {}> {
     return {
       answers: this.createQuestionAnswers(element),
       data: element,
-      question: element.symbol
+      question: element.symbol,
+      questionClass: `valences-test__question element ${element.group}`
     };
   }
 
