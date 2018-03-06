@@ -6,7 +6,7 @@
   @extend %page;
 
   @include themify($themes) {
-    background-color: themed("primaryDarker");
+    background-color: themed("primary");
     color: themed("textColorPrimary");
   }
 

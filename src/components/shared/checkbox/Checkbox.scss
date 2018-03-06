@@ -25,6 +25,10 @@
     width: 1px;
   }
 
+  &__input:not(:checked) + &__content path {
+    display: none;
+  }
+
   &__input:checked + &__content {
     @include themify($themes) {
       background-color: themed("accent");

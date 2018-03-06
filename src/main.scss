@@ -1,4 +1,6 @@
 @import "~normalize.css";
+@import "./scss/themes.scss";
+@import "./scss/theming.scss";
 
 * {
   box-sizing: border-box;
@@ -23,7 +25,7 @@ textarea {
 
 .element {
   color: #fff;
-  transition: background-color 250ms linear;
+  transition: background-color 250ms linear, color 250ms linear;
 
   &.noble_gases {
     background-color: #7e57c2;
@@ -68,5 +70,54 @@ textarea {
 
   &.clear {
     background-color: #78909c;
+  }
+}
+
+body:not(.theme-light) .element {
+  background-color: transparent;
+
+  &.noble_gases {
+    color: #7e57c2;
+  }
+
+  &.alkali_metals {
+    color: #ef5350;
+  }
+
+  &.alkali_earth_metals {
+    color: #ff7043;
+  }
+
+  &.transition_metals {
+    color: #ff9800;
+  }
+
+  &.basic_metals {
+    color: #66bb6a;
+  }
+
+  &.metalloids {
+    color: #26c6da;
+  }
+
+  &.amphigens,
+  &.hydrogen {
+    color: #42a5f5;
+  }
+
+  &.halogens {
+    color: #5c6bc0;
+  }
+
+  &.lanthanoids {
+    color: #7e57c2;
+  }
+
+  &.actinoids {
+    color: #ab47bc;
+  }
+
+  &.clear {
+    color: #78909c;
   }
 }
