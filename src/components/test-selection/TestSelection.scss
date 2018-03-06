@@ -1,10 +1,15 @@
 @import "../../scss/common.scss";
 @import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
 
 .test-selection {
   @extend %page;
 
   @include themify($themes) {
     color: themed("contentTextColor");
+  }
+
+  &__navbar {
+    @include box-shadow($level: 1);
   }
 }

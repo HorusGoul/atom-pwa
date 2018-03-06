@@ -38,6 +38,12 @@ class MainMenu extends React.Component<Props, {}> {
   public render() {
     return (
       <div className="main-menu">
+        <div className="main-menu__brand">
+          <div className="main-menu__logo" />
+
+          <div className="main-menu__app-name">{i18n("app_name")}</div>
+        </div>
+
         <div className="main-menu__entries">
           {this.menuEntries.map((menuEntry, index) => (
             <MenuEntry
