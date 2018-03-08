@@ -1,6 +1,7 @@
 import * as autobind from "autobind-decorator";
 import * as classNames from "classnames";
 import * as React from "react";
+import "./Icon.scss";
 
 const iconCache: { [key: string]: string } = {};
 

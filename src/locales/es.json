@@ -210,5 +210,8 @@
   "change_theme": "Cambiar Tema",
   "theme-light": "Claro",
   "theme-dark": "Oscuro",
-  "theme-black": "Negro"
+  "theme-black": "Negro",
+  "contact_me": "Contáctame",
+  "bug_report": "Reportar bug",
+  "source_code": "Código fuente"
 }

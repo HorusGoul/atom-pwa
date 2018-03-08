@@ -210,5 +210,8 @@
   "change_theme": "Change Theme",
   "theme-light": "Light",
   "theme-dark": "Dark",
-  "theme-black": "Black"
+  "theme-black": "Black",
+  "contact_me": "Contact me",
+  "bug_report": "Report bug",
+  "source_code": "Source code"
 }

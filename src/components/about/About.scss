@@ -13,6 +13,7 @@
   .card {
     margin: 16px;
     border-radius: 2px;
+    overflow: hidden;
   }
 
   &__subtitle {
@@ -30,13 +31,22 @@
     @include box-shadow($level: 1);
   }
 
-  &__app-preferences {
+  &__app-preferences,
+  &__about {
     &__buttons {
       display: flex;
 
       & > * {
         flex: 1;
+        text-align: center;
       }
+    }
+  }
+
+  &__about {
+    &__text {
+      margin: 0;
+      padding: 0 16px 16px;
     }
   }
 }

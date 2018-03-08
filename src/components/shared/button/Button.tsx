@@ -8,12 +8,13 @@ export interface IButtonProps extends React.Props<{}> {
   className?: string;
   onClick?: () => void;
   circle?: boolean;
+  link?: string;
 }
 
 @autobind
 class Button extends React.Component<IButtonProps, {}> {
   public render() {
-    const { className, circle } = this.props;
+    const { className, circle, link } = this.props;
     const buttonClass = classNames(
       "button",
       {
@@ -21,6 +22,16 @@ class Button extends React.Component<IButtonProps, {}> {
       },
       className
     );
+
+    if (link) {
+      return (
+        <a href={link} className={buttonClass} onClick={this.onClick}>
+          {this.props.children}
+
+          <Ink />
+        </a>
+      );
+    }
 
     return (
       <button className={buttonClass} onClick={this.onClick}>
