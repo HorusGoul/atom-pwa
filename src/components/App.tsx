@@ -1,19 +1,28 @@
+import autobind from "autobind-decorator";
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
-
+import Locale from "../Locale";
+import About from "./about/About";
 import "./App.scss";
 import MainMenu from "./main-menu/MainMenu";
-import TestSelection from "./test-selection/TestSelection";
-import ValencesTest from "./valences-test/ValencesTest";
-
-import About from "./about/About";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
 import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
 import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
+import TestSelection from "./test-selection/TestSelection";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
+import ValencesTest from "./valences-test/ValencesTest";
 
+@autobind
 class App extends React.Component<{}, {}> {
+  public componentDidMount() {
+    Locale.addLocaleChangeListener(this.reRenderApp);
+  }
+
+  public componentWillUnmount() {
+    Locale.removeLocaleChangeListener(this.reRenderApp);
+  }
+
   public componentWillMount() {
     document.body.className = "theme-light";
   }
@@ -60,6 +69,10 @@ class App extends React.Component<{}, {}> {
         </div>
       </div>
     );
+  }
+
+  private reRenderApp() {
+    this.forceUpdate();
   }
 }
 

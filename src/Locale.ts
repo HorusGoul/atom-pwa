@@ -2,6 +2,8 @@ interface ILocale {
   [key: string]: string;
 }
 
+type LocaleChangeListener = () => void;
+
 export const DEFAULT_LOCALE = "en";
 export const SUPPORTED_LOCALES = ["en", "es"];
 
@@ -10,6 +12,7 @@ class Locale {
   private currentLang: string;
   private currentLocales: ILocale;
   private defaultLocales: ILocale = require(`./locales/${DEFAULT_LOCALE}.json`);
+  private localeChangeListeners: LocaleChangeListener[] = [];
 
   public setLocale(lang: string) {
     if (SUPPORTED_LOCALES.indexOf(lang) === -1) {
@@ -18,6 +21,8 @@ class Locale {
 
     this.currentLang = lang;
     this.currentLocales = require(`./locales/${lang}.json`);
+
+    this.localeChangeListeners.forEach(listener => listener());
   }
 
   public getString(localeName: string) {
@@ -36,9 +41,19 @@ class Locale {
   public getCurrentLang() {
     return this.currentLang;
   }
+
+  public addLocaleChangeListener(listener: LocaleChangeListener) {
+    this.localeChangeListeners.push(listener);
+  }
+
+  public removeLocaleChangeListener(listener: LocaleChangeListener) {
+    this.localeChangeListeners = this.localeChangeListeners.filter(
+      currentListener => currentListener !== listener
+    );
+  }
 }
 
 export default new Locale();
 
-export const i18n = (localeName: string) =>
+export const i18n = (localeName: string): string =>
   module.exports.default.getString(localeName);

@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { i18n } from "../../Locale";
+import LocaleSelector from "../locale-selector/LocaleSelector";
 import Navbar from "../shared/navbar/Navbar";
 import "./About.scss";
 
@@ -18,6 +19,8 @@ class About extends React.Component<Props, {}> {
           backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
+
+        <LocaleSelector />
       </div>
     );
   }

@@ -7,6 +7,7 @@
 
   @include themify($themes) {
     color: themed("contentTextColor");
+    fill: themed("contentTextColor");
   }
 
   &__navbar {
