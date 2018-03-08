@@ -25,14 +25,14 @@ class ThemeSelector extends React.Component<{}, IThemeSelectorState> {
     return (
       <>
         <IconButton
-          className="locale-selector__button"
+          className="theme-selector__button"
           iconName="format_paint"
           text={i18n("change_theme")}
           onClick={this.openSelector}
         />
 
         <SelectorModal
-          className="locale-selector__modal"
+          className="theme-selector__modal"
           title={i18n("change_theme")}
           closeButton={true}
           onOptionSelected={this.onOptionSelected}

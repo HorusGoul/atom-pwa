@@ -3,6 +3,7 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { i18n } from "../../Locale";
 import LocaleSelector from "../locale-selector/LocaleSelector";
+import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import ThemeSelector from "../theme-selector/ThemeSelector";
 import "./About.scss";
@@ -21,8 +22,14 @@ class About extends React.Component<Props, {}> {
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
-        <LocaleSelector />
-        <ThemeSelector />
+        <Card className="about__app-preferences">
+          <div className="about__subtitle">{i18n("app_settings")}</div>
+
+          <div className="about__app-preferences__buttons">
+            <LocaleSelector />
+            <ThemeSelector />
+          </div>
+        </Card>
       </div>
     );
   }
