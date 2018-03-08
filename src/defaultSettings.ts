@@ -1,5 +1,6 @@
 import { ISettings } from "./AppSettings";
 import Locale from "./Locale";
+import { DEFAULT_THEME } from "./Theme";
 
 const defaultSettings: ISettings = {
   locale: Locale.getBrowserLocale(),
@@ -11,7 +12,7 @@ const defaultSettings: ISettings = {
       elements: null
     }
   },
-  theme: "light"
+  theme: DEFAULT_THEME
 };
 
 export default defaultSettings;

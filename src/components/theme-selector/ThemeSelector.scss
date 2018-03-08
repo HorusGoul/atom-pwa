@@ -1,0 +1,27 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.theme-selector {
+  &__button {
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  &__modal {
+    max-width: 288px;
+    max-height: 80%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+
+    @include box-shadow($level: 2);
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+      color: transparentize(themed("contentTextColor"), 0.22);
+      fill: transparentize(themed("contentTextColor"), 0.22);
+    }
+  }
+}

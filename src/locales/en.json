@@ -206,5 +206,9 @@
   "element_name_moscovium": "Moscovium",
   "element_name_livermorium": "Livermorium",
   "element_name_tennessine": "Tennessine",
-  "element_name_oganesson": "Oganesson"
+  "element_name_oganesson": "Oganesson",
+  "change_theme": "Change Theme",
+  "theme-light": "Light",
+  "theme-dark": "Dark",
+  "theme-black": "Black"
 }

@@ -13,6 +13,9 @@ AppSettings.loadSettings();
 import Locale from "./Locale";
 Locale.setLocale(AppSettings.settings.locale);
 
+import Theme from "./Theme";
+Theme.setTheme(AppSettings.settings.theme);
+
 import ElementManager from "./ElementManager";
 ElementManager.loadElements();
 

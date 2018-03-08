@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 import Locale from "../Locale";
+import Theme from "../Theme";
 import About from "./about/About";
 import "./App.scss";
 import MainMenu from "./main-menu/MainMenu";
@@ -17,14 +18,16 @@ import ValencesTest from "./valences-test/ValencesTest";
 class App extends React.Component<{}, {}> {
   public componentDidMount() {
     Locale.addLocaleChangeListener(this.reRenderApp);
+    Theme.addThemeChangeListener(this.setThemeClass);
   }
 
   public componentWillUnmount() {
     Locale.removeLocaleChangeListener(this.reRenderApp);
+    Theme.removeThemeChangeListener(this.setThemeClass);
   }
 
   public componentWillMount() {
-    document.body.className = "theme-light";
+    this.setThemeClass(Theme.getCurrentTheme());
   }
 
   public render() {
@@ -69,6 +72,10 @@ class App extends React.Component<{}, {}> {
         </div>
       </div>
     );
+  }
+
+  private setThemeClass(theme: string) {
+    document.body.className = "theme-" + theme;
   }
 
   private reRenderApp() {

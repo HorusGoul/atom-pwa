@@ -4,6 +4,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import { i18n } from "../../Locale";
 import LocaleSelector from "../locale-selector/LocaleSelector";
 import Navbar from "../shared/navbar/Navbar";
+import ThemeSelector from "../theme-selector/ThemeSelector";
 import "./About.scss";
 
 type Props = RouteComponentProps<any>;
@@ -21,6 +22,7 @@ class About extends React.Component<Props, {}> {
         />
 
         <LocaleSelector />
+        <ThemeSelector />
       </div>
     );
   }
