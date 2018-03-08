@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import "./App.scss";
 import MainMenu from "./main-menu/MainMenu";
 import TestSelection from "./test-selection/TestSelection";
 import ValencesTest from "./valences-test/ValencesTest";
 
-import "./App.scss";
+import About from "./about/About";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
 import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
@@ -54,6 +55,7 @@ class App extends React.Component<{}, {}> {
               path="/periodic-table"
               component={PeriodicTablePage}
             />
+            <Route exact={true} path="/about" component={About} />
           </Switch>
         </div>
       </div>
