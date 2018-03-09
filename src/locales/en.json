@@ -213,5 +213,8 @@
   "theme-black": "Black",
   "contact_me": "Contact me",
   "bug_report": "Report bug",
-  "source_code": "Source code"
+  "source_code": "Source code",
+  "complete_the_table": "Complete the table",
+  "complete_the_table_desc":
+    "Place this element where it belongs to complete the periodic table"
 }

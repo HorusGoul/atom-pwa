@@ -6,6 +6,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
+import { i18n } from "../../Locale";
 import PeriodicTable, {
   IPeriodicTableElement
 } from "../periodic-table/PeriodicTable";
@@ -66,7 +67,7 @@ class PeriodicTableTest extends React.Component<
           className="periodic-table-test__modal-question"
           open={questionModalOpen}
           onClose={this.closeQuestionModal}
-          title="Complete the table"
+          title={i18n("complete_the_table")}
           closeButton={true}
         >
           {currentQuestion && (
@@ -82,25 +83,27 @@ class PeriodicTableTest extends React.Component<
           )}
 
           <div className="periodic-table-test__modal-question__text">
-            Place this element where it belongs to complete the periodic table
+            {i18n("complete_the_table_desc")}
           </div>
         </SwipeableModal>
 
         {currentQuestion && (
-          <Button
-            className={classNames(
-              "periodic-table-test__current-question",
-              "element",
-              currentQuestion.element.group
-            )}
-            onClick={this.openQuestionModal}
-          >
-            {currentQuestion.element.symbol}
+          <div className={classNames("periodic-table-test__current-question")}>
+            <Button
+              className={classNames(
+                "periodic-table-test__current-question__button",
+                "element",
+                currentQuestion.element.group
+              )}
+              onClick={this.openQuestionModal}
+            >
+              {currentQuestion.element.symbol}
 
-            <div className="periodic-table-test__current-question__label">
-              ?
-            </div>
-          </Button>
+              <div className="periodic-table-test__current-question__label">
+                ?
+              </div>
+            </Button>
+          </div>
         )}
       </div>
     );
