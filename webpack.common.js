@@ -29,24 +29,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [
           "file-loader",

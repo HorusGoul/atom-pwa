@@ -24,5 +24,28 @@ module.exports = Merge(CommonConfig, {
     https: true
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   plugins: [new webpack.HotModuleReplacementPlugin()]
 });
