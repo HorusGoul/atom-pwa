@@ -110,7 +110,7 @@ class SwipeableModal extends React.Component<
   }
 
   private bodyOverflow(open: boolean) {
-    document.body.style.overflow = open ? "hidden" : "initial";
+    document.body.style.overflow = open ? "hidden" : "";
   }
 
   private killHammer() {

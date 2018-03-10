@@ -84,7 +84,7 @@ class Modal extends React.Component<IModalProps, IModalState> {
   }
 
   private bodyOverflow(open: boolean) {
-    document.body.style.overflow = open ? "hidden" : "initial";
+    document.body.style.overflow = open ? "hidden" : "";
   }
 
   private open() {
