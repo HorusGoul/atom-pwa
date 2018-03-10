@@ -8,6 +8,10 @@
     background-color: themed("primary");
   }
 
+  @include IEFix() {
+    height: 0;
+  }
+
   &__test {
     flex: 1;
     display: flex;

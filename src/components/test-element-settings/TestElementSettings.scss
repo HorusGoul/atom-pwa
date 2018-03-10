@@ -7,6 +7,10 @@
   padding: 8px 16px;
   text-transform: none;
 
+  @include IEFix() {
+    justify-content: flex-start;
+  }
+
   &__symbol {
     display: flex;
     justify-content: center;
@@ -21,7 +25,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 16px;
-    text-align: start;
+    text-align: left;
   }
 
   &__name {

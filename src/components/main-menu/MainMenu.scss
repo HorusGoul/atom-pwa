@@ -10,6 +10,10 @@
     color: themed("textColorPrimary");
   }
 
+  @include IEFix() {
+    height: 0;
+  }
+
   &__brand {
     flex: 1;
     justify-self: center;
@@ -23,6 +27,7 @@
   &__logo {
     background-image: url("../../images/atom-icon.png");
     background-size: contain;
+    background-repeat: no-repeat;
     width: 64px;
     height: 64px;
   }
