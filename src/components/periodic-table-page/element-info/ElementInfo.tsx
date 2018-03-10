@@ -8,15 +8,19 @@ import "./ElementInfo.scss";
 interface IElementInfoDataEntryProps {
   name: string;
   value: any;
+  unit?: string;
 }
 
 const ElementInfoDataEntry: React.StatelessComponent<
   IElementInfoDataEntryProps
-> = ({ name, value }) => (
+> = ({ name, value, unit }) => (
   <div className="element-info__data-entry">
     <div className="element-info__data-entry__name">{name}</div>
 
-    <div className="element-info__data-entry__value">{value}</div>
+    <div className="element-info__data-entry__value">
+      {value}
+      {unit ? ` ${unit}` : ""}
+    </div>
   </div>
 );
 
@@ -34,7 +38,6 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
 
     const elementLocales = getElementLocales(element);
 
-    // TODO: ADD UNITS
     return (
       <div className="element-info">
         <div
@@ -60,6 +63,7 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
           <ElementInfoDataEntry
             name={i18n("element_data_atomicMass")}
             value={element.atomicMass}
+            unit={i18n("g_mol")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_electronicConfiguration")}
@@ -72,18 +76,22 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
           <ElementInfoDataEntry
             name={i18n("element_data_atomicRadius")}
             value={element.atomicRadius}
+            unit={i18n("pm")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_ionRadius")}
             value={element.ionRadius}
+            unit={i18n("pm")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_vanDelWaalsRadius")}
             value={element.vanDelWaalsRadius}
+            unit={i18n("pm")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_ionizationEnergy")}
             value={element.ionizationEnergy}
+            unit={i18n("kJ_mol")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_electronAffinity")}
@@ -104,14 +112,17 @@ class ElementInfo extends React.Component<IElementInfoProps, {}> {
           <ElementInfoDataEntry
             name={i18n("element_data_meltingPoint")}
             value={element.meltingPoint}
+            unit={i18n("kelvin_unit")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_boilingPoint")}
             value={element.boilingPoint}
+            unit={i18n("kelvin_unit")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_density")}
             value={element.density}
+            unit={i18n("g_cm3")}
           />
           <ElementInfoDataEntry
             name={i18n("element_data_yearDiscovered")}

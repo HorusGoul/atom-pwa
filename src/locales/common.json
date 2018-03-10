@@ -7,5 +7,9 @@
   "zero_g_mol": "0 g / mol",
   "g_mol": "g / mol",
   "banner_ad_unit_id_3": "ca-app-pub-8039329288910865/7753094380",
-  "contact_me_url": "https://twitter.com/HorusGoul"
+  "contact_me_url": "https://twitter.com/HorusGoul",
+  "pm": "pm",
+  "kJ_mol": "kJ / mol",
+  "kelvin_unit": "K",
+  "g_cm3": "g / cm³"
 }
