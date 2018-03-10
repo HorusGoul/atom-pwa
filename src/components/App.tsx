@@ -2,6 +2,17 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 import Locale from "../Locale";
+import {
+  ABOUT,
+  MAIN_MENU,
+  MASS_CALCULATOR,
+  PERIODIC_TABLE,
+  TEST_PERIODIC_TABLE,
+  TEST_PERIODIC_TABLE_SETTINGS,
+  TEST_SELECTION,
+  TEST_VALENCES,
+  TEST_VALENCES_SETTINGS
+} from "../routes";
 import Theme from "../Theme";
 import About from "./about/About";
 import "./App.scss";
@@ -35,39 +46,39 @@ class App extends React.Component<{}, {}> {
       <div className="app">
         <div className="app__content">
           <Switch>
-            <Route exact={true} path="/" component={MainMenu} />
-            <Route exact={true} path="/tests" component={TestSelection} />
+            <Route exact={true} path={MAIN_MENU} component={MainMenu} />
             <Route
               exact={true}
-              path="/tests/valences"
-              component={ValencesTest}
+              path={TEST_SELECTION}
+              component={TestSelection}
             />
+            <Route exact={true} path={TEST_VALENCES} component={ValencesTest} />
             <Route
               exact={true}
-              path="/tests/valences/settings"
+              path={TEST_VALENCES_SETTINGS}
               component={ValencesTestSettings}
             />
             <Route
               exact={true}
-              path="/tests/periodic-table"
+              path={TEST_PERIODIC_TABLE}
               component={PeriodicTableTest}
             />
             <Route
               exact={true}
-              path="/tests/periodic-table/settings"
+              path={TEST_PERIODIC_TABLE_SETTINGS}
               component={PeriodicTableTestSettings}
             />
             <Route
               exact={true}
-              path="/mass-calculator"
+              path={MASS_CALCULATOR}
               component={MassCalculator}
             />
             <Route
               exact={true}
-              path="/periodic-table"
+              path={PERIODIC_TABLE}
               component={PeriodicTablePage}
             />
-            <Route exact={true} path="/about" component={About} />
+            <Route exact={true} path={ABOUT} component={About} />
           </Switch>
         </div>
       </div>

@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { i18n } from "../../Locale";
+import { MAIN_MENU } from "../../routes";
 import LocaleSelector from "../locale-selector/LocaleSelector";
 import Card from "../shared/card/Card";
 import IconButton from "../shared/icon-button/IconButton";
@@ -60,7 +61,7 @@ class About extends React.Component<Props, {}> {
   private onNavbarBackButtonClick() {
     const { history } = this.props;
 
-    history.goBack();
+    history.push(MAIN_MENU);
   }
 }
 

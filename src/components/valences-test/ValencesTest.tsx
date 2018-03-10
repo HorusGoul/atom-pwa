@@ -6,6 +6,7 @@ import AppSettings, { IValencesTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
+import { TEST_SELECTION } from "../../routes";
 import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
@@ -63,7 +64,7 @@ class ValencesTest extends React.Component<Props, {}> {
   private onNavbarBackButtonClick() {
     const { history } = this.props;
 
-    history.goBack();
+    history.push(TEST_SELECTION);
   }
 
   private onQuestionAnswer(

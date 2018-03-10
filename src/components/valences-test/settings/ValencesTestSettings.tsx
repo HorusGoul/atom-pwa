@@ -13,6 +13,7 @@ import AppSettings, {
 } from "../../../AppSettings";
 import ElementManager from "../../../ElementManager";
 import { i18n } from "../../../Locale";
+import { TEST_SELECTION } from "../../../routes";
 import Button from "../../shared/button/Button";
 import Checkbox from "../../shared/checkbox/Checkbox";
 import IconButton from "../../shared/icon-button/IconButton";
@@ -190,7 +191,7 @@ class ValencesTestSettings extends React.Component<
   private onNavbarBackButtonClick() {
     const { history } = this.props;
 
-    history.goBack();
+    history.push(TEST_SELECTION);
   }
 
   private setElementStates() {

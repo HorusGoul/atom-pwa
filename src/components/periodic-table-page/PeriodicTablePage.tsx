@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
+import { MAIN_MENU } from "../../routes";
 import PeriodicTable, {
   IPeriodicTableElement
 } from "../periodic-table/PeriodicTable";
@@ -102,7 +103,7 @@ class PeriodicTablePage extends React.Component<
   private onNavbarBackButtonClick() {
     const { history } = this.props;
 
-    history.goBack();
+    history.push(MAIN_MENU);
   }
 }
 

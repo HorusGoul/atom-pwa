@@ -7,6 +7,7 @@ import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
+import { TEST_SELECTION } from "../../routes";
 import PeriodicTable, {
   IPeriodicTableElement
 } from "../periodic-table/PeriodicTable";
@@ -246,7 +247,7 @@ class PeriodicTableTest extends React.Component<
   private onNavbarBackButtonClick() {
     const { history } = this.props;
 
-    history.goBack();
+    history.push(TEST_SELECTION);
   }
 }
 
