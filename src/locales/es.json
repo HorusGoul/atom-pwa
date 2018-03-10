@@ -216,5 +216,8 @@
   "source_code": "Código fuente",
   "complete_the_table": "Completa la tabla",
   "complete_the_table_desc":
-    "Coloca este elemento en su lugar para completar la tabla periódica"
+    "Coloca este elemento en su lugar para completar la tabla periódica",
+  "test_results": "Resultados del test",
+  "retake_full_test": "Rehacer test completo",
+  "retake_incorrect_answers": "Rehacer respuestas equivocadas"
 }

@@ -10,7 +10,9 @@ import { TEST_SELECTION } from "../../routes";
 import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
+import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
+import TestResults from "../test-results/TestResults";
 import {
   getValencesTestSettings,
   setDefaultValencesTestSettings
@@ -25,12 +27,16 @@ interface IValencesTestQuestionCard extends IQuestionCard {
 
 interface IValencesTestState {
   questions: IValencesTestQuestionCard[];
+  right: IValencesTestQuestionCard[];
+  wrong: IValencesTestQuestionCard[];
 }
 
 @autobind
 class ValencesTest extends React.Component<Props, {}> {
   public state: IValencesTestState = {
-    questions: []
+    questions: [],
+    right: [],
+    wrong: []
   };
 
   private settings: IValencesTestSettings = getValencesTestSettings();
@@ -40,7 +46,8 @@ class ValencesTest extends React.Component<Props, {}> {
   }
 
   public render() {
-    const { questions } = this.state;
+    const { questions, wrong, right } = this.state;
+    const hasQuestions = !!questions.length;
 
     return (
       <div className="valences-test">
@@ -50,13 +57,28 @@ class ValencesTest extends React.Component<Props, {}> {
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
-        <div className="valences-test__test">
-          <QuestionsTest
-            title={i18n("select_valence")}
-            questions={questions}
-            onQuestionAnswer={this.onQuestionAnswer}
-          />
-        </div>
+        {hasQuestions && (
+          <div className="valences-test__test">
+            <QuestionsTest
+              title={i18n("select_valence")}
+              questions={questions}
+              onQuestionAnswer={this.onQuestionAnswer}
+            />
+          </div>
+        )}
+
+        {!hasQuestions && (
+          <div className="valences-test__result">
+            <Card className="valences-test__result-card">
+              <TestResults
+                wrongAnswers={wrong.length}
+                rightAnswers={right.length}
+                onRepeat={this.repeatTest}
+                onRepeatWrongAnswers={this.repeatWrongAnswers}
+              />
+            </Card>
+          </div>
+        )}
       </div>
     );
   }
@@ -75,13 +97,22 @@ class ValencesTest extends React.Component<Props, {}> {
       element => element.atomic === question.data.atomic
     );
 
-    elementSetting.stats.times++;
+    const alreadyAnswered = this.isAlreadyAnswered(question);
+
+    if (!alreadyAnswered) {
+      elementSetting.stats.times++;
+
+      if (answer.right) {
+        elementSetting.stats.right++;
+        this.addRightAnsweredQuestion(question);
+      } else {
+        elementSetting.stats.wrong++;
+        this.addWrongAnsweredQuestion(question);
+      }
+    }
 
     if (answer.right) {
       this.removeQuestion(question);
-      elementSetting.stats.right++;
-    } else {
-      elementSetting.stats.wrong++;
     }
 
     AppSettings.save();
@@ -132,6 +163,59 @@ class ValencesTest extends React.Component<Props, {}> {
       answer,
       right
     };
+  }
+
+  private isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
+    const { right, wrong } = this.state;
+    return [...right, ...wrong].indexOf(question) !== -1;
+  }
+
+  private addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
+    const { right } = this.state;
+
+    this.setState({
+      right: [...right, question]
+    });
+  }
+
+  private addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
+    const { wrong } = this.state;
+
+    this.setState({
+      wrong: [...wrong, question]
+    });
+  }
+
+  private clearWrongResults() {
+    this.setState({
+      wrong: []
+    });
+  }
+
+  private clearRightResults() {
+    this.setState({
+      right: []
+    });
+  }
+
+  private clearResults() {
+    this.clearWrongResults();
+    this.clearRightResults();
+  }
+
+  private repeatTest() {
+    this.clearResults();
+    this.createTestQuestions();
+  }
+
+  private repeatWrongAnswers() {
+    const { wrong } = this.state;
+
+    this.setState({
+      questions: _.shuffle(wrong)
+    });
+
+    this.clearWrongResults();
   }
 }
 

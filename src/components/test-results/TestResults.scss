@@ -1,0 +1,57 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+
+.test-results {
+  @include themify($themes) {
+    background-color: desaturate(themed("danger"), 20);
+  }
+
+  &--good {
+    @include themify($themes) {
+      background-color: themed("accent");
+    }
+  }
+
+  &__title {
+    padding: 16px 16px 8px;
+    font-weight: 600;
+    font-size: 16pt;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 16px;
+
+    &__divider,
+    &__total {
+      align-self: flex-end;
+    }
+
+    &__right {
+      font-size: 96pt;
+      font-weight: 200;
+    }
+
+    &__divider {
+      font-size: 36pt;
+      font-weight: 200;
+    }
+
+    &__total {
+      font-size: 24pt;
+    }
+  }
+
+  &__buttons {
+    & > * {
+      flex-direction: row;
+
+      .icon-button__text {
+        padding-left: 16px;
+        padding-top: 0;
+        text-align: left;
+      }
+    }
+  }
+}
