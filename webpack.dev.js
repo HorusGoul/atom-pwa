@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const Merge = require("webpack-merge");
 const CommonConfig = require("./webpack.common");
 const fs = require("fs");
+const postcssConfig = require('./postcss.config');
 
 module.exports = Merge(CommonConfig, {
   entry: [
@@ -35,6 +36,12 @@ module.exports = Merge(CommonConfig, {
             options: {
               sourceMap: true
             }
+          },
+          {
+            loader: "postcss-loader",
+            options: Object.assign({}, postcssConfig, {
+              sourceMap: true
+            })
           },
           {
             loader: "sass-loader",
