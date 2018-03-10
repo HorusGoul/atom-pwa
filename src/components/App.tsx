@@ -1,6 +1,7 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
+import { Analytics } from "../Analytics";
 import Locale from "../Locale";
 import {
   ABOUT,
@@ -45,6 +46,8 @@ class App extends React.Component<{}, {}> {
     return (
       <div className="app">
         <div className="app__content">
+          <Route path="/" component={Analytics} />
+
           <Switch>
             <Route exact={true} path={MAIN_MENU} component={MainMenu} />
             <Route
