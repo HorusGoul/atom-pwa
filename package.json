@@ -24,6 +24,8 @@
     "animejs": "^2.2.0",
     "autobind-decorator": "^2.1.0",
     "classnames": "^2.2.5",
+    "es6-promise": "^4.2.4",
+    "es6-shim": "^0.35.3",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
@@ -32,11 +34,13 @@
     "react-ink": "https://github.com/HorusGoul/react-ink",
     "react-portal": "3.2.0",
     "react-router-dom": "^4.2.2",
-    "react-virtualized": "^9.18.5"
+    "react-virtualized": "^9.18.5",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "@types/animejs": "^2.0.0",
     "@types/classnames": "^2.2.3",
+    "@types/es6-promise": "^3.3.0",
     "@types/hammerjs": "^2.0.35",
     "@types/lodash": "^4.14.102",
     "@types/node": "^9.4.0",
