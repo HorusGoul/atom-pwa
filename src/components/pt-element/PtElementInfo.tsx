@@ -4,6 +4,7 @@ import * as React from "react";
 import Ink = require("react-ink");
 import { IElement } from "../../Element";
 import { getElementLocales } from "../../ElementManager";
+import Button from "../shared/button/Button";
 import "./PtElement.scss";
 
 export interface IPtElementInfoProps {
@@ -18,7 +19,7 @@ class PtElementInfo extends React.Component<IPtElementInfoProps> {
     const elementLocales = getElementLocales(element);
 
     return (
-      <div
+      <Button
         onClick={this.onClick}
         className={classNames("pt-element", "element", element.group)}
       >
@@ -27,9 +28,7 @@ class PtElementInfo extends React.Component<IPtElementInfoProps> {
         <div className="pt-element__symbol">{element.symbol}</div>
 
         <div className="pt-element__name">{elementLocales.name}</div>
-
-        <Ink />
-      </div>
+      </Button>
     );
   }
 

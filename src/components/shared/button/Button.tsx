@@ -34,11 +34,11 @@ class Button extends React.Component<IButtonProps, {}> {
     }
 
     return (
-      <button className={buttonClass} onClick={this.onClick}>
+      <a role="button" className={buttonClass} onClick={this.onClick}>
         {this.props.children}
 
         <Ink />
-      </button>
+      </a>
     );
   }
 

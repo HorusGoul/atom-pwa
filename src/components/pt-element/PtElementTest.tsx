@@ -3,6 +3,7 @@ import classNames = require("classnames");
 import * as React from "react";
 import Ink = require("react-ink");
 import { getElementLocales } from "../../ElementManager";
+import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
 import { IPtElementInfoProps } from "./PtElementInfo";
@@ -34,7 +35,7 @@ class PtElementTest extends React.Component<
     const elementLocales = getElementLocales(element);
 
     return (
-      <div
+      <Button
         onClick={this.onClick}
         className={classNames("pt-element", "element", {
           [element.group]: discovered,
@@ -56,9 +57,7 @@ class PtElementTest extends React.Component<
 
           <div>Oops!</div>
         </div>
-
-        <Ink />
-      </div>
+      </Button>
     );
   }
 
