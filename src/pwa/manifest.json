@@ -1,6 +1,8 @@
 {
   "short_name": "Atom",
   "name": "Atom - Periodic Table & Tests",
+  "description":
+    "Learn the basics of chemistry doing the tests and using the periodic table.\n\n<b>FEATURES:</b>\n• Periodic table test\n• Chemical valences test\n• All the elements of the periodic table\n• Atomic number, atomic mass, electronic configuration, electronegativity, oxidation states, bonding type, melting point, boiling point, density, year of discovery and valency\n• Molar mass calculator\n\nThere will be more tests in the future!",
   "icons": [
     {
       "src": "/icons/logo_atom-192x192.png",
@@ -30,5 +32,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#00897b"
+  "background_color": "#193132",
+  "theme_color": "#193132"
 }
