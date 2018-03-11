@@ -1,5 +1,6 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
 import { Analytics } from "../Analytics";
 import Locale from "../Locale";
@@ -43,8 +44,22 @@ class App extends React.Component<{}, {}> {
   }
 
   public render() {
+    const primaryColor = Theme.getPrimaryColor();
+
+    window.console.log(primaryColor);
+
     return (
       <div className="app">
+        <Helmet>
+          <link
+            rel="mask-icon"
+            href="/icons/safari-pinned-tab.svg"
+            color={primaryColor}
+          />
+          <meta name="msapplication-TileColor" content={primaryColor} />
+          <meta name="theme-color" content={primaryColor} />
+        </Helmet>
+
         <div className="app__content">
           <Route path="/" component={Analytics} />
 
@@ -90,6 +105,7 @@ class App extends React.Component<{}, {}> {
 
   private setThemeClass(theme: string) {
     document.body.className = "theme-" + theme;
+    this.reRenderApp();
   }
 
   private reRenderApp() {

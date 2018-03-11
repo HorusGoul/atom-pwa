@@ -1,5 +1,10 @@
 export const DEFAULT_THEME = "dark";
 export const THEMES_LIST = ["dark", "light", "black"];
+const PRIMARY_COLORS: any = {
+  black: "#000000",
+  dark: "#193132",
+  light: "#00897b"
+};
 
 type ThemeChangeListener = (theme: string) => void;
 
@@ -25,6 +30,10 @@ class Theme {
     this.themeChangeListeners = this.themeChangeListeners.filter(
       currentListener => currentListener !== listener
     );
+  }
+
+  public getPrimaryColor(): string {
+    return PRIMARY_COLORS[this.currentTheme];
   }
 }
 
