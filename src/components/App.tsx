@@ -46,8 +46,6 @@ class App extends React.Component<{}, {}> {
   public render() {
     const primaryColor = Theme.getPrimaryColor();
 
-    window.console.log(primaryColor);
-
     return (
       <div className="app">
         <Helmet>
