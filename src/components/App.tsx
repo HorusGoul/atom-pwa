@@ -3,7 +3,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
 import { Analytics } from "../Analytics";
-import Locale from "../Locale";
+import Locale, { i18n } from "../Locale";
 import {
   ABOUT,
   MAIN_MENU,
@@ -49,6 +49,8 @@ class App extends React.Component<{}, {}> {
     return (
       <div className="app">
         <Helmet>
+          <html lang={Locale.getCurrentLang()} />
+
           <link
             rel="mask-icon"
             href="/icons/safari-pinned-tab.svg"
@@ -56,6 +58,12 @@ class App extends React.Component<{}, {}> {
           />
           <meta name="msapplication-TileColor" content={primaryColor} />
           <meta name="theme-color" content={primaryColor} />
+
+          <meta name="description" content={i18n("app_description")} />
+
+          <meta name="og:title" content={i18n("app_full_title")} />
+          <meta name="og:description" content={i18n("app_description")} />
+          <meta name="twitter:site" content={i18n("twitter_account")} />
         </Helmet>
 
         <div className="app__content">

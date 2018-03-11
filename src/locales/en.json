@@ -219,5 +219,8 @@
     "Place this element where it belongs to complete the periodic table",
   "test_results": "Test results",
   "retake_full_test": "Retake full test",
-  "retake_incorrect_answers": "Retake incorrect answers"
+  "retake_incorrect_answers": "Retake incorrect answers",
+  "app_full_title": "Atom - Periodic Table & Tests",
+  "app_description":
+    "Learn the basics of chemistry doing the tests and using the periodic table"
 }

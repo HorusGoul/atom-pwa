@@ -219,5 +219,8 @@
     "Coloca este elemento en su lugar para completar la tabla periódica",
   "test_results": "Resultados del test",
   "retake_full_test": "Rehacer test completo",
-  "retake_incorrect_answers": "Rehacer respuestas equivocadas"
+  "retake_incorrect_answers": "Rehacer respuestas equivocadas",
+  "app_full_title": "Atom - Tabla Periódica & Tests",
+  "app_description":
+    "Aprende química básica realizando los tests y utilizando la tabla periódica"
 }
