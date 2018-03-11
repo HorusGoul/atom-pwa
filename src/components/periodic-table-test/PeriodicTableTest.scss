@@ -14,13 +14,27 @@
     @include box-shadow($level: 1);
   }
 
+  &__result,
   &__table {
     padding-top: 56px;
     flex: 1;
+  }
 
-    @include themify($themes) {
-      background-color: themed("cardBackgroundColor");
+  &__result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      max-width: 360px;
+      width: 100%;
     }
+  }
+
+  &__result-card {
+    margin: 16px;
+    border-radius: 2px;
+    overflow: hidden;
   }
 
   &__modal-question {

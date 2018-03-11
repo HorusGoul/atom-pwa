@@ -13,8 +13,10 @@ import PeriodicTable, {
 } from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
 import Button from "../shared/button/Button";
+import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
+import TestResults from "../test-results/TestResults";
 import "./PeriodicTableTest.scss";
 import { getPeriodicTableTestSettings } from "./settings/PeriodicTableTestSettings";
 
@@ -27,6 +29,8 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 interface IPeriodicTableTestState {
   questions: IPeriodicTableTestQuestion[];
   questionModalOpen: boolean;
+  right: IPeriodicTableTestQuestion[];
+  wrong: IPeriodicTableTestQuestion[];
 }
 
 @autobind
@@ -36,7 +40,9 @@ class PeriodicTableTest extends React.Component<
 > {
   public state: IPeriodicTableTestState = {
     questionModalOpen: true,
-    questions: []
+    questions: [],
+    right: [],
+    wrong: []
   };
 
   private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
@@ -48,7 +54,7 @@ class PeriodicTableTest extends React.Component<
   }
 
   public render() {
-    const { questionModalOpen, questions } = this.state;
+    const { questionModalOpen, questions, right, wrong } = this.state;
     const currentQuestion = questions.length ? questions[0] : null;
 
     return (
@@ -60,9 +66,24 @@ class PeriodicTableTest extends React.Component<
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
-        <div className="periodic-table-test__table">
-          <PeriodicTable elementRenderer={this.elementRenderer} />
-        </div>
+        {currentQuestion && (
+          <div className="periodic-table-test__table">
+            <PeriodicTable elementRenderer={this.elementRenderer} />
+          </div>
+        )}
+
+        {!currentQuestion && (
+          <div className="periodic-table-test__result">
+            <Card className="periodic-table-test__result-card">
+              <TestResults
+                wrongAnswers={wrong.length}
+                rightAnswers={right.length}
+                onRepeat={this.repeatTest}
+                onRepeatWrongAnswers={this.repeatWrongAnswers}
+              />
+            </Card>
+          </div>
+        )}
 
         <SwipeableModal
           className="periodic-table-test__modal-question"
@@ -111,11 +132,13 @@ class PeriodicTableTest extends React.Component<
   }
 
   private elementRenderer(atomic: number): IPeriodicTableElement {
+    const element = ElementManager.getElement(atomic);
+
     return {
       component: PtElementTest,
       props: {
-        discovered: !this.isElementEnabled(atomic),
-        element: ElementManager.getElement(atomic),
+        discovered: !this.isElementInQuestions(element),
+        element,
         onClick: this.elementOnClick,
         ref: (ptElement: PtElementTest) => this.setPtElement(atomic, ptElement)
       }
@@ -131,26 +154,37 @@ class PeriodicTableTest extends React.Component<
   }
 
   private onUserAnswer(element: IElement) {
-    if (this.isAlreadyAnswered(element)) {
+    if (!this.isElementInQuestions(element)) {
       return;
     }
 
     const currentQuestion = this.getCurrentQuestion();
-    const elementSetting = this.settings.elements.find(
-      setting => setting.atomic === currentQuestion.element.atomic
-    );
+    const alreadyAnswered = this.isAlreadyAnswered(currentQuestion);
+    const rightAnswer = this.isAnswerRight(element);
 
-    elementSetting.stats.times++;
+    if (!alreadyAnswered) {
+      const elementSetting = this.settings.elements.find(
+        setting => setting.atomic === currentQuestion.element.atomic
+      );
 
-    if (this.isAnswerRight(element)) {
-      this.onRightAnswer(element);
-      elementSetting.stats.right++;
-    } else {
-      this.onWrongAnswer(element);
-      elementSetting.stats.wrong++;
+      elementSetting.stats.times++;
+
+      if (rightAnswer) {
+        elementSetting.stats.right++;
+        this.addRightAnsweredQuestion(currentQuestion);
+      } else {
+        elementSetting.stats.wrong++;
+        this.addWrongAnsweredQuestion(currentQuestion);
+      }
+
+      AppSettings.save();
     }
 
-    AppSettings.save();
+    if (rightAnswer) {
+      this.onRightAnswer(element);
+    } else {
+      this.onWrongAnswer(element);
+    }
   }
 
   private onRightAnswer(element: IElement) {
@@ -201,18 +235,12 @@ class PeriodicTableTest extends React.Component<
     return questions.length ? questions[0] : null;
   }
 
-  private isAlreadyAnswered(element: IElement): boolean {
+  private isElementInQuestions(element: IElement): boolean {
     const { questions } = this.state;
 
-    return !questions.filter(
+    return !!questions.find(
       question => question.element.atomic === element.atomic
-    ).length;
-  }
-
-  private isElementEnabled(atomic: number) {
-    return this.settings.elements.find(
-      elementSetting => elementSetting.atomic === atomic
-    ).enabled;
+    );
   }
 
   private createTestQuestions() {
@@ -242,6 +270,59 @@ class PeriodicTableTest extends React.Component<
     this.setState({
       questionModalOpen: false
     });
+  }
+
+  private isAlreadyAnswered(question: IPeriodicTableTestQuestion): boolean {
+    const { right, wrong } = this.state;
+    return [...right, ...wrong].indexOf(question) !== -1;
+  }
+
+  private addRightAnsweredQuestion(question: IPeriodicTableTestQuestion) {
+    const { right } = this.state;
+
+    this.setState({
+      right: [...right, question]
+    });
+  }
+
+  private addWrongAnsweredQuestion(question: IPeriodicTableTestQuestion) {
+    const { wrong } = this.state;
+
+    this.setState({
+      wrong: [...wrong, question]
+    });
+  }
+
+  private clearWrongResults() {
+    this.setState({
+      wrong: []
+    });
+  }
+
+  private clearRightResults() {
+    this.setState({
+      right: []
+    });
+  }
+
+  private clearResults() {
+    this.clearWrongResults();
+    this.clearRightResults();
+  }
+
+  private repeatTest() {
+    this.clearResults();
+    this.createTestQuestions();
+  }
+
+  private repeatWrongAnswers() {
+    const { wrong } = this.state;
+
+    this.setState({
+      questions: _.shuffle(wrong)
+    });
+
+    this.clearWrongResults();
   }
 
   private onNavbarBackButtonClick() {
