@@ -222,5 +222,7 @@
   "retake_incorrect_answers": "Rehacer respuestas equivocadas",
   "app_full_title": "Atom - Tabla Periódica & Tests",
   "app_description":
-    "Aprende química básica realizando los tests y utilizando la tabla periódica"
+    "Aprende química básica realizando los tests y utilizando la tabla periódica",
+  "not_found_text": "La página que estabas buscando no existe",
+  "home": "Inicio"
 }

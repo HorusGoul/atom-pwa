@@ -20,6 +20,7 @@ import About from "./about/About";
 import "./App.scss";
 import MainMenu from "./main-menu/MainMenu";
 import MassCalculator from "./mass-calculator/MassCalculator";
+import NotFound from "./not-found/NotFound";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
 import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
 import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
@@ -103,6 +104,8 @@ class App extends React.Component<{}, {}> {
               component={PeriodicTablePage}
             />
             <Route exact={true} path={ABOUT} component={About} />
+
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>

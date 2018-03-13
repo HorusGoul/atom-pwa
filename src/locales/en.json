@@ -222,5 +222,7 @@
   "retake_incorrect_answers": "Retake incorrect answers",
   "app_full_title": "Atom - Periodic Table & Tests",
   "app_description":
-    "Learn the basics of chemistry doing the tests and using the periodic table"
+    "Learn the basics of chemistry doing the tests and using the periodic table",
+  "not_found_text": "The page you were looking for doesn't exist",
+  "home": "Home"
 }

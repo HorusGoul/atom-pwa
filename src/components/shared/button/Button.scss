@@ -11,6 +11,7 @@
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
+  user-select: none;
 
   &--circle {
     border-radius: 50%;
