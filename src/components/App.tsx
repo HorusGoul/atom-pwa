@@ -65,6 +65,8 @@ class App extends React.Component<{}, {}> {
           <meta name="og:title" content={i18n("app_full_title")} />
           <meta name="og:description" content={i18n("app_description")} />
           <meta name="twitter:site" content={i18n("twitter_account")} />
+
+          <title>{i18n("app_full_title")}</title>
         </Helmet>
 
         <div className="app__content">
