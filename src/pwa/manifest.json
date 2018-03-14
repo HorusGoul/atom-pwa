@@ -20,6 +20,11 @@
       "type": "image/png"
     },
     {
+      "src": "/icons/logo_atom_windows-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
       "src": "/icons/logo_atom-48x48.png",
       "sizes": "48x48",
       "type": "image/png"
