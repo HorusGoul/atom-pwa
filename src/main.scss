@@ -73,6 +73,10 @@ textarea {
   }
 }
 
+.theme-light .element {
+  color: #fff;
+}
+
 body:not(.theme-light) .element {
   background-color: transparent;
 
