@@ -13,16 +13,22 @@ interface IElementInfoDataEntryProps {
 
 const ElementInfoDataEntry: React.StatelessComponent<
   IElementInfoDataEntryProps
-> = ({ name, value, unit }) => (
-  <div className="element-info__data-entry">
-    <div className="element-info__data-entry__name">{name}</div>
+> = ({ name, value, unit }) => {
+  if (!value) {
+    return null;
+  }
 
-    <div className="element-info__data-entry__value">
-      {value}
-      {unit ? ` ${unit}` : ""}
+  return (
+    <div className="element-info__data-entry">
+      <div className="element-info__data-entry__name">{name}</div>
+
+      <div className="element-info__data-entry__value">
+        {value}
+        {unit ? ` ${unit}` : ""}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 interface IElementInfoProps {
   element: IElement;
