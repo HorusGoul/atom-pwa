@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": false,
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
+    }
+  }
+}

@@ -2,6 +2,8 @@
 
 import "./polyfills";
 
+import "./NativeBridge";
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
