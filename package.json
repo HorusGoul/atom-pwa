@@ -1,6 +1,6 @@
 {
   "name": "atom-pwa",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Atom - Periodic Table & Tests",
   "main": "index.js",
   "author": "Horus Lugo <horusgoul@gmail.com>",

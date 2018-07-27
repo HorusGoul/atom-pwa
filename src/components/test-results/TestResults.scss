@@ -4,11 +4,15 @@
 .test-results {
   @include themify($themes) {
     background-color: desaturate(themed("danger"), 20);
+    color: themed("textColorDanger");
+    fill: themed("textColorDanger");
   }
 
   &--good {
     @include themify($themes) {
-      background-color: themed("accent");
+      background-color: themed("cardBackgroundColor");
+      color: themed("contentTextColor");
+      fill: themed("contentTextColor");
     }
   }
 
