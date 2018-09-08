@@ -63,7 +63,7 @@
   "rate_title": "Magst du diese App?",
   "mass_calculator": "Massemrechner",
   "info":
-    "If you found any bug / mistake on values send me an email or contact me via telegram (@HorusGoul). I'll fix it as soon as possible.",
+    "Wenn du einen Bug / Fehler bei den Werten gefunden hast, sende mir eine E-Mail oder kontaktiere mich per Telegramm (@HorusGoul). Ich werde es so schnell wie möglich reparieren.",
   "lang": "de",
   "result": "GESAMT",
   "search_elements": "Suche Elemente…",
@@ -74,7 +74,7 @@
   "valences_test": "Wertigkeiten Test",
   "practice": "Starten",
   "valences_test_desc":
-    "Memorize the valences practicing with this test, you just need to select the correct option on the list. To disable elements, go to the settings inside the test.",
+    "Merke dir die Wertigkeiten mit diesem Test, du musst nur die richtige Option auf der Liste auswählen. Um Elemente zu deaktivieren, gehe zu den Einstellungen des Tests.",
   "periodic_table_test": "Periodensystem",
   "periodic_table_test_desc":
     "Beherrschst du das gesamte Periidensystem ohne Fehler? Just try to set the elements in the places they belong to. You can disable elements in the settings.",
@@ -89,7 +89,7 @@
   "add_element": "Element hinzufügen",
   "clear_elements": "Löschen",
   "change_amount":
-    "Change the amount of the selected element. If you leave it at 0, the element will be removed.",
+    "Ändere den Wert des ausgewählten Elements. Wenn du ihn auf 0 lässt, wird das Element entfernt.",
   "element_name_hydrogen": "Wasserstoff",
   "element_name_helium": "Helium",
   "element_name_lithium": "Lithium",
