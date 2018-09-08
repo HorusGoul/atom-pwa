@@ -5,7 +5,7 @@ interface ILocale {
 type LocaleChangeListener = () => void;
 
 export const DEFAULT_LOCALE = "en";
-export const SUPPORTED_LOCALES = ["en", "es"];
+export const SUPPORTED_LOCALES = ["en", "es", "de"];
 
 class Locale {
   private common: ILocale = require("./locales/common.json");
