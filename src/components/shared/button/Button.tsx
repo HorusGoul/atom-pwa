@@ -4,7 +4,7 @@ import * as React from "react";
 import Ink = require("react-ink");
 import "./Button.scss";
 
-export interface IButtonProps extends React.Props<{}> {
+export interface IButtonProps {
   className?: string;
   onClick?: () => void;
   circle?: boolean;

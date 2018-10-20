@@ -8,27 +8,22 @@ const postcssConfig = require('./postcss.config');
 module.exports = Merge(CommonConfig, {
   entry: [
     "react-hot-loader/patch",
-    "webpack-dev-server/client?https://localhost:4200",
+    "webpack-dev-server/client?http://localhost:4200",
     "webpack/hot/only-dev-server"
   ],
 
-  devtool: "inline-source-map",
+  mode: 'development',
 
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, "dist"),
-    publicPath: "/",
-    port: 4200,
-    historyApiFallback: true,
-    disableHostCheck: true,
-    host: "0.0.0.0",
-    https: true
+  output: {
+    pathinfo: false,
   },
+
+  devtool: "inline-source-map",
 
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           "style-loader",
           {
@@ -50,8 +45,33 @@ module.exports = Merge(CommonConfig, {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.tsx?/,
+        use: [
+          "babel-loader",
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              experimentalWatchApi: true,
+            }
+          }
+        ],
+        exclude: /node_modules/,
+      },
     ]
+  },
+
+  devServer: {
+    hot: true,
+    contentBase: resolve(__dirname, "dist"),
+    publicPath: "/",
+    port: 4200,
+    historyApiFallback: true,
+    disableHostCheck: true,
+    host: "0.0.0.0",
+    https: true
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()]

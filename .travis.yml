@@ -9,6 +9,7 @@ cache:
   directories:
     - node_modules
 before_script:
+  - mkdir dist
   - npm install -g firebase-tools
   - yarn
 script:
