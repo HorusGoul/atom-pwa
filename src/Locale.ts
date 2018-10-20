@@ -53,7 +53,9 @@ class Locale {
   }
 }
 
-export default new Locale();
+const locale = new Locale();
+
+export default locale;
 
 export const i18n = (localeName: string): string =>
-  module.exports.default.getString(localeName);
+  locale.getString(localeName);

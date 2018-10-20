@@ -3,17 +3,21 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2016",
+      "esnext",
       "dom"
     ],
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "allowJs": true
   },
   "include": [
     "./src/**/*"

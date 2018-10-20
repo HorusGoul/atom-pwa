@@ -1,5 +1,5 @@
 import autobind from "autobind-decorator";
-import classNames = require("classnames");
+import classNames from "classnames";
 import * as React from "react";
 import Card from "../../shared/card/Card";
 import QuestionCardAnswer, {

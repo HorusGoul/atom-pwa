@@ -1,5 +1,5 @@
 import autobind from "autobind-decorator";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import * as React from "react";
 import Button, { IButtonProps } from "../../../shared/button/Button";
 

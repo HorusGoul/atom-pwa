@@ -1,5 +1,5 @@
 import autobind from "autobind-decorator";
-import * as _ from "lodash";
+import { shuffle } from "lodash";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IValencesTestSettings } from "../../AppSettings";
@@ -133,7 +133,7 @@ class ValencesTest extends React.Component<Props, {}> {
       .map(element => this.createQuestion(element));
 
     this.setState({
-      questions: _.shuffle(questions)
+      questions: shuffle(questions)
     });
   }
 
@@ -148,11 +148,11 @@ class ValencesTest extends React.Component<Props, {}> {
 
   private createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
     const rightAnswer = this.createAnswer(element.valency, true);
-    const wrongAnswerPool = _.shuffle(element.wrongValences)
+    const wrongAnswerPool = shuffle(element.wrongValences)
       .map(wrongValency => this.createAnswer(wrongValency))
       .slice(0, 3);
 
-    return _.shuffle([rightAnswer, ...wrongAnswerPool]);
+    return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
 
   private createAnswer(
@@ -212,7 +212,7 @@ class ValencesTest extends React.Component<Props, {}> {
     const { wrong } = this.state;
 
     this.setState({
-      questions: _.shuffle(wrong)
+      questions: shuffle(wrong)
     });
 
     this.clearWrongResults();

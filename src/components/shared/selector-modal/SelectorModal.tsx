@@ -1,5 +1,5 @@
 import autobind from "autobind-decorator";
-import classNames = require("classnames");
+import classNames from "classnames";
 import * as React from "react";
 import Button from "../button/Button";
 import Modal, { IModalProps } from "../modal/Modal";
