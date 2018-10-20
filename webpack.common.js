@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   context: resolve(__dirname, "src"),
 
-  entry: ["./index.tsx"],
+  entry: ["@babel/polyfill", "./index.tsx"],
 
   output: {
     path: resolve(__dirname, "dist"),

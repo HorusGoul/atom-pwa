@@ -39,7 +39,7 @@ module.exports = Merge(CommonConfig, {
       {
         test: /\.tsx?/,
         use: [
-          // "babel-loader",
+          "babel-loader",
           {
             loader: "ts-loader",
             options: {
