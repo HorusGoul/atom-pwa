@@ -61,7 +61,7 @@
   "rate_ok": "OK",
   "rate_cancel": "Abbrechen",
   "rate_title": "Magst du diese App?",
-  "mass_calculator": "Massemrechner",
+  "mass_calculator": "Massenrechner",
   "info":
     "Wenn du einen Bug / Fehler bei den Werten gefunden hast, sende mir eine E-Mail oder kontaktiere mich per Telegramm (@HorusGoul). Ich werde es so schnell wie möglich reparieren.",
   "lang": "de",
@@ -208,7 +208,7 @@
   "element_name_livermorium": "Livermorium",
   "element_name_tennessine": "Tenness",
   "element_name_oganesson": "Oganesson",
-  "change_theme": "Farbe wählen",
+  "change_theme": "Thema wählen",
   "theme-light": "Hell",
   "theme-dark": "Dunkel",
   "theme-black": "Schwarz",
