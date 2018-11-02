@@ -1,6 +1,6 @@
 import autobind from "autobind-decorator";
-import classNames = require("classnames");
-import _ = require("lodash");
+import classNames from "classnames";
+import { shuffle } from "lodash";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
@@ -250,7 +250,7 @@ class PeriodicTableTest extends React.Component<
       .map(element => this.createQuestion(element));
 
     this.setState({
-      questions: _.shuffle(questions)
+      questions: shuffle(questions)
     });
   }
 
@@ -319,7 +319,7 @@ class PeriodicTableTest extends React.Component<
     const { wrong } = this.state;
 
     this.setState({
-      questions: _.shuffle(wrong)
+      questions: shuffle(wrong)
     });
 
     this.clearWrongResults();

@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   context: resolve(__dirname, "src"),
 
-  entry: ["./index.tsx"],
+  entry: ["@babel/polyfill", "./index.tsx"],
 
   output: {
     path: resolve(__dirname, "dist"),
@@ -18,16 +18,14 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".scss", ".css", ".html"]
+    extensions: [".ts", ".tsx", ".js", ".scss", ".css", ".html"],
+    alias: {
+      "lodash": "lodash-es",
+    }
   },
 
   module: {
     rules: [
-      {
-        test: /\.tsx?/,
-        use: ["awesome-typescript-loader"],
-        exclude: /node_modules/
-      },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [

@@ -2,8 +2,10 @@ const Merge = require("webpack-merge");
 const CommonConfig = require("./webpack.common");
 const webpack = require("webpack");
 const ChunkHashPlugin = require("webpack-chunk-hash");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractScss = new ExtractTextPlugin({
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const extractScss = new MiniCssExtractPlugin({
   filename: "[name].[contenthash].css"
 });
 const postcssConfig = require('./postcss.config');
@@ -14,24 +16,55 @@ module.exports = Merge(CommonConfig, {
     chunkFilename: "[name].[chunkhash].js"
   },
 
+  mode: 'production',
+
+  devtool: "nosources-source-map",
+
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: extractScss.extract({
-          fallback: "style-loader",
-          use: [
-            "css-loader",
-            {
-              loader: "postcss-loader",
-              options: Object.assign({}, postcssConfig, {
-                sourceMap: false
-              })
-            },
-            "sass-loader"
-          ]
-        })
-      }
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: Object.assign({}, postcssConfig, {
+              sourceMap: false
+            })
+          },
+          "sass-loader",
+        ]
+      },
+      {
+        test: /\.tsx?/,
+        use: [
+          "babel-loader",
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: false,
+            }
+          }
+        ],
+        exclude: /node_modules/,
+      },
+    ]
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          beautify: false,
+          mangle: {
+            keep_fnames: true
+          },
+          comments: false,
+        },
+        sourceMap: true,
+      })
     ]
   },
 
@@ -46,17 +79,11 @@ module.exports = Merge(CommonConfig, {
         NODE_ENV: JSON.stringify("production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle: {
-        screw_ie8: true,
-        keep_fnames: true
-      },
-      compress: {
-        screw_ie8: true
-      },
-      comments: false
+    new ChunkHashPlugin({ algorithm: "md5" }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      reportFilename: "../bundle-report.html",
+      openAnalyzer: true,
     }),
-    new ChunkHashPlugin({ algorithm: "md5" })
   ]
 });

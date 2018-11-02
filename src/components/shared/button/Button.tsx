@@ -1,10 +1,10 @@
 import autobind from "autobind-decorator";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import * as React from "react";
-import Ink = require("react-ink");
+import Ink from "react-ink";
 import "./Button.scss";
 
-export interface IButtonProps extends React.Props<{}> {
+export interface IButtonProps {
   className?: string;
   onClick?: () => void;
   circle?: boolean;

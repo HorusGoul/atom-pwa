@@ -1,7 +1,7 @@
-import * as anime from "animejs";
+import anime from "animejs";
 import autobind from "autobind-decorator";
-import * as classNames from "classnames";
-import * as Hammer from "hammerjs";
+import classNames from "classnames";
+import Hammer from "hammerjs";
 import * as React from "react";
 
 import "./ListItemSwipeAction.scss";

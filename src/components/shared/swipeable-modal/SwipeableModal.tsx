@@ -1,8 +1,8 @@
-import anime = require("animejs");
+import anime from "animejs";
 import autobind from "autobind-decorator";
-import classNames = require("classnames");
+import classNames from "classnames";
 import * as React from "react";
-import * as Portal from "react-portal";
+import Portal from "react-portal";
 import IconButton from "../icon-button/IconButton";
 import Modal, { IModalProps, IModalState } from "../modal/Modal";
 import "../modal/Modal.scss";

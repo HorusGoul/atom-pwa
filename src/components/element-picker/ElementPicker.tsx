@@ -1,12 +1,9 @@
 import autobind from "autobind-decorator";
-import classNames = require("classnames");
+import classNames from "classnames";
 import * as React from "react";
-import {
-  AutoSizer,
-  List,
-  ListRowProps,
-  WindowScroller
-} from "react-virtualized";
+import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
+import { List, ListRowProps } from "react-virtualized/dist/es/List";
+import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import { IElement } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
