@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tk.horusgoul.valenciasquimicas",
+      "sha256_cert_fingerprints": [
+        "E4:F8:C8:BA:26:C2:85:73:F8:DB:44:67:6D:33:09:15:15:05:AF:9B:5C:C2:81:45:4B:08:A2:D6:69:BB:E0:12"
+      ]
+    }
+  }
+]

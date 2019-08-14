@@ -3,6 +3,7 @@ declare namespace NodeJS {
     AtomNative: {
       isHybrid: () => boolean;
       getDebugMode: () => boolean;
+      getSystemLanguage: () => string | undefined;
     };
   }
 }

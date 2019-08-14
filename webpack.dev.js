@@ -71,7 +71,7 @@ module.exports = Merge(CommonConfig, {
     historyApiFallback: true,
     disableHostCheck: true,
     host: "0.0.0.0",
-    https: true
+    https: false,
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()]

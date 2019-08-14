@@ -1,3 +1,5 @@
+import NativeBridge from "./NativeBridge";
+
 interface ILocale {
   [key: string]: string;
 }
@@ -34,7 +36,7 @@ class Locale {
   }
 
   public getBrowserLocale() {
-    const lang = window.navigator.language || DEFAULT_LOCALE;
+    const lang = NativeBridge.getSystemLanguage() || DEFAULT_LOCALE;
     return lang.slice(0, 2);
   }
 

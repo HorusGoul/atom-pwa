@@ -1,6 +1,8 @@
-const AtomNative = ((window as any).AtomNative = global.AtomNative || {
+const AtomNative = ((window as any).AtomNative = {
   getDebugMode: () => process.env.NODE_ENV !== "production",
-  isHybrid: () => false
+  isHybrid: () => false,
+  getSystemLanguage: () => window.navigator.language,
+  ...global.AtomNative
 });
 
 class NativeBridge {
@@ -10,6 +12,10 @@ class NativeBridge {
 
   public getDebugMode() {
     return AtomNative.getDebugMode();
+  }
+
+  public getSystemLanguage(): string | undefined {
+    return AtomNative.getSystemLanguage();
   }
 }
 
