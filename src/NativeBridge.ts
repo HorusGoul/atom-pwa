@@ -9,21 +9,23 @@ const AtomNative = ((window as any).AtomNative =
 
 class NativeBridge {
   public isHybrid() {
-    return AtomNative.isHybrid
-      ? AtomNative.isHybrid()
-      : platformMethods.isHybrid();
+    return this.exec("isHybrid");
   }
 
   public getDebugMode() {
-    return AtomNative.getDebugMode
-      ? AtomNative.getDebugMode()
-      : platformMethods.getDebugMode();
+    return this.exec("getDebugMode");
   }
 
-  public getSystemLanguage(): string | undefined {
-    return AtomNative.getSystemLanguage
-      ? AtomNative.getSystemLanguage()
-      : platformMethods.getSystemLanguage();
+  public getSystemLanguage() {
+    return this.exec("getSystemLanguage");
+  }
+
+  private exec<T extends keyof typeof AtomNative>(
+    methodName: T
+  ): ReturnType<(typeof AtomNative)[T]> {
+    return (AtomNative[methodName]
+      ? AtomNative[methodName]()
+      : platformMethods[methodName]()) as any;
   }
 }
 
