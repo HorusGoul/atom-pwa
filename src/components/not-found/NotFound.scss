@@ -22,7 +22,7 @@
     padding: 16px;
   }
 
-  &__cta {
+  &__cta[data-atom-button] {
     font-size: 32pt;
     margin-top: 32px;
     padding: 32px;

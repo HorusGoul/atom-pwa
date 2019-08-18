@@ -1,7 +1,6 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import Ink from "react-ink";
 import { getElementLocales } from "../../ElementManager";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";

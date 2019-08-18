@@ -85,11 +85,11 @@
     @include box-shadow($level: 3);
 
     &,
-    &__button {
+    &__button[data-atom-button] {
       border-radius: 50%;
     }
 
-    &__button {
+    &__button[data-atom-button] {
       font-size: 18pt;
       font-weight: 700;
       text-transform: none;

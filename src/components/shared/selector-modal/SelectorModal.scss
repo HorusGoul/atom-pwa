@@ -1,5 +1,5 @@
 .selector-modal {
-  &__option {
+  &__option[data-atom-button] {
     width: 100%;
     justify-content: flex-start;
     text-transform: none;

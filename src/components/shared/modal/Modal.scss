@@ -37,7 +37,7 @@
       }
     }
 
-    &__close-button {
+    &__close-button[data-atom-button] {
       margin-left: auto;
     }
   }
