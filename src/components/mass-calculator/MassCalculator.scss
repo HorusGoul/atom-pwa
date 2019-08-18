@@ -32,16 +32,18 @@
   }
 
   &__element {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 8px 16px;
-    text-transform: none;
+    &[data-atom-button] {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 8px 16px;
+      text-transform: none;
 
-    @include box-shadow($level: 1);
+      @include box-shadow($level: 1);
 
-    @include themify($themes) {
-      background-color: themed("cardBackgroundColor");
+      @include themify($themes) {
+        background-color: themed("cardBackgroundColor");
+      }
     }
 
     &__symbol {

@@ -13,7 +13,7 @@
     font-size: 20pt;
   }
 
-  &__settings-button {
+  &__settings-button[data-atom-button] {
     margin-left: auto;
   }
 

@@ -48,7 +48,7 @@
   }
 
   &__buttons {
-    & > * {
+    & > *[data-atom-button] {
       flex-direction: row;
 
       .icon-button__text {

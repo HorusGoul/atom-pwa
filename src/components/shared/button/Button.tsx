@@ -1,8 +1,8 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import Ink from "react-ink";
 import "./Button.scss";
+import ButtonBase from "@material-ui/core/ButtonBase";
 
 export interface IButtonProps {
   className?: string;
@@ -25,20 +25,28 @@ class Button extends React.Component<IButtonProps, {}> {
 
     if (link) {
       return (
-        <a href={link} className={buttonClass} onClick={this.onClick}>
+        <ButtonBase
+          data-atom-button
+          component="a"
+          href={link}
+          className={buttonClass}
+          onClick={this.onClick}
+        >
           {this.props.children}
-
-          <Ink />
-        </a>
+        </ButtonBase>
       );
     }
 
     return (
-      <a role="button" className={buttonClass} onClick={this.onClick}>
+      <ButtonBase
+        data-atom-button
+        component="a"
+        role="button"
+        className={buttonClass}
+        onClick={this.onClick}
+      >
         {this.props.children}
-
-        <Ink />
-      </a>
+      </ButtonBase>
     );
   }
 

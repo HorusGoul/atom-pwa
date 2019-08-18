@@ -25,7 +25,6 @@ class ThemeSelector extends React.Component<{}, IThemeSelectorState> {
     return (
       <>
         <IconButton
-          className="theme-selector__button"
           iconName="format_paint"
           text={i18n("change_theme")}
           onClick={this.openSelector}

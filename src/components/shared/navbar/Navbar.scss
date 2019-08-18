@@ -14,7 +14,7 @@
     fill: themed("textColorPrimary");
   }
 
-  &__back-button {
+  &__back-button[data-atom-button] {
     height: 100%;
   }
 

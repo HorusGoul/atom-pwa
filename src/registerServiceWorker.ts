@@ -12,7 +12,9 @@ const swRegister = async () => {
           // the fresh content will have been added to the cache.
           // It's the perfect time to display a "New content is
           // available; please refresh." message in your web app.
-          window.console.log("New content is available; please refresh.");
+          if (window.location.pathname === "/") {
+            window.location.reload();
+          }
         } else {
           // At this point, everything has been precached.
           // It's the perfect time to display a

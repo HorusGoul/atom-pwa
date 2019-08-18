@@ -1,6 +1,8 @@
 .icon-button {
-  justify-content: flex-start;
-  flex-direction: column;
+  &[data-atom-button] {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 
   &__icon {
     display: flex;

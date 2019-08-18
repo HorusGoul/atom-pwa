@@ -1,4 +1,4 @@
-.button {
+.button[data-atom-button] {
   border: 0;
   color: inherit;
   background-color: transparent;
@@ -18,7 +18,7 @@
   }
 }
 
-a.button {
+a.button[data-atom-button] {
   text-decoration: none;
   text-align: center;
 }

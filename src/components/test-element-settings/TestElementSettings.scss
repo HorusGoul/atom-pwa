@@ -2,13 +2,15 @@
 @import "../../scss/theming.scss";
 
 .element-selector {
-  display: flex;
-  width: 100%;
-  padding: 8px 16px;
-  text-transform: none;
+  &[data-atom-button] {
+    display: flex;
+    width: 100%;
+    padding: 8px 16px;
+    text-transform: none;
 
-  @include IEFix() {
-    justify-content: flex-start;
+    @include IEFix() {
+      justify-content: flex-start;
+    }
   }
 
   &__symbol {

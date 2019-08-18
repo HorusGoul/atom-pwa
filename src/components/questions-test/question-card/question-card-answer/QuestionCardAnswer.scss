@@ -1,7 +1,7 @@
 @import "../../../../scss/common.scss";
 @import "../../../../scss/theming.scss";
 
-.question-card-answer {
+[data-atom-button].question-card-answer {
   min-width: 50%;
   flex: 1;
   font-weight: bold;

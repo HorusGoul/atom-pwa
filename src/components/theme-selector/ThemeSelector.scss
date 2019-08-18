@@ -3,12 +3,6 @@
 @import "../../scss/helpers.scss";
 
 .theme-selector {
-  &__button {
-    flex-direction: column;
-    font-weight: bold;
-    font-size: 12px;
-  }
-
   &__modal {
     max-width: 288px;
     max-height: 80%;
