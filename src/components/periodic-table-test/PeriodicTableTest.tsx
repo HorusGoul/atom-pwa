@@ -76,6 +76,7 @@ class PeriodicTableTest extends React.Component<
           <div className="periodic-table-test__result">
             <Card className="periodic-table-test__result-card">
               <TestResults
+                gaTestName="Periodic Table Test"
                 wrongAnswers={wrong.length}
                 rightAnswers={right.length}
                 onRepeat={this.repeatTest}

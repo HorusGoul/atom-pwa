@@ -71,6 +71,7 @@ class ValencesTest extends React.Component<Props, {}> {
           <div className="valences-test__result">
             <Card className="valences-test__result-card">
               <TestResults
+                gaTestName="Valences Test"
                 wrongAnswers={wrong.length}
                 rightAnswers={right.length}
                 onRepeat={this.repeatTest}
