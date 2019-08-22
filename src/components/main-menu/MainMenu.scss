@@ -42,7 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: auto 16px 16px;
-    border-radius: 2px;
+    border-radius: $card-border-radius;
     overflow: hidden;
 
     @include box-shadow($level: 2);

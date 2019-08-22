@@ -2,6 +2,7 @@
   &[data-atom-button] {
     justify-content: flex-start;
     flex-direction: column;
+    padding: 16px;
   }
 
   &__icon {
@@ -11,7 +12,8 @@
 
   &__text {
     padding-top: 16px;
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 11pt;
+    line-height: 1.2;
   }
 }

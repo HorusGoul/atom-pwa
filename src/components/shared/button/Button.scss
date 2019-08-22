@@ -1,4 +1,4 @@
-.button[data-atom-button] {
+[data-atom-button].button {
   border: 0;
   padding: 16px;
 
@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
 
-  text-transform: uppercase;
   position: relative;
   cursor: pointer;
   user-select: none;
+  font-weight: 500;
 
   &--circle {
     border-radius: 50%;

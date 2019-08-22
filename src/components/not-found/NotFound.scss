@@ -27,7 +27,7 @@
     margin-top: 32px;
     padding: 32px;
     text-transform: none;
-    border-radius: 2px;
+    border-radius: $card-border-radius;
 
     @include box-shadow($level: 1);
 

@@ -4,6 +4,7 @@ import Button from "../../shared/button/Button";
 import Card from "../../shared/card/Card";
 import IconButton from "../../shared/icon-button/IconButton";
 import "./TestEntry.scss";
+import Icon from "../../shared/icon/Icon";
 
 export interface ITestEntry {
   title: string;
@@ -46,7 +47,13 @@ class TestEntry extends React.Component<Props, {}> {
         <div className="test-entry__description">{description}</div>
 
         <div className="test-entry__footer">
-          <Button onClick={onPracticeClick}>{i18n("practice")}</Button>
+          <Button
+            onClick={onPracticeClick}
+            className="test-entry__practice-button"
+          >
+            {i18n("practice")}
+            <Icon name="arrow_forward" />
+          </Button>
         </div>
       </Card>
     );

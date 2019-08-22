@@ -7,6 +7,7 @@
     width: 100%;
     padding: 8px 16px;
     text-transform: none;
+    font-weight: 400;
 
     @include IEFix() {
       justify-content: flex-start;

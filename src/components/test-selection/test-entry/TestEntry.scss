@@ -1,29 +1,52 @@
+@import "../../../scss/common.scss";
+@import "../../../scss/theming.scss";
+@import "../../../scss/helpers.scss";
+
 .test-entry {
   margin: 16px;
   padding: 16px;
 
-  border-radius: 2px;
+  border-radius: $card-border-radius;
+  overflow: hidden;
 
   &__header {
     display: flex;
     align-items: center;
+    height: 40px;
   }
 
   &__title {
-    font-size: 20pt;
+    font-size: 16pt;
+    font-weight: 500;
   }
 
   &__settings-button[data-atom-button] {
     margin-left: auto;
+    padding: 8px;
   }
 
   &__description {
-    font-size: 10pt;
+    font-size: 12pt;
     padding: 8px 0;
+    line-height: 1.6;
   }
 
   &__footer {
     display: flex;
     justify-content: flex-end;
+    margin: 0 -16px -16px;
+  }
+
+  &__practice-button[data-atom-button] {
+    font-size: 13pt;
+
+    @include themify($themes) {
+      color: themed("accent");
+      fill: themed("accent");
+    }
+
+    svg {
+      margin-left: 8px;
+    }
   }
 }

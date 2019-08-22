@@ -21,6 +21,11 @@
       fill: themed("accent");
     }
 
+    svg {
+      min-height: 24px;
+      min-width: 24px;
+    }
+
     &__input {
       flex: 1;
       background-color: transparent;
@@ -51,6 +56,7 @@
       width: 100%;
       padding: 8px 16px;
       text-transform: none;
+      font-weight: 400;
     }
 
     &__symbol {
