@@ -5,6 +5,8 @@
 .main-menu {
   @extend %page;
 
+  position: relative;
+
   @include themify($themes) {
     background-color: themed("primary");
     color: themed("textColorPrimary");

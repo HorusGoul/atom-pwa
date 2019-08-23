@@ -1,0 +1,84 @@
+@import "../../scss/common.scss";
+@import "../../scss/theming.scss";
+@import "../../scss/helpers.scss";
+
+.rate-app {
+  &[data-atom-button] {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 24px 0 0 24px;
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
+      color: themed("contentTextColor");
+    }
+
+    @include box-shadow($level: 2);
+  }
+
+  &--animation {
+    animation: popRate 250ms ease-in-out;
+  }
+
+  svg {
+    fill: #ffd400;
+  }
+
+  &__text {
+    margin-left: 8px;
+    font-weight: 500;
+  }
+
+  &__modal {
+    padding: 0;
+    max-width: 288px;
+    max-height: 80%;
+    height: auto;
+    will-change: transform;
+    overflow: hidden;
+
+    p {
+      padding: 0 16px 16px;
+      margin: 0;
+    }
+  }
+
+  &__modal-footer {
+    display: flex;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  &__ok-button {
+    @include themify($themes) {
+      color: themed("accent");
+      fill: themed("accent");
+    }
+
+    span {
+      padding-left: 8px;
+    }
+
+    svg {
+      margin-left: 8px;
+    }
+  }
+}
+
+@keyframes popRate {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

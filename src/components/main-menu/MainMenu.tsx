@@ -7,6 +7,7 @@ import Button from "../shared/button/Button";
 import { i18n } from "../../Locale";
 import "./MainMenu.scss";
 import MenuEntry, { IMenuEntry } from "./menu-entry/MenuEntry";
+import RateApp from "../rate-app/RateApp";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
 
@@ -38,6 +39,8 @@ class MainMenu extends React.Component<Props, {}> {
   public render() {
     return (
       <div className="main-menu">
+        <RateApp />
+
         <div className="main-menu__brand">
           <div className="main-menu__logo" />
 

@@ -27,17 +27,14 @@
   "periodic_table": "Tabla periódica",
   "rate_cancel": "Cancelar",
   "rate_ok": "Vale",
-  "rate_this_app":
-    "Si piensas que esta aplicación es útil, por favor puntuala para que otros puedan encontrarla y aprender.",
-  "rate_title": "¿Te gusta esta aplicacion?",
+  "rate_this_app": "Si piensas que esta aplicación es útil, por favor puntuala para que otros puedan encontrarla y aprender.",
+  "rate_title": "¿Te gusta esta app?",
   "restore_defaults": "Volver a los valores predefinidos",
   "select_all": "Seleccionar todos",
-  "select_elements":
-    "Selecciona los elementos que quieres aprender. Los elementos que no se muestran no están soportados por el test.",
+  "select_elements": "Selecciona los elementos que quieres aprender. Los elementos que no se muestran no están soportados por el test.",
   "settings_title": "Opciones",
   "title_activity_settings": "Opciones",
-  "info":
-    "Si encuentras algún error / fallo en los valores mándame un email o contáctame vía twitter (@HorusGoul) y lo arreglaré lo más pronto posible.",
+  "info": "Si encuentras algún error / fallo en los valores mándame un email o contáctame vía twitter (@HorusGoul) y lo arreglaré lo más pronto posible.",
   "lang": "es",
   "nav_test": "Pruebas",
   "search_elements": "Buscar elementos…",
@@ -47,12 +44,10 @@
   "undo": "Deshacer",
   "modify_quantity": "Cantidad de %s",
   "valences_test": "Test de valencias",
-  "valences_test_desc":
-    "Apréndete las valencias practicando con este test, nada mas tienes que seleccionar la opción correcta de la lista. Para desactivar elementos, ve a los ajustes del test.",
+  "valences_test_desc": "Apréndete las valencias practicando con este test, nada mas tienes que seleccionar la opción correcta de la lista. Para desactivar elementos, ve a los ajustes del test.",
   "practice": "Practicar",
   "periodic_table_test": "Tabla periódica",
-  "periodic_table_test_desc":
-    "¿Eres capaz de rellenar la tabla periódica sin errores? Intenta colocar los elementos en el sitio al que pertenecen. Puedes desactivar elementos desde las opciones.",
+  "periodic_table_test_desc": "¿Eres capaz de rellenar la tabla periódica sin errores? Intenta colocar los elementos en el sitio al que pertenecen. Puedes desactivar elementos desde las opciones.",
   "element_data_atomic": "Número atómico",
   "element_data_atomicRadius": "Radio atómico",
   "element_data_boilingPoint": "Punto de ebullición",
@@ -88,8 +83,7 @@
   "language_changed": "Se ha cambiado el idioma",
   "add_element": "Añadir elemento",
   "clear_elements": "Borrar todo",
-  "change_amount":
-    "Cambia la cantidad del elemento seleccionado. Si la dejas en 0, se eliminará.",
+  "change_amount": "Cambia la cantidad del elemento seleccionado. Si la dejas en 0, se eliminará.",
   "element_name_hydrogen": "Hidrógeno",
   "element_name_helium": "Helio",
   "element_name_lithium": "Litio",
@@ -216,14 +210,12 @@
   "bug_report": "Reportar bug",
   "source_code": "Código fuente",
   "complete_the_table": "Completa la tabla",
-  "complete_the_table_desc":
-    "Coloca este elemento en su lugar para completar la tabla periódica",
+  "complete_the_table_desc": "Coloca este elemento en su lugar para completar la tabla periódica",
   "test_results": "Resultados del test",
   "retake_full_test": "Rehacer test completo",
   "retake_incorrect_answers": "Rehacer respuestas equivocadas",
   "app_full_title": "Atom - Tabla Periódica & Tests",
-  "app_description":
-    "Aprende química básica realizando los tests y utilizando la tabla periódica",
+  "app_description": "Aprende química básica realizando los tests y utilizando la tabla periódica",
   "not_found_text": "La página que estabas buscando no existe",
   "home": "Inicio"
 }
