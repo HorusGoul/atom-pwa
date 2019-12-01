@@ -12,8 +12,7 @@
   "about": "Version: %s",
   "nav_settings": "Einstellungen",
   "author": "Autor: Horus Lugo <horusgoul@gmail.com>",
-  "select_elements":
-    "Wähle die Elemente aus, die du lernen möchtest. Elemente, die nicht angezeigt werden, werden bei diesem Test nicht unterstützt .",
+  "select_elements": "Wähle die Elemente aus, die du lernen möchtest. Elemente, die nicht angezeigt werden, werden bei diesem Test nicht unterstützt .",
   "restore_defaults": "Standard wiederherstellen",
   "select_all": "Alle auswähen",
   "deselect_all": "Auswahl aufheben",
@@ -56,14 +55,12 @@
   "bonding_atomic": "Einfach",
   "bonding_covalent_network": "Kovalent",
   "bonding_diatomic": "Doppelt",
-  "rate_this_app":
-    "Wenn fu diese App nützlich findest, bewerte sie bitze im Store, damit Andere sie finden und auch lernen können.",
+  "rate_this_app": "Wenn fu diese App nützlich findest, bewerte sie bitze im Store, damit Andere sie finden und auch lernen können.",
   "rate_ok": "OK",
   "rate_cancel": "Abbrechen",
   "rate_title": "Magst du diese App?",
   "mass_calculator": "Massenrechner",
-  "info":
-    "Wenn du einen Bug / Fehler bei den Werten gefunden hast, sende mir eine E-Mail oder kontaktiere mich per Telegramm (@HorusGoul). Ich werde es so schnell wie möglich reparieren.",
+  "info": "Wenn du einen Bug / Fehler bei den Werten gefunden hast, sende mir eine E-Mail oder kontaktiere mich per Telegramm (@HorusGoul). Ich werde es so schnell wie möglich reparieren.",
   "lang": "de",
   "result": "GESAMT",
   "search_elements": "Suche Elemente…",
@@ -73,23 +70,21 @@
   "modify_quantity": "Menge von %s",
   "valences_test": "Wertigkeiten Test",
   "practice": "Starten",
-  "valences_test_desc":
-    "Merke dir die Wertigkeiten mit diesem Test, du musst nur die richtige Option auf der Liste auswählen. Um Elemente zu deaktivieren, gehe zu den Einstellungen des Tests.",
+  "valences_test_desc": "Merke dir die Wertigkeiten mit diesem Test, du musst nur die richtige Option auf der Liste auswählen. Um Elemente zu deaktivieren, gehe zu den Einstellungen des Tests.",
   "periodic_table_test": "Periodensystem",
-  "periodic_table_test_desc":
-    "Beherrschst du das gesamte Periodensystem ohne Fehler? Versuche einfach, die Elemente an den Ort zu platzieren, an den sie gehören. Du kannst auch einzelne Elemente in den Einstellungen rausnehmen.",
+  "periodic_table_test_desc": "Beherrschst du das gesamte Periodensystem ohne Fehler? Versuche einfach, die Elemente an den Ort zu platzieren, an den sie gehören. Du kannst auch einzelne Elemente in den Einstellungen rausnehmen.",
   "periodic_table_test_settings": "Einstellungen",
   "new_version_changelog_title": "Atom: %s",
   "en": "Englisch",
   "es": "Spanisch",
   "de": "Deutsch",
+  "ro": "Rumänische",
   "change_language": "Sprache ändern",
   "app_settings": "App Einstellungen",
   "language_changed": "Sprache geändert",
   "add_element": "Element hinzufügen",
   "clear_elements": "Löschen",
-  "change_amount":
-    "Ändere den Wert des ausgewählten Elements. Wenn du ihn auf 0 lässt, wird das Element entfernt.",
+  "change_amount": "Ändere den Wert des ausgewählten Elements. Wenn du ihn auf 0 lässt, wird das Element entfernt.",
   "element_name_hydrogen": "Wasserstoff",
   "element_name_helium": "Helium",
   "element_name_lithium": "Lithium",
@@ -216,14 +211,12 @@
   "bug_report": "Fehler melden",
   "source_code": "Quellcode",
   "complete_the_table": "Fülle die Tabelle aus",
-  "complete_the_table_desc":
-    "Platziere dieses Element an der richtigen Stelle, um das Periodensystem zu vervollständigen.",
+  "complete_the_table_desc": "Platziere dieses Element an der richtigen Stelle, um das Periodensystem zu vervollständigen.",
   "test_results": "Testergebnisse",
   "retake_full_test": "Gesamten Test wiederholen",
   "retake_incorrect_answers": "Falsche Antworten wiederholen",
   "app_full_title": "Atom - Periodensystem & Tests",
-  "app_description":
-    "Lerne die Grundlagen in Chemie, in dem du Tests machst und das Periodensystem benutzt",
+  "app_description": "Lerne die Grundlagen in Chemie, in dem du Tests machst und das Periodensystem benutzt",
   "not_found_text": "Die Seite, nach der du gesucht hast, ist nicht vorhanden!",
   "home": "Start"
 }

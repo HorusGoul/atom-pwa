@@ -12,8 +12,7 @@
   "about": "Version: %s",
   "nav_settings": "Settings",
   "author": "Author: Horus Lugo <horusgoul@gmail.com>",
-  "select_elements":
-    "Select the elements you want to learn. Elements not displayed aren't supported in this test.",
+  "select_elements": "Select the elements you want to learn. Elements not displayed aren't supported in this test.",
   "restore_defaults": "Restore defaults",
   "select_all": "Select all",
   "deselect_all": "Deselect all",
@@ -56,14 +55,12 @@
   "bonding_atomic": "Atomic",
   "bonding_covalent_network": "Covalent network",
   "bonding_diatomic": "Diatomic",
-  "rate_this_app":
-    "If you think this app is useful, please rate it at the store so others will find it and learn too.",
+  "rate_this_app": "If you think this app is useful, please rate it at the store so others will find it and learn too.",
   "rate_ok": "OK",
   "rate_cancel": "Cancel",
   "rate_title": "Do you like this app?",
   "mass_calculator": "Mass calculator",
-  "info":
-    "If you found any bug / mistake on values send me an email or contact me via telegram (@HorusGoul). I'll fix it as soon as possible.",
+  "info": "If you found any bug / mistake on values send me an email or contact me via telegram (@HorusGoul). I'll fix it as soon as possible.",
   "lang": "en",
   "result": "TOTAL",
   "search_elements": "Search elements…",
@@ -73,23 +70,21 @@
   "modify_quantity": "Amount of %s",
   "valences_test": "Valences Test",
   "practice": "Practice",
-  "valences_test_desc":
-    "Memorize the valences practicing with this test, you just need to select the correct option on the list. To disable elements, go to the settings inside the test.",
+  "valences_test_desc": "Memorize the valences practicing with this test, you just need to select the correct option on the list. To disable elements, go to the settings inside the test.",
   "periodic_table_test": "Periodic table",
-  "periodic_table_test_desc":
-    "Are you able to complete the periodic table without errors? Just try to set the elements in the places they belong to. You can disable elements in the settings.",
+  "periodic_table_test_desc": "Are you able to complete the periodic table without errors? Just try to set the elements in the places they belong to. You can disable elements in the settings.",
   "periodic_table_test_settings": "Settings",
   "new_version_changelog_title": "Atom: %s",
   "en": "English",
   "es": "Spanish",
   "de": "German",
+  "ro": "Romanian",
   "change_language": "Change language",
   "app_settings": "App Settings",
   "language_changed": "Language modified",
   "add_element": "Add element",
   "clear_elements": "Clear",
-  "change_amount":
-    "Change the amount of the selected element. If you leave it at 0, the element will be removed.",
+  "change_amount": "Change the amount of the selected element. If you leave it at 0, the element will be removed.",
   "element_name_hydrogen": "Hydrogen",
   "element_name_helium": "Helium",
   "element_name_lithium": "Lithium",
@@ -216,14 +211,12 @@
   "bug_report": "Report bug",
   "source_code": "Source code",
   "complete_the_table": "Complete the table",
-  "complete_the_table_desc":
-    "Place this element where it belongs to complete the periodic table",
+  "complete_the_table_desc": "Place this element where it belongs to complete the periodic table",
   "test_results": "Test results",
   "retake_full_test": "Retake full test",
   "retake_incorrect_answers": "Retake incorrect answers",
   "app_full_title": "Atom - Periodic Table & Tests",
-  "app_description":
-    "Learn the basics of chemistry doing the tests and using the periodic table",
+  "app_description": "Learn the basics of chemistry doing the tests and using the periodic table",
   "not_found_text": "The page you were looking for doesn't exist",
   "home": "Home"
 }
