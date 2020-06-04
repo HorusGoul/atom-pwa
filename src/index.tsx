@@ -44,3 +44,19 @@ if (module.hot) {
     render(NewApp);
   });
 }
+
+let preview = false;
+
+window.addEventListener("message", event => {
+  const data = event.data;
+
+  if (data === "enable-preview") {
+    preview = true;
+  }
+});
+
+window.addEventListener("click", () => {
+  if (preview) {
+    window.postMessage("click", "*");
+  }
+});
