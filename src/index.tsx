@@ -47,8 +47,6 @@ if (module.hot) {
 
 let preview = false;
 
-window.postMessage("running", "*");
-
 window.addEventListener("message", event => {
   const data = event.data;
 
@@ -59,6 +57,6 @@ window.addEventListener("message", event => {
 
 window.addEventListener("click", () => {
   if (preview) {
-    window.postMessage("click", "*");
+    window.parent.postMessage("click", "*");
   }
 });
