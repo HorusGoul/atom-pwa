@@ -47,6 +47,8 @@ if (module.hot) {
 
 let preview = false;
 
+window.postMessage("running", "*");
+
 window.addEventListener("message", event => {
   const data = event.data;
 
