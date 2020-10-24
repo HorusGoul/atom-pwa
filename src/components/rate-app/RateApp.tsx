@@ -6,7 +6,6 @@ import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import Button from "../shared/button/Button";
 import NativeBridge from "../../NativeBridge";
 import classNames from "classnames";
-import * as ReactGA from "react-ga";
 
 interface RateAppConfig {
   timesLaunched: number;
@@ -62,10 +61,10 @@ function RateApp(): JSX.Element {
         rated: true
       }));
 
-      ReactGA.event({
-        category: "User",
-        action: `Rated the app`,
-        label: "rating"
+      NativeBridge.fa.logEvent("rating", {
+        event_category: "User",
+        event_label: "rating",
+        event_action: "Rated the app"
       });
     }
 

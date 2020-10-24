@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import * as React from "react";
 import { i18n } from "../../Locale";
+import NativeBridge from "../../NativeBridge";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
-import * as ReactGA from "react-ga";
 
 interface ITestResultsProps {
   gaTestName: string;
@@ -26,11 +26,11 @@ function TestResults({
   React.useEffect(
     () => {
       if (total > 0) {
-        ReactGA.event({
-          category: "User",
-          action: `Finished a ${gaTestName}`,
-          value: percentaje,
-          label: "test"
+        NativeBridge.fa.logEvent("test", {
+          event_category: "User",
+          event_label: "test",
+          event_action: `Finished a ${gaTestName}`,
+          value: percentaje
         });
       }
     },

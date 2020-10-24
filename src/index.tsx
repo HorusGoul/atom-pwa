@@ -2,6 +2,8 @@
 
 import "./polyfills";
 
+import "./firebase-config";
+
 import "./NativeBridge";
 
 import * as React from "react";
