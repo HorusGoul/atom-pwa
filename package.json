@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --env=dev",
     "build:dev": "webpack --env=dev",
-    "build:production": "NODE_ENV=production webpack --env=prod",
+    "build:production": "mkdir dist; NODE_ENV=production webpack --env=prod",
     "lint": "tslint src/**/*.{ts,tsx} -t prose -c tslint.json",
     "lint:fix": "tslint src/**/*.{ts,tsx} --fix -t prose -c tslint.json",
     "prelint:fix": "prettier --write src/**/*.{ts,tsx,json,scss}",

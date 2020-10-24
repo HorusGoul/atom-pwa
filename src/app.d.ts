@@ -9,4 +9,5 @@ interface Window {
     logEvent?: (type: string, jsonParams: string) => void;
     setUserProperty?: (name: string, value: string) => void;
   };
+  gtag: Gtag.Gtag;
 }

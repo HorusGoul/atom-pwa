@@ -74,10 +74,10 @@ function RateApp(): JSX.Element {
   function userOpenModal() {
     setOpen(true);
 
-    ReactGA.event({
-      category: "User",
-      action: `Opened the RateApp modal`,
-      label: "rating"
+    NativeBridge.fa.logEvent("rating", {
+      event_category: "User",
+      event_label: "rating",
+      event_action: "Opened the RateApp modal"
     });
   }
 
