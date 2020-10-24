@@ -12,13 +12,13 @@ export const TEST_PERIODIC_TABLE = TEST_SELECTION + "/periodic-table";
 export const TEST_PERIODIC_TABLE_SETTINGS = TEST_PERIODIC_TABLE + "/settings";
 
 export const SCREEN_NAME = {
-  [MAIN_MENU]: "StartMenu",
-  [TEST_SELECTION]: "TestSelection",
-  [PERIODIC_TABLE]: "PeriodicTableinfo",
-  [MASS_CALCULATOR]: "MassCalculator",
+  [MAIN_MENU]: "Atom Hub",
+  [TEST_SELECTION]: "Test Selection",
+  [PERIODIC_TABLE]: "Periodic Table",
+  [MASS_CALCULATOR]: "Mass Calculator",
   [ABOUT]: "About",
-  [TEST_VALENCES]: "ValencesTest",
-  [TEST_VALENCES_SETTINGS]: "ValencesTestSettings",
-  [TEST_PERIODIC_TABLE]: "PeriodicTableperiodicTableTest",
-  [TEST_PERIODIC_TABLE_SETTINGS]: "PeriodicTableTestSettings"
+  [TEST_VALENCES]: "Valences Quiz",
+  [TEST_VALENCES_SETTINGS]: "Valences Quiz: Settings",
+  [TEST_PERIODIC_TABLE]: "Periodic Table Quiz",
+  [TEST_PERIODIC_TABLE_SETTINGS]: "Periodic Table Quiz: Settings"
 };
