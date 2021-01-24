@@ -16,7 +16,7 @@ interface ISelectorModalProps extends IModalProps {
 }
 
 @autobind
-class SelectorModal extends React.Component<ISelectorModalProps, {}> {
+class SelectorModal extends React.Component<ISelectorModalProps> {
   public render() {
     const { options, className } = this.props;
 

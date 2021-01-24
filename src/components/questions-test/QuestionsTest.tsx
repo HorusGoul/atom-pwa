@@ -14,7 +14,7 @@ interface IQuestionTestProps {
   ) => void;
 }
 
-class QuestionsTest extends React.Component<IQuestionTestProps, {}> {
+class QuestionsTest extends React.Component<IQuestionTestProps> {
   public render() {
     const { questions, title } = this.props;
     const hasQuestions = !!questions.length;

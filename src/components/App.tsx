@@ -29,7 +29,7 @@ import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings"
 import ValencesTest from "./valences-test/ValencesTest";
 
 @autobind
-class App extends React.Component<{}, {}> {
+class App extends React.Component<unknown> {
   public componentDidMount() {
     Locale.addLocaleChangeListener(this.reRenderApp);
     Theme.addThemeChangeListener(this.setThemeClass);
@@ -40,7 +40,7 @@ class App extends React.Component<{}, {}> {
     Theme.removeThemeChangeListener(this.setThemeClass);
   }
 
-  public componentWillMount() {
+  public UNSAFE_componentWillMount() {
     this.setThemeClass(Theme.getCurrentTheme());
   }
 

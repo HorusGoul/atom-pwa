@@ -14,7 +14,7 @@ interface IThemeSelectorState {
 }
 
 @autobind
-class ThemeSelector extends React.Component<{}, IThemeSelectorState> {
+class ThemeSelector extends React.Component<unknown, IThemeSelectorState> {
   public state: IThemeSelectorState = {
     selectorOpen: false,
   };

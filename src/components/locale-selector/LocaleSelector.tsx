@@ -13,7 +13,7 @@ interface ILocaleSelectorState {
 }
 
 @autobind
-class LocaleSelector extends React.Component<{}, ILocaleSelectorState> {
+class LocaleSelector extends React.Component<unknown, ILocaleSelectorState> {
   public state: ILocaleSelectorState = {
     selectorOpen: false,
   };

@@ -7,7 +7,7 @@ interface ICardProps extends React.Props<any> {
   className?: string;
 }
 
-class Card extends React.Component<ICardProps, {}> {
+class Card extends React.Component<ICardProps> {
   public render() {
     const { className, children } = this.props;
 

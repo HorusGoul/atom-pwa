@@ -43,7 +43,7 @@ class SwipeableModal extends React.Component<
     this.killHammer();
   }
 
-  public componentWillReceiveProps(nextProps: IModalProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IModalProps) {
     if (nextProps.open !== this.props.open) {
       this.setState({ open: nextProps.open });
       this.bodyOverflow(nextProps.open);
@@ -61,7 +61,7 @@ class SwipeableModal extends React.Component<
     return false;
   }
 
-  public componentWillUpdate(
+  public UNSAFE_componentWillUpdate(
     nextProps: IModalProps,
     nextState: ISwipeableModalState
   ) {

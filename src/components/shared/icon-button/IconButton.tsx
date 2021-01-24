@@ -10,7 +10,7 @@ interface IIconButtonProps extends IButtonProps {
   text?: string;
 }
 
-class IconButton extends React.Component<IIconButtonProps, {}> {
+class IconButton extends React.Component<IIconButtonProps> {
   public render() {
     const { iconName, className, onClick, text } = this.props;
 

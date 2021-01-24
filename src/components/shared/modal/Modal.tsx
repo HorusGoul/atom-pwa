@@ -38,7 +38,7 @@ class Modal extends React.Component<IModalProps, IModalState> {
     this.bodyOverflow(false);
   }
 
-  public componentWillReceiveProps(nextProps: IModalProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IModalProps) {
     if (nextProps.open !== this.props.open) {
       this.setState({ open: nextProps.open });
       this.bodyOverflow(nextProps.open);

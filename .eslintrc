@@ -14,7 +14,8 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "prettier/prettier": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-ts-comment": "warn"
   },
   "overrides": [
     {

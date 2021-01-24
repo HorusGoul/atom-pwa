@@ -9,7 +9,7 @@ import "./NotFound.scss";
 type Props = RouteComponentProps<any>;
 
 @autobind
-class NotFound extends React.Component<Props, {}> {
+class NotFound extends React.Component<Props> {
   public render() {
     return (
       <div className="not-found">

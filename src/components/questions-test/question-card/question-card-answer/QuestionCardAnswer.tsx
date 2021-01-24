@@ -27,7 +27,7 @@ class QuestionCardAnswer extends React.Component<
     clicked: false,
   };
 
-  public componentWillReceiveProps(nextProps: IQuestionCardAnswerProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IQuestionCardAnswerProps) {
     if (nextProps.answer !== this.props.answer) {
       this.setState({
         clicked: false,

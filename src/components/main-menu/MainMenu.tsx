@@ -12,7 +12,7 @@ import RateApp from "../rate-app/RateApp";
 type Props = RouteComponentProps<any> & React.Props<any>;
 
 @autobind
-class MainMenu extends React.Component<Props, {}> {
+class MainMenu extends React.Component<Props> {
   private menuEntries: IMenuEntry[] = [
     {
       icon: "test-tube",

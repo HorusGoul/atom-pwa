@@ -14,7 +14,7 @@ interface INavbarProps {
 }
 
 @autobind
-class Navbar extends React.Component<INavbarProps, {}> {
+class Navbar extends React.Component<INavbarProps, unknown> {
   public render() {
     const { backButton, title, className } = this.props;
 

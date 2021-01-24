@@ -24,7 +24,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     open: this.props.open,
   };
 
-  public componentWillReceiveProps(nextProps: IOverlayProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IOverlayProps) {
     if (nextProps.open !== this.props.open) {
       this.setState({ open: nextProps.open });
     }

@@ -11,7 +11,7 @@ import "./TestSelection.scss";
 type Props = RouteComponentProps<any> & React.Props<any>;
 
 @autobind
-class TestSelection extends React.Component<Props, {}> {
+class TestSelection extends React.Component<Props> {
   private testEntries: ITestEntry[] = [
     {
       description: i18n("valences_test_desc"),

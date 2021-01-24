@@ -20,7 +20,7 @@ interface ITestEntryProps extends ITestEntry {
 
 type Props = ITestEntryProps;
 
-class TestEntry extends React.Component<Props, {}> {
+class TestEntry extends React.Component<Props> {
   public render() {
     const {
       title,

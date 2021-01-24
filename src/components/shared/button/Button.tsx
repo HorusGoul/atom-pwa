@@ -12,7 +12,7 @@ export interface IButtonProps {
 }
 
 @autobind
-class Button extends React.Component<IButtonProps, {}> {
+class Button extends React.Component<IButtonProps> {
   public render() {
     const { className, circle, link } = this.props;
     const buttonClass = classNames(

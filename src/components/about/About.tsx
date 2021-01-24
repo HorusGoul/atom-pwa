@@ -13,7 +13,7 @@ import "./About.scss";
 type Props = RouteComponentProps<any>;
 
 @autobind
-class About extends React.Component<Props, {}> {
+class About extends React.Component<Props> {
   public render() {
     return (
       <div className="about">

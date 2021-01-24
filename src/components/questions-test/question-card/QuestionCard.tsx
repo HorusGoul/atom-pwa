@@ -21,7 +21,7 @@ interface IQuestionCardProps {
 }
 
 @autobind
-class QuestionCard extends React.Component<IQuestionCardProps, {}> {
+class QuestionCard extends React.Component<IQuestionCardProps> {
   public render() {
     const { question, title } = this.props;
 

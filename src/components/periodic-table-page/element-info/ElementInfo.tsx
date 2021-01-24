@@ -36,7 +36,7 @@ interface IElementInfoProps {
   element: IElement;
 }
 
-class ElementInfo extends React.Component<IElementInfoProps, {}> {
+class ElementInfo extends React.Component<IElementInfoProps> {
   public render() {
     const { element } = this.props;
 

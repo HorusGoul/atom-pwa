@@ -14,10 +14,7 @@ interface ITestElementSettingsProps {
 }
 
 @autobind
-class TestElementSettings extends React.Component<
-  ITestElementSettingsProps,
-  {}
-> {
+class TestElementSettings extends React.Component<ITestElementSettingsProps> {
   public render() {
     const { setting } = this.props;
     const element = ElementManager.getElement(setting.atomic);

@@ -32,7 +32,7 @@ interface IValencesTestState {
 }
 
 @autobind
-class ValencesTest extends React.Component<Props, {}> {
+class ValencesTest extends React.Component<Props> {
   public state: IValencesTestState = {
     questions: [],
     right: [],
