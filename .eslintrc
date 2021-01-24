@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "prettier/prettier": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
