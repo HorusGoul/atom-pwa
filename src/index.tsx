@@ -1,7 +1,5 @@
 /// <reference types="node" />
 
-import "./polyfills";
-
 import "./firebase-config";
 
 import "./NativeBridge";
