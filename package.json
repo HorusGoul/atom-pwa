@@ -7,7 +7,7 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
-    "@material-ui/core": "^4.3.2",
+    "@material-ui/core": "^4.11.3",
     "animejs": "^3.2.1",
     "autobind-decorator": "^2.1.0",
     "classnames": "^2.2.5",
@@ -43,7 +43,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.5",
     "typescript": "^4.1.2",
-    "vite": "^2.0.0-beta.46",
+    "vite": "^2.0.0-beta.47",
     "vite-plugin-svgr": "^0.2.0"
   }
 }
