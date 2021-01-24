@@ -29,7 +29,7 @@ class ListItemSwipeAction extends React.Component<
     height: "auto",
     lastPosition: 0,
     opacity: 1,
-    translateX: "0%"
+    translateX: "0%",
   };
 
   private frontDiv: HTMLDivElement | null = null;
@@ -57,10 +57,10 @@ class ListItemSwipeAction extends React.Component<
         style={{ opacity, height }}
       >
         <div
-          ref={div => (this.frontDiv = div)}
+          ref={(div) => (this.frontDiv = div)}
           className={classNames("swipe-delete__front")}
           style={{
-            transform: `translateX(${translateX})`
+            transform: `translateX(${translateX})`,
           }}
         >
           {frontContent}
@@ -90,7 +90,7 @@ class ListItemSwipeAction extends React.Component<
       this.onFinal(frontPosition);
     } else {
       this.setState({
-        translateX: `${frontPosition}px`
+        translateX: `${frontPosition}px`,
       });
     }
   }
@@ -114,16 +114,16 @@ class ListItemSwipeAction extends React.Component<
       update: () => {
         this.setState({
           lastPosition: animateObject.position,
-          translateX: `${animateObject.position}px`
+          translateX: `${animateObject.position}px`,
         });
-      }
+      },
     });
   }
 
   private onAction() {
     const animateObject = {
       height: this.frontDiv!.clientHeight,
-      opacity: 1
+      opacity: 1,
     };
 
     anime({
@@ -140,9 +140,9 @@ class ListItemSwipeAction extends React.Component<
       update: () => {
         this.setState({
           height: `${animateObject.height}px`,
-          opacity: animateObject.opacity
+          opacity: animateObject.opacity,
         });
-      }
+      },
     });
   }
 }

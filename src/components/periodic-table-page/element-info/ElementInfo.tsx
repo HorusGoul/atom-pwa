@@ -11,9 +11,11 @@ interface IElementInfoDataEntryProps {
   unit?: string;
 }
 
-const ElementInfoDataEntry: React.StatelessComponent<
-  IElementInfoDataEntryProps
-> = ({ name, value, unit }) => {
+const ElementInfoDataEntry: React.StatelessComponent<IElementInfoDataEntryProps> = ({
+  name,
+  value,
+  unit,
+}) => {
   if (!value) {
     return null;
   }

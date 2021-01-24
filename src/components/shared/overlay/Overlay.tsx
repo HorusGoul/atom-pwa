@@ -17,11 +17,11 @@ interface IOverlayState {
 class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   public static defaultProps: IOverlayProps = {
     opacity: 1,
-    open: false
+    open: false,
   };
 
   public state: IOverlayState = {
-    open: this.props.open
+    open: this.props.open,
   };
 
   public componentWillReceiveProps(nextProps: IOverlayProps) {

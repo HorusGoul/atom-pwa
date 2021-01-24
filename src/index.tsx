@@ -41,7 +41,7 @@ registerServiceWorker();
 
 let preview = false;
 
-window.addEventListener("message", event => {
+window.addEventListener("message", (event) => {
   const data = event.data;
 
   if (data === "enable-preview") {

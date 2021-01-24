@@ -1,7 +1,7 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import {Portal} from "react-portal";
+import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
 import Overlay from "../overlay/Overlay";
 import "./Modal.scss";
@@ -27,7 +27,7 @@ class Modal extends React.Component<IModalProps, IModalState> {
   };
 
   public state: IModalState = {
-    open: this.props.open
+    open: this.props.open,
   };
 
   public componentDidMount() {

@@ -4,7 +4,7 @@ import { Spinner } from "../shared/spinner/Spinner";
 
 import "./PeriodicTable.scss";
 
-import data from '../../data/pt.json'
+import data from "../../data/pt.json";
 
 export interface IPeriodicTableElement {
   component: React.ComponentClass;
@@ -27,7 +27,7 @@ class PeriodicTable extends React.PureComponent<
   IPeriodicTableState
 > {
   public state: IPeriodicTableState = {
-    render: false
+    render: false,
   };
 
   private requestAnimationFrame: number | null = null;
@@ -127,7 +127,7 @@ class PeriodicTable extends React.PureComponent<
         <div className="periodic-table__cell periodic-table__cell--label">
           18
         </div>
-      </div>
+      </div>,
     ];
 
     for (let i = 0; i < data.length; i++) {

@@ -20,5 +20,5 @@ export const SCREEN_NAME = {
   [TEST_VALENCES]: "Valences Quiz",
   [TEST_VALENCES_SETTINGS]: "Valences Quiz: Settings",
   [TEST_PERIODIC_TABLE]: "Periodic Table Quiz",
-  [TEST_PERIODIC_TABLE_SETTINGS]: "Periodic Table Quiz: Settings"
+  [TEST_PERIODIC_TABLE_SETTINGS]: "Periodic Table Quiz: Settings",
 };

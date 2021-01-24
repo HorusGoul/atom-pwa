@@ -15,7 +15,7 @@ import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
 import {
   getValencesTestSettings,
-  setDefaultValencesTestSettings
+  setDefaultValencesTestSettings,
 } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
@@ -36,7 +36,7 @@ class ValencesTest extends React.Component<Props, {}> {
   public state: IValencesTestState = {
     questions: [],
     right: [],
-    wrong: []
+    wrong: [],
   };
 
   private settings: IValencesTestSettings = getValencesTestSettings();
@@ -62,7 +62,6 @@ class ValencesTest extends React.Component<Props, {}> {
             <QuestionsTest
               title={i18n("select_valence")}
               questions={questions}
-
               // @ts-ignore Fix types
               onQuestionAnswer={this.onQuestionAnswer}
             />
@@ -97,7 +96,7 @@ class ValencesTest extends React.Component<Props, {}> {
     answer: IQuestionCardAnswer
   ) {
     const elementSetting = this.settings.elements!.find(
-      element => element.atomic === question.data.atomic
+      (element) => element.atomic === question.data.atomic
     );
 
     const alreadyAnswered = this.isAlreadyAnswered(question);
@@ -125,18 +124,18 @@ class ValencesTest extends React.Component<Props, {}> {
     const { questions } = this.state;
 
     this.setState({
-      questions: questions.filter(value => value !== question)
+      questions: questions.filter((value) => value !== question),
     });
   }
 
   private createTestQuestions() {
-    const questions = this.settings.elements!
-      .filter(element => element.enabled)
-      .map(element => ElementManager.getElement(element.atomic))
-      .map(element => this.createQuestion(element!));
+    const questions = this.settings
+      .elements!.filter((element) => element.enabled)
+      .map((element) => ElementManager.getElement(element.atomic))
+      .map((element) => this.createQuestion(element!));
 
     this.setState({
-      questions: shuffle(questions)
+      questions: shuffle(questions),
     });
   }
 
@@ -145,26 +144,23 @@ class ValencesTest extends React.Component<Props, {}> {
       answers: this.createQuestionAnswers(element),
       data: element,
       question: element.symbol,
-      questionClass: `valences-test__question element ${element.group}`
+      questionClass: `valences-test__question element ${element.group}`,
     };
   }
 
   private createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
     const rightAnswer = this.createAnswer(element.valency, true);
     const wrongAnswerPool = shuffle(element.wrongValences)
-      .map(wrongValency => this.createAnswer(wrongValency))
+      .map((wrongValency) => this.createAnswer(wrongValency))
       .slice(0, 3);
 
     return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
 
-  private createAnswer(
-    answer: string,
-    right: boolean = false
-  ): IQuestionCardAnswer {
+  private createAnswer(answer: string, right = false): IQuestionCardAnswer {
     return {
       answer,
-      right
+      right,
     };
   }
 
@@ -177,7 +173,7 @@ class ValencesTest extends React.Component<Props, {}> {
     const { right } = this.state;
 
     this.setState({
-      right: [...right, question]
+      right: [...right, question],
     });
   }
 
@@ -185,19 +181,19 @@ class ValencesTest extends React.Component<Props, {}> {
     const { wrong } = this.state;
 
     this.setState({
-      wrong: [...wrong, question]
+      wrong: [...wrong, question],
     });
   }
 
   private clearWrongResults() {
     this.setState({
-      wrong: []
+      wrong: [],
     });
   }
 
   private clearRightResults() {
     this.setState({
-      right: []
+      right: [],
     });
   }
 
@@ -215,7 +211,7 @@ class ValencesTest extends React.Component<Props, {}> {
     const { wrong } = this.state;
 
     this.setState({
-      questions: shuffle(wrong)
+      questions: shuffle(wrong),
     });
 
     this.clearWrongResults();
@@ -223,5 +219,3 @@ class ValencesTest extends React.Component<Props, {}> {
 }
 
 export default withRouter<Props, React.ComponentType<Props>>(ValencesTest);
-
-

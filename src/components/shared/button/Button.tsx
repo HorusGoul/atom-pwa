@@ -18,7 +18,7 @@ class Button extends React.Component<IButtonProps, {}> {
     const buttonClass = classNames(
       "button",
       {
-        "button--circle": circle
+        "button--circle": circle,
       },
       className
     );

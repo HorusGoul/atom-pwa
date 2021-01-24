@@ -3,7 +3,7 @@ export const THEMES_LIST = ["dark", "light", "black"];
 const PRIMARY_COLORS: any = {
   black: "#000000",
   dark: "#193132",
-  light: "#00897b"
+  light: "#00897b",
 };
 
 type ThemeChangeListener = (theme: string) => void;
@@ -19,7 +19,7 @@ class Theme {
   public setTheme(theme: string) {
     this.currentTheme = theme;
 
-    this.themeChangeListeners.forEach(listener => listener(theme));
+    this.themeChangeListeners.forEach((listener) => listener(theme));
   }
 
   public addThemeChangeListener(listener: ThemeChangeListener) {
@@ -28,7 +28,7 @@ class Theme {
 
   public removeThemeChangeListener(listener: ThemeChangeListener) {
     this.themeChangeListeners = this.themeChangeListeners.filter(
-      currentListener => currentListener !== listener
+      (currentListener) => currentListener !== listener
     );
   }
 

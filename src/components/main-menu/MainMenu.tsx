@@ -17,23 +17,23 @@ class MainMenu extends React.Component<Props, {}> {
     {
       icon: "test-tube",
       name: i18n("nav_test"),
-      route: "/tests"
+      route: "/tests",
     },
     {
       icon: "periodic-table",
       name: i18n("periodic_table"),
-      route: "/periodic-table"
+      route: "/periodic-table",
     },
     {
       icon: "scale-balance",
       name: i18n("mass_calculator"),
-      route: "/mass-calculator"
+      route: "/mass-calculator",
     },
     {
       icon: "info",
       name: i18n("nav_about"),
-      route: "/about"
-    }
+      route: "/about",
+    },
   ];
 
   public render() {
@@ -71,4 +71,4 @@ class MainMenu extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props,React.ComponentType<Props>>(MainMenu);
+export default withRouter<Props, React.ComponentType<Props>>(MainMenu);

@@ -2,7 +2,7 @@ import anime from "animejs";
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import {Portal} from "react-portal";
+import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
 import Modal, { IModalProps, IModalState } from "../modal/Modal";
 import "../modal/Modal.scss";
@@ -19,7 +19,7 @@ const initialState = {
   lastPosition: null,
   opacity: 1,
   swiping: false,
-  translateX: "-50%"
+  translateX: "-50%",
 };
 
 @autobind
@@ -31,13 +31,13 @@ class SwipeableModal extends React.Component<
 
   public state: ISwipeableModalState = {
     ...initialState,
-    open: this.props.open
+    open: this.props.open,
   };
 
   private frontDiv: HTMLDivElement | null = null;
   private mcFrontDiv: HammerManager | null = null;
   private frontDivAnimation: anime.AnimeInstance | null = null;
-  private initialDivPosition: number = -1;
+  private initialDivPosition = -1;
 
   public componentWillUnmount() {
     this.killHammer();
@@ -89,7 +89,7 @@ class SwipeableModal extends React.Component<
             className={classNames("modal", this.props.className)}
             style={{
               opacity,
-              transform: `translate(${translateX}, -50%)`
+              transform: `translate(${translateX}, -50%)`,
             }}
           >
             {showHeader && (
@@ -183,7 +183,7 @@ class SwipeableModal extends React.Component<
       this.setState({
         opacity: 1 - swipeRatio,
         swiping: true,
-        translateX: `${frontPosition}px`
+        translateX: `${frontPosition}px`,
       });
     }
   }
@@ -212,9 +212,9 @@ class SwipeableModal extends React.Component<
           lastPosition: animateObject.position,
           opacity: 1 - this.swipeRatio(animateObject.position),
           swiping: false,
-          translateX: `${animateObject.position}px`
+          translateX: `${animateObject.position}px`,
         });
-      }
+      },
     });
   }
 

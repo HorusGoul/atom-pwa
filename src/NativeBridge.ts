@@ -1,10 +1,10 @@
 import firebase from "firebase/app";
 
-import packageConfig from '../package.json';
+import packageConfig from "../package.json";
 
 const platformConfig = {
   app_name: packageConfig.name,
-  app_version: packageConfig.version
+  app_version: packageConfig.version,
 };
 
 const platformFAMethods: typeof window.AtomNativeFA = {
@@ -15,7 +15,7 @@ const platformFAMethods: typeof window.AtomNativeFA = {
   },
   setUserProperty: (name, value) => {
     firebase.analytics().setUserProperties({ [name]: value });
-  }
+  },
 };
 
 const AtomNativeFA = (window.AtomNativeFA =
@@ -36,8 +36,8 @@ class NativeFABridge {
   private exec<T extends keyof typeof AtomNativeFA>(
     methodName: T,
     ...params: any[]
-    // @ts-ignore fix this
-  ): ReturnType<(typeof AtomNativeFA)[T]> {
+  ): // @ts-ignore fix this
+  ReturnType<typeof AtomNativeFA[T]> {
     return (AtomNativeFA[methodName]
       ? (AtomNativeFA[methodName] as any)(...params)
       : (platformFAMethods[methodName] as any)(...params)) as any;
@@ -47,7 +47,7 @@ class NativeFABridge {
 const platformMethods: typeof window.AtomNative = {
   getDebugMode: () => process.env.NODE_ENV !== "production",
   isHybrid: () => false,
-  getSystemLanguage: () => window.navigator.language
+  getSystemLanguage: () => window.navigator.language,
 };
 
 const AtomNative = (window.AtomNative = window.AtomNative || platformMethods);
@@ -70,7 +70,7 @@ class NativeBridge {
   private exec<T extends keyof typeof AtomNative>(
     methodName: T
     // @ts-ignore fix this
-  ): ReturnType<(typeof AtomNative)[T]> {
+  ): ReturnType<typeof AtomNative[T]> {
     return (AtomNative[methodName]
       ? AtomNative[methodName]?.()
       : platformMethods[methodName]?.()) as any;

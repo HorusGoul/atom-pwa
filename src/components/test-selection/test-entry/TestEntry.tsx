@@ -28,7 +28,7 @@ class TestEntry extends React.Component<Props, {}> {
       testRoute,
       settingsRoute,
       onPracticeClick,
-      onSettingsClick
+      onSettingsClick,
     } = this.props;
 
     return (

@@ -14,6 +14,8 @@ interface Window {
   gtag: Gtag.Gtag;
 }
 
-declare module '*.svg' {
-  export const ReactComponent: React.ComponentType<React.SVGAttributes<SVGElement>>;
+declare module "*.svg" {
+  export const ReactComponent: React.ComponentType<
+    React.SVGAttributes<SVGElement>
+  >;
 }

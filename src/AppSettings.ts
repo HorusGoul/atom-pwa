@@ -35,7 +35,7 @@ class AppSettings {
 
   public loadSettings() {
     const appSettings = JSON.parse(
-      localStorage.getItem(AppSettings.STORAGE_KEY) ?? 'null'
+      localStorage.getItem(AppSettings.STORAGE_KEY) ?? "null"
     );
 
     if (!appSettings) {

@@ -7,7 +7,7 @@ import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
 import PeriodicTable, {
-  IPeriodicTableElement
+  IPeriodicTableElement,
 } from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Modal from "../shared/modal/Modal";
@@ -33,8 +33,8 @@ class PeriodicTablePage extends React.Component<
   public state: IPeriodicTablePageState = {
     elementInfo: {
       element: ElementManager.getElement(1) as IElement,
-      open: false
-    }
+      open: false,
+    },
   };
 
   private ptElements: Map<number, PtElementInfo> = new Map();
@@ -72,8 +72,8 @@ class PeriodicTablePage extends React.Component<
       component: PtElementInfo,
       props: {
         element: ElementManager.getElement(atomic),
-        onClick: this.elementOnClick
-      }
+        onClick: this.elementOnClick,
+      },
     };
   }
 
@@ -85,8 +85,8 @@ class PeriodicTablePage extends React.Component<
     this.setState({
       elementInfo: {
         element,
-        open: true
-      }
+        open: true,
+      },
     });
   }
 
@@ -96,8 +96,8 @@ class PeriodicTablePage extends React.Component<
     this.setState({
       elementInfo: {
         ...elementInfo,
-        open: false
-      }
+        open: false,
+      },
     });
   }
 

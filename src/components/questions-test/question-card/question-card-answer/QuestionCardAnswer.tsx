@@ -24,13 +24,13 @@ class QuestionCardAnswer extends React.Component<
   IQuestionCardAnswerState
 > {
   public state: IQuestionCardAnswerState = {
-    clicked: false
+    clicked: false,
   };
 
   public componentWillReceiveProps(nextProps: IQuestionCardAnswerProps) {
     if (nextProps.answer !== this.props.answer) {
       this.setState({
-        clicked: false
+        clicked: false,
       });
     }
   }
@@ -41,7 +41,7 @@ class QuestionCardAnswer extends React.Component<
 
     const answerClass = classNames("question-card-answer", {
       "question-card-answer--clicked": clicked,
-      "question-card-answer--wrong": clicked && !right
+      "question-card-answer--wrong": clicked && !right,
     });
 
     return (
@@ -55,7 +55,7 @@ class QuestionCardAnswer extends React.Component<
     const { onClick } = this.props;
 
     this.setState({
-      clicked: true
+      clicked: true,
     });
 
     if (onClick) {

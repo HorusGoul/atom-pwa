@@ -13,7 +13,7 @@ import {
   TEST_PERIODIC_TABLE_SETTINGS,
   TEST_SELECTION,
   TEST_VALENCES,
-  TEST_VALENCES_SETTINGS
+  TEST_VALENCES_SETTINGS,
 } from "../routes";
 import Theme from "../Theme";
 import About from "./about/About";

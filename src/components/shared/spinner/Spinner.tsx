@@ -7,7 +7,7 @@ interface ISpinnerProps {
 }
 
 export const Spinner: React.StatelessComponent<ISpinnerProps> = ({
-  className
+  className,
 }) => {
   const svgClassName = className ? `spinner ${className}` : "spinner";
 

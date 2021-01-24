@@ -23,7 +23,7 @@ class PtElementTest extends React.Component<
 > {
   public state: IPtElementTestState = {
     discovered: this.props.discovered,
-    showError: false
+    showError: false,
   };
 
   private errorTimeout: number | null = null;
@@ -39,7 +39,7 @@ class PtElementTest extends React.Component<
         className={classNames("pt-element", "element", {
           [element.group]: discovered,
           clear: !discovered,
-          "pt-element--error": showError
+          "pt-element--error": showError,
         })}
       >
         <div className="pt-element__atomic">{element.atomic}</div>
@@ -62,7 +62,7 @@ class PtElementTest extends React.Component<
 
   public discover() {
     this.setState({
-      discovered: true
+      discovered: true,
     });
   }
 
@@ -72,7 +72,7 @@ class PtElementTest extends React.Component<
     }
 
     this.setState({
-      showError: true
+      showError: true,
     });
 
     this.errorTimeout = window.setTimeout(() => {

@@ -17,14 +17,14 @@ class TestSelection extends React.Component<Props, {}> {
       description: i18n("valences_test_desc"),
       settingsRoute: "/tests/valences/settings",
       testRoute: "/tests/valences",
-      title: i18n("valences_test")
+      title: i18n("valences_test"),
     },
     {
       description: i18n("periodic_table_test_desc"),
       settingsRoute: "/tests/periodic-table/settings",
       testRoute: "/tests/periodic-table",
-      title: i18n("periodic_table_test")
-    }
+      title: i18n("periodic_table_test"),
+    },
   ];
 
   public render() {

@@ -26,7 +26,7 @@ class ElementPicker extends React.Component<
   IElementPickerState
 > {
   public state: IElementPickerState = {
-    elements: []
+    elements: [],
   };
 
   // private listComponent: List;
@@ -54,7 +54,7 @@ class ElementPicker extends React.Component<
         </div>
 
         <div
-          ref={ref => (this.elementListDiv = ref)}
+          ref={(ref) => (this.elementListDiv = ref)}
           className="element-picker__element-list"
         >
           {/* <WindowScroller scrollElement={this.elementListDiv}>
@@ -140,7 +140,7 @@ class ElementPicker extends React.Component<
       return this.setElements(elements);
     }
 
-    const newElements = elements.filter(element => {
+    const newElements = elements.filter((element) => {
       const elementLocales = getElementLocales(element);
       const symbol = element.symbol.toLowerCase();
       const name = elementLocales.name.toLowerCase();
@@ -170,7 +170,7 @@ class ElementPicker extends React.Component<
 
   private setElements(elements: IElement[]) {
     this.setState({
-      elements
+      elements,
     });
 
     // this.listComponent.forceUpdateGrid();

@@ -9,7 +9,7 @@ import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
 import { shuffle } from "../../utils/shuffle";
 import PeriodicTable, {
-  IPeriodicTableElement
+  IPeriodicTableElement,
 } from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
 import Button from "../shared/button/Button";
@@ -42,7 +42,7 @@ class PeriodicTableTest extends React.Component<
     questionModalOpen: true,
     questions: [],
     right: [],
-    wrong: []
+    wrong: [],
   };
 
   private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
@@ -142,8 +142,8 @@ class PeriodicTableTest extends React.Component<
         discovered: !this.isElementInQuestions(element!),
         element,
         onClick: this.elementOnClick,
-        ref: (ptElement: PtElementTest) => this.setPtElement(atomic, ptElement)
-      }
+        ref: (ptElement: PtElementTest) => this.setPtElement(atomic, ptElement),
+      },
     };
   }
 
@@ -166,7 +166,7 @@ class PeriodicTableTest extends React.Component<
 
     if (!alreadyAnswered) {
       const elementSetting = this.settings.elements?.find(
-        setting => setting.atomic === currentQuestion?.element.atomic
+        (setting) => setting.atomic === currentQuestion?.element.atomic
       );
 
       elementSetting!.stats.times++;
@@ -203,7 +203,7 @@ class PeriodicTableTest extends React.Component<
     const currentQuestion = questions[0];
 
     this.setState({
-      questions: questions.filter(question => question !== currentQuestion)
+      questions: questions.filter((question) => question !== currentQuestion),
     });
   }
 
@@ -241,36 +241,36 @@ class PeriodicTableTest extends React.Component<
     const { questions } = this.state;
 
     return !!questions.find(
-      question => question.element.atomic === element.atomic
+      (question) => question.element.atomic === element.atomic
     );
   }
 
   private createTestQuestions() {
-    const questions = this.settings.elements!
-      .filter(element => element.enabled)
-      .map(elementSetting => ElementManager.getElement(elementSetting.atomic))
-      .map(element => this.createQuestion(element!));
+    const questions = this.settings
+      .elements!.filter((element) => element.enabled)
+      .map((elementSetting) => ElementManager.getElement(elementSetting.atomic))
+      .map((element) => this.createQuestion(element!));
 
     this.setState({
-      questions: shuffle(questions)
+      questions: shuffle(questions),
     });
   }
 
   private createQuestion(element: IElement): IPeriodicTableTestQuestion {
     return {
-      element
+      element,
     };
   }
 
   private openQuestionModal() {
     this.setState({
-      questionModalOpen: true
+      questionModalOpen: true,
     });
   }
 
   private closeQuestionModal() {
     this.setState({
-      questionModalOpen: false
+      questionModalOpen: false,
     });
   }
 
@@ -283,7 +283,7 @@ class PeriodicTableTest extends React.Component<
     const { right } = this.state;
 
     this.setState({
-      right: [...right, question]
+      right: [...right, question],
     });
   }
 
@@ -291,19 +291,19 @@ class PeriodicTableTest extends React.Component<
     const { wrong } = this.state;
 
     this.setState({
-      wrong: [...wrong, question]
+      wrong: [...wrong, question],
     });
   }
 
   private clearWrongResults() {
     this.setState({
-      wrong: []
+      wrong: [],
     });
   }
 
   private clearRightResults() {
     this.setState({
-      right: []
+      right: [],
     });
   }
 
@@ -321,7 +321,7 @@ class PeriodicTableTest extends React.Component<
     const { wrong } = this.state;
 
     this.setState({
-      questions: shuffle(wrong)
+      questions: shuffle(wrong),
     });
 
     this.clearWrongResults();

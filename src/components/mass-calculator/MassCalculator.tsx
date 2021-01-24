@@ -37,12 +37,12 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     elements: [
       { atomic: 67, quantity: 1 },
       { atomic: 44, quantity: 1 },
-      { atomic: 16, quantity: 1 }
+      { atomic: 16, quantity: 1 },
     ],
     modifyElementModal: {
       elementIndex: 0,
-      open: false
-    }
+      open: false,
+    },
   };
 
   public render() {
@@ -81,7 +81,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
         </div>
 
         <div className="mass-calculator__element-list">
-          {elements.map(element => (
+          {elements.map((element) => (
             <ListItemSwipeAction
               key={element.atomic}
               className="mass-calculator__swipe-item"
@@ -177,8 +177,8 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     this.setState({
       modifyElementModal: {
         elementIndex,
-        open: true
-      }
+        open: true,
+      },
     });
   }
 
@@ -186,11 +186,11 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     const { modifyElementModal, elements } = this.state;
 
     this.setState({
-      elements: elements.filter(element => element.quantity > 0),
+      elements: elements.filter((element) => element.quantity > 0),
       modifyElementModal: {
         ...modifyElementModal,
-        open: false
-      }
+        open: false,
+      },
     });
   }
 
@@ -198,20 +198,22 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     this.addElement(element.atomic);
 
     this.setState({
-      addElementModalOpen: false
+      addElementModalOpen: false,
     });
   }
 
   private addElement(atomic: number) {
     const { elements } = this.state;
-    const currentElement = elements.find(element => element.atomic === atomic);
+    const currentElement = elements.find(
+      (element) => element.atomic === atomic
+    );
 
     if (currentElement) {
       return this.modifyQuantity(atomic, currentElement.quantity + 1);
     }
 
     this.setState({
-      elements: [...elements, { atomic, quantity: 1 }]
+      elements: [...elements, { atomic, quantity: 1 }],
     });
   }
 
@@ -224,7 +226,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
 
     const { elements } = this.state;
 
-    const newElements = [...elements].map(element => {
+    const newElements = [...elements].map((element) => {
       if (element.atomic === atomic) {
         return { ...element, quantity };
       }
@@ -233,25 +235,25 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     });
 
     this.setState({
-      elements: newElements
+      elements: newElements,
     });
   }
 
   private openAddElementModal() {
     this.setState({
-      addElementModalOpen: true
+      addElementModalOpen: true,
     });
   }
 
   private onCloseAddElementModal() {
     this.setState({
-      addElementModalOpen: false
+      addElementModalOpen: false,
     });
   }
 
   private clearElements() {
     this.setState({
-      elements: []
+      elements: [],
     });
   }
 
@@ -267,7 +269,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     const { elements } = this.state;
 
     this.setState({
-      elements: elements.filter(element => element.atomic !== atomic)
+      elements: elements.filter((element) => element.atomic !== atomic),
     });
   }
 
@@ -331,7 +333,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     if (elements.length) {
       totalValue = this.state.elements
         .map(
-          element =>
+          (element) =>
             Number(ElementManager.getElement(element.atomic)!.atomicMass) *
             element.quantity
         )

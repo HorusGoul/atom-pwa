@@ -6,13 +6,13 @@ const defaultSettings: ISettings = {
   locale: Locale.getBrowserLocale(),
   tests: {
     periodicTable: {
-      elements: null
+      elements: null,
     },
     valences: {
-      elements: null
-    }
+      elements: null,
+    },
   },
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
 };
 
 export default defaultSettings;

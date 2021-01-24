@@ -3,7 +3,7 @@ import classNames from "classnames";
 import * as React from "react";
 import Card from "../../shared/card/Card";
 import QuestionCardAnswer, {
-  IQuestionCardAnswer
+  IQuestionCardAnswer,
 } from "./question-card-answer/QuestionCardAnswer";
 import "./QuestionCard.scss";
 
@@ -33,7 +33,7 @@ class QuestionCard extends React.Component<IQuestionCardProps, {}> {
           className={classNames(
             "question-card__question",
             {
-              "question-card__question--not-styled": !question.questionClass
+              "question-card__question--not-styled": !question.questionClass,
             },
             question.questionClass
           )}

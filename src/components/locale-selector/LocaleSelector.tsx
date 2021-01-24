@@ -4,7 +4,7 @@ import AppSettings from "../../AppSettings";
 import Locale, { i18n, SUPPORTED_LOCALES } from "../../Locale";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
-  ISelectorModalOption
+  ISelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./LocaleSelector.scss";
 
@@ -15,7 +15,7 @@ interface ILocaleSelectorState {
 @autobind
 class LocaleSelector extends React.Component<{}, ILocaleSelectorState> {
   public state: ILocaleSelectorState = {
-    selectorOpen: false
+    selectorOpen: false,
   };
 
   public render() {
@@ -44,21 +44,21 @@ class LocaleSelector extends React.Component<{}, ILocaleSelectorState> {
   }
 
   private buildOptions() {
-    return SUPPORTED_LOCALES.map(locale => ({
+    return SUPPORTED_LOCALES.map((locale) => ({
       key: locale,
-      text: i18n(locale)
+      text: i18n(locale),
     }));
   }
 
   private closeSelector() {
     this.setState({
-      selectorOpen: false
+      selectorOpen: false,
     });
   }
 
   private openSelector() {
     this.setState({
-      selectorOpen: true
+      selectorOpen: true,
     });
   }
 

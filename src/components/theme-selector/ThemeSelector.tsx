@@ -5,7 +5,7 @@ import { i18n } from "../../Locale";
 import Theme, { THEMES_LIST } from "../../Theme";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
-  ISelectorModalOption
+  ISelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./ThemeSelector.scss";
 
@@ -16,7 +16,7 @@ interface IThemeSelectorState {
 @autobind
 class ThemeSelector extends React.Component<{}, IThemeSelectorState> {
   public state: IThemeSelectorState = {
-    selectorOpen: false
+    selectorOpen: false,
   };
 
   public render() {
@@ -44,21 +44,21 @@ class ThemeSelector extends React.Component<{}, IThemeSelectorState> {
   }
 
   private buildOptions() {
-    return THEMES_LIST.map(theme => ({
+    return THEMES_LIST.map((theme) => ({
       key: theme,
-      text: i18n("theme-" + theme)
+      text: i18n("theme-" + theme),
     }));
   }
 
   private closeSelector() {
     this.setState({
-      selectorOpen: false
+      selectorOpen: false,
     });
   }
 
   private openSelector() {
     this.setState({
-      selectorOpen: true
+      selectorOpen: true,
     });
   }
 

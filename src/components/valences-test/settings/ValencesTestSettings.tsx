@@ -6,7 +6,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 // import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import AppSettings, {
   ITestElementSettings,
-  IValencesTestSettings
+  IValencesTestSettings,
 } from "../../../AppSettings";
 import ElementManager from "../../../ElementManager";
 import { i18n } from "../../../Locale";
@@ -33,15 +33,15 @@ export function setDefaultValencesTestSettings() {
   const elements = ElementManager.getElements();
 
   settings.elements = elements
-    .filter(element => element.valency)
-    .map(element => ({
+    .filter((element) => element.valency)
+    .map((element) => ({
       atomic: element.atomic,
       enabled: element.testState.valencesTest,
       stats: {
         right: 0,
         times: 0,
-        wrong: 0
-      }
+        wrong: 0,
+      },
     }));
 
   AppSettings.save();
@@ -59,7 +59,7 @@ class ValencesTestSettings extends React.Component<
   IValencesTestSettingsState
 > {
   public state: IValencesTestSettingsState = {
-    elementStates: []
+    elementStates: [],
   };
 
   private settings: IValencesTestSettings = getValencesTestSettings();
@@ -150,20 +150,22 @@ class ValencesTestSettings extends React.Component<
   // }
 
   private onSelectAllButtonClick() {
-    this.settings.elements = this.settings.elements?.map(element => ({
-      ...element,
-      enabled: true
-    })) ?? null;
+    this.settings.elements =
+      this.settings.elements?.map((element) => ({
+        ...element,
+        enabled: true,
+      })) ?? null;
 
     AppSettings.save();
     this.setElementStates();
   }
 
   private onDeselectAllButtonClick() {
-    this.settings.elements = this.settings.elements?.map(element => ({
-      ...element,
-      enabled: false
-    })) ?? null;
+    this.settings.elements =
+      this.settings.elements?.map((element) => ({
+        ...element,
+        enabled: false,
+      })) ?? null;
 
     AppSettings.save();
     this.setElementStates();
@@ -176,7 +178,7 @@ class ValencesTestSettings extends React.Component<
 
   private onTestElementSettingsClick(atomic: number) {
     const element = this.settings.elements?.find(
-      elementSettings => elementSettings.atomic === atomic
+      (elementSettings) => elementSettings.atomic === atomic
     );
 
     if (!element) {
@@ -201,11 +203,13 @@ class ValencesTestSettings extends React.Component<
     const elements = this.settings.elements ?? [];
 
     this.setState({
-      elementStates: [...elements]
+      elementStates: [...elements],
     });
 
     // this.listComponent.forceUpdateGrid();
   }
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(ValencesTestSettings);
+export default withRouter<Props, React.ComponentType<Props>>(
+  ValencesTestSettings
+);

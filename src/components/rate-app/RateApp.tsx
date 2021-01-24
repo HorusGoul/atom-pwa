@@ -23,24 +23,21 @@ function RateApp() {
     if (!json) {
       return {
         timesLaunched: 0,
-        rated: false
+        rated: false,
       };
     }
 
     return JSON.parse(json);
   });
 
-  React.useEffect(
-    () => {
-      localStorage.setItem(RATE_APP_STORAGE_KEY, JSON.stringify(config));
-    },
-    [config]
-  );
+  React.useEffect(() => {
+    localStorage.setItem(RATE_APP_STORAGE_KEY, JSON.stringify(config));
+  }, [config]);
 
   React.useEffect(() => {
-    setConfig(current => ({
+    setConfig((current) => ({
       ...current,
-      timesLaunched: current.timesLaunched + 1
+      timesLaunched: current.timesLaunched + 1,
     }));
   }, []);
 
@@ -56,15 +53,15 @@ function RateApp() {
     if (/android/i.test(navigator.userAgent)) {
       window.open("market://details?id=tk.horusgoul.valenciasquimicas");
 
-      setConfig(current => ({
+      setConfig((current) => ({
         ...current,
-        rated: true
+        rated: true,
       }));
 
       NativeBridge.fa.logEvent("rating", {
         event_category: "User",
         event_label: "rating",
-        event_action: "Rated the app"
+        event_action: "Rated the app",
       });
     }
 
@@ -77,7 +74,7 @@ function RateApp() {
     NativeBridge.fa.logEvent("rating", {
       event_category: "User",
       event_label: "rating",
-      event_action: "Opened the RateApp modal"
+      event_action: "Opened the RateApp modal",
     });
   }
 
@@ -89,7 +86,7 @@ function RateApp() {
     <>
       <Button
         className={classNames("rate-app", {
-          "rate-app--animation": config.timesLaunched === 3
+          "rate-app--animation": config.timesLaunched === 3,
         })}
         onClick={userOpenModal}
       >

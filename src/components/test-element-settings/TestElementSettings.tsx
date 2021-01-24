@@ -21,7 +21,7 @@ class TestElementSettings extends React.Component<
   public render() {
     const { setting } = this.props;
     const element = ElementManager.getElement(setting.atomic);
-    
+
     if (!element) {
       return null;
     }
@@ -37,7 +37,7 @@ class TestElementSettings extends React.Component<
         <div
           className={classNames("element-selector__symbol", "element", {
             [element.group]: setting.enabled,
-            clear: !setting.enabled
+            clear: !setting.enabled,
           })}
         >
           {element.symbol}

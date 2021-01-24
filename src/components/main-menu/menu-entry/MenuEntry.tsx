@@ -12,7 +12,7 @@ export interface IMenuEntry {
 
 type Props = IButtonProps & IMenuEntry;
 
-const MenuEntry: React.StatelessComponent<Props> = props => (
+const MenuEntry: React.StatelessComponent<Props> = (props) => (
   <Button className="menu-entry" {...props}>
     <div className="menu-entry__icon">
       <Icon name={props.icon} />

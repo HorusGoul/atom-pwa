@@ -9,18 +9,18 @@ type LocaleChangeListener = () => void;
 export const DEFAULT_LOCALE = "en";
 export const SUPPORTED_LOCALES = ["en", "es", "de", "ro"];
 
-import commonJSON from './locales/common.json';
-import enJSON from  './locales/en.json';
-import esJSON from './locales/es.json';
-import deJSON from  './locales/de.json';
-import roJSON from './locales/ro.json';
+import commonJSON from "./locales/common.json";
+import enJSON from "./locales/en.json";
+import esJSON from "./locales/es.json";
+import deJSON from "./locales/de.json";
+import roJSON from "./locales/ro.json";
 
 const locales = {
   en: enJSON,
   es: esJSON,
   de: deJSON,
   ro: roJSON,
-}
+};
 
 class Locale {
   private common: ILocale = commonJSON;
@@ -39,7 +39,7 @@ class Locale {
     // @ts-ignore
     this.currentLocales = locales[lang];
 
-    this.localeChangeListeners.forEach(listener => listener());
+    this.localeChangeListeners.forEach((listener) => listener());
   }
 
   public getString(localeName: string) {
@@ -65,7 +65,7 @@ class Locale {
 
   public removeLocaleChangeListener(listener: LocaleChangeListener) {
     this.localeChangeListeners = this.localeChangeListeners.filter(
-      currentListener => currentListener !== listener
+      (currentListener) => currentListener !== listener
     );
   }
 }

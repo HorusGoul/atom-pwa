@@ -25,7 +25,7 @@ class SelectorModal extends React.Component<ISelectorModalProps, {}> {
         className={classNames("selector-modal", className)}
         {...this.props}
       >
-        {options.map(option => (
+        {options.map((option) => (
           <Button
             key={option.key}
             className="selector-modal__option"

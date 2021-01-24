@@ -26,11 +26,11 @@ interface ICheckboxState {
 class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   public static defaultProps: ICheckboxProps = {
     readOnly: false,
-    value: false
+    value: false,
   };
 
   public state: ICheckboxState = {
-    value: this.props.value
+    value: this.props.value,
   };
 
   private htmlCheckbox: HTMLInputElement | null = null;
@@ -47,7 +47,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 
   public componentWillReceiveProps(nextProps: ICheckboxProps) {
     this.setState({
-      value: nextProps.value
+      value: nextProps.value,
     });
   }
 
@@ -64,7 +64,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     const value = !!this.htmlCheckbox?.checked;
 
     this.setState({
-      value
+      value,
     });
 
     if (this.props.onChange) {
@@ -86,7 +86,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
             checked={this.state.value}
             onChange={this.toggleCheck}
             onClick={this.onClick}
-            ref={htmlCheckbox => (this.htmlCheckbox = htmlCheckbox)}
+            ref={(htmlCheckbox) => (this.htmlCheckbox = htmlCheckbox)}
           />
 
           <div className="checkbox__content">

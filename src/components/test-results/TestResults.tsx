@@ -18,29 +18,26 @@ function TestResults({
   wrongAnswers,
   onRepeat,
   onRepeatWrongAnswers,
-  gaTestName
+  gaTestName,
 }: ITestResultsProps) {
   const total = rightAnswers + wrongAnswers;
   const percentaje = total ? rightAnswers / total : 1;
 
-  React.useEffect(
-    () => {
-      if (total > 0) {
-        NativeBridge.fa.logEvent("test", {
-          event_category: "User",
-          event_label: "test",
-          event_action: `Finished a ${gaTestName}`,
-          value: percentaje
-        });
-      }
-    },
-    [total, percentaje, gaTestName]
-  );
+  React.useEffect(() => {
+    if (total > 0) {
+      NativeBridge.fa.logEvent("test", {
+        event_category: "User",
+        event_label: "test",
+        event_action: `Finished a ${gaTestName}`,
+        value: percentaje,
+      });
+    }
+  }, [total, percentaje, gaTestName]);
 
   return (
     <div
       className={classNames("test-results", {
-        "test-results--good": percentaje > 0.7
+        "test-results--good": percentaje > 0.7,
       })}
     >
       <div className="test-results__title">{i18n("test_results")}</div>
@@ -62,14 +59,13 @@ function TestResults({
           />
         )}
 
-        {onRepeatWrongAnswers &&
-          rightAnswers !== total && (
-            <IconButton
-              iconName="edit"
-              text={i18n("retake_incorrect_answers")}
-              onClick={onRepeatWrongAnswers}
-            />
-          )}
+        {onRepeatWrongAnswers && rightAnswers !== total && (
+          <IconButton
+            iconName="edit"
+            text={i18n("retake_incorrect_answers")}
+            onClick={onRepeatWrongAnswers}
+          />
+        )}
       </div>
     </div>
   );

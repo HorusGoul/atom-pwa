@@ -6,7 +6,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 // import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import AppSettings, {
   IPeriodicTableTestSettings,
-  ITestElementSettings
+  ITestElementSettings,
 } from "../../../AppSettings";
 import ElementManager from "../../../ElementManager";
 import { i18n } from "../../../Locale";
@@ -32,14 +32,14 @@ export function setDefaultPeriodicTableTestSettings() {
   const settings = AppSettings.settings.tests.periodicTable;
   const elements = ElementManager.getElements();
 
-  settings.elements = elements.map(element => ({
+  settings.elements = elements.map((element) => ({
     atomic: element.atomic,
     enabled: element.testState.ptTest,
     stats: {
       right: 0,
       times: 0,
-      wrong: 0
-    }
+      wrong: 0,
+    },
   }));
 
   AppSettings.save();
@@ -57,7 +57,7 @@ class PeriodicTableTestSettings extends React.Component<
   IPeriodicTableTestSettingsState
 > {
   public state: IPeriodicTableTestSettingsState = {
-    elementStates: []
+    elementStates: [],
   };
 
   private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
@@ -148,9 +148,9 @@ class PeriodicTableTestSettings extends React.Component<
   // }
 
   private onSelectAllButtonClick() {
-    this.settings.elements = this.settings.elements!.map(element => ({
+    this.settings.elements = this.settings.elements!.map((element) => ({
       ...element,
-      enabled: true
+      enabled: true,
     }));
 
     AppSettings.save();
@@ -158,9 +158,9 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   private onDeselectAllButtonClick() {
-    this.settings.elements = this.settings.elements!.map(element => ({
+    this.settings.elements = this.settings.elements!.map((element) => ({
       ...element,
-      enabled: false
+      enabled: false,
     }));
 
     AppSettings.save();
@@ -174,7 +174,7 @@ class PeriodicTableTestSettings extends React.Component<
 
   private onTestElementSettingsClick(atomic: number) {
     const element = this.settings.elements!.find(
-      elementSettings => elementSettings.atomic === atomic
+      (elementSettings) => elementSettings.atomic === atomic
     );
     element!.enabled = !element!.enabled;
 
@@ -193,11 +193,13 @@ class PeriodicTableTestSettings extends React.Component<
     const elements = this.settings.elements!;
 
     this.setState({
-      elementStates: [...elements]
+      elementStates: [...elements],
     });
 
     // this.listComponent.forceUpdateGrid();
   }
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(PeriodicTableTestSettings);
+export default withRouter<Props, React.ComponentType<Props>>(
+  PeriodicTableTestSettings
+);
