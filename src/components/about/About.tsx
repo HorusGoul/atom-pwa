@@ -1,13 +1,13 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import { i18n } from "../../Locale";
-import { MAIN_MENU } from "../../routes";
-import LocaleSelector from "../locale-selector/LocaleSelector";
-import Card from "../shared/card/Card";
-import IconButton from "../shared/icon-button/IconButton";
-import Navbar from "../shared/navbar/Navbar";
-import ThemeSelector from "../theme-selector/ThemeSelector";
+import { i18n } from "@/Locale";
+import { MAIN_MENU } from "@/routes";
+import LocaleSelector from "@/components/locale-selector/LocaleSelector";
+import Card from "@/components/shared/card/Card";
+import IconButton from "@/components/shared/icon-button/IconButton";
+import Navbar from "@/components/shared/navbar/Navbar";
+import ThemeSelector from "@/components/theme-selector/ThemeSelector";
 import "./About.scss";
 
 type Props = RouteComponentProps<any>;
