@@ -2601,6 +2601,11 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
+react-hyper-scroller@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-2.0.2.tgz#4b3350be5334400b3e494baf9f095babfd32f005"
+  integrity sha512-CSZ55aLRg0/30vO9WRBVMM8bl7pgvwhKGS/mhcfCdbjKvxFQtxivv687B14eaud2aKJJQxm9r5R6TKKg20lTJA==
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"

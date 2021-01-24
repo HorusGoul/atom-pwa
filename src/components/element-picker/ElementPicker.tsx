@@ -1,14 +1,11 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-// import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
-// import { List, ListRowProps } from "react-virtualized/dist/es/List";
-// import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
+import { VirtualScroller } from "react-hyper-scroller";
 import { IElement } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
 import Button from "../shared/button/Button";
-import IconButton from "../shared/icon-button/IconButton";
 import Icon from "../shared/icon/Icon";
 import "./ElementPicker.scss";
 
@@ -57,27 +54,12 @@ class ElementPicker extends React.Component<
           ref={(ref) => (this.elementListDiv = ref)}
           className="element-picker__element-list"
         >
-          {/* <WindowScroller scrollElement={this.elementListDiv}>
-            {({ height, isScrolling, onChildScroll, scrollTop }) => (
-              <AutoSizer disableHeight={true}>
-                {({ width }) => (
-                  <List
-                    ref={list => (this.listComponent = list)}
-                    autoHeight={true}
-                    height={height}
-                    isScrolling={isScrolling}
-                    onScroll={onChildScroll}
-                    overscanRowCount={2}
-                    rowCount={elements.length}
-                    rowHeight={64}
-                    rowRenderer={this.elementListRowRenderer}
-                    width={width}
-                    scrollTop={scrollTop}
-                  />
-                )}
-              </AutoSizer>
-            )}
-          </WindowScroller> */}
+          <VirtualScroller
+            defaultRowHeight={64}
+            targetView={this.elementListDiv!}
+            rowCount={elements.length}
+            rowRenderer={this.elementListRowRenderer}
+          />
         </div>
       </div>
     );
@@ -91,41 +73,43 @@ class ElementPicker extends React.Component<
     this.props.onElement(element);
   }
 
-  // private elementListRowRenderer(props: ListRowProps) {
-  //   const { index, key, style } = props;
-  //   const { elements } = this.state;
-  //   const element = elements[index];
-  //   const elementLocales = getElementLocales(element);
+  private elementListRowRenderer(
+    index: number,
+    rowRef: (rowRef: React.ReactInstance) => void
+  ) {
+    const { elements } = this.state;
+    const element = elements[index];
+    const elementLocales = getElementLocales(element);
 
-  //   return (
-  //     <div key={key} style={style}>
-  //       <Button
-  //         onClick={this.buildElementClickListener(element)}
-  //         className="element-picker__element"
-  //       >
-  //         <div
-  //           className={classNames(
-  //             "element-picker__element__symbol",
-  //             "element",
-  //             element.group
-  //           )}
-  //         >
-  //           {element.symbol}
-  //         </div>
+    return (
+      <div key={element.atomic} ref={(div) => rowRef(div!)}>
+        <Button
+          onClick={this.buildElementClickListener(element)}
+          className="element-picker__element"
+        >
+          <div
+            className={classNames(
+              "element-picker__element__symbol",
+              "element",
+              element.group
+            )}
+          >
+            {element.symbol}
+          </div>
 
-  //         <div className="element-picker__element__desc">
-  //           <span className="element-picker__element__name">
-  //             {elementLocales.name}
-  //           </span>
+          <div className="element-picker__element__desc">
+            <span className="element-picker__element__name">
+              {elementLocales.name}
+            </span>
 
-  //           <span className="element-picker__element__group">
-  //             {elementLocales.group}
-  //           </span>
-  //         </div>
-  //       </Button>
-  //     </div>
-  //   );
-  // }
+            <span className="element-picker__element__group">
+              {elementLocales.group}
+            </span>
+          </div>
+        </Button>
+      </div>
+    );
+  }
 
   private onSearchInputChange(event: React.FormEvent<HTMLInputElement>) {
     const value = event.currentTarget.value.toLowerCase();

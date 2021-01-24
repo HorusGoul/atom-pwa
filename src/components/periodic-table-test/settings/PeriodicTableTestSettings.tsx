@@ -1,9 +1,7 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
+import { VirtualScroller } from "react-hyper-scroller";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-// import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
-// import { List, ListRowProps } from "react-virtualized/dist/es/List";
-// import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import AppSettings, {
   IPeriodicTableTestSettings,
   ITestElementSettings,
@@ -11,8 +9,6 @@ import AppSettings, {
 import ElementManager from "../../../ElementManager";
 import { i18n } from "../../../Locale";
 import { TEST_SELECTION } from "../../../routes";
-import Button from "../../shared/button/Button";
-import Checkbox from "../../shared/checkbox/Checkbox";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
@@ -49,6 +45,7 @@ type Props = RouteComponentProps<any> & React.Props<any>;
 
 interface IPeriodicTableTestSettingsState {
   elementStates: ITestElementSettings[];
+  updateListKey: number;
 }
 
 @autobind
@@ -58,6 +55,7 @@ class PeriodicTableTestSettings extends React.Component<
 > {
   public state: IPeriodicTableTestSettingsState = {
     elementStates: [],
+    updateListKey: 0,
   };
 
   private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
@@ -68,7 +66,7 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   public render() {
-    const { elementStates } = this.state;
+    const { elementStates, updateListKey } = this.state;
 
     return (
       <div className="valences-test-settings">
@@ -101,51 +99,35 @@ class PeriodicTableTestSettings extends React.Component<
             />
           </div>
 
-          {/* <WindowScroller>
-            {({ height, isScrolling, onChildScroll, scrollTop }) => (
-              <AutoSizer disableHeight={true}>
-                {({ width }) => (
-                  <List
-                    ref={this.setListComponent}
-                    autoHeight={true}
-                    height={height}
-                    isScrolling={isScrolling}
-                    onScroll={onChildScroll}
-                    overscanRowCount={2}
-                    rowCount={elementStates.length}
-                    rowHeight={64}
-                    rowRenderer={this.rowRenderer}
-                    width={width}
-                    scrollTop={scrollTop}
-                  />
-                )}
-              </AutoSizer>
-            )}
-          </WindowScroller> */}
+          {/* TODO: Replace key usage with that doesn't rerender the full list */}
+          <VirtualScroller
+            key={`vts-${updateListKey}`}
+            scrollRestoration={true}
+            defaultRowHeight={64}
+            rowCount={elementStates.length}
+            rowRenderer={this.rowRenderer}
+          />
         </div>
       </div>
     );
   }
 
-  // private setListComponent(list: List) {
-  //   this.listComponent = list;
-  // }
+  private rowRenderer(
+    index: number,
+    rowRef: (rowRef: React.ReactInstance) => void
+  ) {
+    const { elementStates } = this.state;
+    const elementState = elementStates[index];
 
-  // private rowRenderer(props: ListRowProps) {
-  //   const { index, key, style } = props;
-
-  //   const { elementStates } = this.state;
-  //   const elementState = elementStates[index];
-
-  //   return (
-  //     <div key={key} style={style}>
-  //       <TestElementSettings
-  //         setting={elementState}
-  //         onClick={this.onTestElementSettingsClick}
-  //       />
-  //     </div>
-  //   );
-  // }
+    return (
+      <div key={elementState.atomic} ref={(div) => rowRef(div!)}>
+        <TestElementSettings
+          setting={elementState}
+          onClick={this.onTestElementSettingsClick}
+        />
+      </div>
+    );
+  }
 
   private onSelectAllButtonClick() {
     this.settings.elements = this.settings.elements!.map((element) => ({
@@ -190,13 +172,12 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   private setElementStates() {
-    const elements = this.settings.elements!;
+    const elements = this.settings.elements ?? [];
 
-    this.setState({
+    this.setState((current) => ({
       elementStates: [...elements],
-    });
-
-    // this.listComponent.forceUpdateGrid();
+      updateListKey: current.updateListKey + 1,
+    }));
   }
 }
 

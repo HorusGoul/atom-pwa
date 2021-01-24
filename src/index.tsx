@@ -12,6 +12,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "normalize.css";
 import "./main.scss";
 
+import "hammerjs";
+
 import AppSettings from "./AppSettings";
 AppSettings.loadSettings();
 
