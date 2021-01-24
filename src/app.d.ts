@@ -13,3 +13,7 @@ interface Window {
   // @ts-ignore
   gtag: Gtag.Gtag;
 }
+
+declare module '*.svg' {
+  export const ReactComponent: React.ComponentType<React.SVGAttributes<SVGElement>>;
+}

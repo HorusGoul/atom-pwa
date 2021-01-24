@@ -1,73 +1,22 @@
-import * as autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import "./Icon.scss";
-import addIcon from '../../../images/icons/add.svg';
+import styles from "./Icon.module.scss";
+import invariant from 'invariant';
 
-const iconCache: { [key: string]: string } = {};
+const iconMap = import.meta.globEager('../../../images/icons/*.svg');
 
-export interface IIconProps {
+export interface IconProps {
   name: string;
   className?: string;
 }
 
-interface IIconState {
-  content: string;
-}
+function Icon({ name, className }: IconProps) {
+  const path = `../../../images/icons/${name}.svg`;
+  const IconComponent = iconMap[path]?.ReactComponent;
 
-class Icon extends React.Component<IIconProps, IIconState> {
-  public state: IIconState = {
-    content: ""
-  };
+  invariant(IconComponent, `The specified icon doesn't exist!`);
 
-  public componentDidMount() {
-    this.setIcon(this.props);
-  }
-
-  public render() {
-    const { name, className } = this.props;
-    const { content } = this.state;
-
-    const iconClass = classNames("icon", className);
-
-    return (
-      <svg
-        className={iconClass}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-    );
-  }
-
-  private setIcon(props: Readonly<IIconProps>) {
-    const { name } = props;
-
-    this.getPath(name).then(content => this.setState({ content }));
-  }
-
-  private async getPath(iconName: string): Promise<string> {
-    let iconContent: string = iconCache[iconName];
-
-    if (!iconContent) {
-      iconContent = iconCache[iconName] = await this.fetchIconContent(iconName);
-    }
-
-    return iconContent;
-  }
-
-  private async fetchIconContent(iconName: string): Promise<string> {
-    const fetchIconResponse = await fetch(
-      addIcon
-    );
-
-    let iconContent = await fetchIconResponse.text();
-    iconContent = iconContent.replace(/<svg.*?>/gm, "");
-    iconContent = iconContent.replace(/<\/svg>/gm, "");
-
-    return iconContent;
-  }
+  return <IconComponent className={classNames(styles.icon, className)} width="24" height="24" />
 }
 
 export default Icon;
