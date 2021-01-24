@@ -21,6 +21,11 @@ class TestElementSettings extends React.Component<
   public render() {
     const { setting } = this.props;
     const element = ElementManager.getElement(setting.atomic);
+    
+    if (!element) {
+      return null;
+    }
+
     const elementLocales = getElementLocales(element);
 
     return (

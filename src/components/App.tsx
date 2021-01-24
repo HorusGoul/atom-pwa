@@ -22,11 +22,11 @@ import MainMenu from "./main-menu/MainMenu";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import NotFound from "./not-found/NotFound";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
-// import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
-// import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
+import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
+import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
 import TestSelection from "./test-selection/TestSelection";
-// import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
-// import ValencesTest from "./valences-test/ValencesTest";
+import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
+import ValencesTest from "./valences-test/ValencesTest";
 
 @autobind
 class App extends React.Component<{}, {}> {
@@ -79,22 +79,22 @@ class App extends React.Component<{}, {}> {
               path={TEST_SELECTION}
               component={TestSelection}
             />
-            {/* <Route exact={true} path={TEST_VALENCES} component={ValencesTest} /> */}
-            {/* <Route
+            <Route exact={true} path={TEST_VALENCES} component={ValencesTest} />
+            <Route
               exact={true}
               path={TEST_VALENCES_SETTINGS}
               component={ValencesTestSettings}
-            /> */}
-            {/* <Route
+            />
+            <Route
               exact={true}
               path={TEST_PERIODIC_TABLE}
               component={PeriodicTableTest}
-            /> */}
-            {/* <Route
+            />
+            <Route
               exact={true}
               path={TEST_PERIODIC_TABLE_SETTINGS}
               component={PeriodicTableTestSettings}
-            /> */}
+            />
             <Route
               exact={true}
               path={MASS_CALCULATOR}

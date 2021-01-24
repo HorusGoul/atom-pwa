@@ -24,8 +24,8 @@ const locales = {
 
 class Locale {
   private common: ILocale = commonJSON;
-  private currentLang: string;
-  private currentLocales: ILocale;
+  private currentLang!: string;
+  private currentLocales!: ILocale;
   private defaultLocales: ILocale = locales[DEFAULT_LOCALE];
   private localeChangeListeners: LocaleChangeListener[] = [];
 
@@ -35,6 +35,8 @@ class Locale {
     }
 
     this.currentLang = lang;
+
+    // @ts-ignore
     this.currentLocales = locales[lang];
 
     this.localeChangeListeners.forEach(listener => listener());

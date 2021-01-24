@@ -5,7 +5,7 @@ const swRegister = async () => {
   registration.addEventListener("updatefound", () => {
     const installingWorker = registration.installing;
 
-    installingWorker.addEventListener("statechange", () => {
+    installingWorker?.addEventListener("statechange", () => {
       if (installingWorker.state === "installed") {
         if (navigator.serviceWorker.controller) {
           // At this point, the old content will have been purged and

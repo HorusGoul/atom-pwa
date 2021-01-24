@@ -32,19 +32,19 @@ class ListItemSwipeAction extends React.Component<
     translateX: "0%"
   };
 
-  private frontDiv: HTMLDivElement;
-  private mcFrontDiv: HammerManager;
-  private frontDivAnimation: anime.AnimeInstance;
+  private frontDiv: HTMLDivElement | null = null;
+  private mcFrontDiv: HammerManager | null = null;
+  private frontDivAnimation: anime.AnimeInstance | null = null;
 
   public componentDidMount() {
-    this.mcFrontDiv = new Hammer(this.frontDiv);
+    this.mcFrontDiv = new Hammer(this.frontDiv!);
 
     this.mcFrontDiv.get("pan").set({ direction: Hammer.DIRECTION_HORIZONTAL });
     this.mcFrontDiv.on("pan", this.onPan);
   }
 
   public componentWillUnmount() {
-    this.mcFrontDiv.destroy();
+    this.mcFrontDiv?.destroy();
   }
 
   public render() {
@@ -77,7 +77,7 @@ class ListItemSwipeAction extends React.Component<
 
     if (this.frontDivAnimation) {
       this.frontDivAnimation.pause();
-      delete this.frontDivAnimation;
+      this.frontDivAnimation = null;
     }
 
     let frontPosition = lastPosition + deltaX;
@@ -96,7 +96,7 @@ class ListItemSwipeAction extends React.Component<
   }
 
   private onFinal(currentPosition: number) {
-    const swipableWidth = this.frontDiv.getBoundingClientRect().width;
+    const swipableWidth = this.frontDiv!.getBoundingClientRect().width;
     const triggerDelete = currentPosition / swipableWidth > 0.25;
     const positionTarget = triggerDelete ? swipableWidth : 0;
 
@@ -122,7 +122,7 @@ class ListItemSwipeAction extends React.Component<
 
   private onAction() {
     const animateObject = {
-      height: this.frontDiv.clientHeight,
+      height: this.frontDiv!.clientHeight,
       opacity: 1
     };
 

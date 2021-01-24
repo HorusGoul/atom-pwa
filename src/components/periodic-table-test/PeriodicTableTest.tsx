@@ -1,6 +1,5 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
-import { shuffle } from "lodash";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
@@ -8,6 +7,7 @@ import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
+import { shuffle } from "../../utils/shuffle";
 import PeriodicTable, {
   IPeriodicTableElement
 } from "../periodic-table/PeriodicTable";
@@ -136,9 +136,10 @@ class PeriodicTableTest extends React.Component<
     const element = ElementManager.getElement(atomic);
 
     return {
+      // @ts-ignore fix this
       component: PtElementTest,
       props: {
-        discovered: !this.isElementInQuestions(element),
+        discovered: !this.isElementInQuestions(element!),
         element,
         onClick: this.elementOnClick,
         ref: (ptElement: PtElementTest) => this.setPtElement(atomic, ptElement)
@@ -160,22 +161,22 @@ class PeriodicTableTest extends React.Component<
     }
 
     const currentQuestion = this.getCurrentQuestion();
-    const alreadyAnswered = this.isAlreadyAnswered(currentQuestion);
+    const alreadyAnswered = this.isAlreadyAnswered(currentQuestion!);
     const rightAnswer = this.isAnswerRight(element);
 
     if (!alreadyAnswered) {
-      const elementSetting = this.settings.elements.find(
-        setting => setting.atomic === currentQuestion.element.atomic
+      const elementSetting = this.settings.elements?.find(
+        setting => setting.atomic === currentQuestion?.element.atomic
       );
 
-      elementSetting.stats.times++;
+      elementSetting!.stats.times++;
 
       if (rightAnswer) {
-        elementSetting.stats.right++;
-        this.addRightAnsweredQuestion(currentQuestion);
+        elementSetting!.stats.right++;
+        this.addRightAnsweredQuestion(currentQuestion!);
       } else {
-        elementSetting.stats.wrong++;
-        this.addWrongAnsweredQuestion(currentQuestion);
+        elementSetting!.stats.wrong++;
+        this.addWrongAnsweredQuestion(currentQuestion!);
       }
 
       AppSettings.save();
@@ -208,12 +209,12 @@ class PeriodicTableTest extends React.Component<
 
   private discoverElement(element: IElement) {
     const ptElement = this.ptElements.get(element.atomic);
-    ptElement.discover();
+    ptElement?.discover();
   }
 
   private showErrorInElement(element: IElement) {
     const ptElement = this.ptElements.get(element.atomic);
-    ptElement.showError();
+    ptElement?.showError();
   }
 
   private isAnswerRight(element: IElement): boolean {
@@ -231,7 +232,7 @@ class PeriodicTableTest extends React.Component<
     return false;
   }
 
-  private getCurrentQuestion(): IPeriodicTableTestQuestion {
+  private getCurrentQuestion(): IPeriodicTableTestQuestion | null {
     const { questions } = this.state;
     return questions.length ? questions[0] : null;
   }
@@ -245,10 +246,10 @@ class PeriodicTableTest extends React.Component<
   }
 
   private createTestQuestions() {
-    const questions = this.settings.elements
+    const questions = this.settings.elements!
       .filter(element => element.enabled)
       .map(elementSetting => ElementManager.getElement(elementSetting.atomic))
-      .map(element => this.createQuestion(element));
+      .map(element => this.createQuestion(element!));
 
     this.setState({
       questions: shuffle(questions)
@@ -333,4 +334,4 @@ class PeriodicTableTest extends React.Component<
   }
 }
 
-export default withRouter<Props>(PeriodicTableTest);
+export default withRouter<Props, React.ComponentType<Props>>(PeriodicTableTest);

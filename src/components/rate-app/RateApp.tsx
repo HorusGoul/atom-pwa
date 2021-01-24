@@ -15,7 +15,7 @@ interface RateAppConfig {
 const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const MINIMUM_TIMES_LAUNCHED = 3;
 
-function RateApp(): JSX.Element {
+function RateApp() {
   const [open, setOpen] = React.useState(false);
   const [config, setConfig] = React.useState<RateAppConfig>(() => {
     const json = localStorage.getItem(RATE_APP_STORAGE_KEY);

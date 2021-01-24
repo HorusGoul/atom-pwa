@@ -29,4 +29,4 @@ class NotFound extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props>(NotFound);
+export default withRouter<Props, React.ComponentType<Props>>(NotFound);

@@ -3,10 +3,10 @@ import Locale, { i18n } from "./Locale";
 import elements from './data/elements.json';
 
 class ElementManager {
-  private elements: IElement[];
+  private elements!: IElement[];
 
   public loadElements() {
-    this.elements = elements;
+    this.elements = elements as IElement[];
   }
 
   public getElements(): IElement[] {

@@ -1,5 +1,4 @@
 import autobind from "autobind-decorator";
-import { shuffle } from "lodash";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import AppSettings, { IValencesTestSettings } from "../../AppSettings";
@@ -7,6 +6,7 @@ import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
+import { shuffle } from "../../utils/shuffle";
 import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
@@ -62,6 +62,8 @@ class ValencesTest extends React.Component<Props, {}> {
             <QuestionsTest
               title={i18n("select_valence")}
               questions={questions}
+
+              // @ts-ignore Fix types
               onQuestionAnswer={this.onQuestionAnswer}
             />
           </div>
@@ -94,20 +96,20 @@ class ValencesTest extends React.Component<Props, {}> {
     question: IValencesTestQuestionCard,
     answer: IQuestionCardAnswer
   ) {
-    const elementSetting = this.settings.elements.find(
+    const elementSetting = this.settings.elements!.find(
       element => element.atomic === question.data.atomic
     );
 
     const alreadyAnswered = this.isAlreadyAnswered(question);
 
     if (!alreadyAnswered) {
-      elementSetting.stats.times++;
+      elementSetting!.stats.times++;
 
       if (answer.right) {
-        elementSetting.stats.right++;
+        elementSetting!.stats.right++;
         this.addRightAnsweredQuestion(question);
       } else {
-        elementSetting.stats.wrong++;
+        elementSetting!.stats.wrong++;
         this.addWrongAnsweredQuestion(question);
       }
     }
@@ -128,10 +130,10 @@ class ValencesTest extends React.Component<Props, {}> {
   }
 
   private createTestQuestions() {
-    const questions = this.settings.elements
+    const questions = this.settings.elements!
       .filter(element => element.enabled)
       .map(element => ElementManager.getElement(element.atomic))
-      .map(element => this.createQuestion(element));
+      .map(element => this.createQuestion(element!));
 
     this.setState({
       questions: shuffle(questions)
@@ -220,4 +222,6 @@ class ValencesTest extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props>(ValencesTest);
+export default withRouter<Props, React.ComponentType<Props>>(ValencesTest);
+
+

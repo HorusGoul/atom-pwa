@@ -10,13 +10,13 @@ import Overlay from "../overlay/Overlay";
 
 interface ISwipeableModalState extends IModalState {
   translateX: string;
-  lastPosition: number;
+  lastPosition: number | null;
   opacity: number;
   swiping: boolean;
 }
 
 const initialState = {
-  lastPosition: null as number,
+  lastPosition: null,
   opacity: 1,
   swiping: false,
   translateX: "-50%"
@@ -34,10 +34,10 @@ class SwipeableModal extends React.Component<
     open: this.props.open
   };
 
-  private frontDiv: HTMLDivElement;
-  private mcFrontDiv: HammerManager;
-  private frontDivAnimation: anime.AnimeInstance;
-  private initialDivPosition: number;
+  private frontDiv: HTMLDivElement | null = null;
+  private mcFrontDiv: HammerManager | null = null;
+  private frontDivAnimation: anime.AnimeInstance | null = null;
+  private initialDivPosition: number = -1;
 
   public componentWillUnmount() {
     this.killHammer();
@@ -75,8 +75,12 @@ class SwipeableModal extends React.Component<
     const showHeader = !!title || closeButton;
     const { translateX, opacity, open, swiping } = this.state;
 
+    if (!open) {
+      return null;
+    }
+
     return (
-      <Portal isOpened={open} onClose={this.close} onOpen={this.open}>
+      <Portal>
         <React.Fragment>
           <Overlay opacity={opacity} open={open} onClick={this.close} />
 
@@ -159,7 +163,7 @@ class SwipeableModal extends React.Component<
 
     if (this.frontDivAnimation) {
       this.frontDivAnimation.pause();
-      delete this.frontDivAnimation;
+      this.frontDivAnimation = null;
     }
 
     let frontPosition =
@@ -185,7 +189,7 @@ class SwipeableModal extends React.Component<
   }
 
   private onFinal(currentPosition: number, swipeRatio: number) {
-    const swipableWidth = this.frontDiv.clientWidth;
+    const swipableWidth = this.frontDiv!.clientWidth;
     const triggerDelete = swipeRatio >= 0.5;
     const positionTarget = triggerDelete
       ? swipableWidth
@@ -216,7 +220,7 @@ class SwipeableModal extends React.Component<
 
   private swipeRatio(position: number) {
     const initialPosition = this.initialDivPosition;
-    const width = this.frontDiv.clientWidth;
+    const width = this.frontDiv!.clientWidth;
     const diff = position - initialPosition;
 
     return diff / width;

@@ -1,9 +1,9 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
-import { List, ListRowProps } from "react-virtualized/dist/es/List";
-import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
+// import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
+// import { List, ListRowProps } from "react-virtualized/dist/es/List";
+// import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import AppSettings, {
   IPeriodicTableTestSettings,
   ITestElementSettings
@@ -61,7 +61,7 @@ class PeriodicTableTestSettings extends React.Component<
   };
 
   private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
-  private listComponent: List;
+  // private listComponent: List;
 
   public componentDidMount() {
     this.setElementStates();
@@ -101,7 +101,7 @@ class PeriodicTableTestSettings extends React.Component<
             />
           </div>
 
-          <WindowScroller>
+          {/* <WindowScroller>
             {({ height, isScrolling, onChildScroll, scrollTop }) => (
               <AutoSizer disableHeight={true}>
                 {({ width }) => (
@@ -121,34 +121,34 @@ class PeriodicTableTestSettings extends React.Component<
                 )}
               </AutoSizer>
             )}
-          </WindowScroller>
+          </WindowScroller> */}
         </div>
       </div>
     );
   }
 
-  private setListComponent(list: List) {
-    this.listComponent = list;
-  }
+  // private setListComponent(list: List) {
+  //   this.listComponent = list;
+  // }
 
-  private rowRenderer(props: ListRowProps) {
-    const { index, key, style } = props;
+  // private rowRenderer(props: ListRowProps) {
+  //   const { index, key, style } = props;
 
-    const { elementStates } = this.state;
-    const elementState = elementStates[index];
+  //   const { elementStates } = this.state;
+  //   const elementState = elementStates[index];
 
-    return (
-      <div key={key} style={style}>
-        <TestElementSettings
-          setting={elementState}
-          onClick={this.onTestElementSettingsClick}
-        />
-      </div>
-    );
-  }
+  //   return (
+  //     <div key={key} style={style}>
+  //       <TestElementSettings
+  //         setting={elementState}
+  //         onClick={this.onTestElementSettingsClick}
+  //       />
+  //     </div>
+  //   );
+  // }
 
   private onSelectAllButtonClick() {
-    this.settings.elements = this.settings.elements.map(element => ({
+    this.settings.elements = this.settings.elements!.map(element => ({
       ...element,
       enabled: true
     }));
@@ -158,7 +158,7 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   private onDeselectAllButtonClick() {
-    this.settings.elements = this.settings.elements.map(element => ({
+    this.settings.elements = this.settings.elements!.map(element => ({
       ...element,
       enabled: false
     }));
@@ -173,10 +173,10 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   private onTestElementSettingsClick(atomic: number) {
-    const element = this.settings.elements.find(
+    const element = this.settings.elements!.find(
       elementSettings => elementSettings.atomic === atomic
     );
-    element.enabled = !element.enabled;
+    element!.enabled = !element!.enabled;
 
     AppSettings.save();
 
@@ -190,14 +190,14 @@ class PeriodicTableTestSettings extends React.Component<
   }
 
   private setElementStates() {
-    const elements = this.settings.elements;
+    const elements = this.settings.elements!;
 
     this.setState({
       elementStates: [...elements]
     });
 
-    this.listComponent.forceUpdateGrid();
+    // this.listComponent.forceUpdateGrid();
   }
 }
 
-export default withRouter<Props>(PeriodicTableTestSettings);
+export default withRouter<Props, React.ComponentType<Props>>(PeriodicTableTestSettings);

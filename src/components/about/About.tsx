@@ -65,4 +65,4 @@ class About extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props>(About);
+export default withRouter<Props, React.ComponentType<Props>>(About);

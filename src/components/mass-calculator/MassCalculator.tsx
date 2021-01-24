@@ -40,7 +40,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
       { atomic: 16, quantity: 1 }
     ],
     modifyElementModal: {
-      elementIndex: null,
+      elementIndex: 0,
       open: false
     }
   };
@@ -114,6 +114,11 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
     }
 
     const element = ElementManager.getElement(massCalculatorElement.atomic);
+
+    if (!element) {
+      return null;
+    }
+
     const elementLocales = getElementLocales(element);
 
     return (
@@ -273,6 +278,11 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   private massCalculatorElement(massCalculatorElement: IMassCalculatorElement) {
     const { atomic, quantity } = massCalculatorElement;
     const element = ElementManager.getElement(atomic);
+
+    if (!element) {
+      return null;
+    }
+
     const elementLocales = getElementLocales(element);
 
     return (
@@ -322,7 +332,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
       totalValue = this.state.elements
         .map(
           element =>
-            Number(ElementManager.getElement(element.atomic).atomicMass) *
+            Number(ElementManager.getElement(element.atomic)!.atomicMass) *
             element.quantity
         )
         .reduce((previous, current) => previous + current);
@@ -338,4 +348,4 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
   }
 }
 
-export default withRouter<Props>(MassCalculator);
+export default withRouter<Props, React.ComponentType<Props>>(MassCalculator);

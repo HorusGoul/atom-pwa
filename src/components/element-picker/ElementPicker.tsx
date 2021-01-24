@@ -1,9 +1,9 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
-import { List, ListRowProps } from "react-virtualized/dist/es/List";
-import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
+// import { AutoSizer } from "react-virtualized/dist/es/AutoSizer";
+// import { List, ListRowProps } from "react-virtualized/dist/es/List";
+// import { WindowScroller } from "react-virtualized/dist/es/WindowScroller";
 import { IElement } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -29,8 +29,8 @@ class ElementPicker extends React.Component<
     elements: []
   };
 
-  private listComponent: List;
-  private elementListDiv: HTMLDivElement;
+  // private listComponent: List;
+  private elementListDiv: HTMLDivElement | null = null;
 
   public componentDidMount() {
     this.searchElements();
@@ -57,7 +57,7 @@ class ElementPicker extends React.Component<
           ref={ref => (this.elementListDiv = ref)}
           className="element-picker__element-list"
         >
-          <WindowScroller scrollElement={this.elementListDiv}>
+          {/* <WindowScroller scrollElement={this.elementListDiv}>
             {({ height, isScrolling, onChildScroll, scrollTop }) => (
               <AutoSizer disableHeight={true}>
                 {({ width }) => (
@@ -77,7 +77,7 @@ class ElementPicker extends React.Component<
                 )}
               </AutoSizer>
             )}
-          </WindowScroller>
+          </WindowScroller> */}
         </div>
       </div>
     );
@@ -91,41 +91,41 @@ class ElementPicker extends React.Component<
     this.props.onElement(element);
   }
 
-  private elementListRowRenderer(props: ListRowProps) {
-    const { index, key, style } = props;
-    const { elements } = this.state;
-    const element = elements[index];
-    const elementLocales = getElementLocales(element);
+  // private elementListRowRenderer(props: ListRowProps) {
+  //   const { index, key, style } = props;
+  //   const { elements } = this.state;
+  //   const element = elements[index];
+  //   const elementLocales = getElementLocales(element);
 
-    return (
-      <div key={key} style={style}>
-        <Button
-          onClick={this.buildElementClickListener(element)}
-          className="element-picker__element"
-        >
-          <div
-            className={classNames(
-              "element-picker__element__symbol",
-              "element",
-              element.group
-            )}
-          >
-            {element.symbol}
-          </div>
+  //   return (
+  //     <div key={key} style={style}>
+  //       <Button
+  //         onClick={this.buildElementClickListener(element)}
+  //         className="element-picker__element"
+  //       >
+  //         <div
+  //           className={classNames(
+  //             "element-picker__element__symbol",
+  //             "element",
+  //             element.group
+  //           )}
+  //         >
+  //           {element.symbol}
+  //         </div>
 
-          <div className="element-picker__element__desc">
-            <span className="element-picker__element__name">
-              {elementLocales.name}
-            </span>
+  //         <div className="element-picker__element__desc">
+  //           <span className="element-picker__element__name">
+  //             {elementLocales.name}
+  //           </span>
 
-            <span className="element-picker__element__group">
-              {elementLocales.group}
-            </span>
-          </div>
-        </Button>
-      </div>
-    );
-  }
+  //           <span className="element-picker__element__group">
+  //             {elementLocales.group}
+  //           </span>
+  //         </div>
+  //       </Button>
+  //     </div>
+  //   );
+  // }
 
   private onSearchInputChange(event: React.FormEvent<HTMLInputElement>) {
     const value = event.currentTarget.value.toLowerCase();
@@ -173,7 +173,7 @@ class ElementPicker extends React.Component<
       elements
     });
 
-    this.listComponent.forceUpdateGrid();
+    // this.listComponent.forceUpdateGrid();
   }
 }
 

@@ -71,4 +71,4 @@ class MainMenu extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props>(MainMenu);
+export default withRouter<Props,React.ComponentType<Props>>(MainMenu);

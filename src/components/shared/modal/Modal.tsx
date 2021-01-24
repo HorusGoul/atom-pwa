@@ -23,10 +23,7 @@ export interface IModalState {
 class Modal extends React.Component<IModalProps, IModalState> {
   public static defaultProps: IModalProps = {
     closeButton: false,
-    onClose: null,
-    onOpen: null,
     open: false,
-    title: null
   };
 
   public state: IModalState = {
@@ -52,12 +49,12 @@ class Modal extends React.Component<IModalProps, IModalState> {
     const { title, closeButton } = this.props;
     const showHeader = !!title || closeButton;
 
+    if (!this.state.open) {
+      return null;
+    }
+
     return (
-      <Portal
-        isOpened={this.state.open}
-        onClose={this.close}
-        onOpen={this.open}
-      >
+      <Portal>
         <React.Fragment>
           <Overlay open={this.state.open} onClick={this.close} />
 

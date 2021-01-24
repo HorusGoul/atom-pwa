@@ -76,4 +76,4 @@ class TestSelection extends React.Component<Props, {}> {
   }
 }
 
-export default withRouter<Props>(TestSelection);
+export default withRouter<Props, React.ComponentType<Props>>(TestSelection);

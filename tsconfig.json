@@ -10,12 +10,15 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
     "experimentalDecorators": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
   },
   "include": ["./src"],
 }

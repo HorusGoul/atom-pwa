@@ -26,7 +26,7 @@ class PtElementTest extends React.Component<
     showError: false
   };
 
-  private errorTimeout: number;
+  private errorTimeout: number | null = null;
 
   public render() {
     const { element } = this.props;

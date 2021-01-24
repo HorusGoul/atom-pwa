@@ -16,7 +16,6 @@ interface IOverlayState {
 @autobind
 class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   public static defaultProps: IOverlayProps = {
-    onClick: null,
     opacity: 1,
     open: false
   };

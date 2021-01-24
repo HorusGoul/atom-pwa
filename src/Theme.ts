@@ -9,7 +9,7 @@ const PRIMARY_COLORS: any = {
 type ThemeChangeListener = (theme: string) => void;
 
 class Theme {
-  private currentTheme: string;
+  private currentTheme!: string;
   private themeChangeListeners: ThemeChangeListener[] = [];
 
   public getCurrentTheme() {

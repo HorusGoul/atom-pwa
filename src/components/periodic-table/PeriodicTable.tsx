@@ -30,7 +30,7 @@ class PeriodicTable extends React.PureComponent<
     render: false
   };
 
-  private requestAnimationFrame: number;
+  private requestAnimationFrame: number | null = null;
   private periodicTableData: number[][];
 
   constructor(props: IPeriodicTableProps) {
@@ -49,7 +49,9 @@ class PeriodicTable extends React.PureComponent<
   }
 
   public componentWillUnmount() {
-    window.cancelAnimationFrame(this.requestAnimationFrame);
+    if (this.requestAnimationFrame) {
+      window.cancelAnimationFrame(this.requestAnimationFrame);
+    }
   }
 
   public render() {

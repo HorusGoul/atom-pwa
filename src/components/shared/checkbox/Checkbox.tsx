@@ -12,7 +12,7 @@ interface ICheckboxProps {
 }
 
 interface ICheckboxState {
-  value: boolean;
+  value?: boolean;
 }
 
 /**
@@ -33,7 +33,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     value: this.props.value
   };
 
-  private htmlCheckbox: HTMLInputElement;
+  private htmlCheckbox: HTMLInputElement | null = null;
 
   /**
    * Returns the value of the checkbox.
@@ -42,7 +42,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
    * @memberof Checkbox
    */
   public getValue(): boolean {
-    return this.state.value;
+    return !!this.state.value;
   }
 
   public componentWillReceiveProps(nextProps: ICheckboxProps) {
@@ -61,7 +61,7 @@ class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
       return;
     }
 
-    const value = this.htmlCheckbox.checked;
+    const value = !!this.htmlCheckbox?.checked;
 
     this.setState({
       value

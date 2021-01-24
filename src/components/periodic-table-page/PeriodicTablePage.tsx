@@ -32,7 +32,7 @@ class PeriodicTablePage extends React.Component<
 > {
   public state: IPeriodicTablePageState = {
     elementInfo: {
-      element: ElementManager.getElement(1),
+      element: ElementManager.getElement(1) as IElement,
       open: false
     }
   };
@@ -68,6 +68,7 @@ class PeriodicTablePage extends React.Component<
 
   private elementRenderer(atomic: number): IPeriodicTableElement {
     return {
+      // @ts-ignore fix this
       component: PtElementInfo,
       props: {
         element: ElementManager.getElement(atomic),
@@ -107,4 +108,4 @@ class PeriodicTablePage extends React.Component<
   }
 }
 
-export default withRouter<Props>(PeriodicTablePage);
+export default withRouter<Props, React.ComponentType<Props>>(PeriodicTablePage);

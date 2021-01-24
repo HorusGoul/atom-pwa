@@ -36,6 +36,7 @@ class NativeFABridge {
   private exec<T extends keyof typeof AtomNativeFA>(
     methodName: T,
     ...params: any[]
+    // @ts-ignore fix this
   ): ReturnType<(typeof AtomNativeFA)[T]> {
     return (AtomNativeFA[methodName]
       ? (AtomNativeFA[methodName] as any)(...params)
@@ -68,10 +69,11 @@ class NativeBridge {
 
   private exec<T extends keyof typeof AtomNative>(
     methodName: T
+    // @ts-ignore fix this
   ): ReturnType<(typeof AtomNative)[T]> {
     return (AtomNative[methodName]
-      ? AtomNative[methodName]()
-      : platformMethods[methodName]()) as any;
+      ? AtomNative[methodName]?.()
+      : platformMethods[methodName]?.()) as any;
   }
 }
 

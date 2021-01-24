@@ -21,8 +21,8 @@ if (!NativeBridge.isHybrid()) {
     window.dataLayer.push(arguments);
   };
 
-  gtag("js", new Date());
-  gtag("set", { send_page_view: false });
+  window.gtag("js", new Date());
+  window.gtag("set", { send_page_view: false });
 
   firebase.analytics();
 }

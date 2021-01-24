@@ -11,11 +11,11 @@ export interface ITestElementSettings {
 }
 
 export interface IValencesTestSettings {
-  elements: ITestElementSettings[];
+  elements: ITestElementSettings[] | null;
 }
 
 export interface IPeriodicTableTestSettings {
-  elements: ITestElementSettings[];
+  elements: ITestElementSettings[] | null;
 }
 
 export interface ISettings {
@@ -31,11 +31,11 @@ export interface ISettings {
 class AppSettings {
   private static STORAGE_KEY = "atom:settings";
 
-  public settings: ISettings;
+  public settings!: ISettings;
 
   public loadSettings() {
     const appSettings = JSON.parse(
-      localStorage.getItem(AppSettings.STORAGE_KEY)
+      localStorage.getItem(AppSettings.STORAGE_KEY) ?? 'null'
     );
 
     if (!appSettings) {
