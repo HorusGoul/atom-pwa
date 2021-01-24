@@ -1,11 +1,12 @@
 import { IElement } from "./Element";
 import Locale, { i18n } from "./Locale";
+import elements from './data/elements.json';
 
 class ElementManager {
   private elements: IElement[];
 
   public loadElements() {
-    this.elements = require("./data/elements.json");
+    this.elements = elements;
   }
 
   public getElements(): IElement[] {

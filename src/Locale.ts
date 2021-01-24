@@ -9,11 +9,24 @@ type LocaleChangeListener = () => void;
 export const DEFAULT_LOCALE = "en";
 export const SUPPORTED_LOCALES = ["en", "es", "de", "ro"];
 
+import commonJSON from './locales/common.json';
+import enJSON from  './locales/en.json';
+import esJSON from './locales/es.json';
+import deJSON from  './locales/de.json';
+import roJSON from './locales/ro.json';
+
+const locales = {
+  en: enJSON,
+  es: esJSON,
+  de: deJSON,
+  ro: roJSON,
+}
+
 class Locale {
-  private common: ILocale = require("./locales/common.json");
+  private common: ILocale = commonJSON;
   private currentLang: string;
   private currentLocales: ILocale;
-  private defaultLocales: ILocale = require(`./locales/${DEFAULT_LOCALE}.json`);
+  private defaultLocales: ILocale = locales[DEFAULT_LOCALE];
   private localeChangeListeners: LocaleChangeListener[] = [];
 
   public setLocale(lang: string) {
@@ -22,7 +35,7 @@ class Locale {
     }
 
     this.currentLang = lang;
-    this.currentLocales = require(`./locales/${lang}.json`);
+    this.currentLocales = locales[lang];
 
     this.localeChangeListeners.forEach(listener => listener());
   }

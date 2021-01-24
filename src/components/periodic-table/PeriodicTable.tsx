@@ -4,6 +4,8 @@ import { Spinner } from "../shared/spinner/Spinner";
 
 import "./PeriodicTable.scss";
 
+import data from '../../data/pt.json'
+
 export interface IPeriodicTableElement {
   component: React.ComponentClass;
   props?: {
@@ -34,7 +36,7 @@ class PeriodicTable extends React.PureComponent<
   constructor(props: IPeriodicTableProps) {
     super(props);
 
-    this.periodicTableData = require("../../data/pt.json");
+    this.periodicTableData = data;
   }
 
   public componentDidMount() {

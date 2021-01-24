@@ -11,6 +11,7 @@ import * as ReactDOM from "react-dom";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
+import "normalize.css";
 import "./main.scss";
 
 import AppSettings from "./AppSettings";
@@ -39,13 +40,6 @@ const render = (component: React.ComponentClass) => {
 
 render(App);
 registerServiceWorker();
-
-if (module.hot) {
-  module.hot.accept("./components/App", () => {
-    const NewApp = require("./components/App").default;
-    render(NewApp);
-  });
-}
 
 let preview = false;
 

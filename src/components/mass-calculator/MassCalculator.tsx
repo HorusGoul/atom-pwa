@@ -6,7 +6,7 @@ import { IElement } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
-import ElementPicker from "../element-picker/ElementPicker";
+// import ElementPicker from "../element-picker/ElementPicker";
 import Button from "../shared/button/Button";
 import IconButton from "../shared/icon-button/IconButton";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
@@ -96,7 +96,7 @@ class MassCalculator extends React.Component<Props, IMassCalculatorState> {
           open={addElementModalOpen}
           onClose={this.onCloseAddElementModal}
         >
-          <ElementPicker onElement={this.elementPickerOnElement} />
+          {/* <ElementPicker onElement={this.elementPickerOnElement} /> */}
         </Modal>
 
         {this.buildModifyElementModal()}

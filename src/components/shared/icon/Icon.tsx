@@ -2,6 +2,7 @@ import * as autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
 import "./Icon.scss";
+import addIcon from '../../../images/icons/add.svg';
 
 const iconCache: { [key: string]: string } = {};
 
@@ -58,7 +59,7 @@ class Icon extends React.Component<IIconProps, IIconState> {
 
   private async fetchIconContent(iconName: string): Promise<string> {
     const fetchIconResponse = await fetch(
-      require(`../../../images/icons/${iconName}.svg`)
+      addIcon
     );
 
     let iconContent = await fetchIconResponse.text();

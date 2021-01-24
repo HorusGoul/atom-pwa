@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 
-// tslint:disable-next-line:no-var-requires
-const packageConfig = require("../package.json");
+import packageConfig from '../package.json';
 
 const platformConfig = {
   app_name: packageConfig.name,
