@@ -135,11 +135,13 @@ function ValencesTestSettings() {
   );
 
   const scroller = useVirtualScroller({
-    scrollRestoration: true,
-    estimatedRowHeight: 64,
-    rowCount: state.elementStates.length,
-    rowRenderer,
+    estimatedItemHeight: 64,
+    itemCount: state.elementStates.length,
   });
+
+  React.useEffect(() => {
+    scroller.updateProjection();
+  }, [state, scroller]);
 
   return (
     <div className="valences-test-settings">
@@ -153,7 +155,6 @@ function ValencesTestSettings() {
         <div className="valences-test-settings__text">
           {i18n("select_elements")}
         </div>
-
         <div className="valences-test-settings__buttons">
           <IconButton
             onClick={onSelectAllButtonClick}
@@ -171,9 +172,7 @@ function ValencesTestSettings() {
             text={i18n("restore_defaults")}
           />
         </div>
-
-        {/* TODO: Replace key usage with that doesn't rerender the full list */}
-        <VirtualScroller key={`vts-${state.updateListKey}`} {...scroller} />
+        <VirtualScroller {...scroller} itemRenderer={rowRenderer} />
       </div>
     </div>
   );

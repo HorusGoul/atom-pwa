@@ -94,10 +94,9 @@ function ElementPicker({ onElement }: ElementPickerProps) {
   }, [searchElements]);
 
   const scroller = useVirtualScroller({
-    estimatedRowHeight: 64,
+    estimatedItemHeight: 64,
     targetView: elementListRef,
-    rowCount: elements.length,
-    rowRenderer: elementListRowRenderer,
+    itemCount: elements.length,
   });
 
   return (
@@ -119,7 +118,7 @@ function ElementPicker({ onElement }: ElementPickerProps) {
       </div>
 
       <div ref={elementListRef} className="element-picker__element-list">
-        <VirtualScroller {...scroller} />
+        <VirtualScroller {...scroller} itemRenderer={elementListRowRenderer} />
       </div>
     </div>
   );
