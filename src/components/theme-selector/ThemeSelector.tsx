@@ -46,7 +46,7 @@ class ThemeSelector extends React.Component<unknown, IThemeSelectorState> {
   private buildOptions() {
     return THEMES_LIST.map((theme) => ({
       key: theme,
-      text: i18n("theme-" + theme),
+      text: i18n("theme_" + theme),
     }));
   }
 

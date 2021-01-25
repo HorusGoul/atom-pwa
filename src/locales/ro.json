@@ -12,8 +12,7 @@
   "about": "Versiune: %s",
   "nav_settings": "Setări",
   "author": "Autor: Horus Lugo <horusgoul@gmail.com>",
-  "select_elements":
-    "Selectați elementele pe care doriți să le învățați. Elementele care nu sunt afișate nu sunt acceptate în acest test.",
+  "select_elements": "Selectați elementele pe care doriți să le învățați. Elementele care nu sunt afișate nu sunt acceptate în acest test.",
   "restore_defaults": "Restabiliți setările",
   "select_all": "Selectează tot",
   "deselect_all": "Deselectează tot",
@@ -56,14 +55,12 @@
   "bonding_atomic": "Legătură Atomică",
   "bonding_covalent_network": "Legătură covalentă",
   "bonding_diatomic": "Legătură diatomică",
-  "rate_this_app":
-    "Dacă credeți că această aplicație este utilă, vă rugăm să o evaluați la magazin, pentru ca alții să o găsească și să învețe și ei.",
+  "rate_this_app": "Dacă credeți că această aplicație este utilă, vă rugăm să o evaluați la magazin, pentru ca alții să o găsească și să învețe și ei.",
   "rate_ok": "Bine",
   "rate_cancel": "Anulează",
   "rate_title": "Îți place aplicația?",
   "mass_calculator": "Calculează masa",
-  "info":
-    "Dacă ați găsit vreo eroare / greșeală la valori, trimiteți-mi un e-mail sau contactați-mă prin telegram (@HorusGoul). O voi repara cât mai curând posibil.",
+  "info": "Dacă ați găsit vreo eroare / greșeală la valori, trimiteți-mi un e-mail sau contactați-mă prin telegram (@HorusGoul). O voi repara cât mai curând posibil.",
   "lang": "ro",
   "result": "Total",
   "search_elements": "Caută elemente...",
@@ -73,11 +70,9 @@
   "modify_quantity": "Cantitatea de %s",
   "valences_test": "Test de valență",
   "practice": "Practică",
-  "valences_test_desc":
-    "Memorizează valențele prin practică cu acest test, trebuie doar să selectezi opțiunea corectă din listă. Pentru a dezactiva elemente, du-te la setările din interiorul testului.",
+  "valences_test_desc": "Memorizează valențele prin practică cu acest test, trebuie doar să selectezi opțiunea corectă din listă. Pentru a dezactiva elemente, du-te la setările din interiorul testului.",
   "periodic_table_test": "Tabel periodic",
-  "periodic_table_test_desc":
-    "Puteți completa tabelul periodic fără erori? Încercați doar să setați elementele în locurile din care fac parte. Puteți dezactiva elemente în setări.",
+  "periodic_table_test_desc": "Puteți completa tabelul periodic fără erori? Încercați doar să setați elementele în locurile din care fac parte. Puteți dezactiva elemente în setări.",
   "periodic_table_test_settings": "Setări",
   "new_version_changelog_title": "Atom: %s",
   "en": "Engleză",
@@ -89,8 +84,7 @@
   "language_changed": "Limbă schimbată",
   "add_element": "Adaugă un element",
   "clear_elements": "Curăță",
-  "change_amount":
-    "Modificați cantitatea elementului selectat. Dacă îl lăsați la 0, elementul va fi eliminat.",
+  "change_amount": "Modificați cantitatea elementului selectat. Dacă îl lăsați la 0, elementul va fi eliminat.",
   "element_name_hydrogen": "Hidrogen",
   "element_name_helium": "Heliu",
   "element_name_lithium": "Litiu",
@@ -210,21 +204,19 @@
   "element_name_tennessine": "Tennessin",
   "element_name_oganesson": "Oganesson",
   "change_theme": "Schimbați Tema",
-  "theme-light": "Albă",
-  "theme-dark": "Întunecată",
-  "theme-black": "Negru",
+  "theme_light": "Albă",
+  "theme_dark": "Întunecată",
+  "theme_black": "Negru",
   "contact_me": "Contactați-mă",
   "bug_report": "Raportați o eroare",
   "source_code": "Cod sursă",
   "complete_the_table": "Completați tabelul",
-  "complete_the_table_desc":
-    "Plasați acest element unde aparține pentru a completa tabelul periodic",
+  "complete_the_table_desc": "Plasați acest element unde aparține pentru a completa tabelul periodic",
   "test_results": "Rezultatele testului",
   "retake_full_test": "Refaceți testul complet",
   "retake_incorrect_answers": "Refaceți răspunsurile incorecte",
   "app_full_title": "Atom - Tabel periodic și teste",
-  "app_description":
-    "Aflați elementele de bază ale chimiei completând testele și utilizând tabelul periodic",
+  "app_description": "Aflați elementele de bază ale chimiei completând testele și utilizând tabelul periodic",
   "not_found_text": "Pagina pe care o căutați nu exsistă",
   "home": "Acasă"
 }

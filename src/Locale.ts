@@ -1,3 +1,4 @@
+import invariant from "invariant";
 import NativeBridge from "./NativeBridge";
 
 interface ILocale {
@@ -9,24 +10,14 @@ type LocaleChangeListener = () => void;
 export const DEFAULT_LOCALE = "en";
 export const SUPPORTED_LOCALES = ["en", "es", "de", "ro"];
 
-import commonJSON from "./locales/common.json";
-import enJSON from "./locales/en.json";
-import esJSON from "./locales/es.json";
-import deJSON from "./locales/de.json";
-import roJSON from "./locales/ro.json";
-
-const locales = {
-  en: enJSON,
-  es: esJSON,
-  de: deJSON,
-  ro: roJSON,
-};
+const localesMap = import.meta.globEager("./locales/*.json");
+const getLocaleKey = (locale: string) => `./locales/${locale}.json`;
 
 class Locale {
-  private common: ILocale = commonJSON;
+  private common: ILocale = localesMap[getLocaleKey("common")];
   private currentLang!: string;
   private currentLocales!: ILocale;
-  private defaultLocales: ILocale = locales[DEFAULT_LOCALE];
+  private defaultLocales: ILocale = localesMap[getLocaleKey(DEFAULT_LOCALE)];
   private localeChangeListeners: LocaleChangeListener[] = [];
 
   public setLocale(lang: string) {
@@ -35,19 +26,23 @@ class Locale {
     }
 
     this.currentLang = lang;
-
-    // @ts-ignore
-    this.currentLocales = locales[lang];
+    this.currentLocales = localesMap[getLocaleKey(lang)];
 
     this.localeChangeListeners.forEach((listener) => listener());
   }
 
   public getString(localeName: string) {
-    return (
+    const result =
       this.currentLocales[localeName] ||
       this.defaultLocales[localeName] ||
-      this.common[localeName]
+      this.common[localeName];
+
+    invariant(
+      result,
+      `[Locale] The string name "${localeName}" doesn't have a value.`
     );
+
+    return result;
   }
 
   public getBrowserLocale() {
