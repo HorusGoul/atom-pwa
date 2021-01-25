@@ -1,7 +1,6 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
-import { VirtualScroller } from "react-hyper-scroller";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
+import { useHistory } from "react-router-dom";
 import AppSettings, {
   IPeriodicTableTestSettings,
   ITestElementSettings,
@@ -41,146 +40,143 @@ export function setDefaultPeriodicTableTestSettings() {
   AppSettings.save();
 }
 
-type Props = RouteComponentProps<any> & React.Props<any>;
-
 interface IPeriodicTableTestSettingsState {
   elementStates: ITestElementSettings[];
   updateListKey: number;
 }
 
-@autobind
-class PeriodicTableTestSettings extends React.Component<
-  Props,
-  IPeriodicTableTestSettingsState
-> {
-  public state: IPeriodicTableTestSettingsState = {
-    elementStates: [],
-    updateListKey: 0,
-  };
+let settings: IPeriodicTableTestSettings;
 
-  private settings: IPeriodicTableTestSettings = getPeriodicTableTestSettings();
-  // private listComponent: List;
+function PeriodicTableTestSettings() {
+  const history = useHistory();
 
-  public componentDidMount() {
-    this.setElementStates();
+  if (!settings) {
+    settings = getPeriodicTableTestSettings();
   }
 
-  public render() {
-    const { elementStates, updateListKey } = this.state;
+  const [state, setState] = React.useState<IPeriodicTableTestSettingsState>(
+    () => ({
+      elementStates: [],
+      updateListKey: 0,
+    })
+  );
 
-    return (
-      <div className="valences-test-settings">
-        <Navbar
-          title={i18n("nav_settings")}
-          backButton={true}
-          onBackButtonClick={this.onNavbarBackButtonClick}
-        />
+  const setElementStates = React.useCallback(() => {
+    const elements = settings.elements ?? [];
 
-        <div className="valences-test-settings__content">
-          <div className="valences-test-settings__text">
-            {i18n("select_elements")}
-          </div>
+    setState((current) => ({
+      elementStates: [...elements],
+      updateListKey: current.updateListKey + 1,
+    }));
+  }, []);
 
-          <div className="valences-test-settings__buttons">
-            <IconButton
-              onClick={this.onSelectAllButtonClick}
-              iconName="check_box_true"
-              text={i18n("select_all")}
-            />
-            <IconButton
-              onClick={this.onDeselectAllButtonClick}
-              iconName="check_box_false"
-              text={i18n("deselect_all")}
-            />
-            <IconButton
-              onClick={this.onRestoreDefaultsButtonClick}
-              iconName="restore"
-              text={i18n("restore_defaults")}
-            />
-          </div>
+  React.useEffect(() => {
+    setElementStates();
+  }, [setElementStates]);
 
-          {/* TODO: Replace key usage with that doesn't rerender the full list */}
-          <VirtualScroller
-            key={`vts-${updateListKey}`}
-            scrollRestoration={true}
-            defaultRowHeight={64}
-            rowCount={elementStates.length}
-            rowRenderer={this.rowRenderer}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  private rowRenderer(
-    index: number,
-    rowRef: (rowRef: React.ReactInstance) => void
-  ) {
-    const { elementStates } = this.state;
-    const elementState = elementStates[index];
-
-    return (
-      <div key={elementState.atomic} ref={(div) => rowRef(div!)}>
-        <TestElementSettings
-          setting={elementState}
-          onClick={this.onTestElementSettingsClick}
-        />
-      </div>
-    );
-  }
-
-  private onSelectAllButtonClick() {
-    this.settings.elements = this.settings.elements!.map((element) => ({
+  const onSelectAllButtonClick = React.useCallback(() => {
+    settings.elements = settings.elements!.map((element) => ({
       ...element,
       enabled: true,
     }));
 
     AppSettings.save();
-    this.setElementStates();
-  }
+    setElementStates();
+  }, [setElementStates]);
 
-  private onDeselectAllButtonClick() {
-    this.settings.elements = this.settings.elements!.map((element) => ({
+  const onDeselectAllButtonClick = React.useCallback(() => {
+    settings.elements = settings.elements!.map((element) => ({
       ...element,
       enabled: false,
     }));
 
     AppSettings.save();
-    this.setElementStates();
-  }
+    setElementStates();
+  }, [setElementStates]);
 
-  private onRestoreDefaultsButtonClick() {
+  const onRestoreDefaultsButtonClick = React.useCallback(() => {
     setDefaultPeriodicTableTestSettings();
-    this.setElementStates();
-  }
+    setElementStates();
+  }, [setElementStates]);
 
-  private onTestElementSettingsClick(atomic: number) {
-    const element = this.settings.elements!.find(
-      (elementSettings) => elementSettings.atomic === atomic
-    );
-    element!.enabled = !element!.enabled;
-
-    AppSettings.save();
-
-    this.setElementStates();
-  }
-
-  private onNavbarBackButtonClick() {
-    const { history } = this.props;
-
+  const onNavbarButtonClick = React.useCallback(() => {
     history.push(TEST_SELECTION);
-  }
+  }, [history]);
 
-  private setElementStates() {
-    const elements = this.settings.elements ?? [];
+  const onTestElementSettingsClick = React.useCallback(
+    (atomic: number) => {
+      const element = settings.elements!.find(
+        (elementSettings) => elementSettings.atomic === atomic
+      );
+      element!.enabled = !element!.enabled;
 
-    this.setState((current) => ({
-      elementStates: [...elements],
-      updateListKey: current.updateListKey + 1,
-    }));
-  }
+      AppSettings.save();
+
+      setElementStates();
+    },
+    [setElementStates]
+  );
+
+  const rowRenderer = React.useCallback(
+    (index: number, ref: React.RefObject<HTMLDivElement>) => {
+      const { elementStates } = state;
+      const elementState = elementStates[index];
+
+      return (
+        <div key={elementState.atomic} ref={ref}>
+          <TestElementSettings
+            setting={elementState}
+            onClick={onTestElementSettingsClick}
+          />
+        </div>
+      );
+    },
+    [state, onTestElementSettingsClick]
+  );
+
+  const scroller = useVirtualScroller({
+    scrollRestoration: true,
+    estimatedRowHeight: 64,
+    rowCount: state.elementStates.length,
+    rowRenderer,
+  });
+
+  return (
+    <div className="valences-test-settings">
+      <Navbar
+        title={i18n("nav_settings")}
+        backButton={true}
+        onBackButtonClick={onNavbarButtonClick}
+      />
+
+      <div className="valences-test-settings__content">
+        <div className="valences-test-settings__text">
+          {i18n("select_elements")}
+        </div>
+
+        <div className="valences-test-settings__buttons">
+          <IconButton
+            onClick={onSelectAllButtonClick}
+            iconName="check_box_true"
+            text={i18n("select_all")}
+          />
+          <IconButton
+            onClick={onDeselectAllButtonClick}
+            iconName="check_box_false"
+            text={i18n("deselect_all")}
+          />
+          <IconButton
+            onClick={onRestoreDefaultsButtonClick}
+            iconName="restore"
+            text={i18n("restore_defaults")}
+          />
+        </div>
+
+        {/* TODO: Replace key usage with that doesn't rerender the full list */}
+        <VirtualScroller key={`vts-${state.updateListKey}`} {...scroller} />
+      </div>
+    </div>
+  );
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(
-  PeriodicTableTestSettings
-);
+export default PeriodicTableTestSettings;

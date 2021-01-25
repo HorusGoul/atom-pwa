@@ -1,7 +1,7 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import { VirtualScroller } from "react-hyper-scroller";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { VirtualScroller, useVirtualScroller } from "react-hyper-scroller";
 import { IElement } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -9,119 +9,56 @@ import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./ElementPicker.scss";
 
-interface IElementPickerProps {
+interface ElementPickerProps {
   onElement: (element: IElement) => void;
 }
 
-interface IElementPickerState {
-  elements: IElement[];
-}
+function ElementPicker({ onElement }: ElementPickerProps) {
+  const [elements, setElements] = useState<IElement[]>([]);
+  const elementListRef = useRef<HTMLDivElement>(null);
 
-@autobind
-class ElementPicker extends React.Component<
-  IElementPickerProps,
-  IElementPickerState
-> {
-  public state: IElementPickerState = {
-    elements: [],
-  };
+  const elementListRowRenderer = useCallback(
+    (index: number, ref: React.RefObject<HTMLDivElement>) => {
+      const element = elements[index];
+      const elementLocales = getElementLocales(element);
 
-  // private listComponent: List;
-  private elementListDiv: HTMLDivElement | null = null;
-
-  public componentDidMount() {
-    this.searchElements();
-  }
-
-  public render() {
-    const { elements } = this.state;
-
-    return (
-      <div className="element-picker">
-        <div className="element-picker__search-bar">
-          <Icon name="search" />
-
-          <input
-            className="element-picker__search-bar__input"
-            type="text"
-            placeholder={i18n("search_elements")}
-            onChange={this.onSearchInputChange}
-            autoFocus={true}
-          />
-        </div>
-
-        <div
-          ref={(ref) => (this.elementListDiv = ref)}
-          className="element-picker__element-list"
-        >
-          <VirtualScroller
-            defaultRowHeight={64}
-            targetView={this.elementListDiv!}
-            rowCount={elements.length}
-            rowRenderer={this.elementListRowRenderer}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  private buildElementClickListener(element: IElement) {
-    return () => this.onElementClick(element);
-  }
-
-  private onElementClick(element: IElement) {
-    this.props.onElement(element);
-  }
-
-  private elementListRowRenderer(
-    index: number,
-    rowRef: (rowRef: React.ReactInstance) => void
-  ) {
-    const { elements } = this.state;
-    const element = elements[index];
-    const elementLocales = getElementLocales(element);
-
-    return (
-      <div key={element.atomic} ref={(div) => rowRef(div!)}>
-        <Button
-          onClick={this.buildElementClickListener(element)}
-          className="element-picker__element"
-        >
-          <div
-            className={classNames(
-              "element-picker__element__symbol",
-              "element",
-              element.group
-            )}
+      return (
+        <div key={element.atomic} ref={ref}>
+          <Button
+            onClick={() => onElement(element)}
+            className="element-picker__element"
           >
-            {element.symbol}
-          </div>
+            <div
+              className={classNames(
+                "element-picker__element__symbol",
+                "element",
+                element.group
+              )}
+            >
+              {element.symbol}
+            </div>
 
-          <div className="element-picker__element__desc">
-            <span className="element-picker__element__name">
-              {elementLocales.name}
-            </span>
+            <div className="element-picker__element__desc">
+              <span className="element-picker__element__name">
+                {elementLocales.name}
+              </span>
 
-            <span className="element-picker__element__group">
-              {elementLocales.group}
-            </span>
-          </div>
-        </Button>
-      </div>
-    );
-  }
+              <span className="element-picker__element__group">
+                {elementLocales.group}
+              </span>
+            </div>
+          </Button>
+        </div>
+      );
+    },
+    [elements]
+  );
 
-  private onSearchInputChange(event: React.FormEvent<HTMLInputElement>) {
-    const value = event.currentTarget.value.toLowerCase();
-
-    this.searchElements(value);
-  }
-
-  private searchElements(searchValue?: string) {
+  const searchElements = useCallback((searchValue?: string) => {
     const elements = ElementManager.getElements();
 
     if (!searchValue) {
-      return this.setElements(elements);
+      return setElements(elements);
     }
 
     const newElements = elements.filter((element) => {
@@ -149,16 +86,43 @@ class ElementPicker extends React.Component<
       return false;
     });
 
-    this.setElements(newElements);
-  }
+    setElements(newElements);
+  }, []);
 
-  private setElements(elements: IElement[]) {
-    this.setState({
-      elements,
-    });
+  useEffect(() => {
+    searchElements();
+  }, [searchElements]);
 
-    // this.listComponent.forceUpdateGrid();
-  }
+  const scroller = useVirtualScroller({
+    estimatedRowHeight: 64,
+    targetView: elementListRef,
+    rowCount: elements.length,
+    rowRenderer: elementListRowRenderer,
+  });
+
+  return (
+    <div className="element-picker">
+      <div className="element-picker__search-bar">
+        <Icon name="search" />
+
+        <input
+          className="element-picker__search-bar__input"
+          type="text"
+          placeholder={i18n("search_elements")}
+          onChange={(event) => {
+            const value = event.currentTarget.value.toLowerCase();
+
+            searchElements(value);
+          }}
+          autoFocus={true}
+        />
+      </div>
+
+      <div ref={elementListRef} className="element-picker__element-list">
+        <VirtualScroller {...scroller} />
+      </div>
+    </div>
+  );
 }
 
 export default ElementPicker;
