@@ -139,9 +139,11 @@ function ValencesTestSettings() {
     itemCount: state.elementStates.length,
   });
 
+  const { updateProjection } = scroller;
+
   React.useEffect(() => {
-    scroller.updateProjection();
-  }, [state, scroller]);
+    updateProjection();
+  }, [state, updateProjection]);
 
   return (
     <div className="valences-test-settings">

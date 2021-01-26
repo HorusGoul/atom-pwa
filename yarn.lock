@@ -4725,10 +4725,10 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-hyper-scroller@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-2.0.2.tgz#4b3350be5334400b3e494baf9f095babfd32f005"
-  integrity sha512-CSZ55aLRg0/30vO9WRBVMM8bl7pgvwhKGS/mhcfCdbjKvxFQtxivv687B14eaud2aKJJQxm9r5R6TKKg20lTJA==
+react-hyper-scroller@next:
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-3.0.0-beta.1.tgz#62b13af92a078c8a7252ef2554dbcd8c6f50a716"
+  integrity sha512-mX7w9Z7xLV8RiXfi7Zlx84SYnELVyJseGox82k8p58zWk8e6bxS3FogPmJwGHjTDjIm1/2xjVTS09q1VLA+BYg==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
