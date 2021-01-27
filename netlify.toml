@@ -1,5 +1,5 @@
 [dev]
-  command = "yarn dev"
+  command = "vite"
   targetPort = 3000
   framework = "#custom"
 
@@ -12,3 +12,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  
