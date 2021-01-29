@@ -1,0 +1,38 @@
+{
+  "atomic": 35,
+  "symbol": "Br",
+  "name": "Bromine",
+  "atomicMass": "79.904",
+  "cpkHexColor": "A62929",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p5",
+  "electronegativity": 2.96,
+  "atomicRadius": 94,
+  "ionRadius": "196 (-1)",
+  "vanDelWaalsRadius": 185,
+  "ionizationEnergy": 1140,
+  "electronAffinity": -325,
+  "oxidationStates": "-1, 1, 3, 4, 5, 7",
+  "standardState": "liquid",
+  "bondingType": "covalent_network",
+  "meltingPoint": "265.95",
+  "boilingPoint": "331.85",
+  "density": 3.12,
+  "group": "halogens",
+  "yearDiscovered": 1826,
+  "valency": "+1 +3 +5 +7 / -1",
+  "wrongValences": [
+    "+1 +3 +5 +7",
+    "-1",
+    "+2 +4 +6 / -2",
+    "+2 +4 +6",
+    "+1 +2",
+    "+1",
+    "-2",
+    "+3 +5 +7",
+    "+1 +5"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

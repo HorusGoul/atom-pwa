@@ -1,0 +1,36 @@
+{
+  "atomic": 41,
+  "symbol": "Nb",
+  "name": "Niobium",
+  "atomicMass": "92.90638",
+  "cpkHexColor": "73C2C9",
+  "electronicConfiguration": "[Kr] 4d4 5s1",
+  "electronegativity": 1.6,
+  "atomicRadius": 198,
+  "ionRadius": "72 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 652,
+  "electronAffinity": -86,
+  "oxidationStates": "-1, 2, 3, 4, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2742",
+  "boilingPoint": "5015",
+  "density": 8.57,
+  "group": "transition_metals",
+  "yearDiscovered": 1801,
+  "valency": "+2 +3 +4 +5",
+  "wrongValences": [
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "atomic": 2,
+  "symbol": "He",
+  "name": "Helium",
+  "atomicMass": "4.002602",
+  "cpkHexColor": "D9FFFF",
+  "electronicConfiguration": "1s2",
+  "electronegativity": null,
+  "atomicRadius": 31,
+  "ionRadius": null,
+  "vanDelWaalsRadius": 140,
+  "ionizationEnergy": 2372,
+  "electronAffinity": 0,
+  "oxidationStates": null,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "0.95",
+  "boilingPoint": "4.216",
+  "density": 0.0001786,
+  "group": "noble_gases",
+  "yearDiscovered": 1868,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

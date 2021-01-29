@@ -1,0 +1,34 @@
+{
+  "atomic": 11,
+  "symbol": "Na",
+  "name": "Sodium",
+  "atomicMass": "22.98976928",
+  "cpkHexColor": "AB5CF2",
+  "electronicConfiguration": "[Ne] 3s1",
+  "electronegativity": 0.93,
+  "atomicRadius": 190,
+  "ionRadius": "102 (+1)",
+  "vanDelWaalsRadius": 227,
+  "ionizationEnergy": 496,
+  "electronAffinity": -53,
+  "oxidationStates": "-1, 1",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "371",
+  "boilingPoint": "1156",
+  "density": 0.97,
+  "group": "alkali_metals",
+  "yearDiscovered": 1807,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "atomic": 40,
+  "symbol": "Zr",
+  "name": "Zirconium",
+  "atomicMass": "91.224",
+  "cpkHexColor": "94E0E0",
+  "electronicConfiguration": "[Kr] 4d2 5s2",
+  "electronegativity": 1.33,
+  "atomicRadius": 206,
+  "ionRadius": "72 (+4)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 640,
+  "electronAffinity": -41,
+  "oxidationStates": "1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2128",
+  "boilingPoint": "4682",
+  "density": 6.51,
+  "group": "transition_metals",
+  "yearDiscovered": 1789,
+  "valency": "+2 +3 +4",
+  "wrongValences": [
+    "+2",
+    "+3",
+    "+4",
+    "+2 +3",
+    "+2 +4",
+    "+3 +5",
+    "+1 +3 +5 +7 / -1"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

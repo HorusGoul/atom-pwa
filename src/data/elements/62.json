@@ -1,0 +1,34 @@
+{
+  "atomic": 62,
+  "symbol": "Sm",
+  "name": "Samarium",
+  "atomicMass": "150.36",
+  "cpkHexColor": "8FFFC7",
+  "electronicConfiguration": "[Xe] 4f6 6s2",
+  "electronegativity": 1.17,
+  "atomicRadius": 238,
+  "ionRadius": "122 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 545,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1347",
+  "boilingPoint": "2067",
+  "density": 7.35,
+  "group": "lanthanoids",
+  "yearDiscovered": 1853,
+  "valency": "+2 +3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

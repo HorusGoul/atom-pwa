@@ -1,0 +1,38 @@
+{
+  "atomic": 23,
+  "symbol": "V",
+  "name": "Vanadium",
+  "atomicMass": "50.9415",
+  "cpkHexColor": "A6A6AB",
+  "electronicConfiguration": "[Ar] 3d3 4s2",
+  "electronegativity": 1.63,
+  "atomicRadius": 171,
+  "ionRadius": "79 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 651,
+  "electronAffinity": -51,
+  "oxidationStates": "-1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2163",
+  "boilingPoint": "3650",
+  "density": 6.11,
+  "group": "transition_metals",
+  "yearDiscovered": 1803,
+  "valency": "+2 +3 +4 +5",
+  "wrongValences": [
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+2 +3",
+    "+4 +5",
+    "+1 +2 +3 +4",
+    "+2 +4 +6",
+    "+2 +3 +4 +5 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

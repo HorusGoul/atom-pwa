@@ -1,0 +1,35 @@
+{
+  "atomic": 34,
+  "symbol": "Se",
+  "name": "Selenium",
+  "atomicMass": "78.96",
+  "cpkHexColor": "FFA100",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p4",
+  "electronegativity": 2.55,
+  "atomicRadius": 103,
+  "ionRadius": "198 (-2)",
+  "vanDelWaalsRadius": 190,
+  "ionizationEnergy": 941,
+  "electronAffinity": -195,
+  "oxidationStates": "-2, 2, 4, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "494",
+  "boilingPoint": "958",
+  "density": 4.82,
+  "group": "amphigens",
+  "yearDiscovered": 1817,
+  "valency": "+2 +4 +6 / -2",
+  "wrongValences": [
+    "+1 +3 +5 +7 / -1",
+    "+2 +4 +6",
+    "+3 +5 / -3",
+    "+3 +5",
+    "+2 +6",
+    "+2"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

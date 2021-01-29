@@ -1,0 +1,28 @@
+{
+  "atomic": 106,
+  "symbol": "Sg",
+  "name": "Seaborgium",
+  "atomicMass": 271,
+  "cpkHexColor": "D90045",
+  "electronicConfiguration": "[Rn].5f14.6d4.7s2",
+  "electronegativity": null,
+  "atomicRadius": null,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": null,
+  "standardState": null,
+  "bondingType": null,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "group": "transition_metals",
+  "yearDiscovered": 1974,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

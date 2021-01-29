@@ -1,0 +1,36 @@
+{
+  "atomic": 39,
+  "symbol": "Y",
+  "name": "Yttrium",
+  "atomicMass": "88.90585",
+  "cpkHexColor": "94FFFF",
+  "electronicConfiguration": "[Kr] 4d1 5s2",
+  "electronegativity": 1.22,
+  "atomicRadius": 212,
+  "ionRadius": "90 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 600,
+  "electronAffinity": -30,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1795",
+  "boilingPoint": "3611",
+  "density": 4.47,
+  "group": "transition_metals",
+  "yearDiscovered": 1794,
+  "valency": "+3",
+  "wrongValences": [
+    "+2",
+    "+1",
+    "+2 +3",
+    "+2 +4",
+    "+2 +4 / -4",
+    "+1 +3 +5 +7 / -1",
+    "+4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

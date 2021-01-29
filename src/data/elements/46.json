@@ -1,0 +1,35 @@
+{
+  "atomic": 46,
+  "symbol": "Pd",
+  "name": "Palladium",
+  "atomicMass": "106.42",
+  "cpkHexColor": 6985,
+  "electronicConfiguration": "[Kr] 4d10",
+  "electronegativity": 2.2,
+  "atomicRadius": 169,
+  "ionRadius": "59 (+1)",
+  "vanDelWaalsRadius": 163,
+  "ionizationEnergy": 804,
+  "electronAffinity": -54,
+  "oxidationStates": "2, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1825",
+  "boilingPoint": "3240",
+  "density": 12.02,
+  "group": "transition_metals",
+  "yearDiscovered": 1803,
+  "valency": "+2 +4",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

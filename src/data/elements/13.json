@@ -1,0 +1,35 @@
+{
+  "atomic": 13,
+  "symbol": "Al",
+  "name": "Aluminum",
+  "atomicMass": "26.9815386",
+  "cpkHexColor": "BFA6A6",
+  "electronicConfiguration": "[Ne] 3s2 3p1",
+  "electronegativity": 1.61,
+  "atomicRadius": 118,
+  "ionRadius": "53.5 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 578,
+  "electronAffinity": -43,
+  "oxidationStates": "1, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "933.5",
+  "boilingPoint": "2740",
+  "density": 2.7,
+  "group": "basic_metals",
+  "yearDiscovered": null,
+  "valency": "+3",
+  "wrongValences": [
+    "+1 / -1",
+    "+2 / -2",
+    "+3 / -3",
+    "-3",
+    "+1 +3 +5 +7 / -1",
+    "+2 +3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "atomic": 6,
+  "symbol": "C",
+  "name": "Carbon",
+  "atomicMass": "12.0107",
+  "cpkHexColor": 909090,
+  "electronicConfiguration": "[He] 2s2 2p2",
+  "electronegativity": 2.55,
+  "atomicRadius": 67,
+  "ionRadius": "16 (+4)",
+  "vanDelWaalsRadius": 170,
+  "ionizationEnergy": 1087,
+  "electronAffinity": -154,
+  "oxidationStates": "-4, -3, -2, -1, 1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "covalent_network",
+  "meltingPoint": "3825",
+  "boilingPoint": "5100",
+  "density": 2.26,
+  "group": "amphigens",
+  "yearDiscovered": null,
+  "valency": "+2 +4 / -4",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

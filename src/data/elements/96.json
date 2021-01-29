@@ -1,0 +1,37 @@
+{
+  "atomic": 96,
+  "symbol": "Cm",
+  "name": "Curium",
+  "atomicMass": 247,
+  "cpkHexColor": "785CE3",
+  "electronicConfiguration": "[Rn] 5f7 6d1 7s2",
+  "electronegativity": 1.3,
+  "atomicRadius": null,
+  "ionRadius": "97 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 581,
+  "electronAffinity": null,
+  "oxidationStates": "3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": 1618,
+  "boilingPoint": 3383,
+  "density": 13.51,
+  "group": "actinoids",
+  "yearDiscovered": 1944,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

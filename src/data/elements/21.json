@@ -1,0 +1,34 @@
+{
+  "atomic": 21,
+  "symbol": "Sc",
+  "name": "Scandium",
+  "atomicMass": "44.955912",
+  "cpkHexColor": "E6E6E6",
+  "electronicConfiguration": "[Ar] 3d1 4s2",
+  "electronegativity": 1.36,
+  "atomicRadius": 184,
+  "ionRadius": "74.5 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 633,
+  "electronAffinity": -18,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1814",
+  "boilingPoint": "3109",
+  "density": 2.99,
+  "group": "transition_metals",
+  "yearDiscovered": 1876,
+  "valency": "+3",
+  "wrongValences": [
+    "+2",
+    "+1",
+    "+2 +4",
+    "+2 +3",
+    "+2 +4 / -4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

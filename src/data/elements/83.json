@@ -1,0 +1,35 @@
+{
+  "atomic": 83,
+  "symbol": "Bi",
+  "name": "Bismuth",
+  "atomicMass": "208.98040",
+  "cpkHexColor": "9E4FB5",
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p3",
+  "electronegativity": 2.02,
+  "atomicRadius": 143,
+  "ionRadius": "103 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 703,
+  "electronAffinity": -91,
+  "oxidationStates": "-3, 3, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "544.59",
+  "boilingPoint": "1837",
+  "density": 9.78,
+  "group": "basic_metals",
+  "yearDiscovered": null,
+  "valency": "+3 +5",
+  "wrongValences": [
+    "+1 +2 +3 +4 +5 / -3",
+    "+1 +3 +5 / -3",
+    "+1 +2 +3 +4 +5",
+    "+2 +4 +6 / -2",
+    "+1 +3 +5 +7 / -1",
+    "+3 +5 / -3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

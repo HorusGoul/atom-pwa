@@ -1,0 +1,28 @@
+{
+  "atomic": 36,
+  "symbol": "Kr",
+  "name": "Krypton",
+  "atomicMass": "83.798",
+  "cpkHexColor": "5CB8D1",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p6",
+  "electronegativity": null,
+  "atomicRadius": 88,
+  "ionRadius": null,
+  "vanDelWaalsRadius": 202,
+  "ionizationEnergy": 1351,
+  "electronAffinity": 0,
+  "oxidationStates": 2,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "116",
+  "boilingPoint": "120.85",
+  "density": 0,
+  "group": "noble_gases",
+  "yearDiscovered": 1898,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

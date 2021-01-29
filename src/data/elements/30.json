@@ -1,0 +1,36 @@
+{
+  "atomic": 30,
+  "symbol": "Zn",
+  "name": "Zinc",
+  "atomicMass": "65.38",
+  "cpkHexColor": "7D80B0",
+  "electronicConfiguration": "[Ar] 3d10 4s2",
+  "electronegativity": 1.65,
+  "atomicRadius": 142,
+  "ionRadius": "74 (+2)",
+  "vanDelWaalsRadius": 139,
+  "ionizationEnergy": 906,
+  "electronAffinity": 0,
+  "oxidationStates": 2,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "692.73",
+  "boilingPoint": "1180",
+  "density": 7.14,
+  "group": "transition_metals",
+  "yearDiscovered": 1746,
+  "valency": "+2",
+  "wrongValences": [
+    "+1",
+    "-1",
+    "+1 / -1",
+    "+3 / -3",
+    "+1 +3 +5 +7 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

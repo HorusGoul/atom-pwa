@@ -1,0 +1,34 @@
+{
+  "atomic": 47,
+  "symbol": "Ag",
+  "name": "Silver",
+  "atomicMass": "107.8682",
+  "cpkHexColor": "C0C0C0",
+  "electronicConfiguration": "[Kr] 4d10 5s1",
+  "electronegativity": 1.93,
+  "atomicRadius": 165,
+  "ionRadius": "115 (+1)",
+  "vanDelWaalsRadius": 172,
+  "ionizationEnergy": 731,
+  "electronAffinity": -126,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1235.08",
+  "boilingPoint": "2436",
+  "density": 10.49,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+1",
+  "wrongValences": [
+    "-1",
+    "+2",
+    "+1 +3",
+    "+1 / -1",
+    "+2"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "atomic": 97,
+  "symbol": "Bk",
+  "name": "Berkelium",
+  "atomicMass": 247,
+  "cpkHexColor": "8A4FE3",
+  "electronicConfiguration": "[Rn] 5f9 7s2",
+  "electronegativity": 1.3,
+  "atomicRadius": null,
+  "ionRadius": "96 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 601,
+  "electronAffinity": null,
+  "oxidationStates": "3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": 1323,
+  "boilingPoint": null,
+  "density": 14.78,
+  "group": "actinoids",
+  "yearDiscovered": 1949,
+  "valency": "+3 +4",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

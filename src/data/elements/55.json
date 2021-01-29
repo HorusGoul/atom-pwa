@@ -1,0 +1,34 @@
+{
+  "atomic": 55,
+  "symbol": "Cs",
+  "name": "Cesium",
+  "atomicMass": "132.9054519",
+  "cpkHexColor": "57178F",
+  "electronicConfiguration": "[Xe] 6s1",
+  "electronegativity": 0.79,
+  "atomicRadius": 298,
+  "ionRadius": "167 (+1)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 376,
+  "electronAffinity": -46,
+  "oxidationStates": 1,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "301.54",
+  "boilingPoint": "944",
+  "density": 1.88,
+  "group": "alkali_metals",
+  "yearDiscovered": 1860,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

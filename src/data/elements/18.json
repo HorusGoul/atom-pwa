@@ -1,0 +1,28 @@
+{
+  "atomic": 18,
+  "symbol": "Ar",
+  "name": "Argon",
+  "atomicMass": "39.948",
+  "cpkHexColor": "80D1E3",
+  "electronicConfiguration": "[Ne] 3s2 3p6",
+  "electronegativity": null,
+  "atomicRadius": 71,
+  "ionRadius": null,
+  "vanDelWaalsRadius": 188,
+  "ionizationEnergy": 1521,
+  "electronAffinity": 0,
+  "oxidationStates": null,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "83.95",
+  "boilingPoint": "87.45",
+  "density": 0,
+  "group": "noble_gases",
+  "yearDiscovered": 1894,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

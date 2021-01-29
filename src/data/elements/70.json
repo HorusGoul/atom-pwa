@@ -1,0 +1,34 @@
+{
+  "atomic": 70,
+  "symbol": "Yb",
+  "name": "Ytterbium",
+  "atomicMass": "173.054",
+  "cpkHexColor": "00BF38",
+  "electronicConfiguration": "[Xe] 4f14 6s2",
+  "electronegativity": 1.1,
+  "atomicRadius": 222,
+  "ionRadius": "102 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 603,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1092",
+  "boilingPoint": "1469",
+  "density": 6.57,
+  "group": "lanthanoids",
+  "yearDiscovered": 1878,
+  "valency": "+2 +3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

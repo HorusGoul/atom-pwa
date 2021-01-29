@@ -1,0 +1,28 @@
+{
+  "atomic": 86,
+  "symbol": "Rn",
+  "name": "Radon",
+  "atomicMass": 222,
+  "cpkHexColor": 428296,
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p6",
+  "electronegativity": null,
+  "atomicRadius": 120,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 1037,
+  "electronAffinity": null,
+  "oxidationStates": 2,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "202",
+  "boilingPoint": "211.4",
+  "density": 0.01,
+  "group": "noble_gases",
+  "yearDiscovered": 1900,
+  "valency": "0 +2 +6",
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

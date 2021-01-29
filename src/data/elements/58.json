@@ -1,0 +1,34 @@
+{
+  "atomic": 58,
+  "symbol": "Ce",
+  "name": "Cerium",
+  "atomicMass": "140.116",
+  "cpkHexColor": "FFFFC7",
+  "electronicConfiguration": "[Xe] 4f1 5d1 6s2",
+  "electronegativity": 1.12,
+  "atomicRadius": 181.8,
+  "ionRadius": "102 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 534,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1071",
+  "boilingPoint": "3715",
+  "density": 6.69,
+  "group": "lanthanoids",
+  "yearDiscovered": 1803,
+  "valency": "+3 +4",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

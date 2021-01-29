@@ -1,0 +1,34 @@
+{
+  "atomic": 71,
+  "symbol": "Lu",
+  "name": "Lutetium",
+  "atomicMass": "174.9668",
+  "cpkHexColor": "00AB24",
+  "electronicConfiguration": "[Xe] 4f14 5d1 6s2",
+  "electronegativity": 1.27,
+  "atomicRadius": 217,
+  "ionRadius": "86.1 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 524,
+  "electronAffinity": -50,
+  "oxidationStates": 3,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1936",
+  "boilingPoint": "3668",
+  "density": 9.84,
+  "group": "lanthanoids",
+  "yearDiscovered": 1907,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

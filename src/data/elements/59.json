@@ -1,0 +1,34 @@
+{
+  "atomic": 59,
+  "symbol": "Pr",
+  "name": "Praseodymium",
+  "atomicMass": "140.90765",
+  "cpkHexColor": "D9FFC7",
+  "electronicConfiguration": "[Xe] 4f3 6s2",
+  "electronegativity": 1.13,
+  "atomicRadius": 247,
+  "ionRadius": "99 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 527,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1204",
+  "boilingPoint": "3785",
+  "density": 6.64,
+  "group": "lanthanoids",
+  "yearDiscovered": 1885,
+  "valency": "+3 +4",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

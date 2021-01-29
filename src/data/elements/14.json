@@ -1,0 +1,36 @@
+{
+  "atomic": 14,
+  "symbol": "Si",
+  "name": "Silicon",
+  "atomicMass": "28.0855",
+  "cpkHexColor": "F0C8A0",
+  "electronicConfiguration": "[Ne] 3s2 3p2",
+  "electronegativity": 1.9,
+  "atomicRadius": 111,
+  "ionRadius": "40 (+4)",
+  "vanDelWaalsRadius": 210,
+  "ionizationEnergy": 787,
+  "electronAffinity": -134,
+  "oxidationStates": "-4, -3, -2, -1, 1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1683",
+  "boilingPoint": "2630",
+  "density": 2.33,
+  "group": "metalloids",
+  "yearDiscovered": 1854,
+  "valency": "+2 +4 / -4",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "atomic": 104,
+  "symbol": "Rf",
+  "name": "Rutherfordium",
+  "atomicMass": 267,
+  "cpkHexColor": "CC0059",
+  "electronicConfiguration": "[Rn] 5f14 6d2 7s2",
+  "electronegativity": null,
+  "atomicRadius": null,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": 4,
+  "standardState": null,
+  "bondingType": null,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "group": "transition_metals",
+  "yearDiscovered": 1969,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

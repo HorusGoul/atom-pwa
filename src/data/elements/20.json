@@ -1,0 +1,36 @@
+{
+  "atomic": 20,
+  "symbol": "Ca",
+  "name": "Calcium",
+  "atomicMass": "40.078",
+  "cpkHexColor": "3DFF00",
+  "electronicConfiguration": "[Ar] 4s2",
+  "electronegativity": 1,
+  "atomicRadius": 194,
+  "ionRadius": "100 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 590,
+  "electronAffinity": -2,
+  "oxidationStates": 2,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1112",
+  "boilingPoint": "1757",
+  "density": 1.55,
+  "group": "alkali_earth_metals",
+  "yearDiscovered": null,
+  "valency": "+2",
+  "wrongValences": [
+    "+1",
+    "-1",
+    "+1 / -1",
+    "+3 / -3",
+    "+1 +3 +5 +7 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

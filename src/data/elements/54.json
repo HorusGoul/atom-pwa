@@ -1,0 +1,28 @@
+{
+  "atomic": 54,
+  "symbol": "Xe",
+  "name": "Xenon",
+  "atomicMass": "131.293",
+  "cpkHexColor": "429EB0",
+  "electronicConfiguration": "[Kr] 4d10 5s2 5p6",
+  "electronegativity": null,
+  "atomicRadius": 108,
+  "ionRadius": "48 (+8)",
+  "vanDelWaalsRadius": 216,
+  "ionizationEnergy": 1170,
+  "electronAffinity": 0,
+  "oxidationStates": "2, 4, 6, 8",
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "161.39",
+  "boilingPoint": "165.1",
+  "density": 0.01,
+  "group": "noble_gases",
+  "yearDiscovered": 1898,
+  "valency": "0 +1 +2 +4 +6 +8",
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

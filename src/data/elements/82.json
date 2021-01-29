@@ -1,0 +1,35 @@
+{
+  "atomic": 82,
+  "symbol": "Pb",
+  "name": "Lead",
+  "atomicMass": "207.2",
+  "cpkHexColor": 575961,
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p2",
+  "electronegativity": 2.33,
+  "atomicRadius": 154,
+  "ionRadius": "119 (+2)",
+  "vanDelWaalsRadius": 202,
+  "ionizationEnergy": 716,
+  "electronAffinity": -35,
+  "oxidationStates": "-4, 2, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "600.65",
+  "boilingPoint": "2023",
+  "density": 11.34,
+  "group": "basic_metals",
+  "yearDiscovered": null,
+  "valency": "+2 +4",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

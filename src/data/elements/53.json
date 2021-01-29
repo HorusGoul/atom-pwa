@@ -1,0 +1,38 @@
+{
+  "atomic": 53,
+  "symbol": "I",
+  "name": "Iodine",
+  "atomicMass": "126.90447",
+  "cpkHexColor": 940094,
+  "electronicConfiguration": "[Kr] 4d10 5s2 5p5",
+  "electronegativity": 2.66,
+  "atomicRadius": 115,
+  "ionRadius": "220 (-1)",
+  "vanDelWaalsRadius": 198,
+  "ionizationEnergy": 1008,
+  "electronAffinity": -295,
+  "oxidationStates": "-1, 1, 3, 5, 7",
+  "standardState": "solid",
+  "bondingType": "covalent_network",
+  "meltingPoint": "386.7",
+  "boilingPoint": "457.5",
+  "density": 4.94,
+  "group": "halogens",
+  "yearDiscovered": 1811,
+  "valency": "+1 +3 +5 +7 / -1",
+  "wrongValences": [
+    "+1 +3 +5 +7",
+    "-1",
+    "+2 +4 +6 / -2",
+    "+2 +4 +6",
+    "+1 +2",
+    "+1",
+    "-2",
+    "+3 +5 +7",
+    "+1 +5"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "atomic": 89,
+  "symbol": "Ac",
+  "name": "Actinium",
+  "atomicMass": 227,
+  "cpkHexColor": "70ABFA",
+  "electronicConfiguration": "[Rn] 6d1 7s2",
+  "electronegativity": 1.1,
+  "atomicRadius": null,
+  "ionRadius": "112 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 499,
+  "electronAffinity": null,
+  "oxidationStates": 3,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": 1323,
+  "boilingPoint": 3473,
+  "density": 10.07,
+  "group": "actinoids",
+  "yearDiscovered": 1899,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

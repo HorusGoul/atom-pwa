@@ -1,0 +1,34 @@
+{
+  "atomic": 3,
+  "symbol": "Li",
+  "name": "Lithium",
+  "atomicMass": "6.941",
+  "cpkHexColor": "CC80FF",
+  "electronicConfiguration": "[He] 2s1",
+  "electronegativity": 0.98,
+  "atomicRadius": 152,
+  "ionRadius": "76 (+1)",
+  "vanDelWaalsRadius": 182,
+  "ionizationEnergy": 520,
+  "electronAffinity": -60,
+  "oxidationStates": 1,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "453.7",
+  "boilingPoint": "1615",
+  "density": 0.534,
+  "group": "alkali_metals",
+  "yearDiscovered": 1817,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

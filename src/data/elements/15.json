@@ -1,0 +1,34 @@
+{
+  "atomic": 15,
+  "symbol": "P",
+  "name": "Phosphorus",
+  "atomicMass": "30.973762",
+  "cpkHexColor": "FF8000",
+  "electronicConfiguration": "[Ne] 3s2 3p3",
+  "electronegativity": 2.19,
+  "atomicRadius": 98,
+  "ionRadius": "44 (+3)",
+  "vanDelWaalsRadius": 180,
+  "ionizationEnergy": 1012,
+  "electronAffinity": -72,
+  "oxidationStates": "-3, -2, -1, 1, 2, 3, 4, 5",
+  "standardState": "solid",
+  "bondingType": "covalent_network",
+  "meltingPoint": "317.3",
+  "boilingPoint": "553",
+  "density": 1.82,
+  "group": "amphigens",
+  "yearDiscovered": 1669,
+  "valency": "+3 +5 / -3",
+  "wrongValences": [
+    "+1 +2 +3 +4 +5 / -3",
+    "+1 +3 +5 / -3",
+    "+1 +2 +3 +4 +5",
+    "+2 +4 +6 / -2",
+    "+1 +3 +5 +7 / -1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

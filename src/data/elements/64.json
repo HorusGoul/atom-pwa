@@ -1,0 +1,34 @@
+{
+  "atomic": 64,
+  "symbol": "Gd",
+  "name": "Gadolinium",
+  "atomicMass": "157.25",
+  "cpkHexColor": "45FFC7",
+  "electronicConfiguration": "[Xe] 4f7 5d1 6s2",
+  "electronegativity": 1.2,
+  "atomicRadius": 233,
+  "ionRadius": "93.8 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 593,
+  "electronAffinity": -50,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1585",
+  "boilingPoint": "3545",
+  "density": 7.9,
+  "group": "lanthanoids",
+  "yearDiscovered": 1880,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

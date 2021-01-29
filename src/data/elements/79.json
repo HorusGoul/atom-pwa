@@ -1,0 +1,35 @@
+{
+  "atomic": 79,
+  "symbol": "Au",
+  "name": "Gold",
+  "atomicMass": "196.966569",
+  "cpkHexColor": "FFD123",
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s1",
+  "electronegativity": 2.54,
+  "atomicRadius": 174,
+  "ionRadius": "137 (+1)",
+  "vanDelWaalsRadius": 166,
+  "ionizationEnergy": 890,
+  "electronAffinity": -223,
+  "oxidationStates": "-1, 1, 2, 3, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1337.58",
+  "boilingPoint": "3130",
+  "density": 19.3,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+1 +3",
+  "wrongValences": [
+    "+2 +4",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

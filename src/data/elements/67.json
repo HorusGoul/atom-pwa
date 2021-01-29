@@ -1,0 +1,34 @@
+{
+  "atomic": 67,
+  "symbol": "Ho",
+  "name": "Holmium",
+  "atomicMass": "164.93032",
+  "cpkHexColor": "00FF9C",
+  "electronicConfiguration": "[Xe] 4f11 6s2",
+  "electronegativity": 1.23,
+  "atomicRadius": 226,
+  "ionRadius": "90.1 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 581,
+  "electronAffinity": -50,
+  "oxidationStates": 3,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1747",
+  "boilingPoint": "2968",
+  "density": 8.8,
+  "group": "lanthanoids",
+  "yearDiscovered": 1878,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

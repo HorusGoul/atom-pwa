@@ -1,0 +1,35 @@
+{
+  "atomic": 9,
+  "symbol": "F",
+  "name": "Fluorine",
+  "atomicMass": "18.9984032",
+  "cpkHexColor": 9e+51,
+  "electronicConfiguration": "[He] 2s2 2p5",
+  "electronegativity": 3.98,
+  "atomicRadius": 42,
+  "ionRadius": "133 (-1)",
+  "vanDelWaalsRadius": 147,
+  "ionizationEnergy": 1681,
+  "electronAffinity": -328,
+  "oxidationStates": -1,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "53.55",
+  "boilingPoint": "85",
+  "density": 0,
+  "group": "halogens",
+  "yearDiscovered": 1670,
+  "valency": "-1",
+  "wrongValences": [
+    "+1 +3 +5 +7 / -1",
+    "+1 +3 +5 +7",
+    "+1 / -1",
+    "0",
+    "-2",
+    "-3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

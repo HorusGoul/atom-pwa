@@ -1,0 +1,34 @@
+{
+  "atomic": 66,
+  "symbol": "Dy",
+  "name": "Dysprosium",
+  "atomicMass": "162.500",
+  "cpkHexColor": "1FFFC7",
+  "electronicConfiguration": "[Xe] 4f10 6s2",
+  "electronegativity": 1.22,
+  "atomicRadius": 228,
+  "ionRadius": "107 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 573,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1685",
+  "boilingPoint": "2840",
+  "density": 8.55,
+  "group": "lanthanoids",
+  "yearDiscovered": 1886,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

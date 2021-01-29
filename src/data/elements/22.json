@@ -1,0 +1,35 @@
+{
+  "atomic": 22,
+  "symbol": "Ti",
+  "name": "Titanium",
+  "atomicMass": "47.867",
+  "cpkHexColor": "BFC2C7",
+  "electronicConfiguration": "[Ar] 3d2 4s2",
+  "electronegativity": 1.54,
+  "atomicRadius": 176,
+  "ionRadius": "86 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 659,
+  "electronAffinity": -8,
+  "oxidationStates": "-1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1945",
+  "boilingPoint": "3560",
+  "density": 4.51,
+  "group": "transition_metals",
+  "yearDiscovered": 1791,
+  "valency": "+2 +3 +4",
+  "wrongValences": [
+    "+2",
+    "+3",
+    "+4",
+    "+2 +3",
+    "+2 +4",
+    "+2 +4 / -4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

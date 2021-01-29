@@ -1,0 +1,35 @@
+{
+  "atomic": 49,
+  "symbol": "In",
+  "name": "Indium",
+  "atomicMass": "114.818",
+  "cpkHexColor": "A67573",
+  "electronicConfiguration": "[Kr] 4d10 5s2 5p1",
+  "electronegativity": 1.78,
+  "atomicRadius": 156,
+  "ionRadius": "80 (+3)",
+  "vanDelWaalsRadius": 193,
+  "ionizationEnergy": 558,
+  "electronAffinity": -29,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "429.78",
+  "boilingPoint": "2350",
+  "density": 7.31,
+  "group": "basic_metals",
+  "yearDiscovered": 1863,
+  "valency": "+1 +3",
+  "wrongValences": [
+    "+2 +4",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

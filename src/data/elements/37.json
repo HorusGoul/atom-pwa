@@ -1,0 +1,34 @@
+{
+  "atomic": 37,
+  "symbol": "Rb",
+  "name": "Rubidium",
+  "atomicMass": "85.4678",
+  "cpkHexColor": "702EB0",
+  "electronicConfiguration": "[Kr] 5s1",
+  "electronegativity": 0.82,
+  "atomicRadius": 265,
+  "ionRadius": "152 (+1)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 403,
+  "electronAffinity": -47,
+  "oxidationStates": 1,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "312.63",
+  "boilingPoint": "961",
+  "density": 1.53,
+  "group": "alkali_metals",
+  "yearDiscovered": 1861,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

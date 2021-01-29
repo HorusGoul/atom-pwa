@@ -1,0 +1,34 @@
+{
+  "atomic": 33,
+  "symbol": "As",
+  "name": "Arsenic",
+  "atomicMass": "74.92160",
+  "cpkHexColor": "BD80E3",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p3",
+  "electronegativity": 2.18,
+  "atomicRadius": 114,
+  "ionRadius": "58 (+3)",
+  "vanDelWaalsRadius": 185,
+  "ionizationEnergy": 947,
+  "electronAffinity": -78,
+  "oxidationStates": "-3, 2, 3, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1090",
+  "boilingPoint": "876",
+  "density": 5.73,
+  "group": "metalloids",
+  "yearDiscovered": null,
+  "valency": "+3 +5 / -3",
+  "wrongValences": [
+    "+1 +2 +3 +4 +5 / -3",
+    "+1 +3 +5 / -3",
+    "+1 +2 +3 +4 +5",
+    "+2 +4 +6 / -2",
+    "+1 +3 +5 +7 / -1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

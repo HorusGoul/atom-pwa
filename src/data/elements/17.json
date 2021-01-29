@@ -1,0 +1,38 @@
+{
+  "atomic": 17,
+  "symbol": "Cl",
+  "name": "Chlorine",
+  "atomicMass": "35.453",
+  "cpkHexColor": "1FF01F",
+  "electronicConfiguration": "[Ne] 3s2 3p5",
+  "electronegativity": 3.16,
+  "atomicRadius": 79,
+  "ionRadius": "181 (-1)",
+  "vanDelWaalsRadius": 175,
+  "ionizationEnergy": 1251,
+  "electronAffinity": -349,
+  "oxidationStates": "-1, 1, 2, 3, 4, 5, 6, 7",
+  "standardState": "gas",
+  "bondingType": "covalent_network",
+  "meltingPoint": "172.17",
+  "boilingPoint": "239.18",
+  "density": 0,
+  "group": "halogens",
+  "yearDiscovered": 1774,
+  "valency": "+1 +3 +5 +7 / -1",
+  "wrongValences": [
+    "+1 +3 +5 +7",
+    "-1",
+    "+2 +4 +6 / -2",
+    "+2 +4 +6",
+    "+1 +2",
+    "+1",
+    "-2",
+    "+3 +5 +7",
+    "+1 +5"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

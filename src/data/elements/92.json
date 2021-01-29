@@ -1,0 +1,37 @@
+{
+  "atomic": 92,
+  "symbol": "U",
+  "name": "Uranium",
+  "atomicMass": "238.02891",
+  "cpkHexColor": "008FFF",
+  "electronicConfiguration": "[Rn] 5f3 6d1 7s2",
+  "electronegativity": 1.38,
+  "atomicRadius": null,
+  "ionRadius": "102.5 (+3)",
+  "vanDelWaalsRadius": 186,
+  "ionizationEnergy": 598,
+  "electronAffinity": null,
+  "oxidationStates": "3, 4, 5, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1408",
+  "boilingPoint": "4407",
+  "density": 19.05,
+  "group": "actinoids",
+  "yearDiscovered": 1789,
+  "valency": "+3 +4 +5 +6",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

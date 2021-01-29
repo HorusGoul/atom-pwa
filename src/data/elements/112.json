@@ -1,0 +1,28 @@
+{
+  "atomic": 112,
+  "symbol": "Cn",
+  "name": "Copernicium",
+  "atomicMass": 285,
+  "cpkHexColor": null,
+  "electronicConfiguration": "[Rn].5f14.6d10.7s2",
+  "electronegativity": null,
+  "atomicRadius": null,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": null,
+  "standardState": null,
+  "bondingType": null,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "group": "transition_metals",
+  "yearDiscovered": 1996,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

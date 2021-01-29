@@ -1,0 +1,34 @@
+{
+  "atomic": 63,
+  "symbol": "Eu",
+  "name": "Europium",
+  "atomicMass": "151.964",
+  "cpkHexColor": "61FFC7",
+  "electronicConfiguration": "[Xe] 4f7 6s2",
+  "electronegativity": 1.2,
+  "atomicRadius": 231,
+  "ionRadius": "117 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 547,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1095",
+  "boilingPoint": "1800",
+  "density": 5.24,
+  "group": "lanthanoids",
+  "yearDiscovered": 1901,
+  "valency": "+2 +3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

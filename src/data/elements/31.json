@@ -1,0 +1,35 @@
+{
+  "atomic": 31,
+  "symbol": "Ga",
+  "name": "Gallium",
+  "atomicMass": "69.723",
+  "cpkHexColor": "C28F8F",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p1",
+  "electronegativity": 1.81,
+  "atomicRadius": 136,
+  "ionRadius": "62 (+3)",
+  "vanDelWaalsRadius": 187,
+  "ionizationEnergy": 579,
+  "electronAffinity": -29,
+  "oxidationStates": "1, 2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "302.92",
+  "boilingPoint": "2478",
+  "density": 5.9,
+  "group": "basic_metals",
+  "yearDiscovered": 1875,
+  "valency": "+1 +3",
+  "wrongValences": [
+    "+2 +4",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

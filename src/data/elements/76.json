@@ -1,0 +1,37 @@
+{
+  "atomic": 76,
+  "symbol": "Os",
+  "name": "Osmium",
+  "atomicMass": "190.23",
+  "cpkHexColor": 266696,
+  "electronicConfiguration": "[Xe] 4f14 5d6 6s2",
+  "electronegativity": 2.2,
+  "atomicRadius": 185,
+  "ionRadius": "63 (+4)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 840,
+  "electronAffinity": -106,
+  "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6, 7, 8",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "3300",
+  "boilingPoint": "5300",
+  "density": 22.59,
+  "group": "transition_metals",
+  "yearDiscovered": 1803,
+  "valency": "+2 +3 +4 +6 +8",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

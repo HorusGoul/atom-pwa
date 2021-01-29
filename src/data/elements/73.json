@@ -1,0 +1,37 @@
+{
+  "atomic": 73,
+  "symbol": "Ta",
+  "name": "Tantalum",
+  "atomicMass": "180.94788",
+  "cpkHexColor": "4DA6FF",
+  "electronicConfiguration": "[Xe] 4f14 5d3 6s2",
+  "electronegativity": 1.5,
+  "atomicRadius": 200,
+  "ionRadius": "72 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 761,
+  "electronAffinity": -31,
+  "oxidationStates": "-1, 2, 3, 4, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "3293",
+  "boilingPoint": "5730",
+  "density": 16.65,
+  "group": "transition_metals",
+  "yearDiscovered": 1802,
+  "valency": "+2 +3 +4 +5",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

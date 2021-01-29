@@ -1,0 +1,37 @@
+{
+  "atomic": 77,
+  "symbol": "Ir",
+  "name": "Iridium",
+  "atomicMass": "192.217",
+  "cpkHexColor": 175487,
+  "electronicConfiguration": "[Xe] 4f14 5d7 6s2",
+  "electronegativity": 2.2,
+  "atomicRadius": 180,
+  "ionRadius": "68 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 880,
+  "electronAffinity": -151,
+  "oxidationStates": "-3, -1, 1, 2, 3, 4, 5, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2720",
+  "boilingPoint": "4700",
+  "density": 22.56,
+  "group": "transition_metals",
+  "yearDiscovered": 1803,
+  "valency": "+2 +4 +6 +7",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

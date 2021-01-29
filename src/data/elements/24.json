@@ -1,0 +1,33 @@
+{
+  "atomic": 24,
+  "symbol": "Cr",
+  "name": "Chromium",
+  "atomicMass": "51.9961",
+  "cpkHexColor": "8A99C7",
+  "electronicConfiguration": "[Ar] 3d5 4s1",
+  "electronegativity": 1.66,
+  "atomicRadius": 166,
+  "ionRadius": "80 (+2*)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 653,
+  "electronAffinity": -64,
+  "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2130",
+  "boilingPoint": "2945",
+  "density": 7.14,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+2 +3 +4 +6",
+  "wrongValences": [
+    "+2 +3 +4 +5",
+    "+2 +3 +4 +6 +7",
+    "+2 +3",
+    "+1 +2 +3 +4"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

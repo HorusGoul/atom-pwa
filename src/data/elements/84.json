@@ -1,0 +1,35 @@
+{
+  "atomic": 84,
+  "symbol": "Po",
+  "name": "Polonium",
+  "atomicMass": 209,
+  "cpkHexColor": "AB5C00",
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p4",
+  "electronegativity": 2,
+  "atomicRadius": 135,
+  "ionRadius": "94 (+4)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 812,
+  "electronAffinity": -183,
+  "oxidationStates": "-2, 2, 4, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": 527,
+  "boilingPoint": 1235,
+  "density": 9.2,
+  "group": "metalloids",
+  "yearDiscovered": 1898,
+  "valency": "+2 +4 +6 / -2",
+  "wrongValences": [
+    "+1 +3 +5 +7 / -1",
+    "+2 +4 +6",
+    "+3 +5 / -3",
+    "+3 +5",
+    "+2 +6",
+    "+2"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "atomic": 19,
+  "symbol": "K",
+  "name": "Potassium",
+  "atomicMass": "39.0983",
+  "cpkHexColor": "8F40D4",
+  "electronicConfiguration": "[Ar] 4s1",
+  "electronegativity": 0.82,
+  "atomicRadius": 243,
+  "ionRadius": "138 (+1)",
+  "vanDelWaalsRadius": 275,
+  "ionizationEnergy": 419,
+  "electronAffinity": -48,
+  "oxidationStates": 1,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "336.8",
+  "boilingPoint": "1033",
+  "density": 0.86,
+  "group": "alkali_metals",
+  "yearDiscovered": 1807,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

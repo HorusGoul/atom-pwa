@@ -1,0 +1,35 @@
+{
+  "atomic": 8,
+  "symbol": "O",
+  "name": "Oxygen",
+  "atomicMass": "15.9994",
+  "cpkHexColor": "FF0D0D",
+  "electronicConfiguration": "[He] 2s2 2p4",
+  "electronegativity": 3.44,
+  "atomicRadius": 48,
+  "ionRadius": "140 (-2)",
+  "vanDelWaalsRadius": 152,
+  "ionizationEnergy": 1314,
+  "electronAffinity": -141,
+  "oxidationStates": "-2, -1, 1, 2",
+  "standardState": "gas",
+  "bondingType": "diatomic",
+  "meltingPoint": "54.8",
+  "boilingPoint": "90.188",
+  "density": 0,
+  "group": "amphigens",
+  "yearDiscovered": 1774,
+  "valency": "-2",
+  "wrongValences": [
+    "-1",
+    "+2 -2",
+    "+1 -1",
+    "+1",
+    "+2 +4 +6 / -2",
+    "+2"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

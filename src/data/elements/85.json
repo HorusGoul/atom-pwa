@@ -1,0 +1,38 @@
+{
+  "atomic": 85,
+  "symbol": "At",
+  "name": "Astatine",
+  "atomicMass": 210,
+  "cpkHexColor": "754F45",
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p5",
+  "electronegativity": 2.2,
+  "atomicRadius": 127,
+  "ionRadius": "62 (+7)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 920,
+  "electronAffinity": -270,
+  "oxidationStates": "-1, 1, 3, 5",
+  "standardState": "solid",
+  "bondingType": "covalent_network",
+  "meltingPoint": "575",
+  "boilingPoint": "610",
+  "density": null,
+  "group": "halogens",
+  "yearDiscovered": 1940,
+  "valency": "+1 +5 / -1",
+  "wrongValences": [
+    "+1 +3 +5 +7",
+    "-1",
+    "+2 +4 +6 / -2",
+    "+2 +4 +6",
+    "+1 +2",
+    "+1",
+    "-2",
+    "+3 +5 +7",
+    "+1 +5"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

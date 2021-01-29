@@ -1,0 +1,35 @@
+{
+  "atomic": 27,
+  "symbol": "Co",
+  "name": "Cobalt",
+  "atomicMass": "58.933195",
+  "cpkHexColor": "F090A0",
+  "electronicConfiguration": "[Ar] 3d7 4s2",
+  "electronegativity": 1.88,
+  "atomicRadius": 152,
+  "ionRadius": "74.5 (+2*)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 760,
+  "electronAffinity": -64,
+  "oxidationStates": "-1, 1, 2, 3, 4, 5",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1768",
+  "boilingPoint": "3143",
+  "density": 8.9,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+2 +3",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +4",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

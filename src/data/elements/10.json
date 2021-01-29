@@ -1,0 +1,28 @@
+{
+  "atomic": 10,
+  "symbol": "Ne",
+  "name": "Neon",
+  "atomicMass": "20.1797",
+  "cpkHexColor": "B3E3F5",
+  "electronicConfiguration": "[He] 2s2 2p6",
+  "electronegativity": null,
+  "atomicRadius": 38,
+  "ionRadius": null,
+  "vanDelWaalsRadius": 154,
+  "ionizationEnergy": 2081,
+  "electronAffinity": 0,
+  "oxidationStates": null,
+  "standardState": "gas",
+  "bondingType": "atomic",
+  "meltingPoint": "24.55",
+  "boilingPoint": "27.1",
+  "density": 0,
+  "group": "noble_gases",
+  "yearDiscovered": 1898,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "atomic": 42,
+  "symbol": "Mo",
+  "name": "Molybdenum",
+  "atomicMass": "95.96",
+  "cpkHexColor": "54B5B5",
+  "electronicConfiguration": "[Kr] 4d5 5s1",
+  "electronegativity": 2.16,
+  "atomicRadius": 190,
+  "ionRadius": "69 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 684,
+  "electronAffinity": -72,
+  "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "2896",
+  "boilingPoint": "4912",
+  "density": 10.28,
+  "group": "transition_metals",
+  "yearDiscovered": 1778,
+  "valency": "+2 +3 +4 +5 +6",
+  "wrongValences": [
+    "+2 +3",
+    "+2 +4",
+    "+2 +4 +6",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

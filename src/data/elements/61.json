@@ -1,0 +1,34 @@
+{
+  "atomic": 61,
+  "symbol": "Pm",
+  "name": "Promethium",
+  "atomicMass": 145,
+  "cpkHexColor": "A3FFC7",
+  "electronicConfiguration": "[Xe] 4f5 6s2",
+  "electronegativity": 1.13,
+  "atomicRadius": 205,
+  "ionRadius": "97 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 540,
+  "electronAffinity": -50,
+  "oxidationStates": 3,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1315",
+  "boilingPoint": "3273",
+  "density": 7.26,
+  "group": "lanthanoids",
+  "yearDiscovered": 1947,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

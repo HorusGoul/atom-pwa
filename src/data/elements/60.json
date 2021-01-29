@@ -1,0 +1,34 @@
+{
+  "atomic": 60,
+  "symbol": "Nd",
+  "name": "Neodymium",
+  "atomicMass": "144.242",
+  "cpkHexColor": "C7FFC7",
+  "electronicConfiguration": "[Xe] 4f4 6s2",
+  "electronegativity": 1.14,
+  "atomicRadius": 206,
+  "ionRadius": "129 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 533,
+  "electronAffinity": -50,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1294",
+  "boilingPoint": "3347",
+  "density": 7.01,
+  "group": "lanthanoids",
+  "yearDiscovered": 1885,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "atomic": 94,
+  "symbol": "Pu",
+  "name": "Plutonium",
+  "atomicMass": 244,
+  "cpkHexColor": "006BFF",
+  "electronicConfiguration": "[Rn] 5f6 7s2",
+  "electronegativity": 1.28,
+  "atomicRadius": null,
+  "ionRadius": "100 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 585,
+  "electronAffinity": null,
+  "oxidationStates": "3, 4, 5, 6, 7",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "913",
+  "boilingPoint": "3505",
+  "density": 19.82,
+  "group": "actinoids",
+  "yearDiscovered": 1940,
+  "valency": "+3 +4 +5 +6",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

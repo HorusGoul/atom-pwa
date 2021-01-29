@@ -1,0 +1,35 @@
+{
+  "atomic": 32,
+  "symbol": "Ge",
+  "name": "Germanium",
+  "atomicMass": "72.64",
+  "cpkHexColor": "668F8F",
+  "electronicConfiguration": "[Ar] 3d10 4s2 4p2",
+  "electronegativity": 2.01,
+  "atomicRadius": 125,
+  "ionRadius": "73 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 762,
+  "electronAffinity": -119,
+  "oxidationStates": "-4, 1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1211.5",
+  "boilingPoint": "3107",
+  "density": 5.32,
+  "group": "metalloids",
+  "yearDiscovered": 1886,
+  "valency": "+2 +4",
+  "wrongValences": [
+    "+1 +3",
+    "+1 +2",
+    "+2 +3",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

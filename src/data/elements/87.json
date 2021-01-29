@@ -1,0 +1,34 @@
+{
+  "atomic": 87,
+  "symbol": "Fr",
+  "name": "Francium",
+  "atomicMass": 223,
+  "cpkHexColor": 420066,
+  "electronicConfiguration": "[Rn] 7s1",
+  "electronegativity": 0.7,
+  "atomicRadius": null,
+  "ionRadius": "180 (+1)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 380,
+  "electronAffinity": null,
+  "oxidationStates": 1,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "300",
+  "boilingPoint": "950",
+  "density": null,
+  "group": "alkali_metals",
+  "yearDiscovered": 1939,
+  "valency": "+1",
+  "wrongValences": [
+    "+2",
+    "-1",
+    "+1 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

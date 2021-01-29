@@ -1,0 +1,35 @@
+{
+  "atomic": 29,
+  "symbol": "Cu",
+  "name": "Copper",
+  "atomicMass": "63.546",
+  "cpkHexColor": "C88033",
+  "electronicConfiguration": "[Ar] 3d10 4s1",
+  "electronegativity": 1.9,
+  "atomicRadius": 145,
+  "ionRadius": "77 (+1)",
+  "vanDelWaalsRadius": 140,
+  "ionizationEnergy": 746,
+  "electronAffinity": -118,
+  "oxidationStates": "1, 2, 3, 4",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1356.6",
+  "boilingPoint": "2840",
+  "density": 8.96,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+1 +2",
+  "wrongValences": [
+    "+1 +3",
+    "+2 +3",
+    "+2 +4",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "atomic": 100,
+  "symbol": "Fm",
+  "name": "Fermium",
+  "atomicMass": 257,
+  "cpkHexColor": "B31FBA",
+  "electronicConfiguration": "[Rn] 5f12 7s2",
+  "electronegativity": 1.3,
+  "atomicRadius": null,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 627,
+  "electronAffinity": null,
+  "oxidationStates": "2, 3",
+  "standardState": null,
+  "bondingType": null,
+  "meltingPoint": 1800,
+  "boilingPoint": null,
+  "density": null,
+  "group": "actinoids",
+  "yearDiscovered": 1952,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

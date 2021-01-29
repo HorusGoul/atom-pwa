@@ -1,0 +1,35 @@
+{
+  "atomic": 80,
+  "symbol": "Hg",
+  "name": "Mercury",
+  "atomicMass": "200.59",
+  "cpkHexColor": "B8B8D0",
+  "electronicConfiguration": "[Xe] 4f14 5d10 6s2",
+  "electronegativity": 2,
+  "atomicRadius": 171,
+  "ionRadius": "119 (+1)",
+  "vanDelWaalsRadius": 155,
+  "ionizationEnergy": 1007,
+  "electronAffinity": 0,
+  "oxidationStates": "1, 2, 4",
+  "standardState": "liquid",
+  "bondingType": "metallic",
+  "meltingPoint": "234.31",
+  "boilingPoint": "629.88",
+  "density": 13.53,
+  "group": "transition_metals",
+  "yearDiscovered": null,
+  "valency": "+1 +2",
+  "wrongValences": [
+    "+1 +3",
+    "+2 +3",
+    "+2 +4",
+    "+1 +3 +5",
+    "+2 +4 +6",
+    "-1"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

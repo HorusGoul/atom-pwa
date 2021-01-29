@@ -1,0 +1,36 @@
+{
+  "atomic": 88,
+  "symbol": "Ra",
+  "name": "Radium",
+  "atomicMass": 226,
+  "cpkHexColor": "007D00",
+  "electronicConfiguration": "[Rn] 7s2",
+  "electronegativity": 0.9,
+  "atomicRadius": null,
+  "ionRadius": "148 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 509,
+  "electronAffinity": null,
+  "oxidationStates": 2,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "973",
+  "boilingPoint": "1413",
+  "density": 5,
+  "group": "alkali_earth_metals",
+  "yearDiscovered": 1898,
+  "valency": "+2",
+  "wrongValences": [
+    "+1",
+    "-1",
+    "+1 / -1",
+    "+3 / -3",
+    "+1 +3 +5 +7 / -1",
+    "-2",
+    "+3"
+  ],
+  "testState": {
+    "valencesTest": true,
+    "ptTest": true
+  }
+}

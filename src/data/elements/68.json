@@ -1,0 +1,34 @@
+{
+  "atomic": 68,
+  "symbol": "Er",
+  "name": "Erbium",
+  "atomicMass": "167.259",
+  "cpkHexColor": 0,
+  "electronicConfiguration": "[Xe] 4f12 6s2",
+  "electronegativity": 1.24,
+  "atomicRadius": 226,
+  "ionRadius": "89 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 589,
+  "electronAffinity": -50,
+  "oxidationStates": 3,
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1802",
+  "boilingPoint": "3140",
+  "density": 9.07,
+  "group": "lanthanoids",
+  "yearDiscovered": 1842,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

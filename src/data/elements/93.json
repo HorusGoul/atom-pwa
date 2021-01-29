@@ -1,0 +1,37 @@
+{
+  "atomic": 93,
+  "symbol": "Np",
+  "name": "Neptunium",
+  "atomicMass": 237,
+  "cpkHexColor": "0080FF",
+  "electronicConfiguration": "[Rn] 5f4 6d1 7s2",
+  "electronegativity": 1.36,
+  "atomicRadius": null,
+  "ionRadius": "110 (+2)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 605,
+  "electronAffinity": null,
+  "oxidationStates": "3, 4, 5, 6, 7",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "912",
+  "boilingPoint": "4175",
+  "density": 20.45,
+  "group": "actinoids",
+  "yearDiscovered": 1940,
+  "valency": "+3 +4 +5 +6",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

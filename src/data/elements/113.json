@@ -1,0 +1,28 @@
+{
+  "atomic": 113,
+  "symbol": "Nh",
+  "name": "Nihonium",
+  "atomicMass": 284,
+  "cpkHexColor": null,
+  "electronicConfiguration": "[Rn].5f14.6d10.7s2.7p1",
+  "electronegativity": null,
+  "atomicRadius": null,
+  "ionRadius": null,
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": null,
+  "standardState": null,
+  "bondingType": null,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "group": "basic_metals",
+  "yearDiscovered": 2003,
+  "valency": null,
+  "wrongValences": [],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

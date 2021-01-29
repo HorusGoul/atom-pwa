@@ -1,0 +1,37 @@
+{
+  "atomic": 75,
+  "symbol": "Re",
+  "name": "Rhenium",
+  "atomicMass": "186.207",
+  "cpkHexColor": "267DAB",
+  "electronicConfiguration": "[Xe] 4f14 5d5 6s2",
+  "electronegativity": 1.9,
+  "atomicRadius": 188,
+  "ionRadius": "63 (+4)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 760,
+  "electronAffinity": -15,
+  "oxidationStates": "-3, -1, 1, 2, 3, 4, 5, 6, 7",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "3455",
+  "boilingPoint": "5870",
+  "density": 21.02,
+  "group": "transition_metals",
+  "yearDiscovered": 1925,
+  "valency": "+2 +4 +6 +7",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4",
+    "+2 +3 +4",
+    "+1 +2 +3 +4",
+    "+2 +4 +6"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}

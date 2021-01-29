@@ -1,0 +1,34 @@
+{
+  "atomic": 57,
+  "symbol": "La",
+  "name": "Lanthanum",
+  "atomicMass": "138.90547",
+  "cpkHexColor": "70D4FF",
+  "electronicConfiguration": "[Xe] 5d1 6s2",
+  "electronegativity": 1.1,
+  "atomicRadius": 187,
+  "ionRadius": "103.2 (+3)",
+  "vanDelWaalsRadius": null,
+  "ionizationEnergy": 538,
+  "electronAffinity": -48,
+  "oxidationStates": "2, 3",
+  "standardState": "solid",
+  "bondingType": "metallic",
+  "meltingPoint": "1191",
+  "boilingPoint": "3737",
+  "density": 6.15,
+  "group": "lanthanoids",
+  "yearDiscovered": 1839,
+  "valency": "+3",
+  "wrongValences": [
+    "+1",
+    "+2",
+    "+2 +3",
+    "+3 +5",
+    "+2 +4"
+  ],
+  "testState": {
+    "valencesTest": false,
+    "ptTest": true
+  }
+}
