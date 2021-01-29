@@ -1,4 +1,5 @@
 import CMS from "netlify-cms-app";
+import { elementsCollection } from "./collections/elements";
 
 CMS.init({
   config: {
@@ -11,21 +12,7 @@ CMS.init({
 
     publish_mode: "editorial_workflow",
 
-    collections: [
-      {
-        name: "elements",
-        label: "Elements",
-        folder: "src/data/elements",
-        identifier_field: "atomic",
-        fields: [
-          {
-            name: "atomic",
-            label: "Atomic Number",
-            widget: "number",
-          },
-        ],
-      },
-    ],
+    collections: [elementsCollection],
 
     media_folder: "public/media",
   },
