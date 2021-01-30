@@ -24,7 +24,7 @@
     "react-hyper-scroller": "next",
     "react-portal": "^4.2.1",
     "react-router-dom": "^5.2.0",
-    "workbox-precaching": "^6.0.2"
+    "workbox-precaching": "^6.1.0"
   },
   "devDependencies": {
     "@types/animejs": "^3.1.2",
@@ -54,8 +54,8 @@
     "rimraf": "^3.0.2",
     "sass": "^1.32.5",
     "typescript": "^4.1.2",
-    "vite": "^2.0.0-beta.48",
+    "vite": "^2.0.0-beta.59",
     "vite-plugin-svgr": "^0.2.0",
-    "workbox-cli": "^6.0.2"
+    "workbox-cli": "^6.1.0"
   }
 }
