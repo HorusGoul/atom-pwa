@@ -5,7 +5,9 @@
     "dev": "concurrently 'netlify dev' 'yarn netlify-cms-proxy-server'",
     "prebuild": "rimraf dist",
     "build": "tsc; vite build && workbox generateSW workbox-config.js",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx",
+    "locales-coverage": "node scripts/build-locales-coverage.js",
+    "locales-coverage:description": "node scripts/locales-coverage-description.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
