@@ -1,12 +1,12 @@
 import { IElement } from "./Element";
 import { i18n } from "./Locale";
-import elements from "./data/elements.json";
+const elementsMap = import.meta.globEager("./data/elements/*.json");
 
 class ElementManager {
   private elements!: IElement[];
 
   public loadElements() {
-    this.elements = elements as IElement[];
+    this.elements = Object.values(elementsMap) as IElement[];
   }
 
   public getElements(): IElement[] {
