@@ -1,12 +1,6 @@
 const { readdirSync, writeFileSync } = require("fs");
 const files = readdirSync(`${__dirname}/../src/locales`);
 
-const flatten = (object) =>
-  Object.keys(object).reduce(
-    (initial, current) => ({ ...initial, ...object[current] }),
-    {}
-  );
-
 const locales = files.filter(
   (file) =>
     file !== "README.md" &&
@@ -16,14 +10,17 @@ const locales = files.filter(
 
 const percentages = {};
 
+const baseLocale = require("../src/locales/en.json");
+
+const totalKeysCount = Object.keys(baseLocale).length;
+
 for (let index = 0; index < locales.length; index++) {
   const currentLocale = locales[index];
-  const data = flatten(require(`${__dirname}/../src/locales/${currentLocale}`));
+  const data = require(`../src/locales/${currentLocale}`);
 
-  const allKeys = Object.keys(data);
-  const translatedKeys = allKeys.filter((item) => data[item] !== "");
+  const localeKeysCount = Object.keys(data).length;
 
-  const percentage = (100 * translatedKeys.length) / allKeys.length;
+  const percentage = (localeKeysCount / totalKeysCount) * 100;
 
   percentages[currentLocale.replace(".json", "")] = parseInt(percentage);
 }
