@@ -1,16 +1,20 @@
 {
   "app_name": "Atom",
-  "preference_file_key": "com.horusgoul.chemicalvalences.storage",
   "author_email": "horusgoul@gmail.com",
-  "banner_ad_unit_id": "ca-app-pub-8039329288910865/6797831985",
-  "banner_ad_unit_id_2": "ca-app-pub-8039329288910865/8108635180",
   "zero_g_mol": "0 g / mol",
   "g_mol": "g / mol",
-  "banner_ad_unit_id_3": "ca-app-pub-8039329288910865/7753094380",
   "contact_me_url": "https://twitter.com/HorusGoul",
   "pm": "pm",
   "kJ_mol": "kJ / mol",
   "kelvin_unit": "K",
   "g_cm3": "g / cm³",
-  "twitter_account": "@HorusGoul"
+  "twitter_account": "@HorusGoul",
+  "en": "English",
+  "de": "Deutsch",
+  "es": "Español",
+  "ro": "Română",
+  "fr_FR": "Français",
+  "hi_IN": "हिन्दी",
+  "it_IT": "Italiano",
+  "pt_PT": "Português"
 }

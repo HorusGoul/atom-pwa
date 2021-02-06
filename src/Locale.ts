@@ -1,5 +1,6 @@
 import invariant from "invariant";
 import NativeBridge from "./NativeBridge";
+import localePercentages from "./locales/percentages.json";
 
 interface ILocale {
   [key: string]: string;
@@ -8,7 +9,9 @@ interface ILocale {
 type LocaleChangeListener = () => void;
 
 export const DEFAULT_LOCALE = "en";
-export const SUPPORTED_LOCALES = ["en", "es", "de", "ro"];
+export const SUPPORTED_LOCALES = Object.entries(localePercentages)
+  .filter(([, percentage]) => percentage >= 85)
+  .map(([locale]) => locale);
 
 const localesMap = import.meta.globEager("./locales/*.json");
 const getLocaleKey = (locale: string) => `./locales/${locale}.json`;
@@ -21,7 +24,13 @@ class Locale {
   private localeChangeListeners: LocaleChangeListener[] = [];
 
   public setLocale(lang: string) {
-    if (SUPPORTED_LOCALES.indexOf(lang) === -1) {
+    lang = lang.replace("-", "_");
+
+    if (SUPPORTED_LOCALES.includes(lang)) {
+      lang = lang;
+    } else if (SUPPORTED_LOCALES.includes(lang.slice(0, 2))) {
+      lang = lang.slice(0, 2);
+    } else {
       lang = DEFAULT_LOCALE;
     }
 
@@ -47,7 +56,7 @@ class Locale {
 
   public getBrowserLocale() {
     const lang = NativeBridge.getSystemLanguage() || DEFAULT_LOCALE;
-    return lang.slice(0, 2);
+    return lang;
   }
 
   public getCurrentLang() {
