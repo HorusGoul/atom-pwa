@@ -43,4 +43,5 @@ jobs:
         with:
           pr_body: ${{ steps.getCommentBody.outputs.body }}
           pr_title: "chore: Update translations from Crowdin"
+          destination_branch: "next"
           github_token: ${{ secrets.GITHUB_TOKEN }}
