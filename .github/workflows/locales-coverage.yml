@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PUSH_TRANSLATIONS_COVERAGE_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js 14.x
         uses: actions/setup-node@v1
@@ -43,4 +43,4 @@ jobs:
         with:
           pr_body: ${{ steps.getCommentBody.outputs.body }}
           pr_title: "chore: Update translations from Crowdin"
-          github_token: ${{ secrets.PUSH_TRANSLATIONS_COVERAGE_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
