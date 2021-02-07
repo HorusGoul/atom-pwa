@@ -1,16 +1,37 @@
 import { useEffect } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { SCREEN_NAME } from "./routes";
 import NativeBridge from "./NativeBridge";
+import { send, setup } from "spycat";
+import packageConfig from "../package.json";
 
-type AnalyticsProps = RouteComponentProps<any>;
+const platformConfig = {
+  app_name: packageConfig.name,
+  app_version: packageConfig.version,
+};
 
-export const Analytics = ({ location }: AnalyticsProps) => {
+export function Analytics() {
+  const location = useLocation();
+
   useEffect(() => {
-    NativeBridge.fa.logEvent("screen_view", {
+    setup({
+      url: "/spycat",
+      projectId: "@",
+    });
+  }, []);
+
+  useEffect(() => {
+    logEvent("screen_view", {
       screen_name: SCREEN_NAME[location.pathname],
     });
   }, [location]);
 
   return null;
-};
+}
+
+export function logEvent(type: string, params: Record<string, any> = {}) {
+  params.app_name = platformConfig.app_name;
+  params.app_version = platformConfig.app_version;
+
+  send(type, params);
+}

@@ -24,11 +24,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: [
-      "firebase/app",
-      "firebase/analytics",
-      "@material-ui/core/ButtonBase",
-    ],
+    include: ["firebase/app", "@material-ui/core/ButtonBase"],
     exclude: ["hammerjs"],
   },
   plugins: [reactRefresh(), svgr()],

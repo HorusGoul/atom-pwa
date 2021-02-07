@@ -6,6 +6,7 @@ import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import Button from "../shared/button/Button";
 import NativeBridge from "../../NativeBridge";
 import classNames from "classnames";
+import { logEvent } from "@/Analytics";
 
 interface RateAppConfig {
   timesLaunched: number;
@@ -58,7 +59,7 @@ function RateApp() {
         rated: true,
       }));
 
-      NativeBridge.fa.logEvent("rating", {
+      logEvent("rating", {
         event_category: "User",
         event_label: "rating",
         event_action: "Rated the app",
@@ -71,7 +72,7 @@ function RateApp() {
   function userOpenModal() {
     setOpen(true);
 
-    NativeBridge.fa.logEvent("rating", {
+    logEvent("rating", {
       event_category: "User",
       event_label: "rating",
       event_action: "Opened the RateApp modal",

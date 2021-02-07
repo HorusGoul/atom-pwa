@@ -1,7 +1,7 @@
+import { logEvent } from "@/Analytics";
 import classNames from "classnames";
 import * as React from "react";
 import { i18n } from "../../Locale";
-import NativeBridge from "../../NativeBridge";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
 
@@ -25,7 +25,7 @@ function TestResults({
 
   React.useEffect(() => {
     if (total > 0) {
-      NativeBridge.fa.logEvent("test", {
+      logEvent("test", {
         event_category: "User",
         event_label: "test",
         event_action: `Finished a ${gaTestName}`,

@@ -26,6 +26,7 @@
     "react-hyper-scroller": "next",
     "react-portal": "^4.2.1",
     "react-router-dom": "^5.2.0",
+    "spycat": "^0.0.5",
     "workbox-precaching": "^6.1.0"
   },
   "devDependencies": {

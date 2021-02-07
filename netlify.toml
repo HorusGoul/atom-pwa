@@ -19,3 +19,9 @@
   to = "/admin/index.html"
   status = 200
   
+[[redirects]]
+  from = "/spycat"
+  to = "https://spycat.horus.dev/api/AddEvents"
+  status = 200
+  force = true
+  headers = { Project-Id = "atom-pt" }

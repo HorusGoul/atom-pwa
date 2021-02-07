@@ -1,6 +1,4 @@
 import firebase from "firebase/app";
-import "firebase/analytics";
-import NativeBridge from "./NativeBridge";
 
 const config = {
   apiKey: "AIzaSyBQ8L88zfT2qdwsi2bLoj5acgTYtdMJF-Y",
@@ -14,15 +12,3 @@ const config = {
 };
 
 firebase.initializeApp(config);
-
-if (!NativeBridge.isHybrid()) {
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function (...args: unknown[]) {
-    window.dataLayer.push(...args);
-  };
-
-  window.gtag("js", new Date());
-  window.gtag("set", { send_page_view: false });
-
-  firebase.analytics();
-}
