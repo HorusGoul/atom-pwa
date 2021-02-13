@@ -4662,6 +4662,13 @@ dotenv@^8.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
+dotgitconfig@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/dotgitconfig/-/dotgitconfig-1.1.1.tgz#0e854a409f005c48bf820825e94f05215db41ed0"
+  integrity sha512-gkaAQMmhlE7N6NYtvckQ32f/xTX6Hv7RTtF9qKCYJEQgL/d6zJZk/D0eLFuuGPRCbpRj2PR/HcBLxtIh3MSB6Q==
+  dependencies:
+    ini "^1.3.5"
+
 download@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/download/-/download-7.1.0.tgz#9059aa9d70b503ee76a132897be6dec8e5587233"
@@ -6552,7 +6559,7 @@ ini@1.3.7:
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.7.tgz#a09363e1911972ea16d7a8851005d84cf09a9a84"
   integrity sha512-iKpRpXP+CrP2jyrxvg1kMUpXDyRUFDWurxbnVT1vQPx+Wz9uCYsMIqYuSBLV+PAaZG/d7kRLKRFc9oDMsH+mFQ==
 
-ini@^1.3.2, ini@^1.3.4, ini@~1.3.0:
+ini@^1.3.2, ini@^1.3.4, ini@^1.3.5, ini@~1.3.0:
   version "1.3.8"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
@@ -7381,6 +7388,13 @@ lambda-local@^1.7.1:
     commander "^6.1.0"
     dotenv "^8.2.0"
     winston "^3.2.1"
+
+last-commit-log@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/last-commit-log/-/last-commit-log-3.1.1.tgz#bd44195f795c69ae61b18f09d2460e41a15a59d3"
+  integrity sha512-UodrtHrAC9v+saELwRPRBsQolp/LnIdJcqqFZ6RuMRkAwXFiZyJce2ioabn5mY3seJUrSdn70k3gqACrtPiIMg==
+  dependencies:
+    dotgitconfig "^1.1.0"
 
 latest-version@^5.0.0:
   version "5.1.0"

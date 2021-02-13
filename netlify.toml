@@ -10,18 +10,19 @@
   environment = { NODE_VERSION = "14.15.4" }
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
-  
-[[redirects]]
   from = "/spycat"
   to = "https://spycat.horus.dev/api/AddEvents"
   status = 200
   force = true
   headers = { Project-Id = "atom-pt" }
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
