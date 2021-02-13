@@ -22,7 +22,7 @@
   },
   "overrides": [
     {
-      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "files": ["src/**/*.tsx", "src/**/*.ts", "admin/**/*.tsx", "admin/**/*.ts"],
       "parserOptions": {
         "project": ["./tsconfig.json"]
       }
