@@ -45,7 +45,6 @@
   "devDependencies": {
     "@types/animejs": "^3.1.2",
     "@types/classnames": "^2.2.11",
-    "@types/gtag.js": "^0.0.4",
     "@types/hammerjs": "^2.0.37",
     "@types/invariant": "^2.2.34",
     "@types/react": "^17.0.2",
