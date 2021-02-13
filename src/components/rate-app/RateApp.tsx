@@ -6,7 +6,7 @@ import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import Button from "../shared/button/Button";
 import NativeBridge from "../../NativeBridge";
 import classNames from "classnames";
-import { logEvent } from "@/Analytics";
+import { logEvent } from "@/services/spycat";
 
 interface RateAppConfig {
   timesLaunched: number;

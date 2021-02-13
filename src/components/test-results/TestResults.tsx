@@ -1,4 +1,4 @@
-import { logEvent } from "@/Analytics";
+import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
 import { i18n } from "../../Locale";

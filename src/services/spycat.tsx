@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { SCREEN_NAME } from "./routes";
+import { SCREEN_NAME } from "../routes";
 import { send, setup } from "spycat";
-import { APP_VERSION, COMMIT_SHORT_HASH, IS_DEVELOPMENT } from "./constants";
+import { APP_VERSION, COMMIT_SHORT_HASH, IS_DEVELOPMENT } from "../constants";
 
-export function Analytics() {
+export function SpycatSetup() {
   const location = useLocation();
 
   useEffect(() => {
     setup({
       url: "/spycat",
-      projectId: "@",
+      projectId: "atom-pt",
     });
   }, []);
 

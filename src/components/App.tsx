@@ -2,7 +2,7 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
-import { Analytics } from "../Analytics";
+import { SpycatSetup } from "@/services/spycat";
 import Locale, { i18n } from "../Locale";
 import {
   ABOUT,
@@ -70,7 +70,7 @@ class App extends React.Component<unknown> {
         </Helmet>
 
         <div className="app__content">
-          <Route path="/" component={Analytics} />
+          <Route path="/" component={SpycatSetup} />
 
           <Switch>
             <Route exact={true} path={MAIN_MENU} component={MainMenu} />
