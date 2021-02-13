@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 import LCL from "last-commit-log";
+import legacy from "@vitejs/plugin-legacy";
 
 const env = process.env;
 
@@ -33,9 +34,17 @@ export default defineConfig({
     include: ["firebase/app", "@material-ui/core/ButtonBase"],
     exclude: ["hammerjs"],
   },
-  plugins: [reactRefresh(), svgr()],
-  alias: {
-    "@": path.resolve("./src"),
+  plugins: [
+    reactRefresh(),
+    svgr(),
+    legacy({
+      targets: ["defaults", "not IE 11"],
+    }),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve("./src"),
+    },
+    dedupe: ["react", "react-dom"],
   },
-  dedupe: ["react", "react-dom"],
 });
