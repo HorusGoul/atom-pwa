@@ -8,10 +8,13 @@ export function SpycatSetup() {
   const location = useLocation();
 
   useEffect(() => {
-    setup({
-      url: "/spycat",
-      projectId: "atom-pt",
-    });
+    if (import.meta.env.DEV) {
+      // Enable spycat only on DEV mode for now
+      setup({
+        url: "/spycat",
+        projectId: "atom-pt",
+      });
+    }
   }, []);
 
   useEffect(() => {
