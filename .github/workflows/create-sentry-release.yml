@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -51,6 +55,6 @@ jobs:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         with:
-          environment: ${{ github.ref }}
+          environment: ${{ steps.vars.outputs.short_ref }}
           version: ${{ github.sha }}
           sourcemaps: ./dist
