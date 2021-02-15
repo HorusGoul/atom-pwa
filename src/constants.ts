@@ -8,4 +8,4 @@ export const COMMIT_SHORT_HASH = import.meta.env.VITE_COMMIT_SHORT_HASH;
 
 export const COMMIT_HASH = import.meta.env.VITE_COMMIT_HASH;
 
-export const BRANCH = import.meta.env.BRANCH ?? "local";
+export const BRANCH = import.meta.env.VITE_BRANCH ?? "local";
