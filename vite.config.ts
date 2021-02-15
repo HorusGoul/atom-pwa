@@ -11,6 +11,7 @@ const env = process.env;
 const lcl = new LCL();
 const commit = lcl.getLastCommitSync();
 env.VITE_COMMIT_SHORT_HASH = commit.shortHash;
+env.VITE_COMMIT_HASH = commit.hash;
 
 const prefixEnvVars = ["BRANCH"];
 
@@ -20,6 +21,8 @@ for (const envVar of prefixEnvVars) {
 
 export default defineConfig({
   build: {
+    sourcemap: true,
+
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),

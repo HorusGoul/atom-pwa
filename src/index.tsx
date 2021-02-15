@@ -26,19 +26,19 @@ Theme.setTheme(AppSettings.settings.theme);
 import ElementManager from "./ElementManager";
 ElementManager.loadElements();
 
+import { initSentry } from "@/services/sentry";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 
-const render = (component: React.ComponentClass) => {
-  ReactDOM.render(
-    <BrowserRouter basename="/">
-      <Route path="/" component={component} />
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
-};
+initSentry();
 
-render(App);
+ReactDOM.render(
+  <BrowserRouter basename="/">
+    <Route path="/" component={App} />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+
 registerServiceWorker();
 
 let preview = false;
