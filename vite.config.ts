@@ -34,7 +34,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ["firebase/app", "@material-ui/core/ButtonBase"],
+    include: ["@material-ui/core/ButtonBase"],
     exclude: ["hammerjs"],
   },
   plugins: [

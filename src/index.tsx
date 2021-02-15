@@ -1,7 +1,5 @@
 /// <reference types="node" />
 
-import "./firebase-config";
-
 import "./NativeBridge";
 
 import * as React from "react";
