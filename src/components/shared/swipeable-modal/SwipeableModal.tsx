@@ -73,7 +73,7 @@ class SwipeableModal extends React.Component<
   public render() {
     const { title, closeButton } = this.props;
     const showHeader = !!title || closeButton;
-    const { translateX, opacity, open, swiping } = this.state;
+    const { translateX, opacity, open } = this.state;
 
     if (!open) {
       return null;
@@ -141,14 +141,6 @@ class SwipeableModal extends React.Component<
     }
   }
 
-  private open() {
-    this.setState({ open: true });
-
-    if (this.props.onOpen) {
-      this.props.onOpen();
-    }
-  }
-
   private close() {
     this.setState({ ...initialState, open: false });
 
@@ -158,7 +150,7 @@ class SwipeableModal extends React.Component<
   }
 
   private onPan(event: HammerInput) {
-    const { translateX, lastPosition } = this.state;
+    const { lastPosition } = this.state;
     const { deltaX } = event;
 
     if (this.frontDivAnimation) {
@@ -175,7 +167,13 @@ class SwipeableModal extends React.Component<
       frontPosition = this.initialDivPosition;
     }
 
-    const swipeRatio = this.swipeRatio(frontPosition);
+    if (!this.frontDiv) {
+      return;
+    }
+
+    const swipableWidth = this.frontDiv.clientWidth;
+
+    const swipeRatio = this.swipeRatio(frontPosition, swipableWidth);
 
     if (event.isFinal) {
       this.onFinal(frontPosition, swipeRatio);
@@ -189,7 +187,11 @@ class SwipeableModal extends React.Component<
   }
 
   private onFinal(currentPosition: number, swipeRatio: number) {
-    const swipableWidth = this.frontDiv!.clientWidth;
+    if (!this.frontDiv) {
+      return;
+    }
+
+    const swipableWidth = this.frontDiv.clientWidth;
     const triggerDelete = swipeRatio >= 0.5;
     const positionTarget = triggerDelete
       ? swipableWidth
@@ -210,7 +212,7 @@ class SwipeableModal extends React.Component<
       update: () => {
         this.setState({
           lastPosition: animateObject.position,
-          opacity: 1 - this.swipeRatio(animateObject.position),
+          opacity: 1 - this.swipeRatio(animateObject.position, swipableWidth),
           swiping: false,
           translateX: `${animateObject.position}px`,
         });
@@ -218,9 +220,8 @@ class SwipeableModal extends React.Component<
     });
   }
 
-  private swipeRatio(position: number) {
+  private swipeRatio(position: number, width: number) {
     const initialPosition = this.initialDivPosition;
-    const width = this.frontDiv!.clientWidth;
     const diff = position - initialPosition;
 
     return diff / width;
