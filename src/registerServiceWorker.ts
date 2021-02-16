@@ -28,14 +28,10 @@ const swRegister = async () => {
 
 export default function register() {
   // Register the service worker
-  if (
-    (process.env.NODE_ENV === "production" ||
-      process.env.NODE_ENV === "prod-dev") &&
-    "serviceWorker" in navigator
-  ) {
+  if (import.meta.env.PROD && "serviceWorker" in navigator) {
     window.addEventListener("load", async () => {
       try {
-        swRegister();
+        await swRegister();
       } catch (e) {
         window.console.error("Error during service worker registration:", e);
       }
