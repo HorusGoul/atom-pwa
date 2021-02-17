@@ -18,7 +18,7 @@ Atom is a Progressive Web App to help students learn about periodic table elemen
 - Valences Quiz
 - Periodic Table Quiz
 
-## Technologies used
+## Stack
 
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
