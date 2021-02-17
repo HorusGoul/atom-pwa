@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "silas229",
+      "name": "Silas Meyer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23215125?v=4",
+      "profile": "http://silas229.me",
+      "contributions": [
+        "translation"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "atom-pwa",
+  "projectOwner": "HorusGoul",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
