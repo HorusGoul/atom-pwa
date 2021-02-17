@@ -1,6 +1,6 @@
 # ![Atom - Periodic Table & Quizzes](./docs/header.png)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b7b84fd9-7d85-4094-b989-e74824fb3233/deploy-status)](https://app.netlify.com/sites/atom-pt/deploys)
@@ -74,6 +74,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://horus.dev"><img src="https://avatars.githubusercontent.com/u/6759612?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Horus Lugo</b></sub></a><br /><a href="#maintenance-HorusGoul" title="Maintenance">🚧</a> <a href="#ideas-HorusGoul" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/HorusGoul/atom-pwa/commits?author=HorusGoul" title="Code">💻</a> <a href="#design-HorusGoul" title="Design">🎨</a> <a href="https://github.com/HorusGoul/atom-pwa/pulls?q=is%3Apr+reviewed-by%3AHorusGoul" title="Reviewed Pull Requests">👀</a> <a href="#infra-HorusGoul" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#translation-HorusGoul" title="Translation">🌍</a></td>
     <td align="center"><a href="http://silas229.me"><img src="https://avatars.githubusercontent.com/u/23215125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Silas Meyer</b></sub></a><br /><a href="#translation-silas229" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/alexprave"><img src="https://avatars.githubusercontent.com/u/58376231?v=4?s=100" width="100px;" alt=""/><br /><sub><b>alexprave</b></sub></a><br /><a href="#translation-alexprave" title="Translation">🌍</a></td>
   </tr>
 </table>
 
