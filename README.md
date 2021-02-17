@@ -72,7 +72,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://horus.dev"><img src="https://avatars.githubusercontent.com/u/6759612?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Horus Lugo</b></sub></a><br /><a href="#maintenance-HorusGoul" title="Maintenance">🚧</a> <a href="#ideas-HorusGoul" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/HorusGoul/atom-pwa/commits?author=HorusGoul" title="Code">💻</a> <a href="#design-HorusGoul" title="Design">🎨</a> <a href="https://github.com/HorusGoul/atom-pwa/pulls?q=is%3Apr+reviewed-by%3AHorusGoul" title="Reviewed Pull Requests">👀</a> <a href="#infra-HorusGoul" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://horus.dev"><img src="https://avatars.githubusercontent.com/u/6759612?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Horus Lugo</b></sub></a><br /><a href="#maintenance-HorusGoul" title="Maintenance">🚧</a> <a href="#ideas-HorusGoul" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/HorusGoul/atom-pwa/commits?author=HorusGoul" title="Code">💻</a> <a href="#design-HorusGoul" title="Design">🎨</a> <a href="https://github.com/HorusGoul/atom-pwa/pulls?q=is%3Apr+reviewed-by%3AHorusGoul" title="Reviewed Pull Requests">👀</a> <a href="#infra-HorusGoul" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#translation-HorusGoul" title="Translation">🌍</a></td>
   </tr>
 </table>
 
