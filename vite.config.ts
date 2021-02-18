@@ -41,7 +41,7 @@ export default defineConfig({
     reactRefresh(),
     svgr(),
     legacy({
-      targets: ["defaults", "not IE 11"],
+      targets: ["defaults", "not IE 11", "chrome > 60"],
     }),
   ],
   resolve: {
