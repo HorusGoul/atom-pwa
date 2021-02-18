@@ -4,6 +4,7 @@ export const elementsCollection: CmsCollection = {
   name: "element",
   label: "Elements",
   label_singular: "Element",
+  type: "folder_based_collection",
   folder: "src/data/elements",
   identifier_field: "atomic",
   format: "json",
