@@ -4,8 +4,6 @@
     "plugin:react/recommended",
     "prettier",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react",
     "plugin:import/warnings",
     "plugin:import/errors",
     "plugin:import/typescript"
