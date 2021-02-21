@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "next"
+      - "production"
 
 jobs:
   release:
