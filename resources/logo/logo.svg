@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="512" y1="0" x2="512" y2="1024" id="gradient-0" gradientTransform="matrix(-0.731285, -0.682645, 0.503923, -0.506441, 374.418163, 1373.514033)" spreadMethod="pad">
+      <stop offset="0" style="stop-color: rgb(0, 122, 110);"/>
+      <stop offset="1" style="stop-color: rgb(0, 163, 147);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="553.818" y1="101.644" x2="553.818" y2="914.794" id="gradient-1" gradientTransform="matrix(0.053895, -0.999862, 0.937713, 0.006125, 23.062338, 1017.278244)">
+      <stop offset="0" style="stop-color: rgba(0, 0, 0, 0.19);"/>
+      <stop offset="1" style="stop-color: rgba(165, 165, 165, 0);"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" style="pointer-events: none; fill: url(#gradient-0);">
+    <title>Background</title>
+  </rect>
+  <g>
+    <title>Foreground</title>
+    <rect x="145.11" y="101.644" width="817.416" height="813.15" style="fill: url(#gradient-1);" transform="matrix(0.668223, 0.743961, -0.743961, 0.668223, 764.454651, 32.966534)">
+      <title>Shadow</title>
+    </rect>
+    <circle style="fill: rgb(255, 255, 255); filter: none; pointer-events: none;" cx="512" cy="512" r="409.6"/>
+    <g transform="matrix(0.851341, 0, 0, 0.851341, 76.113899, 68.585442)" style="pointer-events: none;" bx:origin="0.447591 0.587309">
+      <title>Atom</title>
+      <circle style="stroke-width: 0px; paint-order: fill; fill: rgb(0, 137, 123);" cx="512" cy="512" r="32"/>
+      <ellipse style="paint-order: fill; stroke-linejoin: round; stroke-linecap: round; stroke-width: 16px; fill: none; stroke: rgb(0, 107, 96);" cx="512" cy="512" rx="112" ry="352"/>
+      <ellipse style="paint-order: fill; stroke-linejoin: round; stroke-linecap: round; stroke-width: 16px; fill: none; stroke: rgb(0, 137, 123);" cx="679.763" cy="1317.999" rx="112" ry="352" transform="matrix(0.5, 0.866025, -0.866025, 0.5, 1313.53928, -735.692416)"/>
+      <ellipse style="paint-order: fill; stroke-linejoin: round; stroke-linecap: round; stroke-width: 16px; fill: none; stroke: rgb(0, 163, 147);" cx="-511.999" cy="-512" rx="112" ry="352" transform="matrix(0.5, -0.866026, 0.866026, 0.5, 1211.402896, 324.596)"/>
+    </g>
+  </g>
+</svg>
