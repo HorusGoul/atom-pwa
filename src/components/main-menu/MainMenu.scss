@@ -26,12 +26,12 @@
     align-items: center;
   }
 
-  &__logo {
-    background-image: url("../../images/atom-icon.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 64px;
-    height: 64px;
+  &__atom-container {
+    background-color: #ffffff;
+    border-radius: 128px;
+    padding: 8px;
+
+    @include box-shadow($level: 1);
   }
 
   &__app-name {
