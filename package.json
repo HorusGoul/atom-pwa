@@ -13,7 +13,7 @@
     "locales-coverage:description": "node scripts/locales-coverage-description.js",
     "typecheck": "tsc --noEmit",
     "postinstall": "husky install",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch"
+    "test": "jest --watch"
   },
   "lint-staged": {
     "**/*.{html,ts,tsx,json,scss,js,jsx}": [
