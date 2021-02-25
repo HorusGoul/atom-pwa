@@ -3,6 +3,8 @@ const path = require("path");
 
 module.exports = {
   verbose: true,
+  testEnvironment: "jsdom",
+  resetMocks: true,
   setupFilesAfterEnv: ["./src/setupTests.ts"],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": path.resolve(__dirname, "jest/babelTransform.js"),
@@ -15,5 +17,6 @@ module.exports = {
   transformIgnorePatterns: ["node_modules"],
   moduleNameMapper: {
     "^@/(.*)": "<rootDir>/src/$1",
+    "\\.svg": "<rootDir>/src/__mocks__/svgrMock.js",
   },
 };
