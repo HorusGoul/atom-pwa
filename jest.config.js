@@ -19,4 +19,6 @@ module.exports = {
     "^@/(.*)": "<rootDir>/src/$1",
     "\\.svg": "<rootDir>/src/__mocks__/svgrMock.js",
   },
+  collectCoverage: true,
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
 };
