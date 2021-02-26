@@ -90,5 +90,9 @@
     "vite-plugin-svgr": "^0.2.0",
     "whatwg-fetch": "^3.6.1",
     "workbox-cli": "^6.1.0"
+  },
+  "resolutions": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
