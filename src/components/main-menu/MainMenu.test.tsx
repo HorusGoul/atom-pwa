@@ -9,7 +9,7 @@ import MainMenu from "./MainMenu";
 test("should display title", () => {
   render(<MainMenu />);
 
-  expect(screen.getByText(/atom/i)).toBeInTheDocument();
+  expect(screen.getByText(/atom/i)).toBeVisible();
 });
 
 test("should display logo", () => {
