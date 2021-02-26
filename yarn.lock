@@ -2572,6 +2572,13 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
+"@testing-library/user-event@^12.7.3":
+  version "12.7.3"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.7.3.tgz#ef674ccb91794e52123b3532c336485d16f453b3"
+  integrity sha512-IdSHkWfbeSSJRFlldvHDWfVX0U18TbXIvLSGII+JbqkJrsflFr4OWlQIua0TvcVVJNna3BNrNvRSvpQ0yvSXlA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 "@types/animejs@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@types/animejs/-/animejs-3.1.2.tgz#93289a902b0b9bfac3020d29413139dcca6acdbc"
@@ -2731,6 +2738,14 @@
   integrity sha512-nwKNbvnwJ2/mndE9ItP/zc2TCzw6uuodnF4EHYWD+gCQDVBuRQL5UzbZD0/ezy1iKsFU2ZQiDqg4M9dN4+wZgA==
   dependencies:
     "@types/istanbul-lib-report" "*"
+
+"@types/jest-in-case@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/jest-in-case/-/jest-in-case-1.0.3.tgz#af65d145ecf184d20df115a051c25d496ac86a1a"
+  integrity sha512-M+bKsCA/oF3Bw9qSZyWHsK8sfqFtZsNXe0xV1gTK3ahFCgaqzjJkAFp84Wd8md+EshGbR9Bb6nCmu4FAiuImZw==
+  dependencies:
+    "@types/jest" "*"
+    "@types/node" "*"
 
 "@types/jest@*", "@types/jest@^26.0.20":
   version "26.0.20"
@@ -8091,6 +8106,11 @@ jest-haste-map@^26.6.2:
     walker "^1.0.7"
   optionalDependencies:
     fsevents "^2.1.2"
+
+jest-in-case@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/jest-in-case/-/jest-in-case-1.0.2.tgz#56744b5af33222bd0abab70cf919f1d170ab75cc"
+  integrity sha1-VnRLWvMyIr0KurcM+Rnx0XCrdcw=
 
 jest-jasmine2@^26.6.3:
   version "26.6.3"
