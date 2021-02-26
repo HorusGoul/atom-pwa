@@ -28,7 +28,7 @@ test("should handle clicking the back button", () => {
 
   userEvent.click(screen.getByRole("button"));
 
-  expect(onBackButtonClickMock).toHaveBeenCalled();
+  expect(onBackButtonClickMock).toHaveBeenCalledTimes(1);
 });
 
 test("should apply custom classnames to the Navbar", () => {
