@@ -30,7 +30,7 @@ module.exports = function importMetaBabelPlugin() {
         const callee = path.node.callee;
         const args = path.node.arguments;
         const sourceFile = state.file.opts.filename;
-        const propertyName = callee.property?.name;
+        const propertyName = callee.property && callee.property.name;
 
         if (
           ["glob", "globEager"].includes(propertyName) &&
