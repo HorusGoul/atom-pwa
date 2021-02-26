@@ -5,7 +5,7 @@ import { i18n } from "../../Locale";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
 
-interface ITestResultsProps {
+export interface ITestResultsProps {
   gaTestName: string;
   rightAnswers: number;
   wrongAnswers: number;
@@ -21,7 +21,7 @@ function TestResults({
   gaTestName,
 }: ITestResultsProps) {
   const total = rightAnswers + wrongAnswers;
-  const percentaje = total ? rightAnswers / total : 1;
+  const percentage = total ? rightAnswers / total : 1;
 
   React.useEffect(() => {
     if (total > 0) {
@@ -29,15 +29,15 @@ function TestResults({
         event_category: "User",
         event_label: "test",
         event_action: `Finished a ${gaTestName}`,
-        value: percentaje,
+        value: percentage,
       });
     }
-  }, [total, percentaje, gaTestName]);
+  }, [total, percentage, gaTestName]);
 
   return (
     <div
       className={classNames("test-results", {
-        "test-results--good": percentaje > 0.7,
+        "test-results--good": percentage > 0.7,
       })}
     >
       <div className="test-results__title">{i18n("test_results")}</div>
