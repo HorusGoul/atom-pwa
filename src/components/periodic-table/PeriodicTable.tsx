@@ -59,7 +59,7 @@ class PeriodicTable extends React.PureComponent<
 
     if (!render) {
       return (
-        <div className="periodic-table--loading">
+        <div className="periodic-table--loading" aria-label="loading-spinner">
           <Spinner className="periodic-table__spinner" />
         </div>
       );

@@ -29,7 +29,8 @@ describe("should render the periodic table", () => {
     const { container } = render(
       <PeriodicTable elementRenderer={elementRenderer} />
     );
-    expect(container.querySelector("svg")).toBeInTheDocument();
+    // expect(container.querySelector("svg")).toBeInTheDocument();
+    expect(screen.getByLabelText(/loading-spinner/i)).toBeInTheDocument();
   });
 
   test("should show the periodic table", async () => {
