@@ -9,25 +9,19 @@ test("should render component", () => {
   const history = createMemoryHistory({
     initialEntries: ["/about"],
   });
-  const { container } = render(
+  render(
     <Router history={history}>
       <About />
     </Router>
   );
 
-  const iconButtons = container.querySelectorAll(".icon-button__text");
-
-  expect(container.querySelector(".navbar__title")?.textContent).toEqual(
-    "About"
-  );
-  expect(container.querySelector(".about__subtitle")?.textContent).toEqual(
-    "App Settings"
-  );
-  expect(iconButtons[0]?.textContent).toEqual("Change language");
-  expect(iconButtons[1]?.textContent).toEqual("Change Theme");
-  expect(iconButtons[2]?.textContent).toEqual("Contact me");
-  expect(iconButtons[3]?.textContent).toEqual("Source code");
-  expect(iconButtons[4]?.textContent).toEqual("Report bug");
+  expect(screen.getByText(/about/i)).toBeInTheDocument();
+  expect(screen.getByText(/app settings/i)).toBeInTheDocument();
+  expect(screen.getByText(/change language/i)).toBeInTheDocument();
+  expect(screen.getByText(/change theme/i)).toBeInTheDocument();
+  expect(screen.getByText(/contact me/i)).toBeInTheDocument();
+  expect(screen.getByText(/source code/i)).toBeInTheDocument();
+  expect(screen.getByText(/report bug/i)).toBeInTheDocument();
 });
 
 test("should validate contact me link", () => {
@@ -40,7 +34,7 @@ test("should validate contact me link", () => {
     </Router>
   );
 
-  expect(screen.getByText("Contact me").closest("a")).toHaveAttribute(
+  expect(screen.getByText(/contact me/i).closest("a")).toHaveAttribute(
     "href",
     "https://twitter.com/HorusGoul"
   );
@@ -56,7 +50,7 @@ test("should validate source code link", () => {
     </Router>
   );
 
-  expect(screen.getByText("Source code").closest("a")).toHaveAttribute(
+  expect(screen.getByText(/source code/i).closest("a")).toHaveAttribute(
     "href",
     "https://github.com/HorusGoul/atom-pwa"
   );
@@ -72,7 +66,7 @@ test("should validate Report bug link", () => {
     </Router>
   );
 
-  expect(screen.getByText("Report bug").closest("a")).toHaveAttribute(
+  expect(screen.getByText(/report bug/i).closest("a")).toHaveAttribute(
     "href",
     "mailto:horusgoul@gmail.com"
   );
