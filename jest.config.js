@@ -3,9 +3,10 @@ const path = require("path");
 
 module.exports = {
   verbose: true,
+  rootDir: "./src",
   testEnvironment: "jsdom",
   resetMocks: true,
-  setupFilesAfterEnv: ["./src/setupTests.ts"],
+  setupFilesAfterEnv: ["./setupTests.ts"],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": path.resolve(__dirname, "jest/babelTransform.js"),
     "^.+\\.css$": path.resolve(__dirname, "jest/cssTransform.js"),
@@ -16,8 +17,8 @@ module.exports = {
   },
   transformIgnorePatterns: ["node_modules"],
   moduleNameMapper: {
-    "^@/(.*)": "<rootDir>/src/$1",
-    "\\.svg": "<rootDir>/src/__mocks__/svgrMock.js",
+    "^@/(.*)": "<rootDir>/$1",
+    "\\.svg": "<rootDir>/__mocks__/svgrMock.js",
   },
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
