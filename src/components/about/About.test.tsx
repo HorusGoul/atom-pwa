@@ -1,5 +1,6 @@
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import About from "./About";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
@@ -92,6 +93,6 @@ test("should invoke onNavbarBackButtonClick", () => {
     ".navbar__back-button"
   ) as HTMLAnchorElement;
 
-  fireEvent.click(navButton);
+  userEvent.click(navButton);
   expect(history.location.pathname).toBe("/");
 });
