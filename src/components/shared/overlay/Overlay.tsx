@@ -34,7 +34,12 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     const { opacity } = this.props;
 
     return (
-      <div className="overlay" onClick={this.onClick} style={{ opacity }} />
+      <div
+        className="overlay"
+        onClick={this.onClick}
+        style={{ opacity }}
+        data-testid="overlay"
+      />
     );
   }
 

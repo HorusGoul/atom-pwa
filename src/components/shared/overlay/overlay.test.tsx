@@ -17,28 +17,28 @@ const CustomOverlayWrapper = () => {
 };
 
 test("should be able to toggle overlay", () => {
-  const { container } = render(<CustomOverlayWrapper />);
+  render(<CustomOverlayWrapper />);
 
   // there is nothing really happening with the overlay when we toggle the state
-  // it's only rendered in the modals so it doesn't really since they return null
-  // expect(container.querySelector(".overlay")).not.toBeInTheDocument();
+  // it's only rendered in the modals which already return null when open === false
+  // expect(screen.getByTestId("overlay")).not.toBeInTheDocument();
 
   fireEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
 
-  expect(container.querySelector(".overlay")).toBeInTheDocument();
+  expect(screen.getByTestId("overlay")).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
 
   // there is nothing really happening with the overlay when we toggle the state
-  // it's only rendered in the modals so it doesn't really since they return null
-  // expect(container.querySelector(".overlay")).not.toBeInTheDocument();
+  // it's only rendered in the modals which already return null when open === false
+  // expect(screen.getByTestId("overlay")).not.toBeInTheDocument();
 });
 
 test("should fire a custom clickHandler", () => {
   const handleClick = jest.fn();
-  const { container } = render(<Overlay open onClick={handleClick} />);
+  render(<Overlay open onClick={handleClick} />);
 
-  fireEvent.click(container.querySelector(".overlay"));
+  fireEvent.click(screen.getByTestId("overlay"));
 
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
