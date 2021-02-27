@@ -58,10 +58,19 @@ class Modal extends React.Component<IModalProps, IModalState> {
         <React.Fragment>
           <Overlay open={this.state.open} onClick={this.close} />
 
-          <div className={classNames("modal", this.props.className)}>
+          <div
+            className={classNames("modal", this.props.className)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
             {showHeader && (
               <div className="modal__header">
-                {title && <span className="modal__header__title">{title}</span>}
+                {title && (
+                  <span id="modal-title" className="modal__header__title">
+                    {title}
+                  </span>
+                )}
 
                 {closeButton && (
                   <IconButton
