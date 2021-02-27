@@ -1,5 +1,6 @@
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Modal from "./Modal";
 import { useState } from "react";
@@ -32,13 +33,13 @@ test("should be able to toggle modal", () => {
 
   expect(screen.queryByText(/modal-content/i)).toBeNull();
 
-  fireEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
+  userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
 
   expect(screen.queryByText(/modal-content/i)).toBeDefined();
   // This doesn't get fired, ever (as it's not used in the component)
   // expect(onOpen).toHaveBeenCalledTimes(1);
 
-  fireEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
+  userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
 
   expect(screen.queryByText(/modal-content/i)).toBeNull();
   // This doesn't get fired in this specific case, it's only use if we use the internal close button
@@ -55,7 +56,7 @@ test("should close after clicking the close button", () => {
 
   expect(screen.queryByText(/modal-content/i)).toBeDefined();
 
-  fireEvent.click(screen.getByRole("button"));
+  userEvent.click(screen.getByRole("button"));
 
   expect(screen.queryByText(/modal-content/i)).toBeNull();
   expect(onClose).toHaveBeenCalledTimes(1);

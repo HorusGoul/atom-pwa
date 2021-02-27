@@ -1,5 +1,6 @@
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Overlay from "./Overlay";
 
@@ -23,11 +24,11 @@ test("should be able to toggle overlay", () => {
   // it's only rendered in the modals which already return null when open === false
   // expect(screen.getByTestId("overlay")).not.toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
+  userEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
 
   expect(screen.getByTestId("overlay")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
+  userEvent.click(screen.getByRole("button", { name: /toggle overlay/i }));
 
   // there is nothing really happening with the overlay when we toggle the state
   // it's only rendered in the modals which already return null when open === false
@@ -38,7 +39,7 @@ test("should fire a custom clickHandler", () => {
   const handleClick = jest.fn();
   render(<Overlay open onClick={handleClick} />);
 
-  fireEvent.click(screen.getByTestId("overlay"));
+  userEvent.click(screen.getByTestId("overlay"));
 
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
