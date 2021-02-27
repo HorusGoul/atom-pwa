@@ -84,6 +84,7 @@ class Modal extends React.Component<IModalProps, IModalState> {
     document.body.style.overflow = open ? "hidden" : "";
   }
 
+  /** @note [refactor-consideration]: this function is never used */
   private open() {
     this.setState({ open: true });
 
