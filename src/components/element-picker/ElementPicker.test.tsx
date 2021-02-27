@@ -36,7 +36,7 @@ test("search for atomic number 2", () => {
   expect(onElement).toHaveBeenCalledWith(helium);
 });
 
-// TODO: not sure if a bug or testing VirtualScroller is unreliable, but Helium is still present
+// TODO: unskip when https://github.com/HorusGoul/atom-pwa/issues/27 is fixed
 test.skip("search for atomic number 25", async () => {
   const onElement = jest.fn();
 
