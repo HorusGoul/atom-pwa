@@ -4,25 +4,54 @@ import userEvent from "@testing-library/user-event";
 import About from "./About";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
+import cases from "jest-in-case";
 
-test("should render component", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
-  });
-  render(
-    <Router history={history}>
-      <About />
-    </Router>
-  );
+cases(
+  "should verify links",
+  ({ linkItem }) => {
+    const history = createMemoryHistory({
+      initialEntries: ["/about"],
+    });
 
-  expect(screen.getByText(/about/i)).toBeInTheDocument();
-  expect(screen.getByText(/app settings/i)).toBeInTheDocument();
-  expect(screen.getByText(/change language/i)).toBeInTheDocument();
-  expect(screen.getByText(/change theme/i)).toBeInTheDocument();
-  expect(screen.getByText(/contact me/i)).toBeInTheDocument();
-  expect(screen.getByText(/source code/i)).toBeInTheDocument();
-  expect(screen.getByText(/report bug/i)).toBeInTheDocument();
-});
+    render(
+      <Router history={history}>
+        <About />
+      </Router>
+    );
+
+    expect(screen.getByText(linkItem)).toBeInTheDocument();
+  },
+  [
+    {
+      name: "about",
+      linkItem: /about/i,
+    },
+    {
+      name: "app settings",
+      linkItem: /app settings/i,
+    },
+    {
+      name: "change language",
+      linkItem: /change language/i,
+    },
+    {
+      name: "change theme",
+      linkItem: /change theme/i,
+    },
+    {
+      name: "contact me",
+      linkItem: /contact me/i,
+    },
+    {
+      name: "source code",
+      linkItem: /source code/i,
+    },
+    {
+      name: "report bug",
+      linkItem: /report bug/i,
+    },
+  ]
+);
 
 test("should validate contact me link", () => {
   const history = createMemoryHistory({
@@ -76,7 +105,6 @@ test("should invoke onNavbarBackButtonClick", () => {
   const history = createMemoryHistory({
     initialEntries: ["/about"],
   });
-  history.action = "PUSH";
   const { container } = render(
     <Router history={history}>
       <About />
