@@ -60,4 +60,3 @@ jobs:
           start: npm run dev
           browser: chrome
           headless: true
-          config: pageLoadTimeout=100000,baseUrl=http://localhost:3000
