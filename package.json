@@ -14,7 +14,10 @@
     "typecheck": "tsc --noEmit",
     "postinstall": "husky install",
     "test": "jest --watch",
-    "test:ci": "jest --maxWorkers=2"
+    "test:ci": "jest --maxWorkers=2",
+    "cy:install": "cypress install",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "lint-staged": {
     "**/*.{html,ts,tsx,json,scss,js,jsx}": [

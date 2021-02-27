@@ -118,3 +118,6 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# Cypress
+cypress/videos/
