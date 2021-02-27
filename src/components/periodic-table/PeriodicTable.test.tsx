@@ -3,7 +3,6 @@ import PeriodicTable, { IPeriodicTableElement } from "./PeriodicTable";
 import {
   render,
   screen,
-  waitFor,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import PtElementInfo from "../pt-element/PtElementInfo";
@@ -20,6 +19,14 @@ function elementRenderer(atomic: number): IPeriodicTableElement {
   };
 }
 
+async function renderTable() {
+  render(<PeriodicTable elementRenderer={elementRenderer} />);
+  await waitForElementToBeRemoved(
+    () => screen.queryAllByLabelText(/loading/i),
+    { timeout: 4000 }
+  );
+}
+
 describe("should render the periodic table", () => {
   beforeAll(() => {
     ElementManager.loadElements();
@@ -29,15 +36,12 @@ describe("should render the periodic table", () => {
     const { container } = render(
       <PeriodicTable elementRenderer={elementRenderer} />
     );
-    // expect(container.querySelector("svg")).toBeInTheDocument();
-    expect(screen.getByLabelText(/loading-spinner/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/loading/i)).toBeInTheDocument();
   });
 
-  test("should show the periodic table", async () => {
-    const { container } = render(
-      <PeriodicTable elementRenderer={elementRenderer} />
-    );
-    await waitForElementToBeRemoved(container.querySelector("svg"));
-    expect(screen.getByText(/hydrogen/i)).toBeInTheDocument();
+  test("should show all the elements of the periodic table", async () => {
+    await renderTable();
+    // periodic table has 118 elements as of now
+    expect(screen.getAllByLabelText(/atomic-number/i)).toHaveLength(118);
   });
 });
