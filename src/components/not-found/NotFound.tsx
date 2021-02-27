@@ -15,7 +15,7 @@ class NotFound extends React.Component<Props> {
       <div className="not-found">
         <span className="not-found__404">404</span>
 
-        <span className="not-found__text">{i18n("not_found_text")}</span>
+        <h1 className="not-found__text">{i18n("not_found_text")}</h1>
 
         <Button className="not-found__cta" onClick={this.goHome}>
           {i18n("home")}
