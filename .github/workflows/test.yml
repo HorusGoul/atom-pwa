@@ -63,6 +63,7 @@ jobs:
           start: npm run dev
           browser: chrome
           headless: true
+          wait-on: 'http://localhost:8888'
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
       # after the test run completes
