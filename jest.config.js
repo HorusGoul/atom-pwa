@@ -6,7 +6,7 @@ module.exports = {
   rootDir: "./src",
   testEnvironment: "jsdom",
   resetMocks: true,
-  setupFilesAfterEnv: ["./setupTests.ts"],
+  setupFilesAfterEnv: ["./setupTests.ts", "jest-useragent-mock"],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": path.resolve(__dirname, "jest/babelTransform.js"),
     "^.+\\.css$": path.resolve(__dirname, "jest/cssTransform.js"),

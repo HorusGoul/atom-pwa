@@ -8,7 +8,7 @@ import NativeBridge from "../../NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
 
-interface RateAppConfig {
+export interface RateAppConfig {
   timesLaunched: number;
   rated: boolean;
 }
