@@ -4,8 +4,6 @@ import userEvent from "@testing-library/user-event";
 import MassCalculator from "./MassCalculator";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import { IElement } from "@/Element";
-import ElementManager, { getElementLocales } from "../../ElementManager";
 import "hammerjs";
 
 test("should render mass calculator", () => {
