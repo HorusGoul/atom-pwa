@@ -161,7 +161,6 @@ class PeriodicTable extends React.PureComponent<
               <div
                 className="periodic-table__cell"
                 key={`row-${i}-cell-${index}`}
-                aria-label={`atomic-number-${element}`}
               >
                 <$component {...props} />
               </div>
