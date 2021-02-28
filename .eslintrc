@@ -1,4 +1,7 @@
 {
+  "env": {
+    "cypress/globals": true
+  },
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
@@ -6,7 +9,9 @@
     "plugin:prettier/recommended",
     "plugin:import/warnings",
     "plugin:import/errors",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:testing-library/recommended",
+    "plugin:cypress/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier", "import"],
