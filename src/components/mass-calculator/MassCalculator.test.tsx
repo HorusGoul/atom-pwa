@@ -8,122 +8,7 @@ import { IElement } from "@/Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import "hammerjs";
 
-const elementsArr = [
-  {
-    atomic: 67,
-    symbol: "Ho",
-    name: "Holmium",
-    atomicMass: "164.93032",
-    cpkHexColor: "00FF9C",
-    electronicConfiguration: "[Xe] 4f11 6s2",
-    electronegativity: 1.23,
-    atomicRadius: 226,
-    ionRadius: "90.1 (+3)",
-    vanDelWaalsRadius: 2,
-    ionizationEnergy: 581,
-    electronAffinity: -50,
-    oxidationStates: "3",
-    standardState: "solid",
-    bondingType: "metallic",
-    meltingPoint: "1747",
-    boilingPoint: "2968",
-    density: 8.8,
-    group: "lanthanoids",
-    yearDiscovered: 1878,
-    valency: "+3",
-    wrongValences: ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
-    testState: {
-      valencesTest: false,
-      ptTest: true,
-    },
-    realname: "abc",
-  },
-  {
-    atomic: 16,
-    symbol: "S",
-    name: "Sulfur",
-    atomicMass: "32.065",
-    cpkHexColor: "FFFF30",
-    electronicConfiguration: "[Ne] 3s2 3p4",
-    electronegativity: 2.58,
-    atomicRadius: 88,
-    ionRadius: "184 (-2)",
-    vanDelWaalsRadius: 180,
-    ionizationEnergy: 1000,
-    electronAffinity: -200,
-    oxidationStates: "-2, -1, 1, 2, 3, 4, 5, 6",
-    standardState: "solid",
-    bondingType: "covalent_network",
-    meltingPoint: "392.2",
-    boilingPoint: "717.82",
-    density: 1.96,
-    group: "amphigens",
-    yearDiscovered: 1878,
-    valency: "+2 +4 +6 / -2",
-    wrongValences: [
-      "+1 +3 +5 +7 / -1",
-      "+2 +4 +6",
-      "+3 +5 / -3",
-      "+3 +5",
-      "+2 +6",
-      "+2",
-    ],
-    testState: {
-      valencesTest: true,
-      ptTest: true,
-    },
-    realname: "abc",
-  },
-  {
-    atomic: 44,
-    symbol: "Ru",
-    name: "Ruthenium",
-    atomicMass: "101.07",
-    cpkHexColor: "248F8F",
-    electronicConfiguration: "[Kr] 4d7 5s1",
-    electronegativity: 2.2,
-    atomicRadius: 178,
-    ionRadius: "68 (+3)",
-    vanDelWaalsRadius: 188,
-    ionizationEnergy: 710,
-    electronAffinity: -101,
-    oxidationStates: "-2, 1, 2, 3, 4, 5, 6, 7, 8",
-    standardState: "solid",
-    bondingType: "metallic",
-    meltingPoint: "2610",
-    boilingPoint: "4425",
-    density: 12.37,
-    group: "transition_metals",
-    yearDiscovered: 1827,
-    valency: "+2 +3 +4 +6 +8",
-    wrongValences: [
-      "+2 +3 +4 +5 +6 +8",
-      "+2 +4 +6 +8",
-      "+1 +3 +5 +7 / -1",
-      "+1",
-      "+2",
-      "+2 +4",
-      "+2 +3",
-      "+1 +2",
-    ],
-    testState: {
-      valencesTest: false,
-      ptTest: true,
-    },
-    realname: "abc",
-  },
-];
-
-beforeEach(() => {
-  jest.clearAllMocks();
-  jest
-    .spyOn(ElementManager, "getElement")
-    .mockImplementation((atomic) =>
-      elementsArr.find((element) => element.atomic === atomic)
-    );
-});
-
-test("should render component", () => {
+test("should render mass calculator", () => {
   const history = createMemoryHistory({
     initialEntries: ["/mass-calculator"],
   });
@@ -141,7 +26,195 @@ test("should render component", () => {
   expect(screen.getByText(/clear/i)).toBeInTheDocument();
   expect(screen.getByText(/holmium/i)).toBeInTheDocument();
   expect(screen.getByText(/164\.93032 g \/ mol/i)).toBeInTheDocument();
-  expect(screen.getByText(/ruthenium/i)).toBeInTheDocument();
-  expect(screen.getByText(/sulfur/i)).toBeInTheDocument();
-  expect(screen.getByText(/32\.065 g \/ mol/i)).toBeInTheDocument();
+});
+
+test("should clear elements", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  userEvent.click(screen.getByText(/clear/i));
+  expect(screen.getByText(/0 g \/ mol/i)).toBeInTheDocument();
+  expect(screen.queryByText(/holmium/i)).not.toBeInTheDocument();
+});
+
+test("should add elements and verify total mass", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  // clear elements
+  userEvent.click(screen.getByText(/clear/i));
+
+  // add element
+  userEvent.click(screen.getByText(/add element/i));
+
+  expect(screen.getByRole("textbox")).toBeInTheDocument();
+
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // adding another element
+  userEvent.click(screen.getByText(/add element/i));
+  userEvent.type(screen.getByRole("textbox"), "oxygen");
+
+  userEvent.click(screen.getAllByText(/oxygen/i)[0]);
+
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+  userEvent.clear(screen.getByDisplayValue("1"));
+  userEvent.type(screen.getByDisplayValue("0"), "2");
+
+  userEvent.click(screen.getAllByRole("button")[5]);
+
+  //verify total mass of H2O(water)
+  expect(screen.getByText(/18\.01528 g \/ mol/i)).toBeInTheDocument();
+});
+
+test("should be able to increase and decrease element amount with icons", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  // clear elements
+  userEvent.click(screen.getByText(/clear/i));
+
+  // add element
+  userEvent.click(screen.getByText(/add element/i));
+
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // open increase amount modal
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // verify initial amount of Hydrogen
+  expect(screen.getByDisplayValue("1")).toBeInTheDocument();
+
+  // Click + icon
+  userEvent.click(screen.getAllByRole("button")[6]);
+
+  // Verify amount is increased
+  expect(screen.getByDisplayValue("2")).toBeInTheDocument();
+
+  // Click - icon
+  userEvent.click(screen.getAllByRole("button")[5]);
+
+  expect(screen.getByDisplayValue("1")).toBeInTheDocument();
+});
+
+test("should increase element amount by +1 if user add same element again", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  // clear elements
+  userEvent.click(screen.getByText(/clear/i));
+
+  // add element
+  userEvent.click(screen.getByText(/add element/i));
+
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // open add element modal again
+  userEvent.click(screen.getByText(/add element/i));
+
+  // add hydrogen again
+  userEvent.click(screen.getAllByText(/hydrogen/i)[2]);
+
+  // Verify total mass of 2 atoms of Hydrogen
+  expect(screen.getByText(/2\.01588 g \/ mol/i)).toBeInTheDocument();
+});
+
+test("should navigate back", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  userEvent.click(screen.getAllByRole("button")[0]);
+  expect(history.location.pathname).toBe("/");
+});
+
+test("should not allow user to add negative amounts", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  // clear elements
+  userEvent.click(screen.getByText(/clear/i));
+
+  // add element
+  userEvent.click(screen.getByText(/add element/i));
+
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // open increase amount modal
+  userEvent.click(screen.getAllByText(/hydrogen/i)[0]);
+
+  // verify initial amount of Hydrogen
+  expect(screen.getByDisplayValue("1")).toBeInTheDocument();
+
+  // Click - icon
+  userEvent.click(screen.getAllByRole("button")[5]);
+
+  expect(screen.getByDisplayValue("0")).toBeInTheDocument();
+
+  userEvent.click(screen.getAllByRole("button")[5]);
+
+  // Click again on - icon
+  expect(screen.getByDisplayValue("0")).toBeInTheDocument();
+});
+
+test("should be able to close add element modal by clicking on overlay", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/mass-calculator"],
+  });
+
+  render(
+    <Router history={history}>
+      <MassCalculator />
+    </Router>
+  );
+
+  // clear elements
+  userEvent.click(screen.getByText(/clear/i));
+
+  // add element
+  userEvent.click(screen.getByText(/add element/i));
+
+  // close add elements modal by clicking on overlay
+  userEvent.click(screen.getByTestId("overlay"));
 });

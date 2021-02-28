@@ -4,10 +4,6 @@ import userEvent from "@testing-library/user-event";
 import elementManager from "../../ElementManager";
 import ElementPicker from "./ElementPicker";
 
-beforeAll(() => {
-  elementManager.loadElements();
-});
-
 test("search for Neon", () => {
   const onElement = jest.fn();
 
