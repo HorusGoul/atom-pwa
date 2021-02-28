@@ -20,10 +20,6 @@ function elementRenderer(atomic: number): IPeriodicTableElement {
 }
 
 describe("should render the periodic table", () => {
-  beforeAll(() => {
-    ElementManager.loadElements();
-  });
-
   test("should show a spinner", async () => {
     render(<PeriodicTable elementRenderer={elementRenderer} />);
     expect(screen.getByLabelText(/loading/i)).toBeInTheDocument();
