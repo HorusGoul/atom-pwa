@@ -13,7 +13,7 @@
     "locales-coverage:description": "node scripts/locales-coverage-description.js",
     "typecheck": "tsc --noEmit",
     "postinstall": "husky install",
-    "test": "jest --watch",
+    "test": "jest --watchAll",
     "test:ci": "jest --maxWorkers=2",
     "cy:install": "cypress install",
     "cy:run": "cypress run",
