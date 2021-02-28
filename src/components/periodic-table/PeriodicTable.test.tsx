@@ -19,29 +19,27 @@ function elementRenderer(atomic: number): IPeriodicTableElement {
   };
 }
 
-async function renderTable() {
-  render(<PeriodicTable elementRenderer={elementRenderer} />);
-  await waitForElementToBeRemoved(
-    () => screen.queryAllByLabelText(/loading/i),
-    { timeout: 4000 }
-  );
-}
-
 describe("should render the periodic table", () => {
   beforeAll(() => {
     ElementManager.loadElements();
   });
 
   test("should show a spinner", async () => {
-    const { container } = render(
-      <PeriodicTable elementRenderer={elementRenderer} />
-    );
+    render(<PeriodicTable elementRenderer={elementRenderer} />);
     expect(screen.getByLabelText(/loading/i)).toBeInTheDocument();
   });
 
   test("should show all the elements of the periodic table", async () => {
-    await renderTable();
-    // periodic table has 118 elements as of now
-    expect(screen.getAllByLabelText(/atomic-number/i)).toHaveLength(118);
+    render(<PeriodicTable elementRenderer={elementRenderer} />);
+    await waitForElementToBeRemoved(
+      () => screen.queryAllByLabelText(/loading/i),
+      { timeout: 4000 }
+    );
+
+    const elements = ElementManager.getElements();
+
+    elements.forEach((element) => {
+      expect(screen.getByText(element.name)).toBeInTheDocument();
+    });
   });
 });
