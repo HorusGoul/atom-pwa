@@ -64,8 +64,6 @@ jobs:
           browser: chrome
           headless: true
           wait-on: 'http://localhost:8888'
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
