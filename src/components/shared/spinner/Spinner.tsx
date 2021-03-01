@@ -12,7 +12,13 @@ export const Spinner: React.StatelessComponent<ISpinnerProps> = ({
   const svgClassName = className ? `spinner ${className}` : "spinner";
 
   return (
-    <svg viewBox="0 0 24 24" className={svgClassName}>
+    <svg
+      id="loading"
+      aria-busy="true"
+      role="progressbar"
+      viewBox="0 0 24 24"
+      className={svgClassName}
+    >
       <circle cx={12} cy={12} r={10} />
     </svg>
   );

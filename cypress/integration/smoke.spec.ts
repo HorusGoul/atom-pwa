@@ -3,7 +3,7 @@ it("verifies that application wont explode", () => {
   cy.reload();
 });
 
-it("verify clicking around application works", () => {
+it("verifies clicking around application works", () => {
   cy.visit("/");
 
   cy.findByRole("button", { name: /tests/i }).click();

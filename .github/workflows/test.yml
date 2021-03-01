@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [12, 14]
     steps:
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
@@ -63,7 +63,7 @@ jobs:
           start: npm run dev
           browser: chrome
           headless: true
-          wait-on: 'http://localhost:8888'
+          wait-on: "http://localhost:8888"
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
