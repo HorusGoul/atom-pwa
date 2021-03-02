@@ -2,15 +2,54 @@ import * as React from "react";
 import cn from "classnames";
 import styles from "./Atom.module.scss";
 
+export type AtomColorVariant = "primary" | "white" | "black" | "inherit";
+
+export interface VariantColor {
+  main: string;
+  contrastText: string;
+  dark: string;
+  light: string;
+}
+
 export interface AtomProps {
   size?: number;
   weight?: 8 | 16 | 24 | 32 | 40 | 48;
-  color?: "primary" | "white" | "black" | "inherit";
+  color?: AtomColorVariant;
   spinning?: boolean;
   className?: string;
 }
+export type ColorMap = {
+  [key in AtomColorVariant]: VariantColor;
+};
 
 const defaultWeight = 16;
+
+export const colors: ColorMap = {
+  primary: {
+    main: "#00897b",
+    dark: "#00796d",
+    light: "#00a393",
+    contrastText: "#ffffff",
+  },
+  white: {
+    main: "#fafafa",
+    contrastText: "#000",
+    dark: "#f5f5f5",
+    light: "#ffffff",
+  },
+  black: {
+    main: "#333",
+    contrastText: "#fff",
+    light: "#555",
+    dark: "#111",
+  },
+  inherit: {
+    main: "currentColor",
+    contrastText: "currentColor",
+    light: "currentColor",
+    dark: "currentColor",
+  },
+};
 
 function Atom({
   size = 64,
@@ -19,47 +58,21 @@ function Atom({
   weight = defaultWeight,
   className,
 }: AtomProps) {
-  let variantColor: {
-    main: string;
-    contrastText: string;
-    dark: string;
-    light: string;
-  };
+  let variantColor: VariantColor;
 
   switch (color) {
     case "primary":
-      variantColor = {
-        main: "#00897b",
-        dark: "#00796d",
-        light: "#00a393",
-        contrastText: "#ffffff",
-      };
+      variantColor = colors.primary;
       break;
     case "white":
-      variantColor = {
-        main: "#fafafa",
-        contrastText: "#000",
-        dark: "#f5f5f5",
-        light: "#ffffff",
-      };
+      variantColor = colors.white;
       break;
     case "black":
-      variantColor = {
-        main: "#333",
-        contrastText: "#fff",
-        light: "#555",
-        dark: "#111",
-      };
+      variantColor = colors.black;
       break;
-    case "inherit": {
-      variantColor = {
-        main: "currentColor",
-        contrastText: "currentColor",
-        light: "currentColor",
-        dark: "currentColor",
-      };
+    case "inherit":
+      variantColor = colors.inherit;
       break;
-    }
   }
 
   const strokeWidth = weight;
