@@ -13,7 +13,7 @@ module.exports = function viteMetaGlobBabelPlugin() {
     glob: (path) =>
       t.arrowFunctionExpression(
         [],
-        t.callExpression(t.import(), [t.stringLiteral(path)])
+        t.callExpression(t.identifier("import"), [t.stringLiteral(path)])
       ),
     globEager: (path) =>
       t.callExpression(t.identifier("require"), [t.stringLiteral(path)]),
