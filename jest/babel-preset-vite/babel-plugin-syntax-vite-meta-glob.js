@@ -40,7 +40,7 @@ module.exports = function viteMetaGlobBabelPlugin() {
 
           const replacement = t.objectExpression(
             paths.map((path) =>
-              t.objectProperty(t.identifier(path), asts[propertyName](path))
+              t.objectProperty(t.stringLiteral(path), asts[propertyName](path))
             )
           );
 
