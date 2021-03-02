@@ -15,7 +15,8 @@ module.exports = function viteMetaGlobBabelPlugin() {
         [],
         t.callExpression(t.import(), [t.stringLiteral(path)])
       ),
-    globEager: (path) => t.callExpression(t.require, [t.stringLiteral(path)]),
+    globEager: (path) =>
+      t.callExpression(t.identifier("require"), [t.stringLiteral(path)]),
   };
 
   const globKeys = Object.keys(asts);
