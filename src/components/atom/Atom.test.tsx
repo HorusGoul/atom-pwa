@@ -8,11 +8,15 @@ cases(
   ({ colorKey }: { colorKey: AtomColorVariant }) => {
     const { container } = render(<Atom color={colorKey} />);
 
+    // Selecting the circle within svg element which represents an atom.
     const circle = container.querySelector("div > svg > g > circle");
+
+    expect(circle?.getAttribute("fill")).toEqual(colors[colorKey].main);
+
+    // Selecting the ellipse (Which is something similar to a circle.) within svg element which represents an atom.
     const getEllipse = (idx: number) =>
       container.querySelector(`div > svg > g > ellipse:nth-child(${idx})`);
 
-    expect(circle?.getAttribute("fill")).toEqual(colors[colorKey].main);
     expect(getEllipse(2)?.getAttribute("stroke")).toEqual(
       colors[colorKey].dark
     );
