@@ -25,7 +25,7 @@ test("should render periodic table and able to see details of element", async ()
     { timeout: 4000 }
   );
 
-  userEvent.click(screen.getAllByRole("button")[1]);
+  userEvent.click(screen.getByRole("button", { name: "1 H Hydrogen" }));
 
   // Verifiying Atomic radius of Hydrogen
   expect(screen.getByText(/atomic radius/i)).toBeInTheDocument();
@@ -46,6 +46,6 @@ test("should be able to navigate back to main menu", () => {
     </Router>
   );
 
-  userEvent.click(screen.getByRole("button"));
+  userEvent.click(screen.getByTestId("navbar-back-button"));
   expect(history.location.pathname).toBe("/");
 });
