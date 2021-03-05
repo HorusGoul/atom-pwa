@@ -9,12 +9,13 @@ export interface IButtonProps {
   onClick?: () => void;
   circle?: boolean;
   link?: string;
+  id?: string;
 }
 
 @autobind
 class Button extends React.Component<IButtonProps> {
   public render() {
-    const { className, circle, link } = this.props;
+    const { className, circle, link, id } = this.props;
     const buttonClass = classNames(
       "button",
       {
@@ -26,6 +27,7 @@ class Button extends React.Component<IButtonProps> {
     if (link) {
       return (
         <ButtonBase
+          data-testid={id}
           data-atom-button
           component="a"
           href={link}
@@ -39,6 +41,7 @@ class Button extends React.Component<IButtonProps> {
 
     return (
       <ButtonBase
+        data-testid={id}
         data-atom-button
         component="a"
         role="button"

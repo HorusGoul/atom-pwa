@@ -8,11 +8,12 @@ import "./IconButton.scss";
 interface IIconButtonProps extends IButtonProps {
   iconName: string;
   text?: string;
+  id?: string;
 }
 
 class IconButton extends React.Component<IIconButtonProps> {
   public render() {
-    const { iconName, className, onClick, text } = this.props;
+    const { iconName, className, onClick, text, id } = this.props;
 
     const buttonClass = classNames("icon-button", className);
 
