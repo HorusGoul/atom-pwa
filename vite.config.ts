@@ -44,13 +44,12 @@ export default defineConfig({
     legacy({
       targets: ["defaults", "not IE 11", "chrome > 60"],
     }),
-    process.env.NODE_ENV === "development" &&
-      istanbul({
-        include: "src/*",
-        exclude: ["node_modules", "**.*.test.{ts,tsx}"],
-        extension: [".ts", "tsx"],
-      }),
-  ].filter(Boolean),
+    istanbul({
+      include: "src/*",
+      exclude: ["node_modules", "**.*.test.{ts,tsx}"],
+      extension: [".ts", "tsx"],
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve("./src"),
