@@ -67,7 +67,8 @@ jobs:
         node: [12, 14]
     steps:
       - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
+      - name: Run Tests
+        uses: cypress-io/github-action@v2
         with:
           start: npm run dev
           browser: chrome
@@ -79,13 +80,15 @@ jobs:
       # thus we store screenshots only on failures
       # Alternative: create and commit an empty cypress/screenshots folder
       # to always have something to upload
-      - uses: actions/upload-artifact@v1
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
       # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v1
+      - name: Upload videos
+        uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-videos
@@ -110,6 +113,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+
+      - name: Download jest data
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-coverage
+          path: jest-coverage
 
       - name: Download cypress data
         uses: actions/download-artifact@v2
