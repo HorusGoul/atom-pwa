@@ -86,6 +86,9 @@ class SwipeableModal extends React.Component<
 
           <div
             ref={this.setModalDiv}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             className={classNames("modal", this.props.className)}
             style={{
               opacity,
@@ -94,7 +97,11 @@ class SwipeableModal extends React.Component<
           >
             {showHeader && (
               <div className="modal__header">
-                {title && <span className="modal__header__title">{title}</span>}
+                {title && (
+                  <span id="modal-title" className="modal__header__title">
+                    {title}
+                  </span>
+                )}
 
                 {closeButton && (
                   <IconButton
