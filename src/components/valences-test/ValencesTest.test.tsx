@@ -1,12 +1,6 @@
 import * as React from "react";
 import { Router } from "react-router-dom";
-import {
-  render,
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-  within,
-} from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 
@@ -14,7 +8,6 @@ import { TEST_SELECTION } from "../../routes";
 import ElementManager from "../../ElementManager";
 import ValencesTest from "./ValencesTest";
 import * as Settings from "./settings/ValencesTestSettings";
-import { after } from "cypress/types/lodash";
 
 const mockSettings = {
   elements: [
