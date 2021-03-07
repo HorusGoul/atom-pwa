@@ -97,6 +97,9 @@ jobs:
           name: cypress-coverage
           path: coverage
   coverage:
+    needs:
+      - test
+      - cypress-run
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
