@@ -67,6 +67,12 @@ jobs:
         node: [12, 14]
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
@@ -74,6 +80,7 @@ jobs:
           browser: chrome
           headless: true
           wait-on: "http://localhost:8888"
+
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
@@ -86,6 +93,7 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
       # Test run video was always captured, so this action uses "always()" condition
       - name: Upload videos
         uses: actions/upload-artifact@v1
@@ -113,6 +121,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+
+      - name: Install nyc
+        run: yarn add nyc
 
       - name: Download jest data
         uses: actions/download-artifact@v2

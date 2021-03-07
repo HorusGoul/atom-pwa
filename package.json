@@ -26,7 +26,7 @@
     "coverage:copy-reports": "yarn coverage:copy-jest && yarn coverage:copy-cypress",
     "coverage:copy-jest": "cp jest-coverage/coverage-final.json coverage/jest-final.json",
     "coverage:copy-cypress": "cp cypress-coverage/coverage-final.json coverage/cypress-final.json",
-    "coverage:generate-report": "yarn nyc report --reporter lcov --reporter text --temp-dir coverage"
+    "coverage:generate-report": "nyc report --reporter lcov --reporter text --temp-dir coverage"
   },
   "lint-staged": {
     "**/*.{html,ts,tsx,json,scss,js,jsx}": [
