@@ -1,5 +1,5 @@
 const platformMethods: typeof window.AtomNative = {
-  getDebugMode: () => process.env.NODE_ENV !== "production",
+  getDebugMode: () => import.meta.env.DEV,
   isHybrid: () => false,
   getSystemLanguage: () => window.navigator.language,
 };
