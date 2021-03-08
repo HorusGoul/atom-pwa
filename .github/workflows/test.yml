@@ -160,6 +160,4 @@ jobs:
         run: yarn coverage:ci
 
       - name: Report coverage
-        uses: romeovs/lcov-reporter-action@v0.2.21
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        uses: codecov/codecov-action@v1
