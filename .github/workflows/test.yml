@@ -156,8 +156,8 @@ jobs:
           name: cypress-coverage
           path: cypress-coverage
 
-      - name: Combine coverage
-        run: yarn coverage:ci
+      # - name: Combine coverage
+      #   run: yarn coverage:ci
 
       - name: Report coverage
         uses: codecov/codecov-action@v1
