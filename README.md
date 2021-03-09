@@ -1,10 +1,10 @@
 # ![Atom - Periodic Table & Quizzes](./docs/header.png)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b7b84fd9-7d85-4094-b989-e74824fb3233/deploy-status)](https://app.netlify.com/sites/atom-pt/deploys)
-[![Crowdin](https://badges.crowdin.net/atom-periodic-table-quizzes/localized.svg)](https://crowdin.com/project/atom-periodic-table-quizzes)
-[![Github All Contributors](https://img.shields.io/github/all-contributors/HorusGoul/atom-pwa/next)](#contributors-)
-[![License](https://img.shields.io/github/license/horusgoul/atom-pwa)](./LICENSE)
-
+[![Netlify Status][netlify-badge]][netlify]
+[![Code Coverage][coverage-badge]][coverage]
+[![Crowdin][crowdin-badge]][crowdin]
+[![Github All Contributors][all-contributors-badge]](#contributors)
+[![License][license-badge]][license]
 
 ## About
 
@@ -84,3 +84,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+<!-- prettier-ignore-start -->
+[all-contributors-badge]: https://img.shields.io/github/all-contributors/HorusGoul/atom-pwa/next
+[coverage-badge]: https://img.shields.io/codecov/c/github/HorusGoul/atom-pwa.svg?style=flat-square
+[coverage]: https://codecov.io/github/HorusGoul/atom-pwa
+[crowdin-badge]: https://badges.crowdin.net/atom-periodic-table-quizzes/localized.svg
+[crowdin]: https://crowdin.com/project/atom-periodic-table-quizzes
+[license-badge]: https://img.shields.io/github/license/horusgoul/atom-pwa
+[license]: ./LICENSE
+[netlify-badge]: https://api.netlify.com/api/v1/badges/b7b84fd9-7d85-4094-b989-e74824fb3233/deploy-status
+[netlify]: https://app.netlify.com/sites/atom-pt/deploys
+<!-- prettier-ignore-end -->
