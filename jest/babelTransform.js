@@ -15,6 +15,6 @@ module.exports = babelJest.createTransformer({
     "babel-preset-react-app",
     "@babel/preset-react",
     "@babel/preset-typescript",
-    require("./babel-preset-vite"),
+    "babel-preset-vite",
   ],
 });
