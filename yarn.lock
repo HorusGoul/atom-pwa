@@ -2912,7 +2912,7 @@
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.1.tgz#78b5433344e2f92e8b306c06a5622c50c245bf6b"
   integrity sha512-S6oPal772qJZHoRZLFc/XoZW2gFvwXusYUmXPXkgxJLuEk2vOt7jc4Yo6z/vtI0EBkbPBVrJJ0B+prLIKiWqHg==
 
-"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
+"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.12", "@types/babel__core@^7.1.7":
   version "7.1.12"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.12.tgz#4d8e9e51eb265552a7e4f1ff2219ab6133bdfb2d"
   integrity sha512-wMTHiiTiBAAPebqaPiPDLFA4LYPKr6Ph0Xq/6rq1Ur3v66HXyG+clfR9CNETkD7MQS8ZHvpQOtA53DLws5WAEQ==
@@ -4177,19 +4177,22 @@ babel-plugin-transform-react-remove-prop-types@0.4.24:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-babel-plugin-transform-vite-meta-env@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-env/-/babel-plugin-transform-vite-meta-env-1.0.1.tgz#e17146c0f776d775cc36d04aa762452853b14e10"
-  integrity sha512-Np+PK91KBlj2U2TSfqfejRWYmMPBVpnByB9j7ORSoesh8HZF8jInk+/awLmCZCuDTLSJg4LZmkdPXvL7d15hvQ==
+babel-plugin-transform-vite-meta-env@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-env/-/babel-plugin-transform-vite-meta-env-1.0.2.tgz#21ea98644f9f06970d8ed589bfe58f1cbbad7e03"
+  integrity sha512-BVn+gUke9TSVE9g5moOLof46CV2rnqcNV3D2gqpB0XXevuqBaodODSGxfNjYxollb/WdTmwUWNgiYQz2EOvlVg==
   dependencies:
     "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
 
-babel-plugin-transform-vite-meta-glob@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-glob/-/babel-plugin-transform-vite-meta-glob-1.0.1.tgz#e9bbffbb984f4843811e7f3b08cb35207d51ec49"
-  integrity sha512-owups2Rv2ra+PwGurTA4j2KGDwQAAdEDcLhiJLqcMhDl0nVnB/Gv7JXs+yQwILflyIHDS4fzbKP1FuLI1K9Aiw==
+babel-plugin-transform-vite-meta-glob@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-glob/-/babel-plugin-transform-vite-meta-glob-1.0.3.tgz#74320e0ea09b6325974109cab1c3fc6f3a6c8036"
+  integrity sha512-JW3VnwUjJqpj0FM0vJFxrGdxSBcHOa0j5YMvvtXYPmFshroq53nbK9dqRETgjXlMrfIz0oU/6ki+u1GdVWdNHA==
   dependencies:
     "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
+    glob "^7.1.6"
 
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"
@@ -4238,14 +4241,15 @@ babel-preset-react-app@^10.0.0:
     babel-plugin-macros "2.8.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-preset-vite@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/babel-preset-vite/-/babel-preset-vite-1.0.1.tgz#bd18e01580ef86df108be2d5310b2add1b0ea418"
-  integrity sha512-oSupv/+KCI1IQVcd1Gs1RxFr0LlKMKiiEW4vMaqvTgKGzIe1W27LLKo0UWBpq6+3Cy6kU9FKcrsE3pkkAvfE/w==
+babel-preset-vite@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-preset-vite/-/babel-preset-vite-1.0.3.tgz#80efb17a6a8c3aa52e186532b4e18f656d66d3f6"
+  integrity sha512-4RYHiBro71Ak1cxirZTIbFirbjn3Ykk5ZDUAoXrfwU3WXz58eADn/NFTB03gu+7ds1O6dZ0kwJ2r/8kf7FBPaA==
   dependencies:
     "@babel/runtime" "^7.13.9"
-    babel-plugin-transform-vite-meta-env "1.0.1"
-    babel-plugin-transform-vite-meta-glob "1.0.1"
+    "@types/babel__core" "^7.1.12"
+    babel-plugin-transform-vite-meta-env "1.0.2"
+    babel-plugin-transform-vite-meta-glob "1.0.3"
 
 babelify@10.0.0:
   version "10.0.0"
