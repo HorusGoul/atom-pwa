@@ -33,6 +33,8 @@ test("Should call onClose when swipe modal", async () => {
     </SwipeableModal>
   );
   const modal = screen.getByRole("dialog");
+  jest.spyOn(modal, "clientWidth", "get").mockImplementation(() => 100);
+
   expect(screen.getByRole("button")).toBeInTheDocument();
 
   fireEvent.mouseDown(modal, touchstart);
