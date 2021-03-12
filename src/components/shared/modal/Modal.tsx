@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { useEffect, FC } from "react";
+import { useEffect, ReactNode } from "react";
 import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
 import Overlay from "../overlay/Overlay";
@@ -8,32 +8,32 @@ import "./Modal.scss";
 
 export interface IModalProps {
   open: boolean;
-  onOpen?: () => void;
   onClose: () => void;
   className?: string;
   title?: string;
   closeButton?: boolean;
+  children: ReactNode;
 }
 
 export interface IModalState {
   open: boolean;
 }
 
-const Modal: FC<IModalProps> = ({
+const Modal = ({
   open,
   title,
   closeButton,
   onClose,
   className,
   ...props
-}) => {
+}: IModalProps) => {
   const showHeader = !!title || closeButton;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
 
     return () => {
-      document.body.style.overflow = open ? "hidden" : "";
+      document.body.style.overflow = "";
     };
   }, [open]);
 
@@ -43,7 +43,7 @@ const Modal: FC<IModalProps> = ({
 
   return (
     <Portal>
-      <React.Fragment>
+      <>
         <Overlay open={open} onClick={onClose} />
 
         <div
@@ -70,9 +70,9 @@ const Modal: FC<IModalProps> = ({
             </div>
           )}
 
-          {props?.children}
+          {props.children}
         </div>
-      </React.Fragment>
+      </>
     </Portal>
   );
 };
