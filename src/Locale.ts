@@ -42,7 +42,7 @@ class Locale {
 
   public getString(localeName: string) {
     const result =
-      this.currentLocales[localeName] ||
+      this.currentLocales?.[localeName] ||
       this.defaultLocales[localeName] ||
       this.common[localeName];
 

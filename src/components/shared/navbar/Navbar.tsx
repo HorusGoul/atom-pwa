@@ -24,6 +24,7 @@ class Navbar extends React.Component<INavbarProps, unknown> {
           <IconButton
             className="navbar__back-button"
             iconName="arrow_back"
+            id="navbar-back-button"
             onClick={this.onBackButtonClick}
           />
         )}

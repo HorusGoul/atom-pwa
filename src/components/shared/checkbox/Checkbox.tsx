@@ -4,7 +4,7 @@ import * as React from "react";
 
 import "./Checkbox.scss";
 
-interface ICheckboxProps {
+export interface ICheckboxProps {
   value?: boolean;
   onChange?: (value: boolean) => void;
   readOnly?: boolean;
