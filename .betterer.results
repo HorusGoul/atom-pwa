@@ -28,9 +28,6 @@ exports[`no more class components`] = {
     "src/components/questions-test/question-card/question-card-answer/QuestionCardAnswer.tsx:2804488575": [
       [21, 0, 48, "RegExp match", "2666361784"]
     ],
-    "src/components/shared/button/Button.tsx:2386476463": [
-      [15, 0, 36, "RegExp match", "541675560"]
-    ],
     "src/components/shared/checkbox/Checkbox.tsx:3495197211": [
       [25, 0, 38, "RegExp match", "2581299341"]
     ],
