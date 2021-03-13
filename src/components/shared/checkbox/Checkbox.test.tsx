@@ -1,6 +1,6 @@
 import * as React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import Checkbox, { ICheckboxProps } from "./Checkbox";
+import Checkbox, { CheckboxProps } from "./Checkbox";
 
 const onChangeMock = jest.fn();
 
@@ -14,7 +14,7 @@ test("should render checkbox with default state", () => {
 });
 
 test("should render checkbox with given custom props and perform some validations", () => {
-  const props: ICheckboxProps = {
+  const props: CheckboxProps = {
     readOnly: true,
     value: true,
     onChange: onChangeMock,
@@ -36,7 +36,7 @@ test("should render checkbox with given custom props and perform some validation
 });
 
 test("should invoke onChange on checkbox", () => {
-  const props: ICheckboxProps = {
+  const props: CheckboxProps = {
     value: true,
     onChange: onChangeMock,
   };
@@ -56,7 +56,7 @@ test("should invoke onChange on checkbox", () => {
 });
 
 test("should invoke onChange on checkbox", () => {
-  const props: ICheckboxProps = {
+  const props: CheckboxProps = {
     value: true,
     onChange: onChangeMock,
   };
