@@ -64,7 +64,7 @@ class PeriodicTablePage extends React.Component<
   private elementRenderer(atomic: number) {
     return (
       <PtElementInfo
-        element={ElementManager.getElement(atomic)}
+        element={ElementManager.getElement(atomic) as IElement}
         onClick={this.elementOnClick}
       />
     );
