@@ -4,21 +4,15 @@ import IconButton from "../icon-button/IconButton";
 import "./Navbar.scss";
 
 interface NavbarProps {
-  backButton?: boolean;
   title?: string;
   onBackButtonClick?: () => void;
   className?: string;
 }
 
-function Navbar({
-  backButton,
-  title,
-  className,
-  onBackButtonClick,
-}: NavbarProps) {
+function Navbar({ title, className, onBackButtonClick }: NavbarProps) {
   return (
     <div className={classNames("navbar", className)}>
-      {backButton && (
+      {onBackButtonClick && (
         <IconButton
           className="navbar__back-button"
           iconName="arrow_back"

@@ -32,7 +32,6 @@ class TestSelection extends React.Component<Props> {
       <div className="test-selection">
         <Navbar
           className="test-selection__navbar"
-          backButton={true}
           title={i18n("nav_test")}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />

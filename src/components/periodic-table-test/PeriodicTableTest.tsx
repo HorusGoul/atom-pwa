@@ -62,7 +62,6 @@ class PeriodicTableTest extends React.Component<
         <Navbar
           title="Periodic Table Test"
           className="periodic-table-test__navbar"
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
