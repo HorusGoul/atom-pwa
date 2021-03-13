@@ -1,20 +1,14 @@
 import classNames from "classnames";
 import * as React from "react";
-
 import "./Card.scss";
 
-interface ICardProps extends React.Props<any> {
+interface CardProps {
   className?: string;
+  children: React.ReactNode;
 }
 
-class Card extends React.Component<ICardProps> {
-  public render() {
-    const { className, children } = this.props;
-
-    const cardClass = classNames("card", className);
-
-    return <div className={cardClass}>{children}</div>;
-  }
+function Card({ className, children }: CardProps) {
+  return <div className={classNames("card", className)}>{children}</div>;
 }
 
 export default Card;
