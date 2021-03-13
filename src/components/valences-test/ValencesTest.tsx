@@ -1,10 +1,6 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
-import { RouteComponentProps, useHistory, withRouter } from "react-router-dom";
-import AppSettings, {
-  ITestElementSettings,
-  IValencesTestSettings,
-} from "../../AppSettings";
+import { useHistory } from "react-router-dom";
+import AppSettings, { ITestElementSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -18,8 +14,6 @@ import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
 import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
-
-type Props = RouteComponentProps<any> & React.Props<any>;
 
 interface IValencesTestQuestionCard extends IQuestionCard {
   data: IElement;
