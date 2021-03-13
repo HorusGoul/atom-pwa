@@ -53,7 +53,6 @@ class ValencesTest extends React.Component<Props> {
       <div className="valences-test">
         <Navbar
           title={i18n("valences_test")}
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 

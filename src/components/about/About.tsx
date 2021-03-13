@@ -21,7 +21,6 @@ function About() {
       <Navbar
         className="about__navbar"
         title={i18n("nav_about")}
-        backButton={true}
         onBackButtonClick={onNavbarBackButtonClick}
       />
 

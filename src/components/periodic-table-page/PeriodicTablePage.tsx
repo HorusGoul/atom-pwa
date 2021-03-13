@@ -47,7 +47,6 @@ class PeriodicTablePage extends React.Component<
         <Navbar
           title={i18n("periodic_table")}
           className="periodic-table-page__navbar"
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
