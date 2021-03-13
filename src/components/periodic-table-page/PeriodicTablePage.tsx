@@ -5,9 +5,7 @@ import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
-import PeriodicTable, {
-  IPeriodicTableElement,
-} from "../periodic-table/PeriodicTable";
+import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
@@ -63,15 +61,13 @@ class PeriodicTablePage extends React.Component<
     );
   }
 
-  private elementRenderer(atomic: number): IPeriodicTableElement {
-    return {
-      // @ts-ignore fix this
-      component: PtElementInfo,
-      props: {
-        element: ElementManager.getElement(atomic),
-        onClick: this.elementOnClick,
-      },
-    };
+  private elementRenderer(atomic: number) {
+    return (
+      <PtElementInfo
+        element={ElementManager.getElement(atomic)}
+        onClick={this.elementOnClick}
+      />
+    );
   }
 
   private elementOnClick(element: IElement) {
