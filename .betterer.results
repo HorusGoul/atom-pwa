@@ -46,9 +46,6 @@ exports[`no more class components`] = {
     "src/components/test-selection/TestSelection.tsx:2716144585": [
       [13, 0, 43, "RegExp match", "4254384616"]
     ],
-    "src/components/test-selection/test-entry/TestEntry.tsx:1691467208": [
-      [22, 0, 39, "RegExp match", "1917276380"]
-    ],
     "src/components/theme-selector/ThemeSelector.tsx:3253357949": [
       [16, 0, 43, "RegExp match", "3053261882"]
     ],
