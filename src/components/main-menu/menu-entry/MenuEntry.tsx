@@ -10,7 +10,7 @@ export interface IMenuEntry {
   route: string;
 }
 
-type Props = ButtonProps & IMenuEntry;
+type Props = Omit<ButtonProps, "children"> & IMenuEntry;
 
 const MenuEntry: React.StatelessComponent<Props> = (props) => (
   <Button className="menu-entry" {...props}>

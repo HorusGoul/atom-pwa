@@ -1,18 +1,13 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useHistory } from "react-router";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
-import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
-import TestEntry, { ITestEntry } from "./test-entry/TestEntry";
+import TestEntry from "./test-entry/TestEntry";
 import "./TestSelection.scss";
 
-type Props = RouteComponentProps<any> & React.Props<any>;
-
-@autobind
-class TestSelection extends React.Component<Props> {
-  private testEntries: ITestEntry[] = [
+function TestSelection() {
+  const testEntries = [
     {
       description: i18n("valences_test_desc"),
       settingsRoute: "/tests/valences/settings",
@@ -27,53 +22,29 @@ class TestSelection extends React.Component<Props> {
     },
   ];
 
-  public render() {
-    return (
-      <div className="test-selection">
-        <Navbar
-          className="test-selection__navbar"
-          backButton={true}
-          title={i18n("nav_test")}
-          onBackButtonClick={this.onNavbarBackButtonClick}
-        />
+  const history = useHistory();
 
-        <div className="test-selection__entries">
-          {this.testEntries.map((testEntry, index) => (
-            <TestEntry
-              key={index}
-              {...testEntry}
-              onPracticeClick={this.onTestEntryPracticeListener(testEntry)}
-              onSettingsClick={this.onTestEntrySettingsListener(testEntry)}
-            />
-          ))}
-        </div>
+  return (
+    <div className="test-selection">
+      <Navbar
+        className="test-selection__navbar"
+        title={i18n("nav_test")}
+        // TODO: replace "push" with "replace" in the future
+        onBackButtonClick={() => history.push(MAIN_MENU)}
+      />
+
+      <div className="test-selection__entries">
+        {testEntries.map((testEntry, index) => (
+          <TestEntry
+            key={index}
+            {...testEntry}
+            onPracticeClick={() => history.push(testEntry.testRoute)}
+            onSettingsClick={() => history.push(testEntry.settingsRoute)}
+          />
+        ))}
       </div>
-    );
-  }
-
-  private onNavbarBackButtonClick() {
-    const { history } = this.props;
-
-    history.push(MAIN_MENU);
-  }
-
-  private onTestEntryPracticeListener(entry: ITestEntry) {
-    return () => this.onTestEntryPracticeClick(entry);
-  }
-
-  private onTestEntryPracticeClick(entry: ITestEntry) {
-    const { history } = this.props;
-    history.push(entry.testRoute);
-  }
-
-  private onTestEntrySettingsListener(entry: ITestEntry) {
-    return () => this.onTestEntrySettingsClick(entry);
-  }
-
-  private onTestEntrySettingsClick(entry: ITestEntry) {
-    const { history } = this.props;
-    history.push(entry.settingsRoute);
-  }
+    </div>
+  );
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(TestSelection);
+export default TestSelection;

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
-import Modal, { IModalProps, IModalState } from "../modal/Modal";
+import { IModalProps, IModalState } from "../modal/Modal";
 import "../modal/Modal.scss";
 import Overlay from "../overlay/Overlay";
 
@@ -27,8 +27,6 @@ class SwipeableModal extends React.Component<
   IModalProps,
   ISwipeableModalState
 > {
-  public static defaultProps: IModalProps = Modal.defaultProps;
-
   public state: ISwipeableModalState = {
     ...initialState,
     open: this.props.open,
@@ -82,7 +80,7 @@ class SwipeableModal extends React.Component<
     return (
       <Portal>
         <React.Fragment>
-          <Overlay opacity={opacity} open={open} onClick={this.close} />
+          <Overlay opacity={opacity} onClick={this.close} />
 
           <div
             ref={this.setModalDiv}

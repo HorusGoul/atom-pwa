@@ -13,10 +13,7 @@ import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
-import {
-  getValencesTestSettings,
-  setDefaultValencesTestSettings,
-} from "./settings/ValencesTestSettings";
+import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
@@ -53,7 +50,6 @@ class ValencesTest extends React.Component<Props> {
       <div className="valences-test">
         <Navbar
           title={i18n("valences_test")}
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
