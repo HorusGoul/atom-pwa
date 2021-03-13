@@ -1,63 +1,60 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
 import "./Button.scss";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
-export interface IButtonProps {
+export interface ButtonProps {
   className?: string;
   onClick?: () => void;
   circle?: boolean;
   link?: string;
   id?: string;
+  children: React.ReactNode;
 }
 
-@autobind
-class Button extends React.Component<IButtonProps> {
-  public render() {
-    const { className, circle, link, id } = this.props;
-    const buttonClass = classNames(
-      "button",
-      {
-        "button--circle": circle,
-      },
-      className
-    );
+function Button({
+  className,
+  circle,
+  link,
+  id,
+  children,
+  onClick,
+}: ButtonProps) {
+  const buttonClass = classNames(
+    "button",
+    {
+      "button--circle": circle,
+    },
+    className
+  );
 
-    if (link) {
-      return (
-        <ButtonBase
-          data-testid={id}
-          data-atom-button
-          component="a"
-          href={link}
-          className={buttonClass}
-          onClick={this.onClick}
-        >
-          {this.props.children}
-        </ButtonBase>
-      );
-    }
-
+  if (link) {
     return (
       <ButtonBase
         data-testid={id}
         data-atom-button
         component="a"
-        role="button"
+        href={link}
         className={buttonClass}
-        onClick={this.onClick}
+        onClick={onClick}
       >
-        {this.props.children}
+        {children}
       </ButtonBase>
     );
   }
 
-  private onClick() {
-    if (this.props.onClick) {
-      this.props.onClick();
-    }
-  }
+  return (
+    <ButtonBase
+      data-testid={id}
+      data-atom-button
+      component="a"
+      role="button"
+      className={buttonClass}
+      onClick={onClick}
+    >
+      {children}
+    </ButtonBase>
+  );
 }
 
 export default Button;

@@ -13,51 +13,43 @@ export interface ITestEntry {
   settingsRoute: string;
 }
 
-interface ITestEntryProps extends ITestEntry {
+interface TestEntryProps extends ITestEntry {
   onPracticeClick?: () => void;
   onSettingsClick?: () => void;
 }
 
-type Props = ITestEntryProps;
+function TestEntry({
+  title,
+  description,
+  onPracticeClick,
+  onSettingsClick,
+}: TestEntryProps) {
+  return (
+    <Card className="test-entry">
+      <div className="test-entry__header">
+        <div className="test-entry__title">{title}</div>
 
-class TestEntry extends React.Component<Props> {
-  public render() {
-    const {
-      title,
-      description,
-      testRoute,
-      settingsRoute,
-      onPracticeClick,
-      onSettingsClick,
-    } = this.props;
+        <IconButton
+          circle={true}
+          className="test-entry__settings-button"
+          iconName="settings"
+          onClick={onSettingsClick}
+        />
+      </div>
 
-    return (
-      <Card className="test-entry">
-        <div className="test-entry__header">
-          <div className="test-entry__title">{title}</div>
+      <div className="test-entry__description">{description}</div>
 
-          <IconButton
-            circle={true}
-            className="test-entry__settings-button"
-            iconName="settings"
-            onClick={onSettingsClick}
-          />
-        </div>
-
-        <div className="test-entry__description">{description}</div>
-
-        <div className="test-entry__footer">
-          <Button
-            onClick={onPracticeClick}
-            className="test-entry__practice-button"
-          >
-            {i18n("practice")}
-            <Icon name="arrow_forward" />
-          </Button>
-        </div>
-      </Card>
-    );
-  }
+      <div className="test-entry__footer">
+        <Button
+          onClick={onPracticeClick}
+          className="test-entry__practice-button"
+        >
+          {i18n("practice")}
+          <Icon name="arrow_forward" />
+        </Button>
+      </div>
+    </Card>
+  );
 }
 
 export default TestEntry;
