@@ -1,7 +1,10 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
-import AppSettings, { IValencesTestSettings } from "../../AppSettings";
+import { RouteComponentProps, useHistory, withRouter } from "react-router-dom";
+import AppSettings, {
+  ITestElementSettings,
+  IValencesTestSettings,
+} from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -13,10 +16,7 @@ import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
-import {
-  getValencesTestSettings,
-  setDefaultValencesTestSettings,
-} from "./settings/ValencesTestSettings";
+import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
@@ -31,191 +31,181 @@ interface IValencesTestState {
   wrong: IValencesTestQuestionCard[];
 }
 
-@autobind
-class ValencesTest extends React.Component<Props> {
-  public state: IValencesTestState = {
-    questions: [],
-    right: [],
-    wrong: [],
-  };
+function ValencesTest() {
+  const settings = React.useRef(getValencesTestSettings() || []).current;
 
-  private settings: IValencesTestSettings = getValencesTestSettings();
-
-  public componentDidMount() {
-    this.createTestQuestions();
-  }
-
-  public render() {
-    const { questions, wrong, right } = this.state;
-    const hasQuestions = !!questions.length;
-
-    return (
-      <div className="valences-test">
-        <Navbar
-          title={i18n("valences_test")}
-          backButton={true}
-          onBackButtonClick={this.onNavbarBackButtonClick}
-        />
-
-        {hasQuestions && (
-          <div className="valences-test__test">
-            <QuestionsTest
-              title={i18n("select_valence")}
-              questions={questions}
-              // @ts-ignore Fix types
-              onQuestionAnswer={this.onQuestionAnswer}
-            />
-          </div>
-        )}
-
-        {!hasQuestions && (
-          <div className="valences-test__result">
-            <Card className="valences-test__result-card">
-              <TestResults
-                gaTestName="Valences Test"
-                wrongAnswers={wrong.length}
-                rightAnswers={right.length}
-                onRepeat={this.repeatTest}
-                onRepeatWrongAnswers={this.repeatWrongAnswers}
-              />
-            </Card>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  private onNavbarBackButtonClick() {
-    const { history } = this.props;
-
-    history.push(TEST_SELECTION);
-  }
-
-  private onQuestionAnswer(
-    question: IValencesTestQuestionCard,
-    answer: IQuestionCardAnswer
-  ) {
-    const elementSetting = this.settings.elements!.find(
-      (element) => element.atomic === question.data.atomic
-    );
-
-    const alreadyAnswered = this.isAlreadyAnswered(question);
-
-    if (!alreadyAnswered) {
-      elementSetting!.stats.times++;
-
-      if (answer.right) {
-        elementSetting!.stats.right++;
-        this.addRightAnsweredQuestion(question);
-      } else {
-        elementSetting!.stats.wrong++;
-        this.addWrongAnsweredQuestion(question);
-      }
-    }
-
-    if (answer.right) {
-      this.removeQuestion(question);
-    }
-
-    AppSettings.save();
-  }
-
-  private removeQuestion(question: IValencesTestQuestionCard) {
-    const { questions } = this.state;
-
-    this.setState({
-      questions: questions.filter((value) => value !== question),
-    });
-  }
-
-  private createTestQuestions() {
-    const questions = this.settings
-      .elements!.filter((element) => element.enabled)
-      .map((element) => ElementManager.getElement(element.atomic))
-      .map((element) => this.createQuestion(element!));
-
-    this.setState({
-      questions: shuffle(questions),
-    });
-  }
-
-  private createQuestion(element: IElement): IValencesTestQuestionCard {
-    return {
-      answers: this.createQuestionAnswers(element),
-      data: element,
-      question: element.symbol,
-      questionClass: `valences-test__question element ${element.group}`,
-    };
-  }
-
-  private createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
-    const rightAnswer = this.createAnswer(element.valency, true);
-    const wrongAnswerPool = shuffle(element.wrongValences)
-      .map((wrongValency) => this.createAnswer(wrongValency))
-      .slice(0, 3);
-
-    return shuffle([rightAnswer, ...wrongAnswerPool]);
-  }
-
-  private createAnswer(answer: string, right = false): IQuestionCardAnswer {
+  function createAnswer(answer: string, right = false): IQuestionCardAnswer {
     return {
       answer,
       right,
     };
   }
 
-  private isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
-    const { right, wrong } = this.state;
+  function createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
+    const rightAnswer = createAnswer(element.valency, true);
+    const wrongAnswerPool = shuffle(element.wrongValences)
+      .map((wrongValency) => createAnswer(wrongValency))
+      .slice(0, 3);
+
+    return shuffle([rightAnswer, ...wrongAnswerPool]);
+  }
+
+  function createQuestion(element: IElement): IValencesTestQuestionCard {
+    return {
+      answers: createQuestionAnswers(element),
+      data: element,
+      question: element.symbol,
+      questionClass: `valences-test__question element ${element.group}`,
+    };
+  }
+
+  function createTestQuestions() {
+    const questions = settings!
+      .elements!.filter((element) => element.enabled)
+      .map((element) => ElementManager.getElement(element.atomic))
+      .map((element) => createQuestion(element!));
+
+    return shuffle(questions);
+  }
+
+  const [quiz, setQuiz] = React.useState<IValencesTestState>(() => ({
+    questions: createTestQuestions(),
+    right: [],
+    wrong: [],
+  }));
+
+  const { questions, wrong, right } = quiz;
+
+  const hasQuestions = !!questions.length;
+
+  function onQuestionAnswer(
+    question: IValencesTestQuestionCard,
+    answer: IQuestionCardAnswer
+  ) {
+    const elementSetting = settings.elements!.find(
+      (element: ITestElementSettings) => element.atomic === question.data.atomic
+    );
+    if (!elementSetting) return;
+
+    const alreadyAnswered = isAlreadyAnswered(question);
+
+    if (!alreadyAnswered) {
+      elementSetting.stats.times++;
+
+      if (answer.right) {
+        elementSetting.stats.right++;
+        addRightAnsweredQuestion(question);
+      } else {
+        elementSetting.stats.wrong++;
+        addWrongAnsweredQuestion(question);
+      }
+    }
+
+    if (answer.right) {
+      removeQuestion(question);
+    }
+
+    AppSettings.save();
+  }
+
+  function updateQuiz(newState: Partial<IValencesTestState>) {
+    setQuiz((oldQuiz) => {
+      return { ...oldQuiz, ...newState };
+    });
+  }
+
+  const history = useHistory();
+
+  function onNavbarBackButtonClick() {
+    history.push(TEST_SELECTION);
+  }
+
+  function isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
     return [...right, ...wrong].indexOf(question) !== -1;
   }
 
-  private addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
-    const { right } = this.state;
-
-    this.setState({
+  function addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
+    updateQuiz({
       right: [...right, question],
     });
   }
 
-  private addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
-    const { wrong } = this.state;
-
-    this.setState({
+  function addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
+    updateQuiz({
       wrong: [...wrong, question],
     });
   }
 
-  private clearWrongResults() {
-    this.setState({
+  function removeQuestion(question: IValencesTestQuestionCard) {
+    updateQuiz({
+      questions: questions.filter((value) => value !== question),
+    });
+  }
+
+  function clearWrongResults() {
+    updateQuiz({
       wrong: [],
     });
   }
 
-  private clearRightResults() {
-    this.setState({
+  function clearRightResults() {
+    updateQuiz({
       right: [],
     });
   }
 
-  private clearResults() {
-    this.clearWrongResults();
-    this.clearRightResults();
+  function clearResults() {
+    clearWrongResults();
+    clearRightResults();
   }
 
-  private repeatTest() {
-    this.clearResults();
-    this.createTestQuestions();
+  function repeatTest() {
+    clearResults();
+    updateQuiz({ questions: createTestQuestions() });
   }
 
-  private repeatWrongAnswers() {
-    const { wrong } = this.state;
-
-    this.setState({
+  function repeatWrongAnswers() {
+    updateQuiz({
       questions: shuffle(wrong),
     });
 
-    this.clearWrongResults();
+    clearWrongResults();
   }
+
+  return (
+    <div className="valences-test">
+      <Navbar
+        title={i18n("valences_test")}
+        backButton={true}
+        onBackButtonClick={onNavbarBackButtonClick}
+      />
+
+      {hasQuestions && (
+        <div className="valences-test__test">
+          <QuestionsTest
+            title={i18n("select_valence")}
+            questions={questions}
+            // @ts-ignore Fix types
+            onQuestionAnswer={onQuestionAnswer}
+          />
+        </div>
+      )}
+
+      {!hasQuestions && (
+        <div className="valences-test__result">
+          <Card className="valences-test__result-card">
+            <TestResults
+              gaTestName="Valences Test"
+              wrongAnswers={wrong.length}
+              rightAnswers={right.length}
+              onRepeat={repeatTest}
+              onRepeatWrongAnswers={repeatWrongAnswers}
+            />
+          </Card>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(ValencesTest);
+export default ValencesTest;
