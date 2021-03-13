@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import * as React from "react";
-import Button, { IButtonProps } from "../button/Button";
+import Button, { ButtonProps } from "../button/Button";
 import Icon from "../icon/Icon";
 
 import "./IconButton.scss";
 
-interface IIconButtonProps extends IButtonProps {
+interface IIconButtonProps extends ButtonProps {
   iconName: string;
   text?: string;
   id?: string;

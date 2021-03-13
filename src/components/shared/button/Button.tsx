@@ -4,7 +4,7 @@ import * as React from "react";
 import "./Button.scss";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
-export interface IButtonProps {
+export interface ButtonProps {
   className?: string;
   onClick?: () => void;
   circle?: boolean;
@@ -13,7 +13,7 @@ export interface IButtonProps {
 }
 
 @autobind
-class Button extends React.Component<IButtonProps> {
+class Button extends React.Component<ButtonProps> {
   public render() {
     const { className, circle, link, id } = this.props;
     const buttonClass = classNames(
