@@ -1,9 +1,6 @@
 // BETTERER RESULTS V2.
 exports[`no more class components`] = {
   value: `{
-    "src/components/about/About.tsx:3220965197": [
-      [15, 0, 35, "RegExp match", "3779602867"]
-    ],
     "src/components/locale-selector/LocaleSelector.tsx:1502876300": [
       [15, 0, 44, "RegExp match", "1318576099"]
     ],
