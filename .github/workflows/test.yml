@@ -115,7 +115,6 @@ jobs:
         uses: codecov/codecov-action@v1
   betterer:
     runs-on: ubuntu-latest
-    strategy:
     env:
       NODE_OPTIONS: "--max_old_space_size=4096"
     steps:
