@@ -3,7 +3,6 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
-import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestEntry, { ITestEntry } from "./test-entry/TestEntry";
 import "./TestSelection.scss";
