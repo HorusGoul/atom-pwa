@@ -6,7 +6,7 @@ import "./PeriodicTable.scss";
 import periodicTableData from "../../data/pt.json";
 
 type ElementRendered = (elementId: number) => React.ReactNode;
-interface IPeriodicTableProps {
+interface PeriodicTableProps {
   elementRenderer: ElementRendered;
 }
 
@@ -74,7 +74,7 @@ function buildTable(elementRenderer: ElementRendered) {
   return rows;
 }
 
-function PeriodicTable({ elementRenderer }: IPeriodicTableProps) {
+function PeriodicTable({ elementRenderer }: PeriodicTableProps) {
   const [render, setRender] = React.useState(false);
 
   React.useEffect(() => {
