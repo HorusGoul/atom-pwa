@@ -4,12 +4,6 @@ exports[`no more class components`] = {
     "src/components/about/About.tsx:3220965197": [
       [15, 0, 35, "RegExp match", "3779602867"]
     ],
-    "src/components/locale-selector/LocaleSelector.tsx:1502876300": [
-      [15, 0, 44, "RegExp match", "1318576099"]
-    ],
-    "src/components/mass-calculator/MassCalculator.tsx:175532004": [
-      [33, 0, 44, "RegExp match", "1882772526"]
-    ],
     "src/components/not-found/NotFound.tsx:2373536781": [
       [11, 0, 38, "RegExp match", "542268445"]
     ],

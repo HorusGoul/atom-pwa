@@ -12,7 +12,7 @@ export interface IModalProps {
   className?: string;
   title?: string;
   closeButton?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface IModalState {
