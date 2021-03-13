@@ -11,7 +11,7 @@ interface NavbarProps {
 
 function Navbar({ title, className, onBackButtonClick }: NavbarProps) {
   return (
-    <div className={classNames("navbar", className)}>
+    <nav className={classNames("navbar", className)}>
       {onBackButtonClick && (
         <IconButton
           className="navbar__back-button"
@@ -21,7 +21,7 @@ function Navbar({ title, className, onBackButtonClick }: NavbarProps) {
         />
       )}
       {title && <div className="navbar__title">{title}</div>}
-    </div>
+    </nav>
   );
 }
 
