@@ -8,11 +8,11 @@ import "./Modal.scss";
 
 export interface IModalProps {
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   className?: string;
   title?: string;
   closeButton?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface IModalState {
@@ -44,7 +44,7 @@ const Modal = ({
   return (
     <Portal>
       <>
-        <Overlay open={open} onClick={onClose} />
+        <Overlay onClick={onClose} />
 
         <div
           className={classNames("modal", className)}

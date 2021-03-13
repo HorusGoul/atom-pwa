@@ -10,7 +10,7 @@ export interface IQuestionCardAnswer {
   right: boolean;
 }
 
-interface IQuestionCardAnswerProps extends ButtonProps {
+interface IQuestionCardAnswerProps extends Omit<ButtonProps, "children"> {
   answer: IQuestionCardAnswer;
 }
 
