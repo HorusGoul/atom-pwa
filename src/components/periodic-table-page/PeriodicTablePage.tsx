@@ -1,7 +1,5 @@
-import autobind from "autobind-decorator";
-import classNames from "classnames";
 import * as React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -10,13 +8,10 @@ import PeriodicTable, {
   IPeriodicTableElement,
 } from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
-import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
-
-type Props = RouteComponentProps<any> & React.Props<any>;
 
 interface IPeriodicTablePageState {
   elementInfo: {
@@ -25,87 +20,78 @@ interface IPeriodicTablePageState {
   };
 }
 
-@autobind
-class PeriodicTablePage extends React.Component<
-  Props,
-  IPeriodicTablePageState
-> {
-  public state: IPeriodicTablePageState = {
+function PeriodicTablePage() {
+  const history = useHistory();
+
+  const [state, setState] = React.useState<IPeriodicTablePageState>(() => ({
     elementInfo: {
       element: ElementManager.getElement(1) as IElement,
       open: false,
     },
+  }));
+
+  const openElementInfo = (element: IElement) => {
+    setState((state) => ({
+      ...state,
+      elementInfo: {
+        element,
+        open: true,
+      },
+    }));
   };
 
-  private ptElements: Map<number, PtElementInfo> = new Map();
+  const closeElementInfo = () => {
+    const { elementInfo } = state;
+    setState((state) => ({
+      ...state,
+      elementInfo: {
+        ...elementInfo,
+        open: false,
+      },
+    }));
+  };
 
-  public render() {
-    const { elementInfo } = this.state;
+  const onNavbarBackButtonClick = () => {
+    history.push(MAIN_MENU);
+  };
 
-    return (
-      <div className="periodic-table-page">
-        <Navbar
-          title={i18n("periodic_table")}
-          className="periodic-table-page__navbar"
-          backButton={true}
-          onBackButtonClick={this.onNavbarBackButtonClick}
-        />
-
-        <div className="periodic-table-page__table">
-          <PeriodicTable elementRenderer={this.elementRenderer} />
-        </div>
-
-        <SwipeableModal
-          className="periodic-table-page__modal-element-info"
-          open={elementInfo.open}
-          onClose={this.closeElementInfo}
-        >
-          <ElementInfo element={elementInfo.element} />
-        </SwipeableModal>
-      </div>
-    );
-  }
-
-  private elementRenderer(atomic: number): IPeriodicTableElement {
+  const elementRenderer = (atomic: number): IPeriodicTableElement => {
     return {
       // @ts-ignore fix this
       component: PtElementInfo,
       props: {
         element: ElementManager.getElement(atomic),
-        onClick: this.elementOnClick,
+        onClick: (element: IElement) => {
+          openElementInfo(element);
+        },
       },
     };
-  }
+  };
 
-  private elementOnClick(element: IElement) {
-    this.openElementInfo(element);
-  }
+  const { elementInfo } = state;
 
-  private openElementInfo(element: IElement) {
-    this.setState({
-      elementInfo: {
-        element,
-        open: true,
-      },
-    });
-  }
+  return (
+    <div className="periodic-table-page">
+      <Navbar
+        title={i18n("periodic_table")}
+        className="periodic-table-page__navbar"
+        backButton={true}
+        onBackButtonClick={onNavbarBackButtonClick}
+      />
 
-  private closeElementInfo() {
-    const { elementInfo } = this.state;
+      <div className="periodic-table-page__table">
+        <PeriodicTable elementRenderer={elementRenderer} />
+      </div>
 
-    this.setState({
-      elementInfo: {
-        ...elementInfo,
-        open: false,
-      },
-    });
-  }
-
-  private onNavbarBackButtonClick() {
-    const { history } = this.props;
-
-    history.push(MAIN_MENU);
-  }
+      <SwipeableModal
+        className="periodic-table-page__modal-element-info"
+        open={elementInfo.open}
+        onClose={closeElementInfo}
+      >
+        <ElementInfo element={elementInfo.element} />
+      </SwipeableModal>
+    </div>
+  );
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(PeriodicTablePage);
+export default PeriodicTablePage;

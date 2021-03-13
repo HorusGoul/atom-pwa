@@ -4,9 +4,6 @@ exports[`no more class components`] = {
     "src/components/locale-selector/LocaleSelector.tsx:1502876300": [
       [15, 0, 44, "RegExp match", "1318576099"]
     ],
-    "src/components/periodic-table-page/PeriodicTablePage.tsx:456935655": [
-      [28, 0, 47, "RegExp match", "3252767036"]
-    ],
     "src/components/periodic-table-page/element-info/ElementInfo.tsx:3787563205": [
       [38, 0, 41, "RegExp match", "724480942"]
     ],
