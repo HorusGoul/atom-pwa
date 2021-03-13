@@ -4,7 +4,7 @@ import Button, { ButtonProps } from "../button/Button";
 import Icon from "../icon/Icon";
 import "./IconButton.scss";
 
-interface IconButtonProps extends ButtonProps {
+interface IconButtonProps extends Omit<ButtonProps, "children"> {
   iconName: string;
   text?: string;
   id?: string;
