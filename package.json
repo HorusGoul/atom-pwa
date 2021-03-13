@@ -26,10 +26,7 @@
     "coverage:copy-reports": "yarn coverage:copy-jest && yarn coverage:copy-cypress",
     "coverage:copy-jest": "cp jest-coverage/coverage-final.json coverage/jest-final.json",
     "coverage:copy-cypress": "cp cypress-coverage/coverage-final.json coverage/cypress-final.json",
-    "coverage:generate-report": "nyc report --reporter lcov --reporter text --temp-dir coverage",
-    "betterer": "betterer",
-    "betterer:ci": "betterer ci",
-    "betterer:update": "betterer --update"
+    "coverage:generate-report": "nyc report --reporter lcov --reporter text --temp-dir coverage"
   },
   "lint-staged": {
     "**/*.{html,ts,tsx,json,scss,js,jsx}": [
@@ -65,8 +62,6 @@
     "@babel/core": "^7.13.1",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@betterer/cli": "^4.1.2",
-    "@betterer/regexp": "^4.1.1",
     "@cypress/code-coverage": "^3.9.2",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/dom": "^7.29.6",
