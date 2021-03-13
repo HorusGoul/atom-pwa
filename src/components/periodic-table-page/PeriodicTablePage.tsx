@@ -1,5 +1,4 @@
 import autobind from "autobind-decorator";
-import classNames from "classnames";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { IElement } from "../../Element";
@@ -10,7 +9,6 @@ import PeriodicTable, {
   IPeriodicTableElement,
 } from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
-import Modal from "../shared/modal/Modal";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
