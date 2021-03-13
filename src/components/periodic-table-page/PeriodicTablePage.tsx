@@ -13,41 +13,32 @@ import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
 
-interface IPeriodicTablePageState {
-  elementInfo: {
-    element: IElement;
-    open: boolean;
-  };
+interface PeriodicTablePageState {
+  element: IElement;
+  open: boolean;
 }
 
 function PeriodicTablePage() {
   const history = useHistory();
 
-  const [state, setState] = React.useState<IPeriodicTablePageState>(() => ({
-    elementInfo: {
+  const [elementInfo, setElementInfo] = React.useState<PeriodicTablePageState>(
+    () => ({
       element: ElementManager.getElement(1) as IElement,
       open: false,
-    },
-  }));
+    })
+  );
 
   const openElementInfo = (element: IElement) => {
-    setState((state) => ({
-      ...state,
-      elementInfo: {
-        element,
-        open: true,
-      },
-    }));
+    setElementInfo({
+      element,
+      open: true,
+    });
   };
 
   const closeElementInfo = () => {
-    const { elementInfo } = state;
-    setState((state) => ({
-      ...state,
-      elementInfo: {
-        ...elementInfo,
-        open: false,
-      },
+    setElementInfo((info) => ({
+      ...info,
+      open: false,
     }));
   };
 
@@ -67,8 +58,6 @@ function PeriodicTablePage() {
       },
     };
   };
-
-  const { elementInfo } = state;
 
   return (
     <div className="periodic-table-page">
