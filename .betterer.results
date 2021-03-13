@@ -34,9 +34,6 @@ exports[`no more class components`] = {
     "src/components/shared/card/Card.tsx:2152738963": [
       [9, 0, 34, "RegExp match", "1479650282"]
     ],
-    "src/components/shared/checkbox/Checkbox.tsx:3495197211": [
-      [25, 0, 38, "RegExp match", "2581299341"]
-    ],
     "src/components/shared/icon-button/IconButton.tsx:2373917184": [
       [13, 0, 40, "RegExp match", "2996355971"]
     ],
