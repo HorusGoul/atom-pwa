@@ -7,12 +7,10 @@ import SelectorModal, {
 } from "../shared/selector-modal/SelectorModal";
 import "./LocaleSelector.scss";
 
-function buildOptions() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    key: locale,
-    text: i18n(locale),
-  }));
-}
+const options = SUPPORTED_LOCALES.map((locale) => ({
+  key: locale,
+  text: i18n(locale),
+}));
 
 function LocaleSelector() {
   const [selectorOpen, setSelectorOpen] = React.useState(false);
@@ -49,7 +47,7 @@ function LocaleSelector() {
         title={i18n("change_language")}
         closeButton={true}
         onOptionSelected={onOptionSelected}
-        options={buildOptions()}
+        options={options}
         open={selectorOpen}
         onClose={closeSelector}
       />
