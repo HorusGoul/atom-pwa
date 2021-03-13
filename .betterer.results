@@ -43,9 +43,6 @@ exports[`no more class components`] = {
     "src/components/shared/navbar/Navbar.tsx:1515167186": [
       [16, 0, 36, "RegExp match", "4252624694"]
     ],
-    "src/components/shared/overlay/Overlay.tsx:3690377931": [
-      [16, 0, 37, "RegExp match", "2352225252"]
-    ],
     "src/components/shared/selector-modal/SelectorModal.tsx:3348649261": [
       [18, 0, 43, "RegExp match", "1907649888"]
     ],
