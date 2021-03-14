@@ -111,10 +111,12 @@ function ValencesTestSettings() {
 
   const onTestElementSettingsClick = React.useCallback(
     (atomic: number) => {
-      const element = settings.elements!.find(
+      if (settings.elements === null) return;
+      const foundElement = settings.elements.find(
         (elementSettings) => elementSettings.atomic === atomic
-      );
-      element!.enabled = !element!.enabled;
+      ) as ITestElementSettings;
+
+      foundElement.enabled = !foundElement.enabled;
 
       AppSettings.save();
 
