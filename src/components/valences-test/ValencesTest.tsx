@@ -1,6 +1,9 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, { ITestElementSettings } from "../../AppSettings";
+import AppSettings, {
+  ITestElementSettings,
+  IValencesTestSettings,
+} from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
@@ -15,68 +18,65 @@ import TestResults from "../test-results/TestResults";
 import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
-interface ValencesTestQuestionCard extends Question {
+interface IValencesTestQuestionCard extends Question {
   data: IElement;
 }
 
-interface ValencesTestState {
-  questions: ValencesTestQuestionCard[];
-  right: ValencesTestQuestionCard[];
-  wrong: ValencesTestQuestionCard[];
+function createAnswer(answer: string, right = false): Answer {
+  return {
+    answer,
+    right,
+  };
+}
+
+function createQuestionAnswers(element: IElement): Answer[] {
+  const rightAnswer = createAnswer(element.valency, true);
+  const wrongAnswerPool = shuffle(element.wrongValences)
+    .map((wrongValency) => createAnswer(wrongValency))
+    .slice(0, 3);
+
+  return shuffle([rightAnswer, ...wrongAnswerPool]);
+}
+
+function createQuestion(element: IElement): IValencesTestQuestionCard {
+  return {
+    answers: createQuestionAnswers(element),
+    data: element,
+    question: element.symbol,
+    questionClass: `valences-test__question element ${element.group}`,
+  };
+}
+
+function createTestQuestions(settings: IValencesTestSettings) {
+  if (!settings.elements) return [];
+  const questions = settings.elements
+    .filter((element) => element.enabled)
+    .map((element) => ElementManager.getElement(element.atomic))
+    .map((element) => createQuestion(element as IElement));
+
+  return shuffle(questions);
 }
 
 function ValencesTest() {
-  const settings = React.useRef(getValencesTestSettings() || []).current;
-
-  function createAnswer(answer: string, right = false): Answer {
-    return {
-      answer,
-      right,
-    };
-  }
-
-  function createQuestionAnswers(element: IElement): Answer[] {
-    const rightAnswer = createAnswer(element.valency, true);
-    const wrongAnswerPool = shuffle(element.wrongValences)
-      .map((wrongValency) => createAnswer(wrongValency))
-      .slice(0, 3);
-
-    return shuffle([rightAnswer, ...wrongAnswerPool]);
-  }
-
-  function createQuestion(element: IElement): ValencesTestQuestionCard {
-    return {
-      answers: createQuestionAnswers(element),
-      data: element,
-      question: element.symbol,
-      questionClass: `valences-test__question element ${element.group}`,
-    };
-  }
-
-  function createTestQuestions() {
-    const questions = settings!
-      .elements!.filter((element) => element.enabled)
-      .map((element) => ElementManager.getElement(element.atomic))
-      .map((element) => createQuestion(element!));
-
-    return shuffle(questions);
-  }
-
-  const [quiz, setQuiz] = React.useState<ValencesTestState>(() => ({
-    questions: createTestQuestions(),
-    right: [],
-    wrong: [],
-  }));
-
-  const { questions, wrong, right } = quiz;
+  const settings = React.useMemo(() => getValencesTestSettings(), []);
+  const [questions, setQuestions] = React.useState<IValencesTestQuestionCard[]>(
+    () => createTestQuestions(settings)
+  );
+  const [wrongAnswers, setWrongAnswers] = React.useState<
+    IValencesTestQuestionCard[]
+  >([]);
+  const [rightAnswers, setRightAnswers] = React.useState<
+    IValencesTestQuestionCard[]
+  >([]);
 
   const hasQuestions = !!questions.length;
 
   function onQuestionAnswer(
-    question: ValencesTestQuestionCard,
+    question: IValencesTestQuestionCard,
     answer: Answer
   ) {
-    const elementSetting = settings.elements!.find(
+    if (!settings.elements) return;
+    const elementSetting = settings.elements.find(
       (element: ITestElementSettings) => element.atomic === question.data.atomic
     );
     if (!elementSetting) return;
@@ -102,50 +102,34 @@ function ValencesTest() {
     AppSettings.save();
   }
 
-  function updateQuiz(newState: Partial<ValencesTestState>) {
-    setQuiz((oldQuiz) => {
-      return { ...oldQuiz, ...newState };
-    });
-  }
-
   const history = useHistory();
 
   function onNavbarBackButtonClick() {
     history.push(TEST_SELECTION);
   }
 
-  function isAlreadyAnswered(question: ValencesTestQuestionCard): boolean {
-    return [...right, ...wrong].indexOf(question) !== -1;
+  function isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
+    return [...rightAnswers, ...wrongAnswers].indexOf(question) !== -1;
   }
 
-  function addRightAnsweredQuestion(question: ValencesTestQuestionCard) {
-    updateQuiz({
-      right: [...right, question],
-    });
+  function addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
+    setRightAnswers([...rightAnswers, question]);
   }
 
-  function addWrongAnsweredQuestion(question: ValencesTestQuestionCard) {
-    updateQuiz({
-      wrong: [...wrong, question],
-    });
+  function addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
+    setWrongAnswers([...wrongAnswers, question]);
   }
 
-  function removeQuestion(question: ValencesTestQuestionCard) {
-    updateQuiz({
-      questions: questions.filter((value) => value !== question),
-    });
+  function removeQuestion(question: IValencesTestQuestionCard) {
+    setQuestions(questions.filter((value) => value !== question));
   }
 
   function clearWrongResults() {
-    updateQuiz({
-      wrong: [],
-    });
+    setWrongAnswers([]);
   }
 
   function clearRightResults() {
-    updateQuiz({
-      right: [],
-    });
+    setRightAnswers([]);
   }
 
   function clearResults() {
@@ -155,14 +139,11 @@ function ValencesTest() {
 
   function repeatTest() {
     clearResults();
-    updateQuiz({ questions: createTestQuestions() });
+    setQuestions(createTestQuestions(settings));
   }
 
   function repeatWrongAnswers() {
-    updateQuiz({
-      questions: shuffle(wrong),
-    });
-
+    setQuestions(shuffle(wrongAnswers));
     clearWrongResults();
   }
 
@@ -189,8 +170,8 @@ function ValencesTest() {
           <Card className="valences-test__result-card">
             <TestResults
               gaTestName="Valences Test"
-              wrongAnswers={wrong.length}
-              rightAnswers={right.length}
+              wrongAnswers={wrongAnswers.length}
+              rightAnswers={rightAnswers.length}
               onRepeat={repeatTest}
               onRepeatWrongAnswers={repeatWrongAnswers}
             />
