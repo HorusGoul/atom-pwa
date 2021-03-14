@@ -4,40 +4,42 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import IRON_ELEMENT from "../../data/elements/26.json";
 
+import { IElement } from "@/Element";
+
+const element = (IRON_ELEMENT as unknown) as IElement;
+
 describe("PTElementInfo", () => {
   it("shows the elements atomic number", () => {
-    render(<PtElementInfo element={IRON_ELEMENT} />);
+    render(<PtElementInfo element={element} />);
 
-    expect(screen.getByText(IRON_ELEMENT.atomic)).toBeInTheDocument();
+    expect(screen.getByText(element.atomic)).toBeInTheDocument();
   });
 
   it("shows the elements symbol", () => {
-    render(<PtElementInfo element={IRON_ELEMENT} />);
+    render(<PtElementInfo element={element} />);
 
-    expect(screen.getByText(IRON_ELEMENT.symbol)).toBeInTheDocument();
+    expect(screen.getByText(element.symbol)).toBeInTheDocument();
   });
 
   it("shows the elements name", () => {
-    render(<PtElementInfo element={IRON_ELEMENT} />);
+    render(<PtElementInfo element={element} />);
 
-    expect(screen.getByText(IRON_ELEMENT.name)).toBeInTheDocument();
+    expect(screen.getByText(element.name)).toBeInTheDocument();
   });
 
   it("adds the element group as a classname", () => {
-    render(<PtElementInfo element={IRON_ELEMENT} />);
+    render(<PtElementInfo element={element} />);
 
-    const name = `${IRON_ELEMENT.atomic} ${IRON_ELEMENT.symbol} ${IRON_ELEMENT.name}`;
-    expect(screen.getByRole("button", { name })).toHaveClass(
-      IRON_ELEMENT.group
-    );
+    const name = `${element.atomic} ${element.symbol} ${element.name}`;
+    expect(screen.getByRole("button", { name })).toHaveClass(element.group);
   });
 
   it("calls onClick when the element is clicked", () => {
     const onClick = jest.fn();
-    render(<PtElementInfo element={IRON_ELEMENT} onClick={onClick} />);
+    render(<PtElementInfo element={element} onClick={onClick} />);
 
-    userEvent.click(screen.getByText(IRON_ELEMENT.name));
+    userEvent.click(screen.getByText(element.name));
 
-    expect(onClick).toHaveBeenCalledWith(IRON_ELEMENT);
+    expect(onClick).toHaveBeenCalledWith(element);
   });
 });

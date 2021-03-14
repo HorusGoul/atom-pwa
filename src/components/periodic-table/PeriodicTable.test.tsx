@@ -1,5 +1,5 @@
 import * as React from "react";
-import PeriodicTable, { IPeriodicTableElement } from "./PeriodicTable";
+import PeriodicTable from "./PeriodicTable";
 import {
   render,
   screen,
@@ -8,15 +8,10 @@ import {
 import PtElementInfo from "../pt-element/PtElementInfo";
 import ElementManager from "../../ElementManager";
 
-function elementRenderer(atomic: number): IPeriodicTableElement {
-  return {
-    // @ts-ignore fix this
-    component: PtElementInfo,
-    props: {
-      element: ElementManager.getElement(atomic),
-      onClick: undefined,
-    },
-  };
+function elementRenderer(atomic: number) {
+  const element = ElementManager.getElement(atomic);
+  if (!element) return null;
+  return <PtElementInfo element={element} />;
 }
 
 describe("should render the periodic table", () => {

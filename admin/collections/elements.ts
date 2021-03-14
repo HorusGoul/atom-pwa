@@ -4,6 +4,9 @@ export const elementsCollection: CmsCollection = {
   name: "element",
   label: "Elements",
   label_singular: "Element",
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore Type not in netlify-cms-core typings
   type: "folder_based_collection",
   folder: "src/data/elements",
   identifier_field: "atomic",
