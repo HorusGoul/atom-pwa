@@ -15,14 +15,14 @@ import TestResults from "../test-results/TestResults";
 import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
-interface IValencesTestQuestionCard extends Question {
+interface ValencesTestQuestionCard extends Question {
   data: IElement;
 }
 
-interface IValencesTestState {
-  questions: IValencesTestQuestionCard[];
-  right: IValencesTestQuestionCard[];
-  wrong: IValencesTestQuestionCard[];
+interface ValencesTestState {
+  questions: ValencesTestQuestionCard[];
+  right: ValencesTestQuestionCard[];
+  wrong: ValencesTestQuestionCard[];
 }
 
 function ValencesTest() {
@@ -44,7 +44,7 @@ function ValencesTest() {
     return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
 
-  function createQuestion(element: IElement): IValencesTestQuestionCard {
+  function createQuestion(element: IElement): ValencesTestQuestionCard {
     return {
       answers: createQuestionAnswers(element),
       data: element,
@@ -62,7 +62,7 @@ function ValencesTest() {
     return shuffle(questions);
   }
 
-  const [quiz, setQuiz] = React.useState<IValencesTestState>(() => ({
+  const [quiz, setQuiz] = React.useState<ValencesTestState>(() => ({
     questions: createTestQuestions(),
     right: [],
     wrong: [],
@@ -73,7 +73,7 @@ function ValencesTest() {
   const hasQuestions = !!questions.length;
 
   function onQuestionAnswer(
-    question: IValencesTestQuestionCard,
+    question: ValencesTestQuestionCard,
     answer: Answer
   ) {
     const elementSetting = settings.elements!.find(
@@ -102,7 +102,7 @@ function ValencesTest() {
     AppSettings.save();
   }
 
-  function updateQuiz(newState: Partial<IValencesTestState>) {
+  function updateQuiz(newState: Partial<ValencesTestState>) {
     setQuiz((oldQuiz) => {
       return { ...oldQuiz, ...newState };
     });
@@ -114,23 +114,23 @@ function ValencesTest() {
     history.push(TEST_SELECTION);
   }
 
-  function isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
+  function isAlreadyAnswered(question: ValencesTestQuestionCard): boolean {
     return [...right, ...wrong].indexOf(question) !== -1;
   }
 
-  function addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
+  function addRightAnsweredQuestion(question: ValencesTestQuestionCard) {
     updateQuiz({
       right: [...right, question],
     });
   }
 
-  function addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
+  function addWrongAnsweredQuestion(question: ValencesTestQuestionCard) {
     updateQuiz({
       wrong: [...wrong, question],
     });
   }
 
-  function removeQuestion(question: IValencesTestQuestionCard) {
+  function removeQuestion(question: ValencesTestQuestionCard) {
     updateQuiz({
       questions: questions.filter((value) => value !== question),
     });
