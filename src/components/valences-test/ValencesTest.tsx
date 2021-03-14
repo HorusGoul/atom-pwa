@@ -44,6 +44,7 @@ function ValencesTest() {
     return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
 
+
   function createQuestion(element: IElement): IValencesTestQuestionCard {
     return {
       answers: createQuestionAnswers(element),
