@@ -5,12 +5,13 @@ import { IElement } from "../../Element";
 import { getElementLocales } from "../../ElementManager";
 import Button from "../shared/button/Button";
 import "./PtElement.scss";
-export interface IPtElementInfoProps {
+
+export interface PtElementInfoProps {
   element: IElement;
   onClick?: (element: IElement) => void;
 }
 
-function PtElementInfo({ element, onClick }: IPtElementInfoProps) {
+function PtElementInfo({ element, onClick }: PtElementInfoProps) {
   const elementLocales = getElementLocales(element);
 
   const onElementButtonClick = () => {
