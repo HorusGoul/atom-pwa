@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import SelectorModal, { ISelectorModalOption } from "./SelectorModal";
+import SelectorModal, { SelectorModalOption } from "./SelectorModal";
 import userEvent from "@testing-library/user-event";
 
 const onOptionSelectedMock = jest.fn();
 
 beforeEach(() => jest.clearAllMocks());
 
-const options: ISelectorModalOption[] = [
+const options: SelectorModalOption[] = [
   {
     key: 0,
     text: "Hydrogen",
