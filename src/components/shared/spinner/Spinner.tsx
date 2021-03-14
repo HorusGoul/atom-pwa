@@ -6,7 +6,7 @@ interface ISpinnerProps {
   className?: string;
 }
 
-export const Spinner = ({ className }: { className: ISpinnerProps }) => {
+export const Spinner = ({ className }: ISpinnerProps) => {
   const svgClassName = className ? `spinner ${className}` : "spinner";
 
   return (
