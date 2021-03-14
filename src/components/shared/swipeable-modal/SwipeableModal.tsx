@@ -149,7 +149,7 @@ function SwipeableModalContent({
               <IconButton
                 className="modal__header__close-button"
                 iconName="close"
-                onClick={close}
+                onClick={onClose}
               />
             )}
           </div>
