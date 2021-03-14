@@ -149,7 +149,6 @@ function ValencesTestSettings() {
     <div className="valences-test-settings">
       <Navbar
         title={i18n("nav_settings")}
-        backButton={true}
         onBackButtonClick={onNavbarButtonClick}
       />
 

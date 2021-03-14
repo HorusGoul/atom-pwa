@@ -28,7 +28,6 @@ function TestSelection() {
     <div className="test-selection">
       <Navbar
         className="test-selection__navbar"
-        backButton={true}
         title={i18n("nav_test")}
         // TODO: replace "push" with "replace" in the future
         onBackButtonClick={() => history.push(MAIN_MENU)}

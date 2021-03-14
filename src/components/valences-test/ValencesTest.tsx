@@ -7,21 +7,18 @@ import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
 import { shuffle } from "../../utils/shuffle";
-import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
-import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
+import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
+import { Question } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
-import {
-  getValencesTestSettings,
-  setDefaultValencesTestSettings,
-} from "./settings/ValencesTestSettings";
+import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
 type Props = RouteComponentProps<any> & React.Props<any>;
 
-interface IValencesTestQuestionCard extends IQuestionCard {
+interface IValencesTestQuestionCard extends Question {
   data: IElement;
 }
 
@@ -53,7 +50,6 @@ class ValencesTest extends React.Component<Props> {
       <div className="valences-test">
         <Navbar
           title={i18n("valences_test")}
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
@@ -93,7 +89,7 @@ class ValencesTest extends React.Component<Props> {
 
   private onQuestionAnswer(
     question: IValencesTestQuestionCard,
-    answer: IQuestionCardAnswer
+    answer: Answer
   ) {
     const elementSetting = this.settings.elements!.find(
       (element) => element.atomic === question.data.atomic
@@ -148,7 +144,7 @@ class ValencesTest extends React.Component<Props> {
     };
   }
 
-  private createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
+  private createQuestionAnswers(element: IElement): Answer[] {
     const rightAnswer = this.createAnswer(element.valency, true);
     const wrongAnswerPool = shuffle(element.wrongValences)
       .map((wrongValency) => this.createAnswer(wrongValency))
@@ -157,7 +153,7 @@ class ValencesTest extends React.Component<Props> {
     return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
 
-  private createAnswer(answer: string, right = false): IQuestionCardAnswer {
+  private createAnswer(answer: string, right = false): Answer {
     return {
       answer,
       right,

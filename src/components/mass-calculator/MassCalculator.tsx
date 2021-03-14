@@ -38,7 +38,6 @@ function MassCalculator() {
     <div className="mass-calculator">
       <Navbar
         title={i18n("mass_calculator")}
-        backButton={true}
         onBackButtonClick={onNavbarBackButtonClick}
       />
       <div className="mass-calculator__result-bar">
