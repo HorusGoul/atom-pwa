@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import useInstance from "@/hooks/useInstance";
 import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
@@ -42,7 +41,6 @@ function PeriodicTableTest() {
   const history = useHistory();
 
   const settings = React.useMemo(() => getPeriodicTableTestSettings(), []);
-  const ptElements = useInstance<Map<number, PtElementTest>>(() => new Map());
 
   const [questionModalOpen, setQuestionModalOpen] = React.useState(true);
   const [questions, setQuestions] = React.useState<
@@ -69,13 +67,9 @@ function PeriodicTableTest() {
         discovered={!isElementInQuestions(element)}
         element={element}
         onClick={elementOnClick}
-        ref={(ptElement: PtElementTest) => setPtElement(atomic, ptElement)}
+        shouldShowError={!isAnswerRight(element)}
       />
     );
-  }
-
-  function setPtElement(atomic: number, ptElement: PtElementTest) {
-    ptElements.set(atomic, ptElement);
   }
 
   function elementOnClick(element: IElement) {
@@ -112,35 +106,14 @@ function PeriodicTableTest() {
     }
 
     if (rightAnswer) {
-      onRightAnswer(element);
-    } else {
-      onWrongAnswer(element);
+      removeCurrentQuestion();
     }
-  }
-
-  function onRightAnswer(element: IElement) {
-    discoverElement(element);
-    removeCurrentQuestion();
-  }
-
-  function onWrongAnswer(element: IElement) {
-    showErrorInElement(element);
   }
 
   function removeCurrentQuestion() {
     const currentQuestion = questions[0];
 
     setQuestions(questions.filter((question) => question !== currentQuestion));
-  }
-
-  function discoverElement(element: IElement) {
-    const ptElement = ptElements.get(element.atomic);
-    ptElement?.discover();
-  }
-
-  function showErrorInElement(element: IElement) {
-    const ptElement = ptElements.get(element.atomic);
-    ptElement?.showError();
   }
 
   function isAnswerRight(element: IElement): boolean {
