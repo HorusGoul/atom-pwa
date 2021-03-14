@@ -162,13 +162,6 @@ function SwipeableModalContent({
 }
 
 function SwipeableModal({ open, onClose, ...contentProps }: IModalProps) {
-  React.useEffect(
-    () => () => {
-      onClose?.();
-    },
-    []
-  );
-
   if (!open) {
     return null;
   }
