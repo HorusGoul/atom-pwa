@@ -375,49 +375,47 @@ function SwipeableModal(props: IModalProps) {
     close();
   };
 
+  if (!open) {
+    return null;
+  }
+
   return (
-    <>
-      {!open && <></>}
-      {open && (
-        <Portal>
-          <React.Fragment>
-            <Overlay opacity={opacity} onClick={close} />
-
-            <div
-              ref={setModalDiv}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="modal-title"
-              className={classNames("modal", props.className)}
-              style={{
-                opacity,
-                transform: `translate(${translateX}, -50%)`,
-              }}
-            >
-              {showHeader && (
-                <div className="modal__header">
-                  {title && (
-                    <span id="modal-title" className="modal__header__title">
-                      {title}
-                    </span>
-                  )}
-
-                  {closeButton && (
-                    <IconButton
-                      className="modal__header__close-button"
-                      iconName="close"
-                      onClick={close}
-                    />
-                  )}
-                </div>
+    <Portal>
+      <React.Fragment>
+        <Overlay opacity={opacity} onClick={close} />
+        <div
+          ref={setModalDiv}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          className={classNames("modal", props.className)}
+          style={{
+            opacity,
+            transform: `translate(${translateX}, -50%)`,
+          }}
+        >
+          {showHeader && (
+            <div className="modal__header">
+              {title && (
+                <span id="modal-title" className="modal__header__title">
+                  {title}
+                </span>
               )}
 
-              {props.children}
+              {closeButton && (
+                <IconButton
+                  className="modal__header__close-button"
+                  iconName="close"
+                  onClick={close}
+                />
+              )}
             </div>
-          </React.Fragment>
-        </Portal>
-      )}
-    </>
+          )}
+
+          {props.children}
+        </div>
+      </React.Fragment>
+    </Portal>
   );
 }
 
