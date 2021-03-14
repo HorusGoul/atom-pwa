@@ -75,20 +75,26 @@ function ValencesTestSettings() {
   }, [setElementStates]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
-    settings.elements = settings.elements!.map((element) => ({
+    if (settings.elements === null) return;
+    const updateSettings = settings.elements.map((element) => ({
       ...element,
       enabled: true,
     }));
+
+    Object.assign(settings.elements, updateSettings);
 
     AppSettings.save();
     setElementStates();
   }, [setElementStates]);
 
   const onDeselectAllButtonClick = React.useCallback(() => {
-    settings.elements = settings.elements!.map((element) => ({
+    if (settings.elements === null) return;
+    const updateSettings = settings.elements.map((element) => ({
       ...element,
       enabled: false,
     }));
+
+    Object.assign(settings.elements, updateSettings);
 
     AppSettings.save();
     setElementStates();
