@@ -1,4 +1,3 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
 import Button from "../button/Button";
@@ -15,32 +14,20 @@ interface ISelectorModalProps extends IModalProps {
   onOptionSelected: (option: ISelectorModalOption) => void;
 }
 
-@autobind
-class SelectorModal extends React.Component<ISelectorModalProps> {
-  public render() {
-    const { options, className } = this.props;
-
-    return (
-      <Modal
-        className={classNames("selector-modal", className)}
-        {...this.props}
-      >
-        {options.map((option) => (
-          <Button
-            key={option.key}
-            className="selector-modal__option"
-            onClick={this.onOptionSelected(option)}
-          >
-            {option.text}
-          </Button>
-        ))}
-      </Modal>
-    );
-  }
-
-  private onOptionSelected(option: ISelectorModalOption) {
-    return () => this.props.onOptionSelected(option);
-  }
+function SelectorModal(props: ISelectorModalProps) {
+  return (
+    <Modal className={classNames("selector-modal", props.className)} {...props}>
+      {props.options.map((option) => (
+        <Button
+          key={option.key}
+          className="selector-modal__option"
+          onClick={() => props.onOptionSelected(option)}
+        >
+          {option.text}
+        </Button>
+      ))}
+    </Modal>
+  );
 }
 
 export default SelectorModal;
