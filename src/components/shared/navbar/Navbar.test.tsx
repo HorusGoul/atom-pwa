@@ -24,7 +24,7 @@ test("should not render a back button by default", () => {
 test("should handle clicking the back button", () => {
   const onBackButtonClickMock = jest.fn();
 
-  render(<Navbar backButton onBackButtonClick={onBackButtonClickMock} />);
+  render(<Navbar onBackButtonClick={onBackButtonClickMock} />);
 
   userEvent.click(screen.getByRole("button"));
 
