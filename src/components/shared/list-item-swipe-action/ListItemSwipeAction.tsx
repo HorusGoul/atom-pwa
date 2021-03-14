@@ -36,8 +36,6 @@ function ListItemSwipeAction({
   React.useEffect(() => {
     if (!frontDivRef.current) return;
 
-    const latestOnActionProp = onActionPropRef.current;
-
     function onAction() {
       if (!frontDivRef.current) return;
       const animateObject = {
@@ -47,8 +45,8 @@ function ListItemSwipeAction({
 
       anime({
         complete: () => {
-          if (latestOnActionProp) {
-            latestOnActionProp();
+          if (onActionPropRef.current) {
+            onActionPropRef.current();
           }
         },
         duration: 250,
