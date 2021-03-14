@@ -176,14 +176,14 @@ function SwipeableModalContent({
   );
 }
 
-function SwipeableModal({ open, onClose, ...contentProps }: IModalProps) {
+function SwipeableModal({ open, ...contentProps }: IModalProps) {
   if (!open) {
     return null;
   }
 
   return (
     <Portal>
-      <SwipeableModalContent {...contentProps} onClose={onClose} />
+      <SwipeableModalContent {...contentProps} />
     </Portal>
   );
 }
