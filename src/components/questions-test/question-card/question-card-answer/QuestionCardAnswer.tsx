@@ -1,67 +1,43 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
 import Button, { ButtonProps } from "../../../shared/button/Button";
 
 import "./QuestionCardAnswer.scss";
 
-export interface IQuestionCardAnswer {
+export interface Answer {
   answer: string;
   right: boolean;
 }
 
-interface IQuestionCardAnswerProps extends Omit<ButtonProps, "children"> {
-  answer: IQuestionCardAnswer;
+interface QuestionCardAnswerProps extends Omit<ButtonProps, "children"> {
+  answer: Answer;
 }
 
-interface IQuestionCardAnswerState {
-  clicked: boolean;
-}
+function QuestionCardAnswer({
+  answer: { answer, right },
+  onClick,
+}: QuestionCardAnswerProps) {
+  const [clicked, setClicked] = React.useState(false);
 
-@autobind
-class QuestionCardAnswer extends React.Component<
-  IQuestionCardAnswerProps,
-  IQuestionCardAnswerState
-> {
-  public state: IQuestionCardAnswerState = {
-    clicked: false,
-  };
+  React.useEffect(() => {
+    setClicked(false);
+  }, [answer]);
 
-  public UNSAFE_componentWillReceiveProps(nextProps: IQuestionCardAnswerProps) {
-    if (nextProps.answer !== this.props.answer) {
-      this.setState({
-        clicked: false,
-      });
-    }
-  }
+  const onButtonClick = React.useCallback(() => {
+    setClicked(true);
+    onClick?.();
+  }, [onClick]);
 
-  public render() {
-    const { answer, right } = this.props.answer;
-    const { clicked } = this.state;
+  const answerClass = classNames("question-card-answer", {
+    "question-card-answer--clicked": clicked,
+    "question-card-answer--wrong": clicked && !right,
+  });
 
-    const answerClass = classNames("question-card-answer", {
-      "question-card-answer--clicked": clicked,
-      "question-card-answer--wrong": clicked && !right,
-    });
-
-    return (
-      <Button className={answerClass} onClick={this.onClick}>
-        {answer}
-      </Button>
-    );
-  }
-
-  private onClick() {
-    const { onClick } = this.props;
-
-    this.setState({
-      clicked: true,
-    });
-
-    if (onClick) {
-      onClick();
-    }
-  }
+  return (
+    <Button className={answerClass} onClick={onButtonClick}>
+      {answer}
+    </Button>
+  );
 }
 
 export default QuestionCardAnswer;
