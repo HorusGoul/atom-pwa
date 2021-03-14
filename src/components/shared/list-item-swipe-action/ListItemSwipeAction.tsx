@@ -12,12 +12,7 @@ interface IListItemSwipeActionProps {
   frontContent?: React.ReactNode;
 }
 
-function ListItemSwipeAction({
-  className,
-  backContent,
-  frontContent,
-  onAction: onActionProp,
-}: IListItemSwipeActionProps) {
+function useSwipeAction(onAction?: () => void) {
   const [height, setHeight] = React.useState("auto");
   const [lastPosition, setLastPosition] = React.useState(0);
   const [opacity, setOpacity] = React.useState(1);
@@ -30,7 +25,7 @@ function ListItemSwipeAction({
   // Those are things we use in the useEffect that
   // change to often, we dont need to run the effect
   // everytime they change, but we do want the latest value.
-  const onActionPropRef = useLatestRef(onActionProp);
+  const onActionRef = useLatestRef(onAction);
   const lastPositionRef = useLatestRef(lastPosition);
 
   React.useEffect(() => {
@@ -45,8 +40,8 @@ function ListItemSwipeAction({
 
       anime({
         complete: () => {
-          if (onActionPropRef.current) {
-            onActionPropRef.current();
+          if (onActionRef.current) {
+            onActionRef.current();
           }
         },
         duration: 250,
@@ -115,7 +110,20 @@ function ListItemSwipeAction({
     return () => {
       mcFrontDivRef.current?.destroy();
     };
-  }, [lastPositionRef, onActionPropRef]);
+  }, [lastPositionRef, onActionRef]);
+
+  return { frontDivRef, height, opacity, translateX } as const;
+}
+
+function ListItemSwipeAction({
+  className,
+  backContent,
+  frontContent,
+  onAction: onActionProp,
+}: IListItemSwipeActionProps) {
+  const { frontDivRef, opacity, height, translateX } = useSwipeAction(
+    onActionProp
+  );
 
   return (
     <div
