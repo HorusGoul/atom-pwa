@@ -6,8 +6,8 @@ import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
 import { shuffle } from "../../utils/shuffle";
-import { IQuestionCardAnswer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
-import { IQuestionCard } from "../questions-test/question-card/QuestionCard";
+import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
+import { Question } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
@@ -15,7 +15,7 @@ import TestResults from "../test-results/TestResults";
 import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
-interface IValencesTestQuestionCard extends IQuestionCard {
+interface IValencesTestQuestionCard extends Question {
   data: IElement;
 }
 
@@ -28,14 +28,14 @@ interface IValencesTestState {
 function ValencesTest() {
   const settings = React.useRef(getValencesTestSettings() || []).current;
 
-  function createAnswer(answer: string, right = false): IQuestionCardAnswer {
+  function createAnswer(answer: string, right = false): Answer {
     return {
       answer,
       right,
     };
   }
 
-  function createQuestionAnswers(element: IElement): IQuestionCardAnswer[] {
+  function createQuestionAnswers(element: IElement): Answer[] {
     const rightAnswer = createAnswer(element.valency, true);
     const wrongAnswerPool = shuffle(element.wrongValences)
       .map((wrongValency) => createAnswer(wrongValency))
@@ -43,7 +43,6 @@ function ValencesTest() {
 
     return shuffle([rightAnswer, ...wrongAnswerPool]);
   }
-
 
   function createQuestion(element: IElement): IValencesTestQuestionCard {
     return {
@@ -75,7 +74,7 @@ function ValencesTest() {
 
   function onQuestionAnswer(
     question: IValencesTestQuestionCard,
-    answer: IQuestionCardAnswer
+    answer: Answer
   ) {
     const elementSetting = settings.elements!.find(
       (element: ITestElementSettings) => element.atomic === question.data.atomic
