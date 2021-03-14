@@ -119,11 +119,9 @@ function ListItemSwipeAction({
   className,
   backContent,
   frontContent,
-  onAction: onActionProp,
+  onAction,
 }: IListItemSwipeActionProps) {
-  const { frontDivRef, opacity, height, translateX } = useSwipeAction(
-    onActionProp
-  );
+  const { frontDivRef, opacity, height, translateX } = useSwipeAction(onAction);
 
   return (
     <div
