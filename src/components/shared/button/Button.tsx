@@ -9,7 +9,7 @@ export interface ButtonProps {
   circle?: boolean;
   link?: string;
   id?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 function Button({
