@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
+import useInstance from "@/hooks/useInstance";
 import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
 import { IElement } from "../../Element";
 import ElementManager from "../../ElementManager";
@@ -19,16 +20,6 @@ import { getPeriodicTableTestSettings } from "./settings/PeriodicTableTestSettin
 
 interface IPeriodicTableTestQuestion {
   element: IElement;
-}
-
-function useInstance<TInstance>(init: () => TInstance) {
-  const ref = React.useRef<TInstance | null>(null);
-  if (ref.current === null) {
-    // This is concurrent mode safe, will not cause tearing
-    // since it only happens once.
-    ref.current = init();
-  }
-  return ref.current as TInstance;
 }
 
 function createTestQuestions(settings: IPeriodicTableTestSettings) {
