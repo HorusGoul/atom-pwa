@@ -9,19 +9,25 @@ const element = (IRON_ELEMENT as unknown) as IElement;
 describe("PtElementTest", () => {
   describe("when discovered", () => {
     it("shows the elements atomic number", () => {
-      render(<PtElementTest element={element} discovered />);
+      render(
+        <PtElementTest element={element} shouldShowError={false} discovered />
+      );
 
       expect(screen.getByText(element.atomic)).toBeInTheDocument();
     });
 
     it("shows the elements symbol", () => {
-      render(<PtElementTest element={element} discovered />);
+      render(
+        <PtElementTest element={element} shouldShowError={false} discovered />
+      );
 
       expect(screen.getByText(element.symbol)).toBeInTheDocument();
     });
 
     it("shows the elements name", () => {
-      render(<PtElementTest element={element} discovered />);
+      render(
+        <PtElementTest element={element} shouldShowError={false} discovered />
+      );
 
       expect(screen.getByText(element.name)).toBeInTheDocument();
     });
@@ -29,7 +35,13 @@ describe("PtElementTest", () => {
 
   describe("when not discovered", () => {
     it("shows only the element atomic number", () => {
-      render(<PtElementTest element={element} discovered={false} />);
+      render(
+        <PtElementTest
+          element={element}
+          shouldShowError={false}
+          discovered={false}
+        />
+      );
 
       expect(screen.getByText(element.atomic)).toBeInTheDocument();
       expect(screen.queryByText(element.symbol)).not.toBeInTheDocument();
@@ -37,7 +49,13 @@ describe("PtElementTest", () => {
     });
 
     it("shows a placeholder", () => {
-      render(<PtElementTest element={element} discovered={false} />);
+      render(
+        <PtElementTest
+          element={element}
+          shouldShowError={false}
+          discovered={false}
+        />
+      );
 
       expect(screen.getByText("?")).toBeInTheDocument();
       expect(screen.getByText("???")).toBeInTheDocument();
