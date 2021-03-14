@@ -1,6 +1,7 @@
+import * as React from "react";
 import anime from "animejs";
 import classNames from "classnames";
-import * as React from "react";
+import useLatestRef from "@/hooks/useLatestRef";
 
 import "./ListItemSwipeAction.scss";
 
@@ -26,78 +27,86 @@ function ListItemSwipeAction({
   const mcFrontDivRef = React.useRef<HammerManager | null>(null);
   const frontDivAnimationRef = React.useRef<anime.AnimeInstance | null>(null);
 
-  function onAction() {
-    if (!frontDivRef.current) return;
-    const animateObject = {
-      height: frontDivRef.current.clientHeight,
-      opacity: 1,
-    };
-
-    anime({
-      complete: () => {
-        if (onActionProp) {
-          onActionProp();
-        }
-      },
-      duration: 250,
-      easing: "linear",
-      height: 0,
-      opacity: 0,
-      targets: animateObject,
-      update: () => {
-        setHeight(`${animateObject.height}px`);
-        setOpacity(animateObject.opacity);
-      },
-    });
-  }
-
-  function onFinal(currentPosition: number) {
-    if (!frontDivRef.current) return;
-    const swipableWidth = frontDivRef.current.getBoundingClientRect().width;
-    const triggerDelete = currentPosition / swipableWidth > 0.25;
-    const positionTarget = triggerDelete ? swipableWidth : 0;
-
-    const animateObject = { position: currentPosition };
-    frontDivAnimationRef.current = anime({
-      complete: () => {
-        if (triggerDelete) {
-          onAction();
-        }
-      },
-      duration: 250,
-      easing: "linear",
-      position: positionTarget,
-      targets: animateObject,
-      update: () => {
-        setLastPosition(animateObject.position);
-        setTranslateX(`${animateObject.position}px`);
-      },
-    });
-  }
-
-  function onPan(event: HammerInput) {
-    const { deltaX } = event;
-
-    if (frontDivAnimationRef.current) {
-      frontDivAnimationRef.current.pause();
-      frontDivAnimationRef.current = null;
-    }
-
-    let frontPosition = lastPosition + deltaX;
-
-    if (frontPosition < 0) {
-      frontPosition = 0;
-    }
-
-    if (event.isFinal) {
-      onFinal(frontPosition);
-    } else {
-      setTranslateX(`${frontPosition}px`);
-    }
-  }
+  // Those are things we use in the useEffect that
+  // change to often, we dont need to run the effect
+  // everytime they change, but we do want the latest value.
+  const onActionPropRef = useLatestRef(onActionProp);
+  const lastPositionRef = useLatestRef(lastPosition);
 
   React.useEffect(() => {
     if (!frontDivRef.current) return;
+
+    const latestOnActionProp = onActionPropRef.current;
+
+    function onAction() {
+      if (!frontDivRef.current) return;
+      const animateObject = {
+        height: frontDivRef.current.clientHeight,
+        opacity: 1,
+      };
+
+      anime({
+        complete: () => {
+          if (latestOnActionProp) {
+            latestOnActionProp();
+          }
+        },
+        duration: 250,
+        easing: "linear",
+        height: 0,
+        opacity: 0,
+        targets: animateObject,
+        update: () => {
+          setHeight(`${animateObject.height}px`);
+          setOpacity(animateObject.opacity);
+        },
+      });
+    }
+
+    function onFinal(currentPosition: number) {
+      if (!frontDivRef.current) return;
+      const swipableWidth = frontDivRef.current.getBoundingClientRect().width;
+      const triggerDelete = currentPosition / swipableWidth > 0.25;
+      const positionTarget = triggerDelete ? swipableWidth : 0;
+
+      const animateObject = { position: currentPosition };
+      frontDivAnimationRef.current = anime({
+        complete: () => {
+          if (triggerDelete) {
+            onAction();
+          }
+        },
+        duration: 250,
+        easing: "linear",
+        position: positionTarget,
+        targets: animateObject,
+        update: () => {
+          setLastPosition(animateObject.position);
+          setTranslateX(`${animateObject.position}px`);
+        },
+      });
+    }
+
+    function onPan(event: HammerInput) {
+      const { deltaX } = event;
+
+      if (frontDivAnimationRef.current) {
+        frontDivAnimationRef.current.pause();
+        frontDivAnimationRef.current = null;
+      }
+
+      let frontPosition = lastPositionRef.current + deltaX;
+
+      if (frontPosition < 0) {
+        frontPosition = 0;
+      }
+
+      if (event.isFinal) {
+        onFinal(frontPosition);
+      } else {
+        setTranslateX(`${frontPosition}px`);
+      }
+    }
     mcFrontDivRef.current = new Hammer(frontDivRef.current);
 
     mcFrontDivRef.current
@@ -108,7 +117,7 @@ function ListItemSwipeAction({
     return () => {
       mcFrontDivRef.current?.destroy();
     };
-  });
+  }, [lastPositionRef, onActionPropRef]);
 
   return (
     <div
