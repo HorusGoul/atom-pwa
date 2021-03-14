@@ -5,9 +5,9 @@ import { getElementLocales } from "../../ElementManager";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
-import { IPtElementInfoProps } from "./PtElementInfo";
+import { PtElementInfoProps } from "./PtElementInfo";
 
-export interface IPtElementTestProps extends IPtElementInfoProps {
+export interface IPtElementTestProps extends PtElementInfoProps {
   discovered: boolean;
 }
 

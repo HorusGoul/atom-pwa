@@ -4,7 +4,7 @@ import { i18n } from "../../Locale";
 import Theme, { THEMES_LIST } from "../../Theme";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
-  ISelectorModalOption,
+  SelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./ThemeSelector.scss";
 
@@ -24,7 +24,7 @@ function ThemeSelector() {
     setSelectorOpen(true);
   }
 
-  function onOptionSelected(option: ISelectorModalOption) {
+  function onOptionSelected(option: SelectorModalOption) {
     const theme = option.key;
 
     AppSettings.settings.theme = theme;
