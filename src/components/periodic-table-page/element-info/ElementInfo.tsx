@@ -5,7 +5,7 @@ import { getElementLocales } from "../../../ElementManager";
 import { i18n } from "../../../Locale";
 import "./ElementInfo.scss";
 
-interface IElementInfoDataEntryProps {
+interface ElementInfoDataEntryProps {
   name: string;
   value: any;
   unit?: string;
@@ -15,7 +15,7 @@ const ElementInfoDataEntry = ({
   name,
   value,
   unit,
-}: IElementInfoDataEntryProps) => {
+}: ElementInfoDataEntryProps) => {
   if (!value) {
     return null;
   }
