@@ -8,9 +8,7 @@ import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { TEST_SELECTION } from "../../routes";
 import { shuffle } from "../../utils/shuffle";
-import PeriodicTable, {
-  IPeriodicTableElement,
-} from "../periodic-table/PeriodicTable";
+import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
 import Button from "../shared/button/Button";
 import Card from "../shared/card/Card";
@@ -62,7 +60,6 @@ class PeriodicTableTest extends React.Component<
         <Navbar
           title="Periodic Table Test"
           className="periodic-table-test__navbar"
-          backButton={true}
           onBackButtonClick={this.onNavbarBackButtonClick}
         />
 
@@ -132,19 +129,17 @@ class PeriodicTableTest extends React.Component<
     );
   }
 
-  private elementRenderer(atomic: number): IPeriodicTableElement {
+  private elementRenderer(atomic: number) {
     const element = ElementManager.getElement(atomic);
-
-    return {
-      // @ts-ignore fix this
-      component: PtElementTest,
-      props: {
-        discovered: !this.isElementInQuestions(element!),
-        element,
-        onClick: this.elementOnClick,
-        ref: (ptElement: PtElementTest) => this.setPtElement(atomic, ptElement),
-      },
-    };
+    if (!element) return null;
+    return (
+      <PtElementTest
+        discovered={!this.isElementInQuestions(element)}
+        element={element}
+        onClick={this.elementOnClick}
+        ref={(ptElement: PtElementTest) => this.setPtElement(atomic, ptElement)}
+      />
+    );
   }
 
   private setPtElement(atomic: number, ptElement: PtElementTest) {

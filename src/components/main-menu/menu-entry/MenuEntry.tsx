@@ -1,5 +1,5 @@
 import * as React from "react";
-import Button, { IButtonProps } from "../../shared/button/Button";
+import Button, { ButtonProps } from "../../shared/button/Button";
 import Icon from "../../shared/icon/Icon";
 
 import "./MenuEntry.scss";
@@ -10,7 +10,7 @@ export interface IMenuEntry {
   route: string;
 }
 
-type Props = IButtonProps & IMenuEntry;
+type Props = Omit<ButtonProps, "children"> & IMenuEntry;
 
 const MenuEntry: React.StatelessComponent<Props> = (props) => (
   <Button className="menu-entry" {...props}>

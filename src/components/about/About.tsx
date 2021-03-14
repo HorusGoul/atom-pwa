@@ -1,6 +1,5 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { i18n } from "@/Locale";
 import { MAIN_MENU } from "@/routes";
 import LocaleSelector from "@/components/locale-selector/LocaleSelector";
@@ -10,59 +9,53 @@ import Navbar from "@/components/shared/navbar/Navbar";
 import ThemeSelector from "@/components/theme-selector/ThemeSelector";
 import "./About.scss";
 
-type Props = RouteComponentProps<any>;
+function About() {
+  const history = useHistory();
 
-@autobind
-class About extends React.Component<Props> {
-  public render() {
-    return (
-      <div className="about">
-        <Navbar
-          className="about__navbar"
-          title={i18n("nav_about")}
-          backButton={true}
-          onBackButtonClick={this.onNavbarBackButtonClick}
-        />
+  const onNavbarBackButtonClick = React.useCallback(
+    () => history.push(MAIN_MENU),
+    [history]
+  );
+  return (
+    <div className="about">
+      <Navbar
+        className="about__navbar"
+        title={i18n("nav_about")}
+        onBackButtonClick={onNavbarBackButtonClick}
+      />
 
-        <Card className="about__app-preferences">
-          <div className="about__subtitle">{i18n("app_settings")}</div>
+      <Card className="about__app-preferences">
+        <div className="about__subtitle">{i18n("app_settings")}</div>
 
-          <div className="about__app-preferences__buttons">
-            <LocaleSelector />
-            <ThemeSelector />
-          </div>
-        </Card>
+        <div className="about__app-preferences__buttons">
+          <LocaleSelector />
+          <ThemeSelector />
+        </div>
+      </Card>
 
-        <Card className="about__about">
-          <div className="about__about__buttons">
-            <IconButton
-              link={i18n("contact_me_url")}
-              iconName="at"
-              text={i18n("contact_me")}
-            />
+      <Card className="about__about">
+        <div className="about__about__buttons">
+          <IconButton
+            link={i18n("contact_me_url")}
+            iconName="at"
+            text={i18n("contact_me")}
+          />
 
-            <IconButton
-              link="https://github.com/HorusGoul/atom-pwa"
-              iconName="source_branch"
-              text={i18n("source_code")}
-            />
+          <IconButton
+            link="https://github.com/HorusGoul/atom-pwa"
+            iconName="source_branch"
+            text={i18n("source_code")}
+          />
 
-            <IconButton
-              link={`mailto:${i18n("author_email")}`}
-              iconName="bug_report"
-              text={i18n("bug_report")}
-            />
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
-  private onNavbarBackButtonClick() {
-    const { history } = this.props;
-
-    history.push(MAIN_MENU);
-  }
+          <IconButton
+            link={`mailto:${i18n("author_email")}`}
+            iconName="bug_report"
+            text={i18n("bug_report")}
+          />
+        </div>
+      </Card>
+    </div>
+  );
 }
 
-export default withRouter<Props, React.ComponentType<Props>>(About);
+export default About;

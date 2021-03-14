@@ -6,44 +6,45 @@ import Modal from "./Modal";
 import { useState } from "react";
 
 type CustomModalWrapperProps = {
-  onOpen: () => void;
   onClose: () => void;
 };
 
-const CustomModalWrapper = ({ onOpen, onClose }: CustomModalWrapperProps) => {
+const CustomModalWrapper = ({ onClose }: CustomModalWrapperProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose();
+  };
 
   return (
     <>
       <button type="button" onClick={() => setIsOpen((prev) => !prev)}>
         Toggle modal
       </button>
-      <Modal open={isOpen} onOpen={onOpen} onClose={onClose}>
+      <Modal open={isOpen} onClose={handleClose}>
         <div>modal content</div>
       </Modal>
     </>
   );
 };
 
-test("should be able to toggle modal", () => {
-  const onOpen = jest.fn();
+test("should be able to toggle modal by clicking the overlay", () => {
   const onClose = jest.fn();
 
-  render(<CustomModalWrapper onOpen={onOpen} onClose={onClose} />);
+  render(<CustomModalWrapper onClose={onClose} />);
 
   expect(screen.queryByText(/modal-content/i)).toBeNull();
 
   userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
 
   expect(screen.queryByText(/modal-content/i)).toBeDefined();
-  // This doesn't get fired, ever (as it's not used in the component)
-  // expect(onOpen).toHaveBeenCalledTimes(1);
 
-  userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
+  // clicking the overlay resembles more closely what a user will do
+  userEvent.click(screen.getByTestId("overlay"));
 
   expect(screen.queryByText(/modal-content/i)).toBeNull();
-  // This doesn't get fired in this specific case, it's only use if we use the internal close button
-  // expect(onClose).toHaveBeenCalledTimes(1);
+  expect(onClose).toHaveBeenCalledTimes(1);
 });
 
 test("should close after clicking the close button", () => {
@@ -64,7 +65,7 @@ test("should close after clicking the close button", () => {
 
 test("should render the modal with a title", () => {
   render(
-    <Modal open title="modal title">
+    <Modal open onClose={jest.fn()} title="modal title">
       <div>modal content</div>
     </Modal>
   );

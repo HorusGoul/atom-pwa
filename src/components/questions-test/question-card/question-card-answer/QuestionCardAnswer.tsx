@@ -1,7 +1,7 @@
 import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import Button, { IButtonProps } from "../../../shared/button/Button";
+import Button, { ButtonProps } from "../../../shared/button/Button";
 
 import "./QuestionCardAnswer.scss";
 
@@ -10,7 +10,7 @@ export interface IQuestionCardAnswer {
   right: boolean;
 }
 
-interface IQuestionCardAnswerProps extends IButtonProps {
+interface IQuestionCardAnswerProps extends Omit<ButtonProps, "children"> {
   answer: IQuestionCardAnswer;
 }
 

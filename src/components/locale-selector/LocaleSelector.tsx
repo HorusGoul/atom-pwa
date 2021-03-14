@@ -1,4 +1,3 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
 import AppSettings from "../../AppSettings";
 import Locale, { i18n, SUPPORTED_LOCALES } from "../../Locale";
@@ -8,69 +7,52 @@ import SelectorModal, {
 } from "../shared/selector-modal/SelectorModal";
 import "./LocaleSelector.scss";
 
-interface ILocaleSelectorState {
-  selectorOpen: boolean;
-}
+const options = SUPPORTED_LOCALES.map((locale) => ({
+  key: locale,
+  text: i18n(locale),
+}));
 
-@autobind
-class LocaleSelector extends React.Component<unknown, ILocaleSelectorState> {
-  public state: ILocaleSelectorState = {
-    selectorOpen: false,
-  };
+function LocaleSelector() {
+  const [selectorOpen, setSelectorOpen] = React.useState(false);
 
-  public render() {
-    const { selectorOpen } = this.state;
-
-    return (
-      <>
-        <IconButton
-          className="locale-selector__button"
-          iconName="translate"
-          text={i18n("change_language")}
-          onClick={this.openSelector}
-        />
-
-        <SelectorModal
-          className="locale-selector__modal"
-          title={i18n("change_language")}
-          closeButton={true}
-          onOptionSelected={this.onOptionSelected}
-          options={this.buildOptions()}
-          open={selectorOpen}
-          onClose={this.closeSelector}
-        />
-      </>
-    );
+  function openSelector() {
+    setSelectorOpen(true);
   }
 
-  private buildOptions() {
-    return SUPPORTED_LOCALES.map((locale) => ({
-      key: locale,
-      text: i18n(locale),
-    }));
+  function closeSelector() {
+    setSelectorOpen(false);
   }
 
-  private closeSelector() {
-    this.setState({
-      selectorOpen: false,
-    });
-  }
-
-  private openSelector() {
-    this.setState({
-      selectorOpen: true,
-    });
-  }
-
-  private onOptionSelected(option: ISelectorModalOption) {
+  function onOptionSelected(option: ISelectorModalOption) {
     const lang = option.key;
 
     AppSettings.settings.locale = lang;
     AppSettings.save();
     Locale.setLocale(lang);
 
-    this.closeSelector();
+    closeSelector();
   }
+
+  return (
+    <>
+      <IconButton
+        className="locale-selector__button"
+        iconName="translate"
+        text={i18n("change_language")}
+        onClick={openSelector}
+      />
+
+      <SelectorModal
+        className="locale-selector__modal"
+        title={i18n("change_language")}
+        closeButton={true}
+        onOptionSelected={onOptionSelected}
+        options={options}
+        open={selectorOpen}
+        onClose={closeSelector}
+      />
+    </>
+  );
 }
 
 export default LocaleSelector;

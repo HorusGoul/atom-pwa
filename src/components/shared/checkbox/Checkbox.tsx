@@ -1,112 +1,76 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-
 import "./Checkbox.scss";
 
-export interface ICheckboxProps {
+export interface CheckboxProps {
   value?: boolean;
   onChange?: (value: boolean) => void;
   readOnly?: boolean;
   className?: string;
+  children?: React.ReactNode;
 }
 
-interface ICheckboxState {
-  value?: boolean;
-}
+function Checkbox({
+  className,
+  children,
+  onChange,
+  readOnly = false,
+  value,
+}: CheckboxProps) {
+  const [internalValue, setInternalValue] = React.useState(() =>
+    value === undefined ? false : value
+  );
 
-/**
- * Checkbox component that follows Kiddle's
- * design.
- *
- * @class Checkbox
- * @extends {React.Component<ICheckboxProps, CheckboxState>}
- */
-@autobind
-class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
-  public static defaultProps: ICheckboxProps = {
-    readOnly: false,
-    value: false,
-  };
-
-  public state: ICheckboxState = {
-    value: this.props.value,
-  };
-
-  private htmlCheckbox: HTMLInputElement | null = null;
-
-  /**
-   * Returns the value of the checkbox.
-   *
-   * @returns {boolean}
-   * @memberof Checkbox
-   */
-  public getValue(): boolean {
-    return !!this.state.value;
-  }
-
-  public UNSAFE_componentWillReceiveProps(nextProps: ICheckboxProps) {
-    this.setState({
-      value: nextProps.value,
-    });
-  }
-
-  /**
-   * Toggles the value of the checkbox.
-   *
-   * @memberof Checkbox
-   */
-  public toggleCheck() {
-    if (this.props.readOnly) {
+  React.useEffect(() => {
+    if (value === undefined) {
       return;
     }
 
-    const value = !!this.htmlCheckbox?.checked;
+    setInternalValue(value);
+  }, [value]);
 
-    this.setState({
-      value,
-    });
-
-    if (this.props.onChange) {
-      this.props.onChange(value);
+  function toggleCheck(e: React.FormEvent<HTMLInputElement>) {
+    if (readOnly) {
+      return;
     }
+
+    const newValue = e.currentTarget.checked;
+
+    setInternalValue(newValue);
+    onChange?.(newValue);
   }
 
-  public onClick(event: React.MouseEvent<HTMLInputElement>) {
-    event.stopPropagation();
+  function onClick(e: React.MouseEvent) {
+    e.stopPropagation();
   }
 
-  public render() {
-    return (
-      <div className={classNames("checkbox", this.props.className)}>
-        <label>
-          <input
-            className="checkbox__input"
-            type="checkbox"
-            checked={this.state.value}
-            onChange={this.toggleCheck}
-            onClick={this.onClick}
-            ref={(htmlCheckbox) => (this.htmlCheckbox = htmlCheckbox)}
-          />
+  return (
+    <div className={classNames("checkbox", className)}>
+      <label>
+        <input
+          className="checkbox__input"
+          type="checkbox"
+          checked={internalValue}
+          readOnly={readOnly}
+          onChange={toggleCheck}
+          onClick={onClick}
+        />
 
-          <div className="checkbox__content">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8px" height="6px">
-              <path
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="2"
-                d="M0.35,2.48 2.47,4.59 6.71,0.35"
-              />
-            </svg>
-          </div>
+        <div className="checkbox__content">
+          <svg xmlns="http://www.w3.org/2000/svg" width="8px" height="6px">
+            <path
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="2"
+              d="M0.35,2.48 2.47,4.59 6.71,0.35"
+            />
+          </svg>
+        </div>
 
-          {this.props.children && (
-            <div className="checkbox__label">{this.props.children}</div>
-          )}
-        </label>
-      </div>
-    );
-  }
+        {children && <div className="checkbox__label">{children}</div>}
+      </label>
+    </div>
+  );
 }
 
 export default Checkbox;

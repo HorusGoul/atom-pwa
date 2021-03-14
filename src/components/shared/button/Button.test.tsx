@@ -7,7 +7,7 @@ const onClickMock = jest.fn();
 
 beforeEach(() => jest.clearAllMocks());
 test("should render button component with circle", () => {
-  render(<Button circle />);
+  render(<Button circle>Text</Button>);
 
   expect(
     screen.getByRole("button").classList.contains("button--circle")

@@ -1,10 +1,20 @@
 import * as React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import NotFound from "./NotFound";
+import { createMemoryHistory } from "history";
+import userEvent from "@testing-library/user-event";
+
+const history = createMemoryHistory({
+  initialEntries: ["/not-found"],
+});
 
 test("should render NotFound page", () => {
-  render(<NotFound />, { wrapper: Router });
+  render(
+    <Router history={history}>
+      <NotFound />
+    </Router>
+  );
 
   expect(screen.getByText(/404/i)).toBeInTheDocument();
 
@@ -15,4 +25,22 @@ test("should render NotFound page", () => {
   ).toBeInTheDocument();
 
   expect(screen.getByRole("button", { name: /home/i })).toBeInTheDocument();
+});
+
+test("should be able to navigate back to home", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/about"],
+  });
+  render(
+    <Router history={history}>
+      <NotFound />
+    </Router>
+  );
+
+  userEvent.click(
+    screen.getByRole("button", {
+      name: /home/i,
+    })
+  );
+  expect(history.location.pathname).toBe("/");
 });
