@@ -4,17 +4,17 @@ import Button from "../button/Button";
 import Modal, { IModalProps } from "../modal/Modal";
 import "./SelectorModal.scss";
 
-export interface ISelectorModalOption {
+export interface SelectorModalOption {
   key: any;
   text: string;
 }
 
-interface ISelectorModalProps extends IModalProps {
-  options: ISelectorModalOption[];
-  onOptionSelected: (option: ISelectorModalOption) => void;
+interface SelectorModalProps extends IModalProps {
+  options: SelectorModalOption[];
+  onOptionSelected: (option: SelectorModalOption) => void;
 }
 
-function SelectorModal(props: ISelectorModalProps) {
+function SelectorModal(props: SelectorModalProps) {
   return (
     <Modal className={classNames("selector-modal", props.className)} {...props}>
       {props.options.map((option) => (

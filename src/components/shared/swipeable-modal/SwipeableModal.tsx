@@ -8,7 +8,7 @@ import { IModalProps, IModalState } from "../modal/Modal";
 import "../modal/Modal.scss";
 import Overlay from "../overlay/Overlay";
 
-interface ISwipeableModalState extends IModalState {
+interface SwipeableModalState extends IModalState {
   translateX: string;
   lastPosition: number | null;
   opacity: number;
@@ -23,11 +23,8 @@ const initialState = {
 };
 
 @autobind
-class SwipeableModal extends React.Component<
-  IModalProps,
-  ISwipeableModalState
-> {
-  public state: ISwipeableModalState = {
+class SwipeableModal extends React.Component<IModalProps, SwipeableModalState> {
+  public state: SwipeableModalState = {
     ...initialState,
     open: this.props.open,
   };
@@ -50,7 +47,7 @@ class SwipeableModal extends React.Component<
 
   public shouldComponentUpdate(
     nextProps: IModalProps,
-    nextState: ISwipeableModalState
+    nextState: SwipeableModalState
   ) {
     if (nextState.open || this.state.open) {
       return true;
@@ -61,7 +58,7 @@ class SwipeableModal extends React.Component<
 
   public UNSAFE_componentWillUpdate(
     nextProps: IModalProps,
-    nextState: ISwipeableModalState
+    nextState: SwipeableModalState
   ) {
     if (!nextState.open) {
       this.killHammer();

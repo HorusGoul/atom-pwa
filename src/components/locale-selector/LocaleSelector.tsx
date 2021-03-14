@@ -3,7 +3,7 @@ import AppSettings from "../../AppSettings";
 import Locale, { i18n, SUPPORTED_LOCALES } from "../../Locale";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
-  ISelectorModalOption,
+  SelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./LocaleSelector.scss";
 
@@ -23,7 +23,7 @@ function LocaleSelector() {
     setSelectorOpen(false);
   }
 
-  function onOptionSelected(option: ISelectorModalOption) {
+  function onOptionSelected(option: SelectorModalOption) {
     const lang = option.key;
 
     AppSettings.settings.locale = lang;
