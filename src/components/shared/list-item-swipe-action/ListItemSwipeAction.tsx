@@ -1,7 +1,7 @@
-import anime from "animejs";
-import autobind from "autobind-decorator";
-import classNames from "classnames";
 import * as React from "react";
+import anime from "animejs";
+import classNames from "classnames";
+import useLatestRef from "@/hooks/useLatestRef";
 
 import "./ListItemSwipeAction.scss";
 
@@ -12,138 +12,135 @@ interface IListItemSwipeActionProps {
   frontContent?: React.ReactNode;
 }
 
-interface IListItemSwipeActionState {
-  translateX: string;
-  lastPosition: number;
-  opacity: number;
-  height: string;
-}
+function useSwipeAction(onAction?: () => void) {
+  const [height, setHeight] = React.useState("auto");
+  const [lastPosition, setLastPosition] = React.useState(0);
+  const [opacity, setOpacity] = React.useState(1);
+  const [translateX, setTranslateX] = React.useState("0%");
 
-@autobind
-class ListItemSwipeAction extends React.Component<
-  IListItemSwipeActionProps,
-  IListItemSwipeActionState
-> {
-  public state: IListItemSwipeActionState = {
-    height: "auto",
-    lastPosition: 0,
-    opacity: 1,
-    translateX: "0%",
-  };
+  const frontDivRef = React.useRef<HTMLDivElement | null>(null);
+  const mcFrontDivRef = React.useRef<HammerManager | null>(null);
+  const frontDivAnimationRef = React.useRef<anime.AnimeInstance | null>(null);
 
-  private frontDiv: HTMLDivElement | null = null;
-  private mcFrontDiv: HammerManager | null = null;
-  private frontDivAnimation: anime.AnimeInstance | null = null;
+  // Those are things we use in the useEffect that
+  // change to often, we dont need to run the effect
+  // everytime they change, but we do want the latest value.
+  const onActionRef = useLatestRef(onAction);
+  const lastPositionRef = useLatestRef(lastPosition);
 
-  public componentDidMount() {
-    this.mcFrontDiv = new Hammer(this.frontDiv!);
+  React.useEffect(() => {
+    if (!frontDivRef.current) return;
 
-    this.mcFrontDiv.get("pan").set({ direction: Hammer.DIRECTION_HORIZONTAL });
-    this.mcFrontDiv.on("pan", this.onPan);
-  }
+    function onAction() {
+      if (!frontDivRef.current) return;
+      const animateObject = {
+        height: frontDivRef.current.clientHeight,
+        opacity: 1,
+      };
 
-  public componentWillUnmount() {
-    this.mcFrontDiv?.destroy();
-  }
-
-  public render() {
-    const { className, frontContent, backContent } = this.props;
-    const { translateX, opacity, height } = this.state;
-
-    return (
-      <div
-        className={classNames("swipe-delete", className)}
-        style={{ opacity, height }}
-      >
-        <div
-          ref={(div) => (this.frontDiv = div)}
-          className={classNames("swipe-delete__front")}
-          style={{
-            transform: `translateX(${translateX})`,
-          }}
-        >
-          {frontContent}
-        </div>
-
-        <div className="swipe-delete__back">{backContent}</div>
-      </div>
-    );
-  }
-
-  private onPan(event: HammerInput) {
-    const { translateX, lastPosition } = this.state;
-    const { deltaX } = event;
-
-    if (this.frontDivAnimation) {
-      this.frontDivAnimation.pause();
-      this.frontDivAnimation = null;
-    }
-
-    let frontPosition = lastPosition + deltaX;
-
-    if (frontPosition < 0) {
-      frontPosition = 0;
-    }
-
-    if (event.isFinal) {
-      this.onFinal(frontPosition);
-    } else {
-      this.setState({
-        translateX: `${frontPosition}px`,
+      anime({
+        complete: () => {
+          if (onActionRef.current) {
+            onActionRef.current();
+          }
+        },
+        duration: 250,
+        easing: "linear",
+        height: 0,
+        opacity: 0,
+        targets: animateObject,
+        update: () => {
+          setHeight(`${animateObject.height}px`);
+          setOpacity(animateObject.opacity);
+        },
       });
     }
-  }
 
-  private onFinal(currentPosition: number) {
-    const swipableWidth = this.frontDiv!.getBoundingClientRect().width;
-    const triggerDelete = currentPosition / swipableWidth > 0.25;
-    const positionTarget = triggerDelete ? swipableWidth : 0;
+    function onFinal(currentPosition: number) {
+      if (!frontDivRef.current) return;
+      const swipableWidth = frontDivRef.current.getBoundingClientRect().width;
+      const triggerDelete = currentPosition / swipableWidth > 0.25;
+      const positionTarget = triggerDelete ? swipableWidth : 0;
 
-    const animateObject = { position: currentPosition };
-    this.frontDivAnimation = anime({
-      complete: () => {
-        if (triggerDelete) {
-          this.onAction();
-        }
-      },
-      duration: 250,
-      easing: "linear",
-      position: positionTarget,
-      targets: animateObject,
-      update: () => {
-        this.setState({
-          lastPosition: animateObject.position,
-          translateX: `${animateObject.position}px`,
-        });
-      },
-    });
-  }
+      const animateObject = { position: currentPosition };
+      frontDivAnimationRef.current = anime({
+        complete: () => {
+          if (triggerDelete) {
+            onAction();
+          }
+        },
+        duration: 250,
+        easing: "linear",
+        position: positionTarget,
+        targets: animateObject,
+        update: () => {
+          setLastPosition(animateObject.position);
+          setTranslateX(`${animateObject.position}px`);
+        },
+      });
+    }
 
-  private onAction() {
-    const animateObject = {
-      height: this.frontDiv!.clientHeight,
-      opacity: 1,
+    function onPan(event: HammerInput) {
+      const { deltaX } = event;
+
+      if (frontDivAnimationRef.current) {
+        frontDivAnimationRef.current.pause();
+        frontDivAnimationRef.current = null;
+      }
+
+      let frontPosition = lastPositionRef.current + deltaX;
+
+      if (frontPosition < 0) {
+        frontPosition = 0;
+      }
+
+      if (event.isFinal) {
+        onFinal(frontPosition);
+      } else {
+        setTranslateX(`${frontPosition}px`);
+      }
+    }
+    mcFrontDivRef.current = new Hammer(frontDivRef.current);
+
+    mcFrontDivRef.current
+      .get("pan")
+      .set({ direction: Hammer.DIRECTION_HORIZONTAL });
+    mcFrontDivRef.current.on("pan", onPan);
+
+    return () => {
+      mcFrontDivRef.current?.destroy();
     };
+  }, [lastPositionRef, onActionRef]);
 
-    anime({
-      complete: () => {
-        if (this.props.onAction) {
-          this.props.onAction();
-        }
-      },
-      duration: 250,
-      easing: "linear",
-      height: 0,
-      opacity: 0,
-      targets: animateObject,
-      update: () => {
-        this.setState({
-          height: `${animateObject.height}px`,
-          opacity: animateObject.opacity,
-        });
-      },
-    });
-  }
+  return { frontDivRef, height, opacity, translateX } as const;
+}
+
+function ListItemSwipeAction({
+  className,
+  backContent,
+  frontContent,
+  onAction,
+}: IListItemSwipeActionProps) {
+  const { frontDivRef, opacity, height, translateX } = useSwipeAction(onAction);
+
+  return (
+    <div
+      className={classNames("swipe-delete", className)}
+      style={{ opacity, height }}
+    >
+      <div
+        ref={frontDivRef}
+        className={classNames("swipe-delete__front")}
+        style={{
+          transform: `translateX(${translateX})`,
+        }}
+      >
+        {frontContent}
+      </div>
+
+      <div className="swipe-delete__back">{backContent}</div>
+    </div>
+  );
 }
 
 export default ListItemSwipeAction;
