@@ -1,209 +1,99 @@
 import anime from "animejs";
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
 import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
-import { IModalProps, IModalState } from "../modal/Modal";
+import { IModalProps } from "../modal/Modal";
 import "../modal/Modal.scss";
 import Overlay from "../overlay/Overlay";
 
-interface SwipeableModalState extends IModalState {
-  translateX: string;
-  lastPosition: number | null;
-  opacity: number;
-  swiping: boolean;
-}
+type ModalContentProps = Omit<IModalProps, "open">;
 
-const initialState = {
-  lastPosition: null,
-  opacity: 1,
-  swiping: false,
-  translateX: "-50%",
-};
+function useSwipeToClose(onClose?: () => void) {
+  const [lastPosition, setLastPosition] = React.useState<number | null>(null);
+  const [opacity, setOpacity] = React.useState(1);
+  const [translateX, setTranslateX] = React.useState("-50%");
 
-@autobind
-class SwipeableModal extends React.Component<IModalProps, SwipeableModalState> {
-  public state: SwipeableModalState = {
-    ...initialState,
-    open: this.props.open,
-  };
+  const frontDivRef = React.useRef<HTMLDivElement | null>(null);
+  const mcFrontDivRef = React.useRef<HammerManager | null>(null);
+  const frontDivAnimationRef = React.useRef<anime.AnimeInstance | null>(null);
+  const initialDivPositionRef = React.useRef(-1);
 
-  private frontDiv: HTMLDivElement | null = null;
-  private mcFrontDiv: HammerManager | null = null;
-  private frontDivAnimation: anime.AnimeInstance | null = null;
-  private initialDivPosition = -1;
-
-  public componentWillUnmount() {
-    this.killHammer();
-  }
-
-  public UNSAFE_componentWillReceiveProps(nextProps: IModalProps) {
-    if (nextProps.open !== this.props.open) {
-      this.setState({ open: nextProps.open });
-      this.bodyOverflow(nextProps.open);
-    }
-  }
-
-  public shouldComponentUpdate(
-    nextProps: IModalProps,
-    nextState: SwipeableModalState
-  ) {
-    if (nextState.open || this.state.open) {
-      return true;
-    }
-
-    return false;
-  }
-
-  public UNSAFE_componentWillUpdate(
-    nextProps: IModalProps,
-    nextState: SwipeableModalState
-  ) {
-    if (!nextState.open) {
-      this.killHammer();
-    }
-  }
-
-  public render() {
-    const { title, closeButton } = this.props;
-    const showHeader = !!title || closeButton;
-    const { translateX, opacity, open } = this.state;
-
-    if (!open) {
-      return null;
-    }
-
-    return (
-      <Portal>
-        <React.Fragment>
-          <Overlay opacity={opacity} onClick={this.close} />
-
-          <div
-            ref={this.setModalDiv}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            className={classNames("modal", this.props.className)}
-            style={{
-              opacity,
-              transform: `translate(${translateX}, -50%)`,
-            }}
-          >
-            {showHeader && (
-              <div className="modal__header">
-                {title && (
-                  <span id="modal-title" className="modal__header__title">
-                    {title}
-                  </span>
-                )}
-
-                {closeButton && (
-                  <IconButton
-                    className="modal__header__close-button"
-                    iconName="close"
-                    onClick={this.close}
-                  />
-                )}
-              </div>
-            )}
-
-            {this.props.children}
-          </div>
-        </React.Fragment>
-      </Portal>
-    );
-  }
-
-  private bodyOverflow(open: boolean) {
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-
-  private killHammer() {
-    if (!this.mcFrontDiv) {
-      return;
-    }
-
-    this.mcFrontDiv.destroy();
-    this.mcFrontDiv = null;
-  }
-
-  private setModalDiv(div: HTMLDivElement) {
-    this.frontDiv = div;
-
-    if (!this.mcFrontDiv && div) {
-      this.mcFrontDiv = new Hammer(this.frontDiv);
-      this.mcFrontDiv
+  React.useEffect(() => {
+    if (!mcFrontDivRef.current && frontDivRef.current) {
+      mcFrontDivRef.current = new Hammer(frontDivRef.current);
+      mcFrontDivRef.current
         .get("pan")
         .set({ direction: Hammer.DIRECTION_HORIZONTAL });
-      this.mcFrontDiv.on("pan", this.onPan);
+      mcFrontDivRef.current.on("pan", onPan);
 
-      const divWidth = this.frontDiv.getBoundingClientRect().width;
-      this.initialDivPosition = -(divWidth / 2);
+      const divWidth = frontDivRef.current.getBoundingClientRect().width;
+      initialDivPositionRef.current = -(divWidth / 2);
     }
-  }
+    return () => {
+      if (!mcFrontDivRef.current) {
+        return;
+      }
 
-  private close() {
-    this.setState({ ...initialState, open: false });
+      mcFrontDivRef.current.destroy();
+      mcFrontDivRef.current = null;
+    };
+  }, []);
 
-    if (this.props.onClose) {
-      this.props.onClose();
-    }
-  }
+  const swipeRatio = (position: number, width: number) => {
+    const diff = position - initialDivPositionRef.current;
 
-  private onPan(event: HammerInput) {
-    const { lastPosition } = this.state;
+    return diff / width;
+  };
+
+  const onPan = (event: HammerInput) => {
     const { deltaX } = event;
 
-    if (this.frontDivAnimation) {
-      this.frontDivAnimation.pause();
-      this.frontDivAnimation = null;
+    if (frontDivAnimationRef.current) {
+      frontDivAnimationRef.current.pause();
+      frontDivAnimationRef.current = null;
     }
 
     let frontPosition =
       lastPosition === null
-        ? 0 + deltaX + this.initialDivPosition
+        ? 0 + deltaX + initialDivPositionRef.current
         : lastPosition + deltaX;
 
-    if (frontPosition < this.initialDivPosition) {
-      frontPosition = this.initialDivPosition;
+    if (frontPosition < initialDivPositionRef.current) {
+      frontPosition = initialDivPositionRef.current;
     }
 
-    if (!this.frontDiv) {
+    if (!frontDivRef.current) {
       return;
     }
 
-    const swipableWidth = this.frontDiv.clientWidth;
-
-    const swipeRatio = this.swipeRatio(frontPosition, swipableWidth);
+    const swipeableWidth = frontDivRef.current.clientWidth;
+    const ratio = swipeRatio(frontPosition, swipeableWidth);
 
     if (event.isFinal) {
-      this.onFinal(frontPosition, swipeRatio);
+      onFinal(frontPosition, ratio);
     } else {
-      this.setState({
-        opacity: 1 - swipeRatio,
-        swiping: true,
-        translateX: `${frontPosition}px`,
-      });
+      setOpacity(1 - ratio);
+      setTranslateX(`${frontPosition}px`);
     }
-  }
+  };
 
-  private onFinal(currentPosition: number, swipeRatio: number) {
-    if (!this.frontDiv) {
+  const onFinal = (currentPosition: number, calculatedSwipeRatio: number) => {
+    if (!frontDivRef.current) {
       return;
     }
 
-    const swipableWidth = this.frontDiv.clientWidth;
-    const triggerDelete = swipeRatio >= 0.5;
+    const swipeableWidth = frontDivRef.current.clientWidth;
+    const triggerDelete = calculatedSwipeRatio >= 0.5;
     const positionTarget = triggerDelete
-      ? swipableWidth
-      : this.initialDivPosition;
+      ? swipeableWidth
+      : initialDivPositionRef.current;
 
     const animateObject = { position: currentPosition };
-    this.frontDivAnimation = anime({
+    frontDivAnimationRef.current = anime({
       complete: () => {
         if (triggerDelete) {
-          this.onAction();
+          onClose?.();
         }
       },
       duration: 250,
@@ -212,26 +102,90 @@ class SwipeableModal extends React.Component<IModalProps, SwipeableModalState> {
       position: positionTarget,
       targets: animateObject,
       update: () => {
-        this.setState({
-          lastPosition: animateObject.position,
-          opacity: 1 - this.swipeRatio(animateObject.position, swipableWidth),
-          swiping: false,
-          translateX: `${animateObject.position}px`,
-        });
+        setLastPosition(animateObject.position);
+        setOpacity(1 - swipeRatio(animateObject.position, swipeableWidth));
+        setTranslateX(`${animateObject.position}px`);
       },
     });
+  };
+
+  return {
+    frontDivRef,
+    opacity,
+    translateX,
+  };
+}
+
+function useLockedBackgroundContent() {
+  React.useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+}
+
+function SwipeableModalContent({
+  title,
+  closeButton,
+  onClose,
+  className,
+  children,
+}: ModalContentProps) {
+  const showHeader = !!title || closeButton;
+  const { frontDivRef, opacity, translateX } = useSwipeToClose(onClose);
+
+  useLockedBackgroundContent();
+
+  return (
+    <>
+      <Overlay opacity={opacity} onClick={onClose} />
+
+      <div
+        ref={frontDivRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className={classNames("modal", className)}
+        style={{
+          opacity,
+          transform: `translate(${translateX}, -50%)`,
+        }}
+      >
+        {showHeader && (
+          <div className="modal__header">
+            {title && (
+              <span id="modal-title" className="modal__header__title">
+                {title}
+              </span>
+            )}
+
+            {closeButton && (
+              <IconButton
+                className="modal__header__close-button"
+                iconName="close"
+                onClick={onClose}
+              />
+            )}
+          </div>
+        )}
+
+        {children}
+      </div>
+    </>
+  );
+}
+
+function SwipeableModal({ open, ...contentProps }: IModalProps) {
+  if (!open) {
+    return null;
   }
 
-  private swipeRatio(position: number, width: number) {
-    const initialPosition = this.initialDivPosition;
-    const diff = position - initialPosition;
-
-    return diff / width;
-  }
-
-  private onAction() {
-    this.close();
-  }
+  return (
+    <Portal>
+      <SwipeableModalContent {...contentProps} />
+    </Portal>
+  );
 }
 
 export default SwipeableModal;
