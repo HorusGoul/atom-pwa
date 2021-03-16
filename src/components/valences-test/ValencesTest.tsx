@@ -156,7 +156,6 @@ function ValencesTest() {
           <QuestionsTest
             title={i18n("select_valence")}
             questions={questions}
-            // @ts-ignore Fix types
             onQuestionAnswer={onQuestionAnswer}
           />
         </div>

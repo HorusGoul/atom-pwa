@@ -5,19 +5,19 @@ import QuestionCard, { Question } from "./question-card/QuestionCard";
 
 import "./QuestionsTest.scss";
 
-interface QuestionTestProps {
+interface QuestionTestProps<TQuestion extends Question> {
   title: string;
-  questions: Question[];
-  onQuestionAnswer?: (question: Question, answer: Answer) => void;
+  questions: TQuestion[];
+  onQuestionAnswer?: (question: TQuestion, answer: Answer) => void;
 }
 
-function QuestionsTest({
+function QuestionsTest<TQuestion extends Question>({
   questions,
   title,
   onQuestionAnswer,
-}: QuestionTestProps) {
+}: QuestionTestProps<TQuestion>) {
   const onAnswerClickListener = React.useCallback(
-    (question: Question) => {
+    (question: TQuestion) => {
       return (answer: Answer) => onQuestionAnswer?.(question, answer);
     },
     [onQuestionAnswer]
