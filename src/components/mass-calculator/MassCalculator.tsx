@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { i18n } from "../../Locale";
-import { MAIN_MENU } from "../../routes";
+import { i18n } from "@/Locale";
+import { MAIN_MENU } from "@/routes";
 import IconButton from "../shared/icon-button/IconButton";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
 import Navbar from "../shared/navbar/Navbar";

@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, { PeriodicTableTestSettings } from "../../AppSettings";
-import { Element } from "../../Element";
-import ElementManager from "../../ElementManager";
-import { i18n } from "../../Locale";
-import { TEST_SELECTION } from "../../routes";
-import { shuffle } from "../../utils/shuffle";
+import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
+import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
+import { shuffle } from "@/utils/shuffle";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
 import Button from "../shared/button/Button";
@@ -21,7 +21,7 @@ interface PeriodicTableTestQuestion {
   element: Element;
 }
 
-function createTestQuestions(settings: PeriodicTableTestSettings) {
+function createTestQuestions(settings: IPeriodicTableTestSettings) {
   if (!settings.elements) return [];
   const questions = settings.elements
     .filter((element) => element.enabled)

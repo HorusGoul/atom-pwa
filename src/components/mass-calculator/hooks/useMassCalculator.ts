@@ -1,5 +1,5 @@
 import * as React from "react";
-import ElementManager from "../../../ElementManager";
+import ElementManager from "@/ElementManager";
 
 export interface MassCalculatorElement {
   atomic: number;

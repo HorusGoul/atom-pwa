@@ -1,8 +1,8 @@
 import * as React from "react";
 import IconButton from "../shared/icon-button/IconButton";
 import Modal from "../shared/modal/Modal";
-import { i18n } from "../../Locale";
-import ElementManager, { getElementLocales } from "../../ElementManager";
+import { i18n } from "@/Locale";
+import ElementManager, { getElementLocales } from "@/ElementManager";
 import { MassCalculatorElement } from "./hooks/useMassCalculator";
 
 interface EditElementModalProps {

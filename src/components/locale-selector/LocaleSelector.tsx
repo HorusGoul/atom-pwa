@@ -1,6 +1,6 @@
 import * as React from "react";
-import AppSettings from "../../AppSettings";
-import Locale, { i18n, SUPPORTED_LOCALES } from "../../Locale";
+import AppSettings from "@/AppSettings";
+import Locale, { i18n, SUPPORTED_LOCALES } from "@/Locale";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
   SelectorModalOption,

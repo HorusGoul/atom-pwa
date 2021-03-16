@@ -1,6 +1,6 @@
 import defaultSettings from "./defaultSettings";
 
-export interface TestElementSetting {
+export interface ITestElementSettings {
   atomic: number;
   enabled: boolean;
   stats: {
@@ -10,12 +10,12 @@ export interface TestElementSetting {
   };
 }
 
-export interface ValencesTestSettings {
-  elements: TestElementSetting[] | null;
+export interface IValencesTestSettings {
+  elements: ITestElementSettings[] | null;
 }
 
-export interface PeriodicTableTestSettings {
-  elements: TestElementSetting[] | null;
+export interface IPeriodicTableTestSettings {
+  elements: ITestElementSettings[] | null;
 }
 
 export interface Settings {
@@ -23,8 +23,8 @@ export interface Settings {
   theme: string;
   locale: string;
   tests: {
-    valences: ValencesTestSettings;
-    periodicTable: PeriodicTableTestSettings;
+    valences: IValencesTestSettings;
+    periodicTable: IPeriodicTableTestSettings;
   };
 }
 

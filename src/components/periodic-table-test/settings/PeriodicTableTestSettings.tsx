@@ -2,12 +2,12 @@ import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import AppSettings, {
-  PeriodicTableTestSettings,
-  TestElementSetting,
-} from "../../../AppSettings";
-import ElementManager from "../../../ElementManager";
-import { i18n } from "../../../Locale";
-import { TEST_SELECTION } from "../../../routes";
+  IPeriodicTableTestSettings,
+  ITestElementSettings,
+} from "@/AppSettings";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
@@ -41,11 +41,11 @@ export function setDefaultPeriodicTableTestSettings() {
 }
 
 interface PeriodicTableTestSettingsState {
-  elementStates: TestElementSetting[];
+  elementStates: ITestElementSettings[];
   updateListKey: number;
 }
 
-let settings: PeriodicTableTestSettings;
+let settings: IPeriodicTableTestSettings;
 
 function PeriodicTableTestSettings() {
   const history = useHistory();

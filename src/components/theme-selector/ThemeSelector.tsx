@@ -1,7 +1,7 @@
 import * as React from "react";
-import AppSettings from "../../AppSettings";
-import { i18n } from "../../Locale";
-import Theme, { THEMES_LIST } from "../../Theme";
+import AppSettings from "@/AppSettings";
+import { i18n } from "@/Locale";
+import Theme, { THEMES_LIST } from "@/Theme";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
   SelectorModalOption,

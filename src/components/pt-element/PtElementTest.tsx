@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 
-import { getElementLocales } from "../../ElementManager";
+import { getElementLocales } from "@/ElementManager";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";

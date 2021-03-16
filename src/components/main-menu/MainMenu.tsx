@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { i18n } from "../../Locale";
+import { i18n } from "@/Locale";
 import "./MainMenu.scss";
 import MenuEntry from "./menu-entry/MenuEntry";
 import RateApp from "../rate-app/RateApp";

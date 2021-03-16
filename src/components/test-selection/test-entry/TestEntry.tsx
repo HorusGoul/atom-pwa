@@ -1,5 +1,5 @@
 import * as React from "react";
-import { i18n } from "../../../Locale";
+import { i18n } from "@/Locale";
 import Button from "../../shared/button/Button";
 import Card from "../../shared/card/Card";
 import IconButton from "../../shared/icon-button/IconButton";

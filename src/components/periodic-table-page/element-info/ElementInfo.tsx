@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import * as React from "react";
-import { Element } from "../../../Element";
-import { getElementLocales } from "../../../ElementManager";
-import { i18n } from "../../../Locale";
+import { Element } from "@/Element";
+import { getElementLocales } from "@/ElementManager";
+import { i18n } from "@/Locale";
 import "./ElementInfo.scss";
 
 interface ElementInfoDataEntryProps {

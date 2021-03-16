@@ -1,10 +1,10 @@
 import * as React from "react";
 import Icon from "../shared/icon/Icon";
 import "./RateApp.scss";
-import { i18n } from "../../Locale";
+import { i18n } from "@/Locale";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import Button from "../shared/button/Button";
-import NativeBridge from "../../NativeBridge";
+import NativeBridge from "@/NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
 

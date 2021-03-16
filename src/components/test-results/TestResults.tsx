@@ -1,7 +1,7 @@
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
-import { i18n } from "../../Locale";
+import { i18n } from "@/Locale";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
 

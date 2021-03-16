@@ -1,14 +1,14 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import AppSettings, {
-  TestElementSetting,
-  ValencesTestSettings,
-} from "../../AppSettings";
-import { Element } from "../../Element";
-import ElementManager from "../../ElementManager";
-import { i18n } from "../../Locale";
-import { TEST_SELECTION } from "../../routes";
-import { shuffle } from "../../utils/shuffle";
+  ITestElementSettings,
+  IValencesTestSettings,
+} from "@/AppSettings";
+import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
+import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { Question } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
@@ -47,7 +47,7 @@ function createQuestion(element: Element): ValencesTestQuestion {
   };
 }
 
-function createTestQuestions(settings: ValencesTestSettings) {
+function createTestQuestions(settings: IValencesTestSettings) {
   if (!settings.elements) return [];
   const questions = settings.elements
     .filter((element) => element.enabled)
@@ -74,7 +74,7 @@ function ValencesTest() {
   function onQuestionAnswer(question: ValencesTestQuestion, answer: Answer) {
     if (!settings.elements) return;
     const elementSetting = settings.elements.find(
-      (element: TestElementSetting) => element.atomic === question.data.atomic
+      (element: ITestElementSettings) => element.atomic === question.data.atomic
     );
     if (!elementSetting) return;
 

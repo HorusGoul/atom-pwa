@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { Element } from "../../Element";
-import ElementManager from "../../ElementManager";
-import { i18n } from "../../Locale";
-import { MAIN_MENU } from "../../routes";
+import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { MAIN_MENU } from "@/routes";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Navbar from "../shared/navbar/Navbar";

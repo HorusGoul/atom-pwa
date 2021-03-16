@@ -2,12 +2,12 @@ import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import AppSettings, {
-  TestElementSetting,
-  ValencesTestSettings,
-} from "../../../AppSettings";
-import ElementManager from "../../../ElementManager";
-import { i18n } from "../../../Locale";
-import { TEST_SELECTION } from "../../../routes";
+  ITestElementSettings,
+  IValencesTestSettings,
+} from "@/AppSettings";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
@@ -43,11 +43,11 @@ export function setDefaultValencesTestSettings() {
 }
 
 interface ValencesTestSettingsState {
-  elementStates: TestElementSetting[];
+  elementStates: ITestElementSettings[];
   updateListKey: number;
 }
 
-let settings: ValencesTestSettings;
+let settings: IValencesTestSettings;
 
 function ValencesTestSettings() {
   const history = useHistory();
@@ -114,7 +114,7 @@ function ValencesTestSettings() {
       if (settings.elements === null) return;
       const foundElement = settings.elements.find(
         (elementSettings) => elementSettings.atomic === atomic
-      ) as TestElementSetting;
+      ) as ITestElementSettings;
 
       foundElement.enabled = !foundElement.enabled;
 
