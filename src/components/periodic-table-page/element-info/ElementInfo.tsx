@@ -7,7 +7,7 @@ import "./ElementInfo.scss";
 
 interface ElementInfoDataEntryProps {
   name: string;
-  value: any;
+  value: string | number;
   unit?: string;
 }
 

@@ -19,7 +19,7 @@ export interface IPeriodicTableTestSettings {
 }
 
 export interface Settings {
-  [key: string]: any;
+  [key: string]: unknown;
   theme: string;
   locale: string;
   tests: {

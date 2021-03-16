@@ -75,20 +75,22 @@ function PeriodicTableTestSettings() {
   }, [setElementStates]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
-    settings.elements = settings.elements!.map((element) => ({
-      ...element,
-      enabled: true,
-    }));
+    settings.elements =
+      settings.elements?.map((element) => ({
+        ...element,
+        enabled: true,
+      })) ?? null;
 
     AppSettings.save();
     setElementStates();
   }, [setElementStates]);
 
   const onDeselectAllButtonClick = React.useCallback(() => {
-    settings.elements = settings.elements!.map((element) => ({
-      ...element,
-      enabled: false,
-    }));
+    settings.elements =
+      settings.elements?.map((element) => ({
+        ...element,
+        enabled: false,
+      })) ?? null;
 
     AppSettings.save();
     setElementStates();
@@ -105,12 +107,14 @@ function PeriodicTableTestSettings() {
 
   const onTestElementSettingsClick = React.useCallback(
     (atomic: number) => {
-      const element = settings.elements!.find(
+      const element = settings.elements?.find(
         (elementSettings) => elementSettings.atomic === atomic
       );
-      element!.enabled = !element!.enabled;
 
-      AppSettings.save();
+      if (element) {
+        element.enabled = !element.enabled;
+        AppSettings.save();
+      }
 
       setElementStates();
     },
