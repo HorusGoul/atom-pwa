@@ -1,6 +1,6 @@
 import defaultSettings from "./defaultSettings";
 
-export interface ITestElementSettings {
+export interface TestElementSetting {
   atomic: number;
   enabled: boolean;
   stats: {
@@ -10,28 +10,28 @@ export interface ITestElementSettings {
   };
 }
 
-export interface IValencesTestSettings {
-  elements: ITestElementSettings[] | null;
+export interface ValencesTestSettings {
+  elements: TestElementSetting[] | null;
 }
 
-export interface IPeriodicTableTestSettings {
-  elements: ITestElementSettings[] | null;
+export interface PeriodicTableTestSettings {
+  elements: TestElementSetting[] | null;
 }
 
-export interface ISettings {
+export interface Settings {
   [key: string]: any;
   theme: string;
   locale: string;
   tests: {
-    valences: IValencesTestSettings;
-    periodicTable: IPeriodicTableTestSettings;
+    valences: ValencesTestSettings;
+    periodicTable: PeriodicTableTestSettings;
   };
 }
 
 class AppSettings {
   private static STORAGE_KEY = "atom:settings";
 
-  public settings!: ISettings;
+  public settings!: Settings;
 
   public loadSettings() {
     const appSettings = JSON.parse(

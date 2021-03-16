@@ -2,8 +2,8 @@ import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import AppSettings, {
-  ITestElementSettings,
-  IValencesTestSettings,
+  TestElementSetting,
+  ValencesTestSettings,
 } from "../../../AppSettings";
 import ElementManager from "../../../ElementManager";
 import { i18n } from "../../../Locale";
@@ -42,12 +42,12 @@ export function setDefaultValencesTestSettings() {
   AppSettings.save();
 }
 
-interface IValencesTestSettingsState {
-  elementStates: ITestElementSettings[];
+interface ValencesTestSettingsState {
+  elementStates: TestElementSetting[];
   updateListKey: number;
 }
 
-let settings: IValencesTestSettings;
+let settings: ValencesTestSettings;
 
 function ValencesTestSettings() {
   const history = useHistory();
@@ -56,7 +56,7 @@ function ValencesTestSettings() {
     settings = getValencesTestSettings();
   }
 
-  const [state, setState] = React.useState<IValencesTestSettingsState>(() => ({
+  const [state, setState] = React.useState<ValencesTestSettingsState>(() => ({
     elementStates: [],
     updateListKey: 0,
   }));
@@ -114,7 +114,7 @@ function ValencesTestSettings() {
       if (settings.elements === null) return;
       const foundElement = settings.elements.find(
         (elementSettings) => elementSettings.atomic === atomic
-      ) as ITestElementSettings;
+      ) as TestElementSetting;
 
       foundElement.enabled = !foundElement.enabled;
 

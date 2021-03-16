@@ -3,11 +3,11 @@ import classNames from "classnames";
 import * as React from "react";
 import { Portal } from "react-portal";
 import IconButton from "../icon-button/IconButton";
-import { IModalProps } from "../modal/Modal";
+import { ModalProps } from "../modal/Modal";
 import "../modal/Modal.scss";
 import Overlay from "../overlay/Overlay";
 
-type ModalContentProps = Omit<IModalProps, "open">;
+type ModalContentProps = Omit<ModalProps, "open">;
 
 function useSwipeToClose(onClose?: () => void) {
   const [lastPosition, setLastPosition] = React.useState<number | null>(null);
@@ -176,7 +176,7 @@ function SwipeableModalContent({
   );
 }
 
-function SwipeableModal({ open, ...contentProps }: IModalProps) {
+function SwipeableModal({ open, ...contentProps }: ModalProps) {
   if (!open) {
     return null;
   }

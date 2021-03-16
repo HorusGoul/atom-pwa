@@ -4,13 +4,11 @@ import Icon from "../../shared/icon/Icon";
 
 import "./MenuEntry.scss";
 
-export interface IMenuEntry {
+type Props = Omit<ButtonProps, "children"> & {
   name: string;
   icon: string;
   route: string;
-}
-
-type Props = Omit<ButtonProps, "children"> & IMenuEntry;
+};
 
 const MenuEntry = (props: Props) => (
   <Button className="menu-entry" {...props}>

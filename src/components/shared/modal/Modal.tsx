@@ -6,7 +6,7 @@ import IconButton from "../icon-button/IconButton";
 import Overlay from "../overlay/Overlay";
 import "./Modal.scss";
 
-export interface IModalProps {
+export interface ModalProps {
   open: boolean;
   onClose?: () => void;
   className?: string;
@@ -15,7 +15,7 @@ export interface IModalProps {
   children?: ReactNode;
 }
 
-export interface IModalState {
+export interface ModalState {
   open: boolean;
 }
 
@@ -26,7 +26,7 @@ const Modal = ({
   onClose,
   className,
   ...props
-}: IModalProps) => {
+}: ModalProps) => {
   const showHeader = !!title || closeButton;
 
   useEffect(() => {

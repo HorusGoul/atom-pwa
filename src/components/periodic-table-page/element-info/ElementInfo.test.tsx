@@ -2,9 +2,9 @@ import * as React from "react";
 import ElementInfo from "./ElementInfo";
 import { render, screen } from "@testing-library/react";
 import THALLIUM_ELEMENT from "@/data/elements/81.json";
-import { IElement } from "@/Element";
+import { Element } from "@/Element";
 
-const element = (THALLIUM_ELEMENT as unknown) as IElement;
+const element = (THALLIUM_ELEMENT as unknown) as Element;
 
 function testElement(elementProperty: string | number) {
   expect(screen.getByText(`${elementProperty}`)).toBeInTheDocument();

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { IElement } from "../../Element";
+import { Element } from "../../Element";
 import ElementManager from "../../ElementManager";
 import { i18n } from "../../Locale";
 import { MAIN_MENU } from "../../routes";
@@ -12,7 +12,7 @@ import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
 
 interface ElementInfoState {
-  element: IElement;
+  element: Element;
   open: boolean;
 }
 
@@ -21,12 +21,12 @@ function PeriodicTablePage() {
 
   const [elementInfo, setElementInfo] = React.useState<ElementInfoState>(
     () => ({
-      element: ElementManager.getElement(1) as IElement,
+      element: ElementManager.getElement(1) as Element,
       open: false,
     })
   );
 
-  const openElementInfo = (element: IElement) => {
+  const openElementInfo = (element: Element) => {
     setElementInfo({
       element,
       open: true,
@@ -47,8 +47,8 @@ function PeriodicTablePage() {
   const elementRenderer = (atomic: number) => {
     return (
       <PtElementInfo
-        element={ElementManager.getElement(atomic) as IElement}
-        onClick={(element: IElement) => {
+        element={ElementManager.getElement(atomic) as Element}
+        onClick={(element: Element) => {
           openElementInfo(element);
         }}
       />

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { VirtualScroller, useVirtualScroller } from "react-hyper-scroller";
-import { IElement } from "../../Element";
+import { Element } from "../../Element";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import { i18n } from "../../Locale";
 import Button from "../shared/button/Button";
@@ -10,11 +10,11 @@ import Icon from "../shared/icon/Icon";
 import "./ElementPicker.scss";
 
 interface ElementPickerProps {
-  onElement: (element: IElement) => void;
+  onElement: (element: Element) => void;
 }
 
 function ElementPicker({ onElement }: ElementPickerProps) {
-  const [elements, setElements] = useState<IElement[]>([]);
+  const [elements, setElements] = useState<Element[]>([]);
   const elementListRef = useRef<HTMLDivElement>(null);
 
   const elementListRowRenderer = useCallback(

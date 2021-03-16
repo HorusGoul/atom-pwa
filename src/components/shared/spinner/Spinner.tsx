@@ -2,11 +2,11 @@ import * as React from "react";
 
 import "./Spinner.scss";
 
-interface ISpinnerProps {
+interface SpinnerProps {
   className?: string;
 }
 
-export const Spinner = ({ className }: ISpinnerProps) => {
+export const Spinner = ({ className }: SpinnerProps) => {
   const svgClassName = className ? `spinner ${className}` : "spinner";
 
   return (

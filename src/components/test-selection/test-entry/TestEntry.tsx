@@ -6,14 +6,11 @@ import IconButton from "../../shared/icon-button/IconButton";
 import "./TestEntry.scss";
 import Icon from "../../shared/icon/Icon";
 
-export interface ITestEntry {
+interface TestEntryProps {
   title: string;
   description: string;
   testRoute: string;
   settingsRoute: string;
-}
-
-interface TestEntryProps extends ITestEntry {
   onPracticeClick?: () => void;
   onSettingsClick?: () => void;
 }

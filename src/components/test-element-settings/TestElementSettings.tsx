@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import * as React from "react";
-import { ITestElementSettings } from "../../AppSettings";
+import { TestElementSetting } from "../../AppSettings";
 import ElementManager, { getElementLocales } from "../../ElementManager";
 import Button from "../shared/button/Button";
 import Checkbox from "../shared/checkbox/Checkbox";
 import "./TestElementSettings.scss";
 
 interface TestElementSettingsProps {
-  setting: ITestElementSettings;
+  setting: TestElementSetting;
   onClick?: (atomic: number) => void;
 }
 

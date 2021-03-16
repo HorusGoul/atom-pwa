@@ -2,12 +2,12 @@ import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { i18n } from "../../Locale";
 import "./MainMenu.scss";
-import MenuEntry, { IMenuEntry } from "./menu-entry/MenuEntry";
+import MenuEntry from "./menu-entry/MenuEntry";
 import RateApp from "../rate-app/RateApp";
 import Atom from "@/components/atom";
 
 function MainMenu() {
-  const menuEntries: IMenuEntry[] = [
+  const menuEntries = [
     {
       icon: "test-tube",
       name: i18n("nav_test"),

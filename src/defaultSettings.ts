@@ -1,8 +1,8 @@
-import { ISettings } from "./AppSettings";
+import { Settings } from "./AppSettings";
 import Locale from "./Locale";
 import { DEFAULT_THEME } from "./Theme";
 
-const defaultSettings: ISettings = {
+const defaultSettings: Settings = {
   locale: Locale.getBrowserLocale(),
   tests: {
     periodicTable: {

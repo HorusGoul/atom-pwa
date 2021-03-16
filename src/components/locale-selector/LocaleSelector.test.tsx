@@ -2,7 +2,7 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import LocaleSelector from "./LocaleSelector";
-import { ISettings } from "@/AppSettings";
+import { Settings } from "@/AppSettings";
 
 test("should be able to change locale", () => {
   const STORAGE_KEY = "atom:settings";
@@ -14,7 +14,7 @@ test("should be able to change locale", () => {
 
   let storageObject = window.localStorage.getItem(STORAGE_KEY) as string;
 
-  let appSettings: ISettings = JSON.parse(storageObject);
+  let appSettings: Settings = JSON.parse(storageObject);
 
   expect(appSettings.locale).toEqual("en-US");
 

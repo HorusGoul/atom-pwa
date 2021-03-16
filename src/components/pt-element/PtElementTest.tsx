@@ -7,7 +7,7 @@ import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
 import { PtElementInfoProps } from "./PtElementInfo";
 
-export interface IPtElementTestProps extends PtElementInfoProps {
+export interface PtElementTestProps extends PtElementInfoProps {
   discovered: boolean;
   shouldShowError: boolean;
 }
@@ -17,7 +17,7 @@ function PtElementTest({
   discovered,
   onClick,
   shouldShowError,
-}: IPtElementTestProps) {
+}: PtElementTestProps) {
   const [showError, setShowError] = React.useState(false);
   const elementLocales = getElementLocales(element);
 
