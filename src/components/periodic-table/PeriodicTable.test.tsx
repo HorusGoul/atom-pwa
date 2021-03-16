@@ -6,7 +6,7 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import PtElementInfo from "../pt-element/PtElementInfo";
-import ElementManager from "../../ElementManager";
+import ElementManager from "@/ElementManager";
 
 function elementRenderer(atomic: number) {
   const element = ElementManager.getElement(atomic);

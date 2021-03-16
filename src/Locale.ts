@@ -2,10 +2,6 @@ import invariant from "invariant";
 import NativeBridge from "./NativeBridge";
 import localePercentages from "./locales/percentages.json";
 
-interface ILocale {
-  [key: string]: string;
-}
-
 type LocaleChangeListener = () => void;
 
 export const DEFAULT_LOCALE = "en";
@@ -17,10 +13,11 @@ const localesMap = import.meta.globEager("./locales/*.json");
 const getLocaleKey = (locale: string) => `./locales/${locale}.json`;
 
 class Locale {
-  private common: ILocale = localesMap[getLocaleKey("common")];
+  private common: Record<string, string> = localesMap[getLocaleKey("common")];
   private currentLang!: string;
-  private currentLocales!: ILocale;
-  private defaultLocales: ILocale = localesMap[getLocaleKey(DEFAULT_LOCALE)];
+  private currentLocales!: Record<string, string>;
+  private defaultLocales: Record<string, string> =
+    localesMap[getLocaleKey(DEFAULT_LOCALE)];
   private localeChangeListeners: LocaleChangeListener[] = [];
 
   public setLocale(lang: string) {

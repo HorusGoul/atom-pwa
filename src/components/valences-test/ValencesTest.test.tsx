@@ -4,8 +4,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 
-import { TEST_SELECTION } from "../../routes";
-import ElementManager from "../../ElementManager";
+import { TEST_SELECTION } from "@/routes";
+import ElementManager from "@/ElementManager";
 import ValencesTest from "./ValencesTest";
 import * as Settings from "./settings/ValencesTestSettings";
 

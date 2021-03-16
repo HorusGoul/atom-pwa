@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from "classnames";
 import Button from "../shared/button/Button";
-import { i18n } from "../../Locale";
-import ElementManager, { getElementLocales } from "../../ElementManager";
+import { i18n } from "@/Locale";
+import ElementManager, { getElementLocales } from "@/ElementManager";
 
 interface CalculatorElementProps {
   atomic: number;

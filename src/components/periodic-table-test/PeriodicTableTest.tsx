@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, { IPeriodicTableTestSettings } from "../../AppSettings";
-import { IElement } from "../../Element";
-import ElementManager from "../../ElementManager";
-import { i18n } from "../../Locale";
-import { TEST_SELECTION } from "../../routes";
-import { shuffle } from "../../utils/shuffle";
+import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
+import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
+import { shuffle } from "@/utils/shuffle";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
 import Button from "../shared/button/Button";
@@ -17,8 +17,8 @@ import TestResults from "../test-results/TestResults";
 import "./PeriodicTableTest.scss";
 import { getPeriodicTableTestSettings } from "./settings/PeriodicTableTestSettings";
 
-interface IPeriodicTableTestQuestion {
-  element: IElement;
+interface PeriodicTableTestQuestion {
+  element: Element;
 }
 
 function createTestQuestions(settings: IPeriodicTableTestSettings) {
@@ -26,12 +26,12 @@ function createTestQuestions(settings: IPeriodicTableTestSettings) {
   const questions = settings.elements
     .filter((element) => element.enabled)
     .map((elementSetting) => ElementManager.getElement(elementSetting.atomic))
-    .map((element) => createQuestion(element as IElement));
+    .map((element) => createQuestion(element as Element));
 
   return shuffle(questions);
 }
 
-function createQuestion(element: IElement): IPeriodicTableTestQuestion {
+function createQuestion(element: Element): PeriodicTableTestQuestion {
   return {
     element,
   };
@@ -43,14 +43,14 @@ function PeriodicTableTest() {
   const settings = React.useMemo(() => getPeriodicTableTestSettings(), []);
 
   const [questionModalOpen, setQuestionModalOpen] = React.useState(true);
-  const [questions, setQuestions] = React.useState<
-    IPeriodicTableTestQuestion[]
-  >(() => createTestQuestions(settings));
+  const [questions, setQuestions] = React.useState<PeriodicTableTestQuestion[]>(
+    () => createTestQuestions(settings)
+  );
   const [wrongAnswers, setWrongAnswers] = React.useState<
-    IPeriodicTableTestQuestion[]
+    PeriodicTableTestQuestion[]
   >([]);
   const [rightAnswers, setRightAnswers] = React.useState<
-    IPeriodicTableTestQuestion[]
+    PeriodicTableTestQuestion[]
   >([]);
 
   const currentQuestion = questions.length ? questions[0] : null;
@@ -72,18 +72,18 @@ function PeriodicTableTest() {
     );
   }
 
-  function elementOnClick(element: IElement) {
+  function elementOnClick(element: Element) {
     onUserAnswer(element);
   }
 
-  function onUserAnswer(element: IElement) {
+  function onUserAnswer(element: Element) {
     if (!isElementInQuestions(element)) {
       return;
     }
 
     const currentQuestion = getCurrentQuestion();
     const alreadyAnswered = isAlreadyAnswered(
-      currentQuestion as IPeriodicTableTestQuestion
+      currentQuestion as PeriodicTableTestQuestion
     );
     const rightAnswer = isAnswerRight(element);
     if (!settings.elements) return;
@@ -96,10 +96,10 @@ function PeriodicTableTest() {
 
       if (rightAnswer) {
         elementSetting.stats.right++;
-        addRightAnsweredQuestion(currentQuestion as IPeriodicTableTestQuestion);
+        addRightAnsweredQuestion(currentQuestion as PeriodicTableTestQuestion);
       } else {
         elementSetting.stats.wrong++;
-        addWrongAnsweredQuestion(currentQuestion as IPeriodicTableTestQuestion);
+        addWrongAnsweredQuestion(currentQuestion as PeriodicTableTestQuestion);
       }
 
       AppSettings.save();
@@ -116,7 +116,7 @@ function PeriodicTableTest() {
     setQuestions(questions.filter((question) => question !== currentQuestion));
   }
 
-  function isAnswerRight(element: IElement): boolean {
+  function isAnswerRight(element: Element): boolean {
     const currentQuestion = getCurrentQuestion();
 
     if (!currentQuestion) {
@@ -131,11 +131,11 @@ function PeriodicTableTest() {
     return false;
   }
 
-  function getCurrentQuestion(): IPeriodicTableTestQuestion | null {
+  function getCurrentQuestion(): PeriodicTableTestQuestion | null {
     return questions.length ? questions[0] : null;
   }
 
-  function isElementInQuestions(element: IElement): boolean {
+  function isElementInQuestions(element: Element): boolean {
     return !!questions.find(
       (question) => question.element.atomic === element.atomic
     );
@@ -149,15 +149,15 @@ function PeriodicTableTest() {
     setQuestionModalOpen(false);
   }
 
-  function isAlreadyAnswered(question: IPeriodicTableTestQuestion): boolean {
+  function isAlreadyAnswered(question: PeriodicTableTestQuestion): boolean {
     return [...rightAnswers, ...wrongAnswers].indexOf(question) !== -1;
   }
 
-  function addRightAnsweredQuestion(question: IPeriodicTableTestQuestion) {
+  function addRightAnsweredQuestion(question: PeriodicTableTestQuestion) {
     setRightAnswers([...rightAnswers, question]);
   }
 
-  function addWrongAnsweredQuestion(question: IPeriodicTableTestQuestion) {
+  function addWrongAnsweredQuestion(question: PeriodicTableTestQuestion) {
     setWrongAnswers([...wrongAnswers, question]);
   }
 

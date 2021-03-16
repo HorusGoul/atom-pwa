@@ -3,7 +3,7 @@ import { Spinner } from "../shared/spinner/Spinner";
 
 import "./PeriodicTable.scss";
 
-import periodicTableData from "../../data/pt.json";
+import periodicTableData from "@/data/pt.json";
 
 type ElementRendered = (elementId: number) => React.ReactNode;
 interface PeriodicTableProps {

@@ -5,7 +5,7 @@ import useLatestRef from "@/hooks/useLatestRef";
 
 import "./ListItemSwipeAction.scss";
 
-interface IListItemSwipeActionProps {
+interface ListItemSwipeActionProps {
   onAction?: () => void;
   className?: string;
   backContent?: React.ReactNode;
@@ -120,7 +120,7 @@ function ListItemSwipeAction({
   backContent,
   frontContent,
   onAction,
-}: IListItemSwipeActionProps) {
+}: ListItemSwipeActionProps) {
   const { frontDivRef, opacity, height, translateX } = useSwipeAction(onAction);
 
   return (

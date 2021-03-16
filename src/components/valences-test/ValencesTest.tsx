@@ -3,12 +3,12 @@ import { useHistory } from "react-router-dom";
 import AppSettings, {
   ITestElementSettings,
   IValencesTestSettings,
-} from "../../AppSettings";
-import { IElement } from "../../Element";
-import ElementManager from "../../ElementManager";
-import { i18n } from "../../Locale";
-import { TEST_SELECTION } from "../../routes";
-import { shuffle } from "../../utils/shuffle";
+} from "@/AppSettings";
+import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
+import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { Question } from "../questions-test/question-card/QuestionCard";
 import QuestionsTest from "../questions-test/QuestionsTest";
@@ -18,8 +18,8 @@ import TestResults from "../test-results/TestResults";
 import { getValencesTestSettings } from "./settings/ValencesTestSettings";
 import "./ValencesTest.scss";
 
-interface IValencesTestQuestionCard extends Question {
-  data: IElement;
+interface ValencesTestQuestion extends Question {
+  data: Element;
 }
 
 function createAnswer(answer: string, right = false): Answer {
@@ -29,7 +29,7 @@ function createAnswer(answer: string, right = false): Answer {
   };
 }
 
-function createQuestionAnswers(element: IElement): Answer[] {
+function createQuestionAnswers(element: Element): Answer[] {
   const rightAnswer = createAnswer(element.valency, true);
   const wrongAnswerPool = shuffle(element.wrongValences)
     .map((wrongValency) => createAnswer(wrongValency))
@@ -38,7 +38,7 @@ function createQuestionAnswers(element: IElement): Answer[] {
   return shuffle([rightAnswer, ...wrongAnswerPool]);
 }
 
-function createQuestion(element: IElement): IValencesTestQuestionCard {
+function createQuestion(element: Element): ValencesTestQuestion {
   return {
     answers: createQuestionAnswers(element),
     data: element,
@@ -52,29 +52,26 @@ function createTestQuestions(settings: IValencesTestSettings) {
   const questions = settings.elements
     .filter((element) => element.enabled)
     .map((element) => ElementManager.getElement(element.atomic))
-    .map((element) => createQuestion(element as IElement));
+    .map((element) => createQuestion(element as Element));
 
   return shuffle(questions);
 }
 
 function ValencesTest() {
   const settings = React.useMemo(() => getValencesTestSettings(), []);
-  const [questions, setQuestions] = React.useState<IValencesTestQuestionCard[]>(
-    () => createTestQuestions(settings)
+  const [questions, setQuestions] = React.useState<ValencesTestQuestion[]>(() =>
+    createTestQuestions(settings)
   );
   const [wrongAnswers, setWrongAnswers] = React.useState<
-    IValencesTestQuestionCard[]
+    ValencesTestQuestion[]
   >([]);
   const [rightAnswers, setRightAnswers] = React.useState<
-    IValencesTestQuestionCard[]
+    ValencesTestQuestion[]
   >([]);
 
   const hasQuestions = !!questions.length;
 
-  function onQuestionAnswer(
-    question: IValencesTestQuestionCard,
-    answer: Answer
-  ) {
+  function onQuestionAnswer(question: ValencesTestQuestion, answer: Answer) {
     if (!settings.elements) return;
     const elementSetting = settings.elements.find(
       (element: ITestElementSettings) => element.atomic === question.data.atomic
@@ -108,19 +105,19 @@ function ValencesTest() {
     history.push(TEST_SELECTION);
   }
 
-  function isAlreadyAnswered(question: IValencesTestQuestionCard): boolean {
+  function isAlreadyAnswered(question: ValencesTestQuestion): boolean {
     return [...rightAnswers, ...wrongAnswers].indexOf(question) !== -1;
   }
 
-  function addRightAnsweredQuestion(question: IValencesTestQuestionCard) {
+  function addRightAnsweredQuestion(question: ValencesTestQuestion) {
     setRightAnswers([...rightAnswers, question]);
   }
 
-  function addWrongAnsweredQuestion(question: IValencesTestQuestionCard) {
+  function addWrongAnsweredQuestion(question: ValencesTestQuestion) {
     setWrongAnswers([...wrongAnswers, question]);
   }
 
-  function removeQuestion(question: IValencesTestQuestionCard) {
+  function removeQuestion(question: ValencesTestQuestion) {
     setQuestions(questions.filter((value) => value !== question));
   }
 

@@ -1,4 +1,4 @@
-export interface IElement {
+export interface Element {
   atomic: number;
   symbol: string;
   name: string;

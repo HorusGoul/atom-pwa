@@ -1,14 +1,14 @@
 import * as React from "react";
 import classNames from "classnames";
 
-import { IElement } from "../../Element";
-import { getElementLocales } from "../../ElementManager";
+import { Element } from "@/Element";
+import { getElementLocales } from "@/ElementManager";
 import Button from "../shared/button/Button";
 import "./PtElement.scss";
 
 export interface PtElementInfoProps {
-  element: IElement;
-  onClick?: (element: IElement) => void;
+  element: Element;
+  onClick?: (element: Element) => void;
 }
 
 function PtElementInfo({ element, onClick }: PtElementInfoProps) {

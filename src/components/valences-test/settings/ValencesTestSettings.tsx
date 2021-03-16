@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 import AppSettings, {
   ITestElementSettings,
   IValencesTestSettings,
-} from "../../../AppSettings";
-import ElementManager from "../../../ElementManager";
-import { i18n } from "../../../Locale";
-import { TEST_SELECTION } from "../../../routes";
+} from "@/AppSettings";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
@@ -42,7 +42,7 @@ export function setDefaultValencesTestSettings() {
   AppSettings.save();
 }
 
-interface IValencesTestSettingsState {
+interface ValencesTestSettingsState {
   elementStates: ITestElementSettings[];
   updateListKey: number;
 }
@@ -56,7 +56,7 @@ function ValencesTestSettings() {
     settings = getValencesTestSettings();
   }
 
-  const [state, setState] = React.useState<IValencesTestSettingsState>(() => ({
+  const [state, setState] = React.useState<ValencesTestSettingsState>(() => ({
     elementStates: [],
     updateListKey: 0,
   }));

@@ -1,13 +1,13 @@
 import * as React from "react";
-import ElementManager from "../../../ElementManager";
+import ElementManager from "@/ElementManager";
 
-export interface IMassCalculatorElement {
+export interface MassCalculatorElement {
   atomic: number;
   quantity: number;
 }
 
 function updateQuantity(
-  elements: IMassCalculatorElement[],
+  elements: MassCalculatorElement[],
   atomic: number,
   quantity: number
 ) {
@@ -29,7 +29,7 @@ function updateQuantity(
 }
 
 export function useMassCalculator() {
-  const [elements, setElements] = React.useState<IMassCalculatorElement[]>([
+  const [elements, setElements] = React.useState<MassCalculatorElement[]>([
     { atomic: 67, quantity: 1 },
     { atomic: 44, quantity: 1 },
     { atomic: 16, quantity: 1 },

@@ -1,9 +1,9 @@
 import * as React from "react";
 import IconButton from "../shared/icon-button/IconButton";
 import Modal from "../shared/modal/Modal";
-import { i18n } from "../../Locale";
-import ElementManager, { getElementLocales } from "../../ElementManager";
-import { IMassCalculatorElement } from "./hooks/useMassCalculator";
+import { i18n } from "@/Locale";
+import ElementManager, { getElementLocales } from "@/ElementManager";
+import { MassCalculatorElement } from "./hooks/useMassCalculator";
 
 interface EditElementModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface EditElementModalProps {
   increaseQuantity: () => void;
   decreaseQuantity: () => void;
   changeQuantity: (quantity: number) => void;
-  selectedElement?: IMassCalculatorElement;
+  selectedElement?: MassCalculatorElement;
 }
 
 function EditElementModal({

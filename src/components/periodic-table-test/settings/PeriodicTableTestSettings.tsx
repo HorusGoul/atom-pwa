@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 import AppSettings, {
   IPeriodicTableTestSettings,
   ITestElementSettings,
-} from "../../../AppSettings";
-import ElementManager from "../../../ElementManager";
-import { i18n } from "../../../Locale";
-import { TEST_SELECTION } from "../../../routes";
+} from "@/AppSettings";
+import ElementManager from "@/ElementManager";
+import { i18n } from "@/Locale";
+import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
@@ -40,7 +40,7 @@ export function setDefaultPeriodicTableTestSettings() {
   AppSettings.save();
 }
 
-interface IPeriodicTableTestSettingsState {
+interface PeriodicTableTestSettingsState {
   elementStates: ITestElementSettings[];
   updateListKey: number;
 }
@@ -54,7 +54,7 @@ function PeriodicTableTestSettings() {
     settings = getPeriodicTableTestSettings();
   }
 
-  const [state, setState] = React.useState<IPeriodicTableTestSettingsState>(
+  const [state, setState] = React.useState<PeriodicTableTestSettingsState>(
     () => ({
       elementStates: [],
       updateListKey: 0,

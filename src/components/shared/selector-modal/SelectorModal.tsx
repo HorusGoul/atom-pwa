@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import Button from "../button/Button";
-import Modal, { IModalProps } from "../modal/Modal";
+import Modal, { ModalProps } from "../modal/Modal";
 import "./SelectorModal.scss";
 
 export interface SelectorModalOption {
@@ -9,7 +9,7 @@ export interface SelectorModalOption {
   text: string;
 }
 
-interface SelectorModalProps extends IModalProps {
+interface SelectorModalProps extends ModalProps {
   options: SelectorModalOption[];
   onOptionSelected: (option: SelectorModalOption) => void;
 }

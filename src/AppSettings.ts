@@ -18,7 +18,7 @@ export interface IPeriodicTableTestSettings {
   elements: ITestElementSettings[] | null;
 }
 
-export interface ISettings {
+export interface Settings {
   [key: string]: any;
   theme: string;
   locale: string;
@@ -31,7 +31,7 @@ export interface ISettings {
 class AppSettings {
   private static STORAGE_KEY = "atom:settings";
 
-  public settings!: ISettings;
+  public settings!: Settings;
 
   public loadSettings() {
     const appSettings = JSON.parse(

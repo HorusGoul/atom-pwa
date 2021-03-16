@@ -2,11 +2,11 @@ import * as React from "react";
 import PtElementInfo from "./PtElementInfo";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import IRON_ELEMENT from "../../data/elements/26.json";
+import IRON_ELEMENT from "@/data/elements/26.json";
 
-import { IElement } from "@/Element";
+import { Element } from "@/Element";
 
-const element = (IRON_ELEMENT as unknown) as IElement;
+const element = (IRON_ELEMENT as unknown) as Element;
 
 describe("PTElementInfo", () => {
   it("shows the elements atomic number", () => {
