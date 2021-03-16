@@ -51,7 +51,7 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         </div>
       );
     },
-    [elements]
+    [elements, onElement]
   );
 
   const searchElements = useCallback((searchValue?: string) => {
