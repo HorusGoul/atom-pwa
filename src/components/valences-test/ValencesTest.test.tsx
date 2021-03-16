@@ -23,6 +23,8 @@ const mockSettings = {
   ],
 };
 
+const NOT_FOUND = "the button could not be found";
+
 const setup = () => {
   const history = createMemoryHistory();
   return {
@@ -54,13 +56,13 @@ test("should display a new question when clicking on the correct answer", () => 
 
   // Getting the randomly displayed element
   const elementTag = container.querySelector(".element");
-  const currentElementSymbol = elementTag!.textContent!;
+  const currentElementSymbol = elementTag?.textContent ?? "";
   const element = ElementManager.getElements().find(
     (element) => element.symbol === currentElementSymbol
   );
 
   const rightAnswer = screen.getByRole("button", {
-    name: element!.valency,
+    name: element?.valency ?? NOT_FOUND,
   });
 
   userEvent.click(rightAnswer);
@@ -75,7 +77,7 @@ test("should keep the same question when clicking on a wrong answer", async () =
 
   // Getting the randomly displayed element
   const elementTag = container.querySelector(".element");
-  const currentElementSymbol = elementTag!.textContent!;
+  const currentElementSymbol = elementTag?.textContent ?? "";
   const element = ElementManager.getElements().find(
     (element) => element.symbol === currentElementSymbol
   );
@@ -84,13 +86,15 @@ test("should keep the same question when clicking on a wrong answer", async () =
   const questionCard = container.querySelector(".question-card") as HTMLElement;
   const wrongAnswer = within(questionCard)
     .getAllByRole("button")
-    .filter((button) => button.textContent !== element!.valency)[0];
+    .filter((button) => button.textContent !== element?.valency)[0];
 
   userEvent.click(wrongAnswer);
   expect(elementTag).toHaveTextContent(currentElementSymbol);
 
   // Getting results
-  userEvent.click(screen.getByRole("button", { name: element!.valency }));
+  userEvent.click(
+    screen.getByRole("button", { name: element?.valency ?? NOT_FOUND })
+  );
   expect(
     container.querySelector(".test-results__data__right")
   ).toHaveTextContent("0");
@@ -99,7 +103,9 @@ test("should keep the same question when clicking on a wrong answer", async () =
   userEvent.click(
     screen.getByRole("button", { name: /retake incorrect answers/i })
   );
-  expect(await screen.findByText(element!.valency)).toBeInTheDocument();
+  expect(
+    await screen.findByText(element?.valency ?? NOT_FOUND)
+  ).toBeInTheDocument();
 });
 
 test("should go back to tests", async () => {
@@ -117,14 +123,14 @@ test("should display results", () => {
     .spyOn(Settings, "getValencesTestSettings")
     .mockReturnValueOnce(mockSettings);
   const { container } = setup();
-  const currentElementSymbol = container.querySelector(".element")!
-    .textContent!;
+  const elementTag = container.querySelector(".element");
+  const currentElementSymbol = elementTag?.textContent ?? "";
   const element = ElementManager.getElements().find(
     (element) => element.symbol === currentElementSymbol
   );
 
   const rightAnswer = screen.getByRole("button", {
-    name: element!.valency,
+    name: element?.valency ?? NOT_FOUND,
   });
   userEvent.click(rightAnswer);
 
