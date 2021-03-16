@@ -1,6 +1,6 @@
 export const DEFAULT_THEME = "dark";
 export const THEMES_LIST = ["dark", "light", "black"];
-const PRIMARY_COLORS: any = {
+const PRIMARY_COLORS: Record<string, string> = {
   black: "#000000",
   dark: "#193132",
   light: "#00897b",

@@ -21,7 +21,6 @@ export interface Element {
   yearDiscovered: number;
   valency: string;
   wrongValences: string[];
-  realname: any;
   testState: {
     valencesTest: boolean;
     ptTest: boolean;

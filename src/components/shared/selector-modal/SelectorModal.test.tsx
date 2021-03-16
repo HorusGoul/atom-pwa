@@ -9,11 +9,11 @@ beforeEach(() => jest.clearAllMocks());
 
 const options: SelectorModalOption[] = [
   {
-    key: 0,
+    key: "0",
     text: "Hydrogen",
   },
   {
-    key: 1,
+    key: "1",
     text: "Helium",
   },
 ];

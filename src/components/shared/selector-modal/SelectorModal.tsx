@@ -5,7 +5,7 @@ import Modal, { ModalProps } from "../modal/Modal";
 import "./SelectorModal.scss";
 
 export interface SelectorModalOption {
-  key: any;
+  key: string;
   text: string;
 }
 
