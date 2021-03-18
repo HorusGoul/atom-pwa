@@ -5,7 +5,7 @@ import { Settings } from "../AppSettings";
 import { getBrowserLocale } from "./useLocale";
 import { DEFAULT_THEME } from "./useTheme";
 
-const STORAGE_KEY = "atom:settings";
+export const STORAGE_KEY = "atom:settings";
 
 const defaultSettings: Settings = {
   locale: getBrowserLocale(),
