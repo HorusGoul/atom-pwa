@@ -1,20 +1,25 @@
 import * as React from "react";
-import AppSettings from "@/AppSettings";
-import { i18n } from "@/Locale";
-import Theme, { THEMES_LIST } from "@/Theme";
+import { useLocale } from "@/hooks/useLocale";
+import { useTheme, THEMES_LIST } from "@/hooks/useTheme";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
   SelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./ThemeSelector.scss";
 
-const options = THEMES_LIST.map((theme) => ({
-  key: theme,
-  text: i18n("theme_" + theme),
-}));
-
 function ThemeSelector() {
+  const { i18n } = useLocale();
+  const { setTheme } = useTheme();
   const [selectorOpen, setSelectorOpen] = React.useState(false);
+
+  const options = React.useMemo(
+    () =>
+      THEMES_LIST.map((theme) => ({
+        key: theme,
+        text: i18n("theme_" + theme),
+      })),
+    [i18n]
+  );
 
   function closeSelector() {
     setSelectorOpen(false);
@@ -26,11 +31,7 @@ function ThemeSelector() {
 
   function onOptionSelected(option: SelectorModalOption) {
     const theme = option.key;
-
-    AppSettings.settings.theme = theme;
-    AppSettings.save();
-    Theme.setTheme(theme);
-
+    setTheme(theme);
     closeSelector();
   }
   return (
