@@ -176,7 +176,7 @@ function PeriodicTableTest() {
 
   function repeatTest() {
     clearResults();
-    createTestQuestions(settings);
+    setQuestions(createTestQuestions(settings));
   }
 
   function repeatWrongAnswers() {
