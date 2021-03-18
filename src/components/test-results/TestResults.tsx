@@ -1,7 +1,7 @@
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
 
@@ -22,6 +22,8 @@ function TestResults({
 }: TestResultsProps) {
   const total = rightAnswers + wrongAnswers;
   const percentage = total ? rightAnswers / total : 1;
+
+  const { i18n } = useLocale();
 
   React.useEffect(() => {
     if (total > 0) {

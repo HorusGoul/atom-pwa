@@ -1,12 +1,14 @@
 import * as React from "react";
 import { useHistory } from "react-router";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { MAIN_MENU } from "@/routes";
 import Navbar from "../shared/navbar/Navbar";
 import TestEntry from "./test-entry/TestEntry";
 import "./TestSelection.scss";
 
 function TestSelection() {
+  const { i18n } = useLocale();
+
   const testEntries = [
     {
       description: i18n("valences_test_desc"),

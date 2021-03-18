@@ -1,12 +1,13 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { MAIN_MENU } from "@/routes";
 import Button from "../shared/button/Button";
 import "./NotFound.scss";
 
 function NotFound() {
   const history = useHistory();
+  const { i18n } = useLocale();
 
   const goHome = React.useCallback(() => history.push(MAIN_MENU), [history]);
 

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
 import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import PeriodicTable from "../periodic-table/PeriodicTable";
@@ -39,6 +39,7 @@ function createQuestion(element: Element): PeriodicTableTestQuestion {
 
 function PeriodicTableTest() {
   const history = useHistory();
+  const { i18n } = useLocale();
 
   const settings = React.useMemo(() => getPeriodicTableTestSettings(), []);
 

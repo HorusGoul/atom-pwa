@@ -6,7 +6,7 @@ import { useAppSettings } from "./useAppSettings";
 
 const DEFAULT_LOCALE = "en";
 
-const SUPPORTED_LOCALES = Object.entries(localePercentages)
+export const SUPPORTED_LOCALES = Object.entries(localePercentages)
   .filter(([, percentage]) => percentage >= 85)
   .map(([locale]) => locale);
 

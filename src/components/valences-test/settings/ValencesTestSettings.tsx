@@ -6,7 +6,7 @@ import AppSettings, {
   IValencesTestSettings,
 } from "@/AppSettings";
 import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
@@ -51,6 +51,7 @@ let settings: IValencesTestSettings;
 
 function ValencesTestSettings() {
   const history = useHistory();
+  const { i18n } = useLocale();
 
   if (!settings) {
     settings = getValencesTestSettings();

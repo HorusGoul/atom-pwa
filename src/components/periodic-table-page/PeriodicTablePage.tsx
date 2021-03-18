@@ -2,7 +2,7 @@ import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { Element } from "@/Element";
 import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { MAIN_MENU } from "@/routes";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
@@ -18,6 +18,7 @@ interface ElementInfoState {
 
 function PeriodicTablePage() {
   const history = useHistory();
+  const { i18n } = useLocale();
 
   const [elementInfo, setElementInfo] = React.useState<ElementInfoState>(
     () => ({

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { VirtualScroller, useVirtualScroller } from "react-hyper-scroller";
 import { Element } from "@/Element";
 import ElementManager, { getElementLocales } from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./ElementPicker.scss";
@@ -14,6 +14,7 @@ interface ElementPickerProps {
 }
 
 function ElementPicker({ onElement }: ElementPickerProps) {
+  const { i18n } = useLocale();
   const [elements, setElements] = useState<Element[]>([]);
   const elementListRef = useRef<HTMLDivElement>(null);
 

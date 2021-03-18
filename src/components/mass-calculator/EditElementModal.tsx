@@ -1,7 +1,7 @@
 import * as React from "react";
 import IconButton from "../shared/icon-button/IconButton";
 import Modal from "../shared/modal/Modal";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import ElementManager, { getElementLocales } from "@/ElementManager";
 import { MassCalculatorElement } from "./hooks/useMassCalculator";
 
@@ -22,6 +22,8 @@ function EditElementModal({
   changeQuantity,
   onClose,
 }: EditElementModalProps) {
+  const { i18n } = useLocale();
+
   if (!selectedElement) return null;
 
   const element = ElementManager.getElement(selectedElement.atomic);

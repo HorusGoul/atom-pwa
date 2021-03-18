@@ -6,7 +6,7 @@ import AppSettings, {
 } from "@/AppSettings";
 import { Element } from "@/Element";
 import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
@@ -58,6 +58,7 @@ function createTestQuestions(settings: IValencesTestSettings) {
 }
 
 function ValencesTest() {
+  const { i18n } = useLocale();
   const settings = React.useMemo(() => getValencesTestSettings(), []);
   const [questions, setQuestions] = React.useState<ValencesTestQuestion[]>(() =>
     createTestQuestions(settings)

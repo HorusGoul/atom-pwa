@@ -42,7 +42,9 @@ test("should change theme", () => {
   userEvent.click(screen.getByRole("button", { name: /change theme/i }));
   userEvent.click(screen.getByRole("button", { name: /light/i }));
 
-  const settings = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "{}");
+  const settings = JSON.parse(
+    window.localStorage.getItem(STORAGE_KEY) as string
+  );
 
-  expect(settings).toEqual(expect.objectContaining({ theme: "light" }));
+  expect(settings.theme).toBe("light");
 });

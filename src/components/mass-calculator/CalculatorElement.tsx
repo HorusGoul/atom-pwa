@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 import Button from "../shared/button/Button";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import ElementManager, { getElementLocales } from "@/ElementManager";
 
 interface CalculatorElementProps {
@@ -15,6 +15,7 @@ function CalculatorElement({
   quantity,
   selectElement,
 }: CalculatorElementProps) {
+  const { i18n } = useLocale();
   const element = ElementManager.getElement(atomic);
 
   if (!element) {

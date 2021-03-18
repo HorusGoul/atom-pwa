@@ -1,5 +1,5 @@
 import * as React from "react";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import Button from "../../shared/button/Button";
 import Card from "../../shared/card/Card";
 import IconButton from "../../shared/icon-button/IconButton";
@@ -21,6 +21,8 @@ function TestEntry({
   onPracticeClick,
   onSettingsClick,
 }: TestEntryProps) {
+  const { i18n } = useLocale();
+
   return (
     <Card className="test-entry">
       <div className="test-entry__header">
