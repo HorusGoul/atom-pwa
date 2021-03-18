@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppSettings from "@/AppSettings";
 import { useLocale, SUPPORTED_LOCALES } from "@/hooks/useLocale";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {

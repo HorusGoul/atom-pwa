@@ -2,7 +2,6 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import LocaleSelector from "./LocaleSelector";
-import { Settings } from "@/AppSettings";
 
 beforeEach(() => {
   window.localStorage.clear();
