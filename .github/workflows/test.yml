@@ -63,55 +63,55 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
-  cypress-run:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [12, 14]
-    steps:
-      - uses: actions/checkout@v2
+  # cypress-run:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node: [12, 14]
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node }}
 
-      - name: Run Tests
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm run dev
-          browser: chrome
-          wait-on: "http://localhost:8888"
+  #     - name: Run Tests
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         start: npm run dev
+  #         browser: chrome
+  #         wait-on: "http://localhost:8888"
 
-      # after the test run completes
-      # store videos and any screenshots
-      # NOTE: screenshots will be generated only if E2E test failed
-      # thus we store screenshots only on failures
-      # Alternative: create and commit an empty cypress/screenshots folder
-      # to always have something to upload
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+  #     # after the test run completes
+  #     # store videos and any screenshots
+  #     # NOTE: screenshots will be generated only if E2E test failed
+  #     # thus we store screenshots only on failures
+  #     # Alternative: create and commit an empty cypress/screenshots folder
+  #     # to always have something to upload
+  #     - name: Upload screenshots
+  #       uses: actions/upload-artifact@v1
+  #       if: failure()
+  #       with:
+  #         name: cypress-screenshots
+  #         path: cypress/screenshots
 
-      # Test run video was always captured, so this action uses "always()" condition
-      - name: Upload videos
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+  #     # Test run video was always captured, so this action uses "always()" condition
+  #     - name: Upload videos
+  #       uses: actions/upload-artifact@v1
+  #       if: always()
+  #       with:
+  #         name: cypress-videos
+  #         path: cypress/videos
 
-      - name: Upload coverage data
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-coverage
-          path: coverage
+  #     - name: Upload coverage data
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: cypress-coverage
+  #         path: coverage
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+  #     - name: Upload coverage to Codecov
+  #       uses: codecov/codecov-action@v1
   typechecking:
     runs-on: ubuntu-latest
     env:
