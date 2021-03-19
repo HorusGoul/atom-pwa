@@ -9,11 +9,9 @@ describe("About", () => {
       );
       expect(window.localStorage.getItem("atom:settings")).contains("dark");
     });
-  });
-
-  it("verifies the about setting change language default is English", () => {
     cy.findByRole("button", { name: /change language/i }).should("be.visible");
   });
+
   it("verifies the about setting change language to Deutsch", () => {
     cy.findByRole("button", { name: /change language/i }).click();
     cy.findByRole("button", {
