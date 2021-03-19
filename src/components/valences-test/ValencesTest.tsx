@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { IValencesTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
+import { ElementsSettings } from "@/hooks/useAppSettings";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
@@ -49,7 +49,7 @@ function ValencesTest() {
   const { getElement } = useElements();
   const { settings, updateSettings } = useValencesTestSettings();
 
-  function createTestQuestions(settings: IValencesTestSettings) {
+  function createTestQuestions(settings: ElementsSettings) {
     if (!settings.elements) {
       return [];
     }

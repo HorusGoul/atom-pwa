@@ -1,6 +1,5 @@
 import * as React from "react";
-import { IValencesTestSettings } from "@/AppSettings";
-import { useAppSettings } from "@/hooks/useAppSettings";
+import { useAppSettings, ElementsSettings } from "@/hooks/useAppSettings";
 import { useElements } from "@/hooks/useElements";
 
 export function useValencesTestSettings() {
@@ -25,7 +24,7 @@ export function useValencesTestSettings() {
   const storedSettings = settings.tests.valences;
 
   const updateTestSettings = React.useCallback(
-    (updateFunction: (settings: IValencesTestSettings) => void) => {
+    (updateFunction: (settings: ElementsSettings) => void) => {
       updateSettings((settings) => {
         updateFunction(settings.tests.valences);
       });

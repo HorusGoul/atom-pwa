@@ -1,9 +1,32 @@
 import { useCallback } from "react";
 import { produce } from "immer";
 import { useLocalStorage } from "./useLocalStorage";
-import { Settings } from "../AppSettings";
 import { getBrowserLocale } from "./useLocale";
 import { DEFAULT_THEME } from "./useTheme";
+
+export interface ElementSettings {
+  atomic: number;
+  enabled: boolean;
+  stats: {
+    times: number;
+    right: number;
+    wrong: number;
+  };
+}
+
+export interface ElementsSettings {
+  elements: ElementSettings[] | null;
+}
+
+export interface Settings {
+  [key: string]: unknown;
+  theme: string;
+  locale: string;
+  tests: {
+    valences: ElementsSettings;
+    periodicTable: ElementsSettings;
+  };
+}
 
 export const STORAGE_KEY = "atom:settings";
 

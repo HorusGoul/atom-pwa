@@ -12,9 +12,6 @@ import "./main.scss";
 
 import "hammerjs";
 
-import AppSettings from "./AppSettings";
-AppSettings.loadSettings();
-
 import { initSentry } from "@/services/sentry";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
