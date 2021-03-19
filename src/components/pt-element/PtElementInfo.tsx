@@ -2,7 +2,7 @@ import * as React from "react";
 import classNames from "classnames";
 
 import { Element } from "@/Element";
-import { getElementLocales } from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 import Button from "../shared/button/Button";
 import "./PtElement.scss";
 
@@ -12,6 +12,7 @@ export interface PtElementInfoProps {
 }
 
 function PtElementInfo({ element, onClick }: PtElementInfoProps) {
+  const { getElementLocales } = useElements();
   const elementLocales = getElementLocales(element);
 
   const onElementButtonClick = () => {

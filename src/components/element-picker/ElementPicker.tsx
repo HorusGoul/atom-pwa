@@ -3,8 +3,8 @@ import * as React from "react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { VirtualScroller, useVirtualScroller } from "react-hyper-scroller";
 import { Element } from "@/Element";
-import ElementManager, { getElementLocales } from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useElements } from "@/hooks/useElements";
+import { useLocale } from "@/hooks/useLocale";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./ElementPicker.scss";
@@ -14,6 +14,8 @@ interface ElementPickerProps {
 }
 
 function ElementPicker({ onElement }: ElementPickerProps) {
+  const { i18n } = useLocale();
+  const { elements: allElements, getElementLocales } = useElements();
   const [elements, setElements] = useState<Element[]>([]);
   const elementListRef = useRef<HTMLDivElement>(null);
 
@@ -51,43 +53,44 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         </div>
       );
     },
-    [elements, onElement]
+    [elements, onElement, getElementLocales]
   );
 
-  const searchElements = useCallback((searchValue?: string) => {
-    const elements = ElementManager.getElements();
-
-    if (!searchValue) {
-      return setElements(elements);
-    }
-
-    const newElements = elements.filter((element) => {
-      const elementLocales = getElementLocales(element);
-      const symbol = element.symbol.toLowerCase();
-      const name = elementLocales.name.toLowerCase();
-      const group = elementLocales.group.toLowerCase();
-
-      if (symbol === searchValue) {
-        return true;
+  const searchElements = useCallback(
+    (searchValue?: string) => {
+      if (!searchValue) {
+        return setElements(allElements);
       }
 
-      if (name.includes(searchValue)) {
-        return true;
-      }
+      const newElements = allElements.filter((element) => {
+        const elementLocales = getElementLocales(element);
+        const symbol = element.symbol.toLowerCase();
+        const name = elementLocales.name.toLowerCase();
+        const group = elementLocales.group.toLowerCase();
 
-      if (group.includes(searchValue)) {
-        return true;
-      }
+        if (symbol === searchValue) {
+          return true;
+        }
 
-      if (parseInt(searchValue, 10) === element.atomic) {
-        return true;
-      }
+        if (name.includes(searchValue)) {
+          return true;
+        }
 
-      return false;
-    });
+        if (group.includes(searchValue)) {
+          return true;
+        }
 
-    setElements(newElements);
-  }, []);
+        if (parseInt(searchValue, 10) === element.atomic) {
+          return true;
+        }
+
+        return false;
+      });
+
+      setElements(newElements);
+    },
+    [allElements, getElementLocales]
+  );
 
   useEffect(() => {
     searchElements();

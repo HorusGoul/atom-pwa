@@ -1,12 +1,9 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, {
-  ITestElementSettings,
-  IValencesTestSettings,
-} from "@/AppSettings";
 import { Element } from "@/Element";
-import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { ElementsSettings } from "@/hooks/useSettings";
+import { useElements } from "@/hooks/useElements";
+import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
@@ -15,7 +12,7 @@ import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
-import { getValencesTestSettings } from "./settings/ValencesTestSettings";
+import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
 
 interface ValencesTestQuestion extends Question {
@@ -47,18 +44,24 @@ function createQuestion(element: Element): ValencesTestQuestion {
   };
 }
 
-function createTestQuestions(settings: IValencesTestSettings) {
-  if (!settings.elements) return [];
-  const questions = settings.elements
-    .filter((element) => element.enabled)
-    .map((element) => ElementManager.getElement(element.atomic))
-    .map((element) => createQuestion(element as Element));
-
-  return shuffle(questions);
-}
-
 function ValencesTest() {
-  const settings = React.useMemo(() => getValencesTestSettings(), []);
+  const { i18n } = useLocale();
+  const { getElement } = useElements();
+  const { settings, updateSettings } = useValencesTestSettings();
+
+  function createTestQuestions(settings: ElementsSettings) {
+    if (!settings.elements) {
+      return [];
+    }
+
+    const questions = settings.elements
+      .filter((element) => element.enabled)
+      .map((element) => getElement(element.atomic))
+      .map((element) => createQuestion(element as Element));
+
+    return shuffle(questions);
+  }
+
   const [questions, setQuestions] = React.useState<ValencesTestQuestion[]>(() =>
     createTestQuestions(settings)
   );
@@ -73,21 +76,30 @@ function ValencesTest() {
 
   function onQuestionAnswer(question: ValencesTestQuestion, answer: Answer) {
     if (!settings.elements) return;
-    const elementSetting = settings.elements.find(
-      (element: ITestElementSettings) => element.atomic === question.data.atomic
-    );
-    if (!elementSetting) return;
-
     const alreadyAnswered = isAlreadyAnswered(question);
 
     if (!alreadyAnswered) {
-      elementSetting.stats.times++;
+      updateSettings((settings) => {
+        const elementSetting = settings.elements?.find(
+          (element) => element.atomic === question.data.atomic
+        );
+
+        if (!elementSetting) {
+          return;
+        }
+
+        elementSetting.stats.times++;
+
+        if (answer.right) {
+          elementSetting.stats.right++;
+        } else {
+          elementSetting.stats.wrong++;
+        }
+      });
 
       if (answer.right) {
-        elementSetting.stats.right++;
         addRightAnsweredQuestion(question);
       } else {
-        elementSetting.stats.wrong++;
         addWrongAnsweredQuestion(question);
       }
     }
@@ -95,8 +107,6 @@ function ValencesTest() {
     if (answer.right) {
       removeQuestion(question);
     }
-
-    AppSettings.save();
   }
 
   const history = useHistory();

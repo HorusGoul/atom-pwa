@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import * as React from "react";
 import { Element } from "@/Element";
-import { getElementLocales } from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useElements } from "@/hooks/useElements";
+import { useLocale } from "@/hooks/useLocale";
 import "./ElementInfo.scss";
 
 interface ElementInfoDataEntryProps {
@@ -37,6 +37,9 @@ interface ElementInfoProps {
 }
 
 function ElementInfo({ element }: ElementInfoProps) {
+  const { i18n } = useLocale();
+  const { getElementLocales } = useElements();
+
   if (!element) {
     return null;
   }

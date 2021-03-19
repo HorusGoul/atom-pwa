@@ -2,17 +2,12 @@ import * as React from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { STORAGE_KEY } from "@/hooks/useSettings";
 import ThemeSelector from "./ThemeSelector";
 
-import AppSettings from "@/AppSettings";
-import Theme from "@/Theme";
-
-jest.mock("../../AppSettings", () => ({
-  settings: {
-    theme: "dark",
-  },
-  save: jest.fn(),
-}));
+afterEach(() => {
+  window.localStorage.clear();
+});
 
 test("should display a button for opening modal", () => {
   render(<ThemeSelector />);
@@ -45,12 +40,11 @@ test("should change theme", () => {
   render(<ThemeSelector />);
 
   userEvent.click(screen.getByRole("button", { name: /change theme/i }));
-
-  Theme.setTheme = jest.fn();
   userEvent.click(screen.getByRole("button", { name: /light/i }));
 
-  expect(AppSettings.settings.theme).toEqual("light");
-  expect(AppSettings.save).toHaveBeenCalled();
+  const settings = JSON.parse(
+    window.localStorage.getItem(STORAGE_KEY) as string
+  );
 
-  expect(Theme.setTheme).toHaveBeenCalled();
+  expect(settings.theme).toBe("light");
 });

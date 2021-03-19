@@ -1,109 +1,46 @@
 import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
-import AppSettings, {
-  ITestElementSettings,
-  IValencesTestSettings,
-} from "@/AppSettings";
-import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
+import { useValencesTestSettings } from "../hooks/useValencesTestSettings";
 import "./ValencesTestSettings.scss";
-
-export function getValencesTestSettings() {
-  const settings = AppSettings.settings.tests.valences;
-
-  if (!settings.elements) {
-    setDefaultValencesTestSettings();
-  }
-
-  return settings;
-}
-
-export function setDefaultValencesTestSettings() {
-  const settings = AppSettings.settings.tests.valences;
-  const elements = ElementManager.getElements();
-
-  settings.elements = elements
-    .filter((element) => element.valency)
-    .map((element) => ({
-      atomic: element.atomic,
-      enabled: element.testState.valencesTest,
-      stats: {
-        right: 0,
-        times: 0,
-        wrong: 0,
-      },
-    }));
-
-  AppSettings.save();
-}
-
-interface ValencesTestSettingsState {
-  elementStates: ITestElementSettings[];
-  updateListKey: number;
-}
-
-let settings: IValencesTestSettings;
 
 function ValencesTestSettings() {
   const history = useHistory();
+  const { i18n } = useLocale();
+  const { settings, updateSettings, resetSettings } = useValencesTestSettings();
 
-  if (!settings) {
-    settings = getValencesTestSettings();
-  }
-
-  const [state, setState] = React.useState<ValencesTestSettingsState>(() => ({
-    elementStates: [],
-    updateListKey: 0,
-  }));
-
-  const setElementStates = React.useCallback(() => {
-    const elements = settings.elements ?? [];
-
-    setState((current) => ({
-      elementStates: [...elements],
-      updateListKey: current.updateListKey + 1,
-    }));
-  }, []);
-
-  React.useEffect(() => {
-    setElementStates();
-  }, [setElementStates]);
+  const elementStates = React.useMemo(() => settings.elements ?? [], [
+    settings,
+  ]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
-    if (settings.elements === null) return;
-    const updateSettings = settings.elements.map((element) => ({
-      ...element,
-      enabled: true,
-    }));
-
-    Object.assign(settings.elements, updateSettings);
-
-    AppSettings.save();
-    setElementStates();
-  }, [setElementStates]);
+    updateSettings((settings) => {
+      settings.elements =
+        settings.elements?.map((element) => ({
+          ...element,
+          enabled: true,
+        })) ?? null;
+    });
+  }, [updateSettings]);
 
   const onDeselectAllButtonClick = React.useCallback(() => {
-    if (settings.elements === null) return;
-    const updateSettings = settings.elements.map((element) => ({
-      ...element,
-      enabled: false,
-    }));
-
-    Object.assign(settings.elements, updateSettings);
-
-    AppSettings.save();
-    setElementStates();
-  }, [setElementStates]);
+    updateSettings((settings) => {
+      settings.elements =
+        settings.elements?.map((element) => ({
+          ...element,
+          enabled: false,
+        })) ?? null;
+    });
+  }, [updateSettings]);
 
   const onRestoreDefaultsButtonClick = React.useCallback(() => {
-    setDefaultValencesTestSettings();
-    setElementStates();
-  }, [setElementStates]);
+    resetSettings();
+  }, [resetSettings]);
 
   const onNavbarButtonClick = React.useCallback(() => {
     history.push(TEST_SELECTION);
@@ -111,23 +48,21 @@ function ValencesTestSettings() {
 
   const onTestElementSettingsClick = React.useCallback(
     (atomic: number) => {
-      if (settings.elements === null) return;
-      const foundElement = settings.elements.find(
-        (elementSettings) => elementSettings.atomic === atomic
-      ) as ITestElementSettings;
+      updateSettings((settings) => {
+        const element = settings.elements?.find(
+          (elementSettings) => elementSettings.atomic === atomic
+        );
 
-      foundElement.enabled = !foundElement.enabled;
-
-      AppSettings.save();
-
-      setElementStates();
+        if (element) {
+          element.enabled = !element.enabled;
+        }
+      });
     },
-    [setElementStates]
+    [updateSettings]
   );
 
   const rowRenderer = React.useCallback(
     (index: number, ref: React.RefObject<HTMLDivElement>) => {
-      const { elementStates } = state;
       const elementState = elementStates[index];
 
       return (
@@ -139,19 +74,19 @@ function ValencesTestSettings() {
         </div>
       );
     },
-    [state, onTestElementSettingsClick]
+    [elementStates, onTestElementSettingsClick]
   );
 
   const scroller = useVirtualScroller({
     estimatedItemHeight: 64,
-    itemCount: state.elementStates.length,
+    itemCount: elementStates.length,
   });
 
   const { updateProjection } = scroller;
 
   React.useEffect(() => {
     updateProjection();
-  }, [state, updateProjection]);
+  }, [elementStates, updateProjection]);
 
   return (
     <div className="valences-test-settings">

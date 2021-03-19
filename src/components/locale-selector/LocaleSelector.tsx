@@ -1,19 +1,20 @@
 import * as React from "react";
-import AppSettings from "@/AppSettings";
-import Locale, { i18n, SUPPORTED_LOCALES } from "@/Locale";
+import { useLocale, SUPPORTED_LOCALES } from "@/hooks/useLocale";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
   SelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./LocaleSelector.scss";
 
-const options = SUPPORTED_LOCALES.map((locale) => ({
-  key: locale,
-  text: i18n(locale),
-}));
-
 function LocaleSelector() {
   const [selectorOpen, setSelectorOpen] = React.useState(false);
+
+  const { i18n, setLang } = useLocale();
+
+  const options = SUPPORTED_LOCALES.map((locale) => ({
+    key: locale,
+    text: i18n(locale),
+  }));
 
   function openSelector() {
     setSelectorOpen(true);
@@ -24,12 +25,7 @@ function LocaleSelector() {
   }
 
   function onOptionSelected(option: SelectorModalOption) {
-    const lang = option.key;
-
-    AppSettings.settings.locale = lang;
-    AppSettings.save();
-    Locale.setLocale(lang);
-
+    setLang(option.key);
     closeSelector();
   }
 

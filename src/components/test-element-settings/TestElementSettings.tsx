@@ -1,24 +1,23 @@
 import classNames from "classnames";
 import * as React from "react";
-import { ITestElementSettings } from "@/AppSettings";
-import ElementManager, { getElementLocales } from "@/ElementManager";
+import { ElementSettings } from "@/hooks/useSettings";
+import { useElements } from "@/hooks/useElements";
 import Button from "../shared/button/Button";
 import Checkbox from "../shared/checkbox/Checkbox";
 import "./TestElementSettings.scss";
 
 interface TestElementSettingsProps {
-  setting: ITestElementSettings;
+  setting: ElementSettings;
   onClick?: (atomic: number) => void;
 }
 
 function TestElementSettings({ setting, onClick }: TestElementSettingsProps) {
-  const element = ElementManager.getElement(setting.atomic);
+  const { getLocalizedElement } = useElements();
+  const element = getLocalizedElement(setting.atomic);
 
   if (!element) {
     return null;
   }
-
-  const elementLocales = getElementLocales(element);
 
   return (
     <Button
@@ -37,10 +36,10 @@ function TestElementSettings({ setting, onClick }: TestElementSettingsProps) {
 
       <div className="element-selector__desc">
         <span className="element-selector__name">
-          {element.atomic}. {elementLocales.name}
+          {element.atomic}. {element.name}
         </span>
 
-        <span className="element-selector__group">{elementLocales.group}</span>
+        <span className="element-selector__group">{element.group}</span>
       </div>
 
       <Checkbox

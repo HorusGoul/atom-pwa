@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from "classnames";
 import Button from "../shared/button/Button";
-import { i18n } from "@/Locale";
-import ElementManager, { getElementLocales } from "@/ElementManager";
+import { useLocale } from "@/hooks/useLocale";
+import { useElements } from "@/hooks/useElements";
 
 interface CalculatorElementProps {
   atomic: number;
@@ -15,13 +15,14 @@ function CalculatorElement({
   quantity,
   selectElement,
 }: CalculatorElementProps) {
-  const element = ElementManager.getElement(atomic);
+  const { i18n } = useLocale();
+  const { getLocalizedElement } = useElements();
+
+  const element = getLocalizedElement(atomic);
 
   if (!element) {
     return null;
   }
-
-  const elementLocales = getElementLocales(element);
 
   return (
     <Button
@@ -39,9 +40,7 @@ function CalculatorElement({
       </div>
 
       <div className="mass-calculator__element__desc">
-        <span className="mass-calculator__element__name">
-          {elementLocales.name}
-        </span>
+        <span className="mass-calculator__element__name">{element.name}</span>
 
         <span className="mass-calculator__element__group">
           {element.atomicMass} {i18n("g_mol")}

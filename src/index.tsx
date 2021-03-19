@@ -12,18 +12,6 @@ import "./main.scss";
 
 import "hammerjs";
 
-import AppSettings from "./AppSettings";
-AppSettings.loadSettings();
-
-import Locale from "./Locale";
-Locale.setLocale(AppSettings.settings.locale);
-
-import Theme from "./Theme";
-Theme.setTheme(AppSettings.settings.theme);
-
-import ElementManager from "./ElementManager";
-ElementManager.loadElements();
-
 import { initSentry } from "@/services/sentry";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";

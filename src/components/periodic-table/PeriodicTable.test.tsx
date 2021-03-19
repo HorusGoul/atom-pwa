@@ -6,10 +6,13 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import PtElementInfo from "../pt-element/PtElementInfo";
-import ElementManager from "@/ElementManager";
+import { Element } from "@/Element";
+
+const elementsMap = import.meta.globEager("../../data/elements/*.json");
+const elements = Object.values(elementsMap) as Element[];
 
 function elementRenderer(atomic: number) {
-  const element = ElementManager.getElement(atomic);
+  const element = elements.find((element) => element.atomic === atomic);
   if (!element) return null;
   return <PtElementInfo element={element} />;
 }
@@ -26,8 +29,6 @@ describe("should render the periodic table", () => {
       () => screen.queryAllByLabelText(/loading/i),
       { timeout: 4000 }
     );
-
-    const elements = ElementManager.getElements();
 
     elements.forEach((element) => {
       expect(screen.getByText(element.name)).toBeInTheDocument();

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { i18n } from "@/Locale";
+import { useLocale } from "@/hooks/useLocale";
 import { MAIN_MENU } from "@/routes";
 import IconButton from "../shared/icon-button/IconButton";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
@@ -29,6 +29,7 @@ function MassCalculator() {
   } = useMassCalculator();
   const { addModal, editModal } = useModal();
   const history = useHistory();
+  const { i18n } = useLocale();
 
   const onNavbarBackButtonClick = React.useCallback(() => {
     history.push(MAIN_MENU);

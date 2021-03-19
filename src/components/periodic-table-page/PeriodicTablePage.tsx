@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { Element } from "@/Element";
-import ElementManager from "@/ElementManager";
-import { i18n } from "@/Locale";
+import { useElements } from "@/hooks/useElements";
+import { useLocale } from "@/hooks/useLocale";
 import { MAIN_MENU } from "@/routes";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
@@ -18,10 +18,12 @@ interface ElementInfoState {
 
 function PeriodicTablePage() {
   const history = useHistory();
+  const { i18n } = useLocale();
+  const { getElement } = useElements();
 
   const [elementInfo, setElementInfo] = React.useState<ElementInfoState>(
     () => ({
-      element: ElementManager.getElement(1) as Element,
+      element: getElement(1) as Element,
       open: false,
     })
   );
@@ -45,9 +47,13 @@ function PeriodicTablePage() {
   };
 
   const elementRenderer = (atomic: number) => {
+    const element = getElement(atomic);
+    if (!element) {
+      return null;
+    }
     return (
       <PtElementInfo
-        element={ElementManager.getElement(atomic) as Element}
+        element={element}
         onClick={(element: Element) => {
           openElementInfo(element);
         }}
