@@ -1,6 +1,6 @@
 import { Settings } from "./AppSettings";
 import { getBrowserLocale } from "./hooks/useLocale";
-import { DEFAULT_THEME } from "./Theme";
+import { DEFAULT_THEME } from "./hooks/useTheme";
 
 const defaultSettings: Settings = {
   locale: getBrowserLocale(),

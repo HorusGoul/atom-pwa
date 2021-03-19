@@ -15,9 +15,6 @@ import "hammerjs";
 import AppSettings from "./AppSettings";
 AppSettings.loadSettings();
 
-import Theme from "./Theme";
-Theme.setTheme(AppSettings.settings.theme);
-
 import { initSentry } from "@/services/sentry";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
