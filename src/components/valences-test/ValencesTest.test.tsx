@@ -3,27 +3,9 @@ import { Router } from "react-router-dom";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
-
 import { TEST_SELECTION } from "@/routes";
-import ElementManager from "@/ElementManager";
+import { STORAGE_KEY, defaultSettings } from "@/hooks/useAppSettings";
 import ValencesTest from "./ValencesTest";
-import * as Settings from "./settings/ValencesTestSettings";
-
-const mockSettings = {
-  elements: [
-    {
-      atomic: 1,
-      enabled: true,
-      stats: {
-        right: 0,
-        times: 0,
-        wrong: 0,
-      },
-    },
-  ],
-};
-
-const NOT_FOUND = "the button could not be found";
 
 const setup = () => {
   const history = createMemoryHistory();
@@ -37,8 +19,32 @@ const setup = () => {
   };
 };
 
+beforeEach(() => {
+  window.localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      ...defaultSettings,
+      tests: {
+        valences: {
+          elements: [
+            {
+              atomic: 1,
+              enabled: true,
+              stats: {
+                right: 0,
+                times: 0,
+                wrong: 0,
+              },
+            },
+          ],
+        },
+      },
+    })
+  );
+});
+
 afterEach(() => {
-  jest.restoreAllMocks();
+  window.localStorage.clear();
 });
 
 test("should render a question and four answers", () => {
@@ -54,58 +60,36 @@ test("should render a question and four answers", () => {
 test("should display a new question when clicking on the correct answer", () => {
   const { container } = setup();
 
-  // Getting the randomly displayed element
-  const elementTag = container.querySelector(".element");
-  const currentElementSymbol = elementTag?.textContent ?? "";
-  const element = ElementManager.getElements().find(
-    (element) => element.symbol === currentElementSymbol
-  );
-
-  const rightAnswer = screen.getByRole("button", {
-    name: element?.valency ?? NOT_FOUND,
-  });
+  const rightAnswer = screen.getByRole("button", { name: /\+1 \/ \-1/i });
 
   userEvent.click(rightAnswer);
-  expect(elementTag).not.toHaveTextContent(currentElementSymbol);
+
+  expect(container.querySelector(".element")).not.toBeInTheDocument();
 });
 
 test("should keep the same question when clicking on a wrong answer", async () => {
-  jest
-    .spyOn(Settings, "getValencesTestSettings")
-    .mockReturnValueOnce(mockSettings);
   const { container } = setup();
-
-  // Getting the randomly displayed element
-  const elementTag = container.querySelector(".element");
-  const currentElementSymbol = elementTag?.textContent ?? "";
-  const element = ElementManager.getElements().find(
-    (element) => element.symbol === currentElementSymbol
-  );
 
   // Getting a wrong answer
   const questionCard = container.querySelector(".question-card") as HTMLElement;
-  const wrongAnswer = within(questionCard)
-    .getAllByRole("button")
-    .filter((button) => button.textContent !== element?.valency)[0];
+  const wrongAnswer = within(questionCard).getAllByRole("button", {
+    name: /^(?!\+1 \/ \-1).*$/i,
+  })[0];
 
   userEvent.click(wrongAnswer);
-  expect(elementTag).toHaveTextContent(currentElementSymbol);
+  expect(container.querySelector(".element")).toBeInTheDocument();
 
   // Getting results
-  userEvent.click(
-    screen.getByRole("button", { name: element?.valency ?? NOT_FOUND })
-  );
+  userEvent.click(screen.getByRole("button", { name: /\+1 \/ \-1/i }));
   expect(
     container.querySelector(".test-results__data__right")
   ).toHaveTextContent("0");
 
-  // Reseting test
+  // Resetting test
   userEvent.click(
     screen.getByRole("button", { name: /retake incorrect answers/i })
   );
-  expect(
-    await screen.findByText(element?.valency ?? NOT_FOUND)
-  ).toBeInTheDocument();
+  expect(await screen.findByText(/\+1 \/ \-1/i)).toBeInTheDocument();
 });
 
 test("should go back to tests", async () => {
@@ -119,19 +103,9 @@ test("should go back to tests", async () => {
 });
 
 test("should display results", () => {
-  jest
-    .spyOn(Settings, "getValencesTestSettings")
-    .mockReturnValueOnce(mockSettings);
   const { container } = setup();
-  const elementTag = container.querySelector(".element");
-  const currentElementSymbol = elementTag?.textContent ?? "";
-  const element = ElementManager.getElements().find(
-    (element) => element.symbol === currentElementSymbol
-  );
 
-  const rightAnswer = screen.getByRole("button", {
-    name: element?.valency ?? NOT_FOUND,
-  });
+  const rightAnswer = screen.getByRole("button", { name: /\+1 \/ \-1/i });
   userEvent.click(rightAnswer);
 
   // Getting answers results

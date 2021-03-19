@@ -1,9 +1,6 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, {
-  ITestElementSettings,
-  IValencesTestSettings,
-} from "@/AppSettings";
+import { IValencesTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
@@ -15,7 +12,7 @@ import QuestionsTest from "../questions-test/QuestionsTest";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
-import { getValencesTestSettings } from "./settings/ValencesTestSettings";
+import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
 
 interface ValencesTestQuestion extends Question {
@@ -50,10 +47,13 @@ function createQuestion(element: Element): ValencesTestQuestion {
 function ValencesTest() {
   const { i18n } = useLocale();
   const { getElement } = useElements();
-  const settings = React.useMemo(() => getValencesTestSettings(), []);
+  const { settings, updateSettings } = useValencesTestSettings();
 
   function createTestQuestions(settings: IValencesTestSettings) {
-    if (!settings.elements) return [];
+    if (!settings.elements) {
+      return [];
+    }
+
     const questions = settings.elements
       .filter((element) => element.enabled)
       .map((element) => getElement(element.atomic))
@@ -76,21 +76,30 @@ function ValencesTest() {
 
   function onQuestionAnswer(question: ValencesTestQuestion, answer: Answer) {
     if (!settings.elements) return;
-    const elementSetting = settings.elements.find(
-      (element: ITestElementSettings) => element.atomic === question.data.atomic
-    );
-    if (!elementSetting) return;
-
     const alreadyAnswered = isAlreadyAnswered(question);
 
     if (!alreadyAnswered) {
-      elementSetting.stats.times++;
+      updateSettings((settings) => {
+        const elementSetting = settings.elements?.find(
+          (element) => element.atomic === question.data.atomic
+        );
+
+        if (!elementSetting) {
+          return;
+        }
+
+        elementSetting.stats.times++;
+
+        if (answer.right) {
+          elementSetting.stats.right++;
+        } else {
+          elementSetting.stats.wrong++;
+        }
+      });
 
       if (answer.right) {
-        elementSetting.stats.right++;
         addRightAnsweredQuestion(question);
       } else {
-        elementSetting.stats.wrong++;
         addWrongAnsweredQuestion(question);
       }
     }
@@ -98,8 +107,6 @@ function ValencesTest() {
     if (answer.right) {
       removeQuestion(question);
     }
-
-    AppSettings.save();
   }
 
   const history = useHistory();
