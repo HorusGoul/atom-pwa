@@ -17,10 +17,6 @@ import { TEST_SELECTION } from "@/routes";
 jest.setTimeout(20000);
 // Mocking shuffle so the order of the elements is always the same
 jest.mock("../../utils/shuffle", () => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  shuffle: (a: any) => a,
-}));
-jest.mock("../../utils/shuffle", () => ({
   shuffle: (a: unknown) => a,
 }));
 
