@@ -10,9 +10,6 @@ describe("About", () => {
     });
   });
 
-  afterEach(() => {
-    cy.clearLocalStorage();
-  });
   it("verifies the about setting change language default is English", () => {
     cy.findByRole("button", { name: /change language/i }).should("be.visible");
   });
