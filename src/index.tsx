@@ -15,9 +15,6 @@ import "hammerjs";
 import AppSettings from "./AppSettings";
 AppSettings.loadSettings();
 
-import Locale from "./Locale";
-Locale.setLocale(AppSettings.settings.locale);
-
 import Theme from "./Theme";
 Theme.setTheme(AppSettings.settings.theme);
 

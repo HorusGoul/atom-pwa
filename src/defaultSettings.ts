@@ -1,9 +1,9 @@
 import { Settings } from "./AppSettings";
-import Locale from "./Locale";
+import { getBrowserLocale } from "./hooks/useLocale";
 import { DEFAULT_THEME } from "./Theme";
 
 const defaultSettings: Settings = {
-  locale: Locale.getBrowserLocale(),
+  locale: getBrowserLocale(),
   tests: {
     periodicTable: {
       elements: null,
