@@ -1,9 +1,9 @@
 import * as React from "react";
-import { useAppSettings, ElementsSettings } from "@/hooks/useAppSettings";
+import { useSettings, ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 
 export function useValencesTestSettings() {
-  const { settings, updateSettings } = useAppSettings();
+  const { settings, updateSettings } = useSettings();
   const { elements } = useElements();
 
   const defaultSetting = React.useMemo(

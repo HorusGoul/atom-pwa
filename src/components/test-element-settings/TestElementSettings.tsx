@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { ElementSettings } from "@/hooks/useAppSettings";
+import { ElementSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 import Button from "../shared/button/Button";
 import Checkbox from "../shared/checkbox/Checkbox";

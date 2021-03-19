@@ -43,7 +43,7 @@ export const defaultSettings: Settings = {
   theme: DEFAULT_THEME,
 };
 
-export function useAppSettings() {
+export function useSettings() {
   const [settings, setSettings] = useLocalStorage(STORAGE_KEY, defaultSettings);
 
   const updateSettings = useCallback(

@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import invariant from "invariant";
 import NativeBridge from "../NativeBridge";
 import localePercentages from "../locales/percentages.json";
-import { useAppSettings } from "./useAppSettings";
+import { useSettings } from "./useSettings";
 
 const DEFAULT_LOCALE = "en";
 
@@ -23,7 +23,7 @@ export function getBrowserLocale() {
 }
 
 export function useLocale() {
-  const { settings, updateSettings } = useAppSettings();
+  const { settings, updateSettings } = useSettings();
   const lang = settings.locale;
   const locale = useMemo(() => {
     let resolvedLang = lang.replace("-", "_");

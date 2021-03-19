@@ -9,7 +9,7 @@ import {
 import userEvent from "@testing-library/user-event";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import { STORAGE_KEY, defaultSettings } from "@/hooks/useAppSettings";
+import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import PeriodicTableTest from "./PeriodicTableTest";
 
 // Mocking shuffle so the order of the elements is always the same

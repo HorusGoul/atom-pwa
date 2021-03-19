@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { Element } from "@/Element";
-import { ElementsSettings } from "@/hooks/useAppSettings";
+import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";

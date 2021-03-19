@@ -4,7 +4,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import { TEST_SELECTION } from "@/routes";
-import { STORAGE_KEY, defaultSettings } from "@/hooks/useAppSettings";
+import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import ValencesTest from "./ValencesTest";
 
 const setup = () => {
