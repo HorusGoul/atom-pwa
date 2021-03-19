@@ -79,8 +79,6 @@ jobs:
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
-          record: true
-          group: merge
           tag: ${{ github.event_name }}
           start: npm run dev
           browser: chrome
