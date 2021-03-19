@@ -1,55 +1,13 @@
 import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
-import { IPeriodicTableTestSettings } from "@/AppSettings";
-import { useAppSettings } from "@/hooks/useAppSettings";
-import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
+import { usePeriodicTableTestSettings } from "../hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTestSettings.scss";
-
-export function usePeriodicTableTestSettings() {
-  const { settings, updateSettings } = useAppSettings();
-  const { elements } = useElements();
-
-  const updatePeriodicTableTestSettings = React.useCallback(
-    (updateFunction: (settings: IPeriodicTableTestSettings) => void) => {
-      updateSettings((settings) => {
-        updateFunction(settings.tests.periodicTable);
-      });
-    },
-    [updateSettings]
-  );
-
-  const setDefaultPeriodicTableTestSettings = React.useCallback(() => {
-    updatePeriodicTableTestSettings((settings) => {
-      settings.elements = elements.map((element) => ({
-        atomic: element.atomic,
-        enabled: element.testState.ptTest,
-        stats: {
-          right: 0,
-          times: 0,
-          wrong: 0,
-        },
-      }));
-    });
-  }, [elements, updatePeriodicTableTestSettings]);
-
-  React.useEffect(() => {
-    if (!settings.tests.periodicTable.elements) {
-      setDefaultPeriodicTableTestSettings();
-    }
-  }, [settings, setDefaultPeriodicTableTestSettings]);
-
-  return {
-    settings: settings.tests.periodicTable,
-    updateSettings: updatePeriodicTableTestSettings,
-    setDefaultSettings: setDefaultPeriodicTableTestSettings,
-  };
-}
 
 function PeriodicTableTestSettings() {
   const history = useHistory();
@@ -57,7 +15,7 @@ function PeriodicTableTestSettings() {
   const {
     settings,
     updateSettings,
-    setDefaultSettings,
+    resetSettings,
   } = usePeriodicTableTestSettings();
 
   const elementStates = React.useMemo(() => settings.elements ?? [], [
@@ -85,8 +43,8 @@ function PeriodicTableTestSettings() {
   }, [updateSettings]);
 
   const onRestoreDefaultsButtonClick = React.useCallback(() => {
-    setDefaultSettings();
-  }, [setDefaultSettings]);
+    resetSettings();
+  }, [resetSettings]);
 
   const onNavbarButtonClick = React.useCallback(() => {
     history.push(TEST_SELECTION);

@@ -7,7 +7,7 @@ import { DEFAULT_THEME } from "./useTheme";
 
 export const STORAGE_KEY = "atom:settings";
 
-const defaultSettings: Settings = {
+export const defaultSettings: Settings = {
   locale: getBrowserLocale(),
   tests: {
     periodicTable: {

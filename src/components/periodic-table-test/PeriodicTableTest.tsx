@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
+import { IPeriodicTableTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
-import ElementManager from "@/ElementManager";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
@@ -15,37 +14,11 @@ import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import TestResults from "../test-results/TestResults";
+import { usePeriodicTableTestSettings } from "./hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTest.scss";
 
 interface PeriodicTableTestQuestion {
   element: Element;
-}
-
-function getPeriodicTableTestSettings() {
-  const settings = AppSettings.settings.tests.periodicTable;
-
-  if (!settings.elements) {
-    setDefaultPeriodicTableTestSettings();
-  }
-
-  return settings;
-}
-
-function setDefaultPeriodicTableTestSettings() {
-  const settings = AppSettings.settings.tests.periodicTable;
-  const elements = ElementManager.getElements();
-
-  settings.elements = elements.map((element) => ({
-    atomic: element.atomic,
-    enabled: element.testState.ptTest,
-    stats: {
-      right: 0,
-      times: 0,
-      wrong: 0,
-    },
-  }));
-
-  AppSettings.save();
 }
 
 function PeriodicTableTest() {
@@ -53,17 +26,23 @@ function PeriodicTableTest() {
   const { i18n } = useLocale();
   const { getElement } = useElements();
 
-  const settings = React.useMemo(() => getPeriodicTableTestSettings(), []);
+  const { settings, updateSettings } = usePeriodicTableTestSettings();
 
-  function createTestQuestions(settings: IPeriodicTableTestSettings) {
-    if (!settings.elements) return [];
-    const questions = settings.elements
-      .filter((element) => element.enabled)
-      .map((elementSetting) => getElement(elementSetting.atomic))
-      .map((element) => ({ element: element as Element }));
+  const createTestQuestions = React.useCallback(
+    (settings: IPeriodicTableTestSettings) => {
+      if (!settings.elements) {
+        return [];
+      }
 
-    return shuffle(questions);
-  }
+      const questions = settings.elements
+        .filter((element) => element.enabled)
+        .map((elementSetting) => getElement(elementSetting.atomic))
+        .map((element) => ({ element: element as Element }));
+
+      return shuffle(questions);
+    },
+    [getElement]
+  );
 
   const [questionModalOpen, setQuestionModalOpen] = React.useState(true);
   const [questions, setQuestions] = React.useState<PeriodicTableTestQuestion[]>(
@@ -109,23 +88,31 @@ function PeriodicTableTest() {
       currentQuestion as PeriodicTableTestQuestion
     );
     const rightAnswer = isAnswerRight(element);
-    if (!settings.elements) return;
+
     if (!alreadyAnswered) {
-      const elementSetting = settings.elements?.find(
-        (setting) => setting.atomic === currentQuestion?.element.atomic
-      );
-      if (!elementSetting) return;
-      elementSetting.stats.times++;
+      updateSettings((settings) => {
+        const elementSetting = settings.elements?.find(
+          (setting) => setting.atomic === currentQuestion?.element.atomic
+        );
+
+        if (!elementSetting) {
+          return;
+        }
+
+        elementSetting.stats.times++;
+
+        if (rightAnswer) {
+          elementSetting.stats.right++;
+        } else {
+          elementSetting.stats.wrong++;
+        }
+      });
 
       if (rightAnswer) {
-        elementSetting.stats.right++;
         addRightAnsweredQuestion(currentQuestion as PeriodicTableTestQuestion);
       } else {
-        elementSetting.stats.wrong++;
         addWrongAnsweredQuestion(currentQuestion as PeriodicTableTestQuestion);
       }
-
-      AppSettings.save();
     }
 
     if (rightAnswer) {

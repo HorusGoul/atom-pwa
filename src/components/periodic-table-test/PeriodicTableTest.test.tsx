@@ -1,7 +1,5 @@
 import * as React from "react";
 import "hammerjs";
-
-import PeriodicTableTest from "./PeriodicTableTest";
 import {
   render,
   screen,
@@ -9,46 +7,52 @@ import {
   within,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
+import { STORAGE_KEY, defaultSettings } from "@/hooks/useAppSettings";
+import PeriodicTableTest from "./PeriodicTableTest";
 
 // Mocking shuffle so the order of the elements is always the same
 jest.mock("../../utils/shuffle", () => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  shuffle: (a: any) => a,
+  shuffle: (a: unknown) => a,
 }));
 
-// Mocking test settings so we don't have to test all periodic elements.
-jest.mock("../../AppSettings", () => ({
-  settings: {
-    tests: {
-      periodicTable: {
-        elements: [
-          {
-            atomic: 1,
-            enabled: true,
-            stats: {
-              times: 0,
-              right: 0,
-              wrong: 0,
+beforeEach(() => {
+  window.localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      ...defaultSettings,
+      tests: {
+        periodicTable: {
+          elements: [
+            {
+              atomic: 1,
+              enabled: true,
+              stats: {
+                times: 0,
+                right: 0,
+                wrong: 0,
+              },
             },
-          },
-          {
-            atomic: 2,
-            enabled: true,
-            stats: {
-              times: 0,
-              right: 0,
-              wrong: 0,
+            {
+              atomic: 2,
+              enabled: true,
+              stats: {
+                times: 0,
+                right: 0,
+                wrong: 0,
+              },
             },
-          },
-        ],
+          ],
+        },
       },
-    },
-  },
-  save: jest.fn(),
-}));
+    })
+  );
+});
+
+afterEach(() => {
+  window.localStorage.clear();
+});
 
 test("should render the periodic table test", async () => {
   const history = createMemoryHistory({
