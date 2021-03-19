@@ -1,11 +1,9 @@
 import * as React from "react";
 import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
-import AppSettings, {
-  IPeriodicTableTestSettings,
-  ITestElementSettings,
-} from "@/AppSettings";
-import ElementManager from "@/ElementManager";
+import { IPeriodicTableTestSettings } from "@/AppSettings";
+import { useAppSettings } from "@/hooks/useAppSettings";
+import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
@@ -13,94 +11,82 @@ import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
 import "./PeriodicTableTestSettings.scss";
 
-export function getPeriodicTableTestSettings() {
-  const settings = AppSettings.settings.tests.periodicTable;
+export function usePeriodicTableTestSettings() {
+  const { settings, updateSettings } = useAppSettings();
+  const { elements } = useElements();
 
-  if (!settings.elements) {
-    setDefaultPeriodicTableTestSettings();
-  }
-
-  return settings;
-}
-
-export function setDefaultPeriodicTableTestSettings() {
-  const settings = AppSettings.settings.tests.periodicTable;
-  const elements = ElementManager.getElements();
-
-  settings.elements = elements.map((element) => ({
-    atomic: element.atomic,
-    enabled: element.testState.ptTest,
-    stats: {
-      right: 0,
-      times: 0,
-      wrong: 0,
+  const updatePeriodicTableTestSettings = React.useCallback(
+    (updateFunction: (settings: IPeriodicTableTestSettings) => void) => {
+      updateSettings((settings) => {
+        updateFunction(settings.tests.periodicTable);
+      });
     },
-  }));
+    [updateSettings]
+  );
 
-  AppSettings.save();
+  const setDefaultPeriodicTableTestSettings = React.useCallback(() => {
+    updatePeriodicTableTestSettings((settings) => {
+      settings.elements = elements.map((element) => ({
+        atomic: element.atomic,
+        enabled: element.testState.ptTest,
+        stats: {
+          right: 0,
+          times: 0,
+          wrong: 0,
+        },
+      }));
+    });
+  }, [elements, updatePeriodicTableTestSettings]);
+
+  React.useEffect(() => {
+    if (!settings.tests.periodicTable.elements) {
+      setDefaultPeriodicTableTestSettings();
+    }
+  }, [settings, setDefaultPeriodicTableTestSettings]);
+
+  return {
+    settings: settings.tests.periodicTable,
+    updateSettings: updatePeriodicTableTestSettings,
+    setDefaultSettings: setDefaultPeriodicTableTestSettings,
+  };
 }
-
-interface PeriodicTableTestSettingsState {
-  elementStates: ITestElementSettings[];
-  updateListKey: number;
-}
-
-let settings: IPeriodicTableTestSettings;
 
 function PeriodicTableTestSettings() {
   const history = useHistory();
   const { i18n } = useLocale();
+  const {
+    settings,
+    updateSettings,
+    setDefaultSettings,
+  } = usePeriodicTableTestSettings();
 
-  if (!settings) {
-    settings = getPeriodicTableTestSettings();
-  }
-
-  const [state, setState] = React.useState<PeriodicTableTestSettingsState>(
-    () => ({
-      elementStates: [],
-      updateListKey: 0,
-    })
-  );
-
-  const setElementStates = React.useCallback(() => {
-    const elements = settings.elements ?? [];
-
-    setState((current) => ({
-      elementStates: [...elements],
-      updateListKey: current.updateListKey + 1,
-    }));
-  }, []);
-
-  React.useEffect(() => {
-    setElementStates();
-  }, [setElementStates]);
+  const elementStates = React.useMemo(() => settings.elements ?? [], [
+    settings,
+  ]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
-    settings.elements =
-      settings.elements?.map((element) => ({
-        ...element,
-        enabled: true,
-      })) ?? null;
-
-    AppSettings.save();
-    setElementStates();
-  }, [setElementStates]);
+    updateSettings((settings) => {
+      settings.elements =
+        settings.elements?.map((element) => ({
+          ...element,
+          enabled: true,
+        })) ?? null;
+    });
+  }, [updateSettings]);
 
   const onDeselectAllButtonClick = React.useCallback(() => {
-    settings.elements =
-      settings.elements?.map((element) => ({
-        ...element,
-        enabled: false,
-      })) ?? null;
-
-    AppSettings.save();
-    setElementStates();
-  }, [setElementStates]);
+    updateSettings((settings) => {
+      settings.elements =
+        settings.elements?.map((element) => ({
+          ...element,
+          enabled: false,
+        })) ?? null;
+    });
+  }, [updateSettings]);
 
   const onRestoreDefaultsButtonClick = React.useCallback(() => {
-    setDefaultPeriodicTableTestSettings();
-    setElementStates();
-  }, [setElementStates]);
+    setDefaultSettings();
+  }, [setDefaultSettings]);
 
   const onNavbarButtonClick = React.useCallback(() => {
     history.push(TEST_SELECTION);
@@ -108,23 +94,21 @@ function PeriodicTableTestSettings() {
 
   const onTestElementSettingsClick = React.useCallback(
     (atomic: number) => {
-      const element = settings.elements?.find(
-        (elementSettings) => elementSettings.atomic === atomic
-      );
+      updateSettings((settings) => {
+        const element = settings.elements?.find(
+          (elementSettings) => elementSettings.atomic === atomic
+        );
 
-      if (element) {
-        element.enabled = !element.enabled;
-        AppSettings.save();
-      }
-
-      setElementStates();
+        if (element) {
+          element.enabled = !element.enabled;
+        }
+      });
     },
-    [setElementStates]
+    [updateSettings]
   );
 
   const rowRenderer = React.useCallback(
     (index: number, ref: React.RefObject<HTMLDivElement>) => {
-      const { elementStates } = state;
       const elementState = elementStates[index];
 
       return (
@@ -136,19 +120,19 @@ function PeriodicTableTestSettings() {
         </div>
       );
     },
-    [state, onTestElementSettingsClick]
+    [elementStates, onTestElementSettingsClick]
   );
 
   const scroller = useVirtualScroller({
     estimatedItemHeight: 64,
-    itemCount: state.elementStates.length,
+    itemCount: elementStates.length,
   });
 
   const { updateProjection } = scroller;
 
   React.useEffect(() => {
     updateProjection();
-  }, [state, updateProjection]);
+  }, [elementStates, updateProjection]);
 
   return (
     <div className="valences-test-settings">

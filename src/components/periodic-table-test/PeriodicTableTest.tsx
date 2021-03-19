@@ -3,6 +3,7 @@ import * as React from "react";
 import { useHistory } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
+import ElementManager from "@/ElementManager";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
@@ -15,10 +16,36 @@ import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import TestResults from "../test-results/TestResults";
 import "./PeriodicTableTest.scss";
-import { getPeriodicTableTestSettings } from "./settings/PeriodicTableTestSettings";
 
 interface PeriodicTableTestQuestion {
   element: Element;
+}
+
+function getPeriodicTableTestSettings() {
+  const settings = AppSettings.settings.tests.periodicTable;
+
+  if (!settings.elements) {
+    setDefaultPeriodicTableTestSettings();
+  }
+
+  return settings;
+}
+
+function setDefaultPeriodicTableTestSettings() {
+  const settings = AppSettings.settings.tests.periodicTable;
+  const elements = ElementManager.getElements();
+
+  settings.elements = elements.map((element) => ({
+    atomic: element.atomic,
+    enabled: element.testState.ptTest,
+    stats: {
+      right: 0,
+      times: 0,
+      wrong: 0,
+    },
+  }));
+
+  AppSettings.save();
 }
 
 function PeriodicTableTest() {
