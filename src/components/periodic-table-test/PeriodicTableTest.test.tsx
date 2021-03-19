@@ -1,5 +1,6 @@
 import * as React from "react";
-import "hammerjs";
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from "history";
 import {
   render,
   screen,
@@ -7,12 +8,18 @@ import {
   within,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
-import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
-import PeriodicTableTest from "./PeriodicTableTest";
+import "hammerjs";
 
+import PeriodicTableTest from "./PeriodicTableTest";
+import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
+import { TEST_SELECTION } from "@/routes";
+
+jest.setTimeout(20000);
 // Mocking shuffle so the order of the elements is always the same
+jest.mock("../../utils/shuffle", () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  shuffle: (a: any) => a,
+}));
 jest.mock("../../utils/shuffle", () => ({
   shuffle: (a: unknown) => a,
 }));
@@ -107,12 +114,19 @@ test("should show results correct answers", async () => {
   expect(screen.getAllByText(/2/i)).toHaveLength(2);
 
   expect(
-    screen.getByRole("button", { name: /retake full test/i })
-  ).toBeInTheDocument();
-
-  expect(
     screen.queryByRole("button", { name: /retake incorrect answers/i })
   ).not.toBeInTheDocument();
+
+  // Reseting tests
+  userEvent.click(screen.getByRole("button", { name: /retake full test/i }));
+
+  // test that that all the answers are reset
+  expect(
+    await screen.findByRole("button", { name: /1 \? \?\?\?/i })
+  ).toBeInTheDocument();
+  expect(
+    await screen.findByRole("button", { name: /2 \? \?\?\?/i })
+  ).toBeInTheDocument();
 });
 
 test("should show correct results with incorrect answers", async () => {
@@ -152,7 +166,62 @@ test("should show correct results with incorrect answers", async () => {
     screen.getByRole("button", { name: /retake full test/i })
   ).toBeInTheDocument();
 
-  expect(
+  // Reseting wrong tests
+  userEvent.click(
     screen.getByRole("button", { name: /retake incorrect answers/i })
+  );
+
+  // test that only wrong answers are reset
+  expect(
+    await screen.findByRole("button", { name: /1 \? \?\?\?/i })
   ).toBeInTheDocument();
+  expect(
+    screen.queryByRole("button", { name: /2 \? \?\?\?/i })
+  ).not.toBeInTheDocument();
+});
+
+test("should show question modal", async () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/tests/periodic-table"],
+  });
+
+  const { container } = render(
+    <Router history={history}>
+      <PeriodicTableTest />
+    </Router>
+  );
+
+  await waitForElementToBeRemoved(
+    () => screen.queryAllByLabelText(/loading/i),
+    { timeout: 4000 }
+  );
+
+  // Close the dialog by clicking overlay
+  userEvent.click(screen.getByTestId("overlay"));
+
+  // Open dialog by clicking on the question button
+  userEvent.click(
+    container.querySelector(
+      ".periodic-table-test__current-question__button"
+    ) as HTMLElement
+  );
+  expect(screen.getByRole("dialog")).toBeInTheDocument();
+});
+
+test("should go back to tests", () => {
+  const history = createMemoryHistory({
+    initialEntries: ["/tests/periodic-table"],
+  });
+  const { container } = render(
+    <Router history={history}>
+      <PeriodicTableTest />
+    </Router>
+  );
+
+  const backLink = container.querySelector(
+    ".navbar__back-button"
+  ) as HTMLElement;
+
+  userEvent.click(backLink);
+  expect(history.location.pathname).toBe(TEST_SELECTION);
 });
