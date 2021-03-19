@@ -1,6 +1,7 @@
 describe("About", () => {
   beforeEach(() => {
     cy.visit("/about");
+    cy.clearLocalStorage();
     cy.window().then((window) => {
       window.localStorage.setItem(
         "atom:settings",
