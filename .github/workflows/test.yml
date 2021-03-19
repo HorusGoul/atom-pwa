@@ -82,8 +82,6 @@ jobs:
           start: npm run dev
           browser: chrome
           wait-on: "http://localhost:8888"
-        env:
-          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
 
       # after the test run completes
       # store videos and any screenshots
