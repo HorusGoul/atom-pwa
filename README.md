@@ -2,6 +2,7 @@
 
 [![Netlify Status][netlify-badge]][netlify]
 [![Code Coverage][coverage-badge]][coverage]
+[![Test](https://github.com/OpenSourceRaidGuild/atom-pwa/actions/workflows/test.yml/badge.svg)](https://github.com/OpenSourceRaidGuild/atom-pwa/actions/workflows/test.yml)
 [![Crowdin][crowdin-badge]][crowdin]
 [![Github All Contributors][all-contributors-badge]](#contributors)
 [![License][license-badge]][license]
