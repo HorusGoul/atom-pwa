@@ -79,11 +79,11 @@ jobs:
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
+          start: npm run dev
+          record: true
           group: merge
           tag: ${{ github.event_name }}
-          start: npm run dev
           browser: chrome
-          headless: true
           wait-on: "http://localhost:8888"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
