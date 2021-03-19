@@ -3,7 +3,7 @@ import * as React from "react";
 import { useHistory } from "react-router-dom";
 import AppSettings, { IPeriodicTableTestSettings } from "@/AppSettings";
 import { Element } from "@/Element";
-import ElementManager from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
@@ -21,27 +21,22 @@ interface PeriodicTableTestQuestion {
   element: Element;
 }
 
-function createTestQuestions(settings: IPeriodicTableTestSettings) {
-  if (!settings.elements) return [];
-  const questions = settings.elements
-    .filter((element) => element.enabled)
-    .map((elementSetting) => ElementManager.getElement(elementSetting.atomic))
-    .map((element) => createQuestion(element as Element));
-
-  return shuffle(questions);
-}
-
-function createQuestion(element: Element): PeriodicTableTestQuestion {
-  return {
-    element,
-  };
-}
-
 function PeriodicTableTest() {
   const history = useHistory();
   const { i18n } = useLocale();
+  const { getElement } = useElements();
 
   const settings = React.useMemo(() => getPeriodicTableTestSettings(), []);
+
+  function createTestQuestions(settings: IPeriodicTableTestSettings) {
+    if (!settings.elements) return [];
+    const questions = settings.elements
+      .filter((element) => element.enabled)
+      .map((elementSetting) => getElement(elementSetting.atomic))
+      .map((element) => ({ element: element as Element }));
+
+    return shuffle(questions);
+  }
 
   const [questionModalOpen, setQuestionModalOpen] = React.useState(true);
   const [questions, setQuestions] = React.useState<PeriodicTableTestQuestion[]>(
@@ -61,7 +56,7 @@ function PeriodicTableTest() {
   }
 
   function elementRenderer(atomic: number) {
-    const element = ElementManager.getElement(atomic);
+    const element = getElement(atomic);
     if (!element) return null;
     return (
       <PtElementTest

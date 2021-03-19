@@ -1,5 +1,5 @@
 import * as React from "react";
-import ElementManager from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 
 export interface MassCalculatorElement {
   atomic: number;
@@ -29,6 +29,8 @@ function updateQuantity(
 }
 
 export function useMassCalculator() {
+  const { getElement } = useElements();
+
   const [elements, setElements] = React.useState<MassCalculatorElement[]>([
     { atomic: 67, quantity: 1 },
     { atomic: 44, quantity: 1 },
@@ -81,7 +83,7 @@ export function useMassCalculator() {
     if (elements.length) {
       totalValue = elements
         .map((element) => {
-          const managedElement = ElementManager.getElement(element.atomic);
+          const managedElement = getElement(element.atomic);
           if (managedElement) {
             return Number(managedElement.atomicMass) * element.quantity;
           }

@@ -2,7 +2,7 @@ import * as React from "react";
 import IconButton from "../shared/icon-button/IconButton";
 import Modal from "../shared/modal/Modal";
 import { useLocale } from "@/hooks/useLocale";
-import ElementManager, { getElementLocales } from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 import { MassCalculatorElement } from "./hooks/useMassCalculator";
 
 interface EditElementModalProps {
@@ -23,20 +23,17 @@ function EditElementModal({
   onClose,
 }: EditElementModalProps) {
   const { i18n } = useLocale();
+  const { getLocalizedElement } = useElements();
 
-  if (!selectedElement) return null;
+  const element = getLocalizedElement(selectedElement?.atomic);
 
-  const element = ElementManager.getElement(selectedElement.atomic);
-
-  if (!element) {
+  if (!selectedElement || !element) {
     return null;
   }
 
-  const elementLocales = getElementLocales(element);
-
   return (
     <Modal
-      title={elementLocales.name}
+      title={element.name}
       closeButton={true}
       className="mass-calculator__modify-element-modal"
       open={isOpen}

@@ -5,7 +5,7 @@ import AppSettings, {
   IValencesTestSettings,
 } from "@/AppSettings";
 import { Element } from "@/Element";
-import ElementManager from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
@@ -47,19 +47,21 @@ function createQuestion(element: Element): ValencesTestQuestion {
   };
 }
 
-function createTestQuestions(settings: IValencesTestSettings) {
-  if (!settings.elements) return [];
-  const questions = settings.elements
-    .filter((element) => element.enabled)
-    .map((element) => ElementManager.getElement(element.atomic))
-    .map((element) => createQuestion(element as Element));
-
-  return shuffle(questions);
-}
-
 function ValencesTest() {
   const { i18n } = useLocale();
+  const { getElement } = useElements();
   const settings = React.useMemo(() => getValencesTestSettings(), []);
+
+  function createTestQuestions(settings: IValencesTestSettings) {
+    if (!settings.elements) return [];
+    const questions = settings.elements
+      .filter((element) => element.enabled)
+      .map((element) => getElement(element.atomic))
+      .map((element) => createQuestion(element as Element));
+
+    return shuffle(questions);
+  }
+
   const [questions, setQuestions] = React.useState<ValencesTestQuestion[]>(() =>
     createTestQuestions(settings)
   );

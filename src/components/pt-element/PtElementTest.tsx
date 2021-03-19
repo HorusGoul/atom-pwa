@@ -1,7 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-
-import { getElementLocales } from "@/ElementManager";
+import { useElements } from "@/hooks/useElements";
 import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
@@ -19,6 +18,8 @@ function PtElementTest({
   shouldShowError,
 }: PtElementTestProps) {
   const [showError, setShowError] = React.useState(false);
+  const { getElementLocales } = useElements();
+
   const elementLocales = getElementLocales(element);
 
   const onElementButtonClick = () => {
