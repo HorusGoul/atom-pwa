@@ -80,13 +80,11 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm run dev
-          record: true
           group: merge
           tag: ${{ github.event_name }}
           browser: chrome
           wait-on: "http://localhost:8888"
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
 
       # after the test run completes
