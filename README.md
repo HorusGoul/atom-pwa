@@ -94,6 +94,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://tigerabrodi.dev/"><img src="https://avatars.githubusercontent.com/u/49603590?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tiger Abrodi &#124; Shisui's & Minato's Successor</b></sub></a><br /><a href="https://github.com/HorusGoul/atom-pwa/commits?author=tigerabrodi" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/Devil005"><img src="https://avatars.githubusercontent.com/u/58681803?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mpopli</b></sub></a><br /><a href="https://github.com/HorusGoul/atom-pwa/commits?author=Devil005" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/emma-r-slight"><img src="https://avatars.githubusercontent.com/u/60733989?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emma </b></sub></a><br /><a href="https://github.com/HorusGoul/atom-pwa/commits?author=emma-r-slight" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/ypazevedo/"><img src="https://avatars.githubusercontent.com/u/56167866?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yago Pereira Azevedo</b></sub></a><br /><a href="https://github.com/OpenSourceRaidGuild/atom-pwa/commits?author=YPAzevedo" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
