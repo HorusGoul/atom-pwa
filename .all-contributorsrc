@@ -44,7 +44,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/23029903?v=4",
       "profile": "https://github.com/mpeyper",
       "contributions": [
-        "test"
+        "test",
+        "code", 
+        "infra"
       ]
     },
     {
@@ -53,7 +55,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/17976072?v=4",
       "profile": "https://github.com/MohitPopli",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -62,7 +65,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/27247160?v=4",
       "profile": "https://dev.to/jacobmgevans",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -71,7 +75,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/10127707?v=4",
       "profile": "https://github.com/mitchelvanbever",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -80,7 +85,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/22864071?v=4",
       "profile": "https://github.com/tsuki42",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -89,7 +95,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/40751395?v=4",
       "profile": "https://github.com/nobrayner",
       "contributions": [
-        "test"
+        "test",
+        "code",
+        "infra"
       ]
     },
     {
@@ -98,7 +106,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/544386?v=4",
       "profile": "https://github.com/juhanakristian",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -107,7 +116,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/15978090?v=4",
       "profile": "https://twitter.com/ZiedTouibi",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -116,7 +126,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/905225?v=4",
       "profile": "https://rubenmoya.dev/",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -125,7 +136,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/6424060?v=4",
       "profile": "https://twitter.com/grady_lad",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -134,7 +146,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/1087670?v=4",
       "profile": "http://peter.hozak.info/",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -143,7 +156,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/49603590?v=4",
       "profile": "https://tigerabrodi.dev/",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -171,7 +185,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/56167866?v=4",
       "profile": "https://www.linkedin.com/in/ypazevedo/",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     }
   ],
