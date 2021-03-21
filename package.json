@@ -121,6 +121,7 @@
   },
   "resolutions": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "@vitejs/plugin-legacy/@babel/standalone": "7.13.9"
   }
 }
