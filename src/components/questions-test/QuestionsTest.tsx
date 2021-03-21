@@ -1,50 +1,41 @@
 import * as React from "react";
 
-import { IQuestionCardAnswer } from "./question-card/question-card-answer/QuestionCardAnswer";
-import QuestionCard, { IQuestionCard } from "./question-card/QuestionCard";
+import { Answer } from "./question-card/question-card-answer/QuestionCardAnswer";
+import QuestionCard, { Question } from "./question-card/QuestionCard";
 
 import "./QuestionsTest.scss";
 
-interface IQuestionTestProps {
+interface QuestionTestProps<TQuestion extends Question> {
   title: string;
-  questions: IQuestionCard[];
-  onQuestionAnswer?: (
-    question: IQuestionCard,
-    answer: IQuestionCardAnswer
-  ) => void;
+  questions: TQuestion[];
+  onQuestionAnswer?: (question: TQuestion, answer: Answer) => void;
 }
 
-class QuestionsTest extends React.Component<IQuestionTestProps> {
-  public render() {
-    const { questions, title } = this.props;
-    const hasQuestions = !!questions.length;
+function QuestionsTest<TQuestion extends Question>({
+  questions,
+  title,
+  onQuestionAnswer,
+}: QuestionTestProps<TQuestion>) {
+  const onAnswerClickListener = React.useCallback(
+    (question: TQuestion) => {
+      return (answer: Answer) => onQuestionAnswer?.(question, answer);
+    },
+    [onQuestionAnswer]
+  );
 
-    return (
-      <div className="questions-test">
-        {hasQuestions && (
-          <QuestionCard
-            title={title}
-            question={questions[0]}
-            onAnswerClick={this.onAnswerClickListener(questions[0])}
-          />
-        )}
-      </div>
-    );
-  }
+  const hasQuestions = !!questions.length;
 
-  private onAnswerClickListener(question: IQuestionCard) {
-    return (answer: IQuestionCardAnswer) =>
-      this.onQuestionAnswerClick(question, answer);
-  }
-
-  private onQuestionAnswerClick(
-    question: IQuestionCard,
-    answer: IQuestionCardAnswer
-  ) {
-    if (this.props.onQuestionAnswer) {
-      this.props.onQuestionAnswer(question, answer);
-    }
-  }
+  return (
+    <div className="questions-test">
+      {hasQuestions && (
+        <QuestionCard
+          title={title}
+          question={questions[0]}
+          onAnswerClick={onAnswerClickListener(questions[0])}
+        />
+      )}
+    </div>
+  );
 }
 
 export default QuestionsTest;

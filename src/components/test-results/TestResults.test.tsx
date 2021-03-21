@@ -1,17 +1,16 @@
 import * as React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import TestResults, { ITestResultsProps } from "./TestResults";
+import TestResults, { TestResultsProps } from "./TestResults";
 
 const onRepeatMock = jest.fn();
 const onRepeatWrongAnswersMock = jest.fn();
 
-const wrapper = (props: ITestResultsProps) =>
-  render(<TestResults {...props} />);
+const wrapper = (props: TestResultsProps) => render(<TestResults {...props} />);
 
 beforeEach(() => jest.clearAllMocks());
 
 test("should render component and perform basic validations", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 2,
     wrongAnswers: 4,
@@ -41,7 +40,7 @@ test("should render component and perform basic validations", () => {
 });
 
 test("should display percentage if test results are good", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 5,
     wrongAnswers: 1,
@@ -54,7 +53,7 @@ test("should display percentage if test results are good", () => {
 });
 
 test("should render retake full test button", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 5,
     wrongAnswers: 1,
@@ -77,7 +76,7 @@ test("should render retake full test button", () => {
 });
 
 test("should render retake incorrect answers button", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 5,
     wrongAnswers: 1,
@@ -104,7 +103,7 @@ test("should render retake incorrect answers button", () => {
 });
 
 test("should not render retake incorrect answers button if right answer === total", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 5,
     wrongAnswers: 0,
@@ -120,7 +119,7 @@ test("should not render retake incorrect answers button if right answer === tota
 });
 
 test("should render component when total value as 0", () => {
-  const props: ITestResultsProps = {
+  const props: TestResultsProps = {
     gaTestName: "mock",
     rightAnswers: 0,
     wrongAnswers: 0,

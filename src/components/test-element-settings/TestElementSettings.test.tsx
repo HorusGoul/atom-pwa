@@ -1,9 +1,8 @@
 import * as React from "react";
 import TestElementSettings from "./TestElementSettings";
 import { render, screen } from "@testing-library/react";
-import { ITestElementSettings } from "@/AppSettings";
 
-const TEST_SETTING: ITestElementSettings = {
+const TEST_SETTING = {
   atomic: 26,
   enabled: true,
   stats: {

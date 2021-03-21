@@ -1,6 +1,7 @@
 describe("About", () => {
   beforeEach(() => {
     cy.visit("/about");
+    cy.clearLocalStorage();
     cy.window().then((window) => {
       window.localStorage.setItem(
         "atom:settings",
@@ -8,14 +9,9 @@ describe("About", () => {
       );
       expect(window.localStorage.getItem("atom:settings")).contains("dark");
     });
-  });
-
-  afterEach(() => {
-    cy.clearLocalStorage();
-  });
-  it("verifies the about setting change language default is English", () => {
     cy.findByRole("button", { name: /change language/i }).should("be.visible");
   });
+
   it("verifies the about setting change language to Deutsch", () => {
     cy.findByRole("button", { name: /change language/i }).click();
     cy.findByRole("button", {
