@@ -161,7 +161,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/60733989?v=4",
       "profile": "https://github.com/emma-r-slight",
       "contributions": [
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -176,7 +177,7 @@
   ],
   "contributorsPerLine": 7,
   "projectName": "atom-pwa",
-  "projectOwner": "HorusGoul",
+  "projectOwner": "OpenSourceRaidGuild",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
