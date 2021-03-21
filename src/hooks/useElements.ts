@@ -1,24 +1,25 @@
-import { useMemo, useCallback } from "react";
+import { useCallback } from "react";
 import { Element } from "../Element";
 import { useLocale } from "./useLocale";
 
 const elementsMap = import.meta.globEager("../data/elements/*.json");
 
+const elements = Object.values(elementsMap) as Element[];
+
+const elementLookup = elements.reduce((prev, next) => {
+  prev[next.atomic] = next;
+
+  return prev;
+}, {} as Record<number, Element>);
+
 export function useElements() {
   const { i18n } = useLocale();
-
-  const elements = useMemo(() => Object.values(elementsMap) as Element[], []);
-  const elementLookup = useMemo(
-    () =>
-      Object.fromEntries(elements.map((element) => [element.atomic, element])),
-    [elements]
-  );
 
   const getElement: (
     atomic: number | undefined
   ) => Element | undefined = useCallback(
     (atomic) => (atomic ? elementLookup[atomic] : undefined),
-    [elementLookup]
+    []
   );
 
   const getElementLocales: (element: Element) => Element = useCallback(
