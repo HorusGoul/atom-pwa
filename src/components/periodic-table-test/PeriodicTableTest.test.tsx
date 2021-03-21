@@ -10,12 +10,10 @@ import {
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "hammerjs";
-
-import PeriodicTableTest from "./PeriodicTableTest";
 import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import { TEST_SELECTION } from "@/routes";
+import PeriodicTableTest from "./PeriodicTableTest";
 
-jest.setTimeout(20000);
 // Mocking shuffle so the order of the elements is always the same
 jest.mock("../../utils/shuffle", () => ({
   shuffle: (a: unknown) => a,
