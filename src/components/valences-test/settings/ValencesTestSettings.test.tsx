@@ -1,9 +1,11 @@
 import * as React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import ValencesTestSettings from "./ValencesTestSettings";
+
+window.scrollTo = jest.fn();
 
 test("should render the valences test settings", async () => {
   const history = createMemoryHistory({
@@ -51,25 +53,37 @@ test("selection buttons should work", async () => {
     name: /Na 11. Sodium Alkali metals/i,
   });
 
-  expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
-  expect(within(sodium).getByRole("checkbox")).toBeChecked();
-
   userEvent.click(screen.getByRole("button", { name: /deselect all/i }));
 
-  expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
-  expect(within(sodium).getByRole("checkbox")).not.toBeChecked();
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
+
+  const hydrogenCheckbox = within(hydrogen).getByRole(
+    "checkbox"
+  ) as HTMLInputElement;
+  const sodiumCheckbox = within(hydrogen).getByRole(
+    "checkbox"
+  ) as HTMLInputElement;
+
+  expect(hydrogenCheckbox.checked).toBe(false);
+  expect(sodiumCheckbox.checked).toBe(false);
 
   userEvent.click(screen.getByRole("button", { name: /^select all/i }));
+
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
   expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
   expect(within(sodium).getByRole("checkbox")).toBeChecked();
 
   userEvent.click(hydrogen);
 
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
+
   expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
   expect(within(sodium).getByRole("checkbox")).toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /restore defaults/i }));
+
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
   expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
   expect(within(sodium).getByRole("checkbox")).toBeChecked();

@@ -16,11 +16,12 @@ function CalculatorElement({
   selectElement,
 }: CalculatorElementProps) {
   const { i18n } = useLocale();
-  const { getLocalizedElement } = useElements();
+  const { getLocalizedElement, getElement } = useElements();
 
-  const element = getLocalizedElement(atomic);
+  const element = getElement(atomic);
+  const localizedElement = getLocalizedElement(atomic);
 
-  if (!element) {
+  if (!element || !localizedElement) {
     return null;
   }
 
@@ -40,7 +41,9 @@ function CalculatorElement({
       </div>
 
       <div className="mass-calculator__element__desc">
-        <span className="mass-calculator__element__name">{element.name}</span>
+        <span className="mass-calculator__element__name">
+          {localizedElement.name}
+        </span>
 
         <span className="mass-calculator__element__group">
           {element.atomicMass} {i18n("g_mol")}

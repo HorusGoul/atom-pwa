@@ -1,9 +1,11 @@
 import * as React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import PeriodicTableTestSettings from "./PeriodicTableTestSettings";
+
+window.scrollTo = jest.fn();
 
 test("should render the periodic table test settings", async () => {
   const history = createMemoryHistory({
@@ -54,20 +56,28 @@ test("selection buttons should work", async () => {
 
   userEvent.click(screen.getByRole("button", { name: /deselect all/i }));
 
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
+
   expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
   expect(within(neon).getByRole("checkbox")).not.toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /^select all/i }));
+
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
   expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
   expect(within(neon).getByRole("checkbox")).toBeChecked();
 
   userEvent.click(hydrogen);
 
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
+
   expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
   expect(within(neon).getByRole("checkbox")).toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /restore defaults/i }));
+
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
   expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
   expect(within(neon).getByRole("checkbox")).toBeChecked();

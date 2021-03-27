@@ -12,10 +12,12 @@ interface TestElementSettingsProps {
 }
 
 function TestElementSettings({ setting, onClick }: TestElementSettingsProps) {
-  const { getLocalizedElement } = useElements();
-  const element = getLocalizedElement(setting.atomic);
+  const { getLocalizedElement, getElement } = useElements();
 
-  if (!element) {
+  const localizedElement = getLocalizedElement(setting.atomic);
+  const element = getElement(setting.atomic);
+
+  if (!element || !localizedElement) {
     return null;
   }
 
@@ -36,10 +38,12 @@ function TestElementSettings({ setting, onClick }: TestElementSettingsProps) {
 
       <div className="element-selector__desc">
         <span className="element-selector__name">
-          {element.atomic}. {element.name}
+          {element.atomic}. {localizedElement.name}
         </span>
 
-        <span className="element-selector__group">{element.group}</span>
+        <span className="element-selector__group">
+          {localizedElement.group}
+        </span>
       </div>
 
       <Checkbox
