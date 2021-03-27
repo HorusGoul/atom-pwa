@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import RateApp, { RateAppConfig } from "./RateApp";
 import NativeBridge from "@/NativeBridge";
 import userEvent from "@testing-library/user-event";
@@ -25,7 +25,7 @@ test("should render rate app button", () => {
   expect(screen.getByText(/do you like this app\?/i)).toBeInTheDocument();
 });
 
-test("should open modal to provide rating", () => {
+test("should open modal to provide rating", async () => {
   mockUserAgent("android");
   // Jest throwing error as it couldn't recognize window.open()
   global.open = jest.fn();
@@ -42,12 +42,17 @@ test("should open modal to provide rating", () => {
     )
   ).toBeInTheDocument();
 
-  userEvent.click(screen.getAllByRole("button")[3]);
+  userEvent.click(screen.getByText(/OK/i));
 
   expect(screen.queryByTestId("overlay")).not.toBeInTheDocument();
+
+  await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
+
   const storageObject = window.localStorage.getItem(RATE_APP_STORAGE_KEY);
+
   if (storageObject) {
     const configObject: RateAppConfig = JSON.parse(storageObject);
+    console.log(configObject);
     expect(configObject.rated).toBeTruthy();
   }
   expect(global.open).toHaveBeenCalledTimes(1);
