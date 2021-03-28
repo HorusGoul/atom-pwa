@@ -1,18 +1,16 @@
 import * as React from "react";
-import Button, { IButtonProps } from "../../shared/button/Button";
+import Button, { ButtonProps } from "../../shared/button/Button";
 import Icon from "../../shared/icon/Icon";
 
 import "./MenuEntry.scss";
 
-export interface IMenuEntry {
+type Props = Omit<ButtonProps, "children"> & {
   name: string;
   icon: string;
   route: string;
-}
+};
 
-type Props = IButtonProps & IMenuEntry;
-
-const MenuEntry: React.StatelessComponent<Props> = (props) => (
+const MenuEntry = (props: Props) => (
   <Button className="menu-entry" {...props}>
     <div className="menu-entry__icon">
       <Icon name={props.icon} />

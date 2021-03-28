@@ -1,71 +1,58 @@
-import autobind from "autobind-decorator";
 import classNames from "classnames";
 import * as React from "react";
-import { ITestElementSettings } from "../../AppSettings";
-import ElementManager, { getElementLocales } from "../../ElementManager";
-import { i18n } from "../../Locale";
+import { ElementSettings } from "@/hooks/useSettings";
+import { useElements } from "@/hooks/useElements";
 import Button from "../shared/button/Button";
 import Checkbox from "../shared/checkbox/Checkbox";
 import "./TestElementSettings.scss";
 
-interface ITestElementSettingsProps {
-  setting: ITestElementSettings;
+interface TestElementSettingsProps {
+  setting: ElementSettings;
   onClick?: (atomic: number) => void;
 }
 
-@autobind
-class TestElementSettings extends React.Component<ITestElementSettingsProps> {
-  public render() {
-    const { setting } = this.props;
-    const element = ElementManager.getElement(setting.atomic);
+function TestElementSettings({ setting, onClick }: TestElementSettingsProps) {
+  const { getLocalizedElement, getElement } = useElements();
 
-    if (!element) {
-      return null;
-    }
+  const localizedElement = getLocalizedElement(setting.atomic);
+  const element = getElement(setting.atomic);
 
-    const elementLocales = getElementLocales(element);
+  if (!element || !localizedElement) {
+    return null;
+  }
 
-    return (
-      <Button
-        onClick={this.onClick}
-        key={element.atomic}
-        className="element-selector"
+  return (
+    <Button
+      onClick={() => onClick?.(element.atomic)}
+      key={element.atomic}
+      className="element-selector"
+    >
+      <div
+        className={classNames("element-selector__symbol", "element", {
+          [element.group]: setting.enabled,
+          clear: !setting.enabled,
+        })}
       >
-        <div
-          className={classNames("element-selector__symbol", "element", {
-            [element.group]: setting.enabled,
-            clear: !setting.enabled,
-          })}
-        >
-          {element.symbol}
-        </div>
+        {element.symbol}
+      </div>
 
-        <div className="element-selector__desc">
-          <span className="element-selector__name">
-            {element.atomic}. {elementLocales.name}
-          </span>
+      <div className="element-selector__desc">
+        <span className="element-selector__name">
+          {element.atomic}. {localizedElement.name}
+        </span>
 
-          <span className="element-selector__group">
-            {elementLocales.group}
-          </span>
-        </div>
+        <span className="element-selector__group">
+          {localizedElement.group}
+        </span>
+      </div>
 
-        <Checkbox
-          readOnly={true}
-          value={setting.enabled}
-          className="element-selector__checkbox"
-        />
-      </Button>
-    );
-  }
-
-  private onClick() {
-    const { atomic } = this.props.setting;
-
-    if (this.props.onClick) {
-      this.props.onClick(atomic);
-    }
-  }
+      <Checkbox
+        readOnly={true}
+        value={setting.enabled}
+        className="element-selector__checkbox"
+      />
+    </Button>
+  );
 }
 
 export default TestElementSettings;

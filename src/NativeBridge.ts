@@ -1,5 +1,5 @@
 const platformMethods: typeof window.AtomNative = {
-  getDebugMode: () => process.env.NODE_ENV !== "production",
+  getDebugMode: () => import.meta.env.DEV,
   isHybrid: () => false,
   getSystemLanguage: () => window.navigator.language,
 };
@@ -21,11 +21,12 @@ class NativeBridge {
 
   private exec<T extends keyof typeof AtomNative>(
     methodName: T
-    // @ts-ignore fix this
-  ): ReturnType<typeof AtomNative[T]> {
+  ): ReturnType<NonNullable<typeof AtomNative[T]>> {
     return (AtomNative[methodName]
       ? AtomNative[methodName]?.()
-      : platformMethods[methodName]?.()) as any;
+      : platformMethods[methodName]?.()) as ReturnType<
+      NonNullable<typeof AtomNative[T]>
+    >;
   }
 }
 

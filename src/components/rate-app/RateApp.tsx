@@ -1,14 +1,14 @@
 import * as React from "react";
 import Icon from "../shared/icon/Icon";
 import "./RateApp.scss";
-import { i18n } from "../../Locale";
+import { useLocale } from "@/hooks/useLocale";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import Button from "../shared/button/Button";
-import NativeBridge from "../../NativeBridge";
+import NativeBridge from "@/NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
 
-interface RateAppConfig {
+export interface RateAppConfig {
   timesLaunched: number;
   rated: boolean;
 }
@@ -17,6 +17,7 @@ const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const MINIMUM_TIMES_LAUNCHED = 3;
 
 function RateApp() {
+  const { i18n } = useLocale();
   const [open, setOpen] = React.useState(false);
   const [config, setConfig] = React.useState<RateAppConfig>(() => {
     const json = localStorage.getItem(RATE_APP_STORAGE_KEY);

@@ -1,76 +1,58 @@
-import autobind from "autobind-decorator";
 import * as React from "react";
-import AppSettings from "../../AppSettings";
-import { i18n } from "../../Locale";
-import Theme, { THEMES_LIST } from "../../Theme";
+import { useLocale } from "@/hooks/useLocale";
+import { useTheme, THEMES_LIST } from "@/hooks/useTheme";
 import IconButton from "../shared/icon-button/IconButton";
 import SelectorModal, {
-  ISelectorModalOption,
+  SelectorModalOption,
 } from "../shared/selector-modal/SelectorModal";
 import "./ThemeSelector.scss";
 
-interface IThemeSelectorState {
-  selectorOpen: boolean;
-}
+function ThemeSelector() {
+  const { i18n } = useLocale();
+  const { setTheme } = useTheme();
+  const [selectorOpen, setSelectorOpen] = React.useState(false);
 
-@autobind
-class ThemeSelector extends React.Component<unknown, IThemeSelectorState> {
-  public state: IThemeSelectorState = {
-    selectorOpen: false,
-  };
+  const options = React.useMemo(
+    () =>
+      THEMES_LIST.map((theme) => ({
+        key: theme,
+        text: i18n("theme_" + theme),
+      })),
+    [i18n]
+  );
 
-  public render() {
-    const { selectorOpen } = this.state;
-
-    return (
-      <>
-        <IconButton
-          iconName="format_paint"
-          text={i18n("change_theme")}
-          onClick={this.openSelector}
-        />
-
-        <SelectorModal
-          className="theme-selector__modal"
-          title={i18n("change_theme")}
-          closeButton={true}
-          onOptionSelected={this.onOptionSelected}
-          options={this.buildOptions()}
-          open={selectorOpen}
-          onClose={this.closeSelector}
-        />
-      </>
-    );
+  function closeSelector() {
+    setSelectorOpen(false);
   }
 
-  private buildOptions() {
-    return THEMES_LIST.map((theme) => ({
-      key: theme,
-      text: i18n("theme_" + theme),
-    }));
+  function openSelector() {
+    setSelectorOpen(true);
   }
 
-  private closeSelector() {
-    this.setState({
-      selectorOpen: false,
-    });
-  }
-
-  private openSelector() {
-    this.setState({
-      selectorOpen: true,
-    });
-  }
-
-  private onOptionSelected(option: ISelectorModalOption) {
+  function onOptionSelected(option: SelectorModalOption) {
     const theme = option.key;
-
-    AppSettings.settings.theme = theme;
-    AppSettings.save();
-    Theme.setTheme(theme);
-
-    this.closeSelector();
+    setTheme(theme);
+    closeSelector();
   }
+  return (
+    <>
+      <IconButton
+        iconName="format_paint"
+        text={i18n("change_theme")}
+        onClick={openSelector}
+      />
+
+      <SelectorModal
+        className="theme-selector__modal"
+        title={i18n("change_theme")}
+        closeButton={true}
+        onOptionSelected={onOptionSelected}
+        options={options}
+        open={selectorOpen}
+        onClose={closeSelector}
+      />
+    </>
+  );
 }
 
 export default ThemeSelector;

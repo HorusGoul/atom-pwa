@@ -1,11 +1,11 @@
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
-import { i18n } from "../../Locale";
+import { useLocale } from "@/hooks/useLocale";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
 
-interface ITestResultsProps {
+export interface TestResultsProps {
   gaTestName: string;
   rightAnswers: number;
   wrongAnswers: number;
@@ -19,9 +19,11 @@ function TestResults({
   onRepeat,
   onRepeatWrongAnswers,
   gaTestName,
-}: ITestResultsProps) {
+}: TestResultsProps) {
   const total = rightAnswers + wrongAnswers;
-  const percentaje = total ? rightAnswers / total : 1;
+  const percentage = total ? rightAnswers / total : 1;
+
+  const { i18n } = useLocale();
 
   React.useEffect(() => {
     if (total > 0) {
@@ -29,15 +31,15 @@ function TestResults({
         event_category: "User",
         event_label: "test",
         event_action: `Finished a ${gaTestName}`,
-        value: percentaje,
+        value: percentage,
       });
     }
-  }, [total, percentaje, gaTestName]);
+  }, [total, percentage, gaTestName]);
 
   return (
     <div
       className={classNames("test-results", {
-        "test-results--good": percentaje > 0.7,
+        "test-results--good": percentage > 0.7,
       })}
     >
       <div className="test-results__title">{i18n("test_results")}</div>

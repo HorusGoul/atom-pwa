@@ -1,4 +1,4 @@
-export interface IElement {
+export interface Element {
   atomic: number;
   symbol: string;
   name: string;
@@ -21,7 +21,6 @@ export interface IElement {
   yearDiscovered: number;
   valency: string;
   wrongValences: string[];
-  realname: any;
   testState: {
     valencesTest: boolean;
     ptTest: boolean;

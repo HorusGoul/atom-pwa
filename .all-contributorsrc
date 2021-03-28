@@ -37,12 +37,164 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "mpeyper",
+      "name": "Michael Peyper",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23029903?v=4",
+      "profile": "https://github.com/mpeyper",
+      "contributions": [
+        "test",
+        "code", 
+        "infra"
+      ]
+    },
+    {
+      "login": "MohitPopli",
+      "name": "Mohit",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17976072?v=4",
+      "profile": "https://github.com/MohitPopli",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "JacobMGEvans",
+      "name": "Jacob M-G Evans",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27247160?v=4",
+      "profile": "https://dev.to/jacobmgevans",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "mitchelvanbever",
+      "name": "Mitchel van Bever",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10127707?v=4",
+      "profile": "https://github.com/mitchelvanbever",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "tsuki42",
+      "name": "Sudhanshu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22864071?v=4",
+      "profile": "https://github.com/tsuki42",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "nobrayner",
+      "name": "Braydon Hall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40751395?v=4",
+      "profile": "https://github.com/nobrayner",
+      "contributions": [
+        "test",
+        "code",
+        "infra"
+      ]
+    },
+    {
+      "login": "juhanakristian",
+      "name": "Juhana Jauhiainen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/544386?v=4",
+      "profile": "https://github.com/juhanakristian",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "ziedtouibi",
+      "name": "Zied.Touibi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15978090?v=4",
+      "profile": "https://twitter.com/ZiedTouibi",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "rubenmoya",
+      "name": "Rubén Moya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/905225?v=4",
+      "profile": "https://rubenmoya.dev/",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "grady-lad",
+      "name": "Martin O'Grady",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6424060?v=4",
+      "profile": "https://twitter.com/grady_lad",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "Aprillion",
+      "name": "Peter Hozák",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1087670?v=4",
+      "profile": "http://peter.hozak.info/",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "tigerabrodi",
+      "name": "Tiger Abrodi | Shisui's & Minato's Successor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49603590?v=4",
+      "profile": "https://tigerabrodi.dev/",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "Devil005",
+      "name": "mpopli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58681803?v=4",
+      "profile": "https://github.com/Devil005",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "emma-r-slight",
+      "name": "Emma ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60733989?v=4",
+      "profile": "https://github.com/emma-r-slight",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "YPAzevedo",
+      "name": "Yago Pereira Azevedo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56167866?v=4",
+      "profile": "https://www.linkedin.com/in/ypazevedo/",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "atom-pwa",
-  "projectOwner": "HorusGoul",
+  "projectOwner": "OpenSourceRaidGuild",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "none"
 }

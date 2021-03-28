@@ -2,7 +2,6 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
 import { SpycatSetup } from "@/services/spycat";
-import Locale, { i18n } from "../Locale";
 import {
   ABOUT,
   MAIN_MENU,
@@ -14,7 +13,8 @@ import {
   TEST_VALENCES,
   TEST_VALENCES_SETTINGS,
 } from "../routes";
-import Theme from "../Theme";
+import { useLocale } from "@/hooks/useLocale";
+import { useTheme } from "@/hooks/useTheme";
 import About from "./about/About";
 import "./App.scss";
 import MainMenu from "./main-menu/MainMenu";
@@ -28,34 +28,17 @@ import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings"
 import ValencesTest from "./valences-test/ValencesTest";
 
 function App() {
-  const [, setUpdateKey] = React.useState(0);
-  const [theme, setTheme] = React.useState(() => Theme.getCurrentTheme());
-
-  // TODO: Migrate Locale and Theme to use the Context API
-  React.useEffect(() => {
-    Locale.addLocaleChangeListener(forceUpdate);
-    Theme.addThemeChangeListener(setTheme);
-
-    function forceUpdate() {
-      setUpdateKey((current) => current + 1);
-    }
-
-    return () => {
-      Locale.removeLocaleChangeListener(forceUpdate);
-      Theme.removeThemeChangeListener(setTheme);
-    };
-  }, []);
+  const { lang, i18n } = useLocale();
+  const { theme, primaryColor } = useTheme();
 
   React.useLayoutEffect(() => {
     document.body.className = "theme-" + theme;
   }, [theme]);
 
-  const primaryColor = Theme.getPrimaryColor();
-
   return (
     <div className="app">
       <Helmet>
-        <html lang={Locale.getCurrentLang()} />
+        <html lang={lang} />
 
         <link
           rel="mask-icon"
