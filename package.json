@@ -56,7 +56,7 @@
     "react-hyper-scroller": "^3.0.0-beta.5",
     "react-portal": "^4.2.1",
     "react-router-dom": "^5.2.0",
-    "spycat": "^0.0.6",
+    "spycat": "^0.0.7",
     "workbox-precaching": "^6.1.0"
   },
   "devDependencies": {
