@@ -7,10 +7,10 @@ test("search for Neon", () => {
   const onElement = jest.fn();
 
   render(<ElementPicker onElement={onElement} />);
-  expect(screen.getByText("Fermium")).toBeVisible();
+  expect(screen.getByText("Helium")).toBeVisible();
 
   userEvent.type(screen.getByRole("textbox"), "Neon");
-  expect(screen.queryByText("Fermium")).not.toBeInTheDocument();
+  expect(screen.queryByText("Helium")).not.toBeInTheDocument();
 
   userEvent.click(screen.getByText("Noble gases"));
 
@@ -21,24 +21,23 @@ test("search for Neon", () => {
   );
 });
 
-test("search for atomic number 2", () => {
+test("search for atomic number 118", () => {
   const onElement = jest.fn();
 
   render(<ElementPicker onElement={onElement} />);
 
-  userEvent.type(screen.getByRole("textbox"), "2");
+  userEvent.type(screen.getByRole("textbox"), "118");
 
-  userEvent.click(screen.getByText("Helium"));
+  userEvent.click(screen.getByText("Oganesson"));
 
   expect(onElement).toHaveBeenCalledWith(
     expect.objectContaining({
-      name: "Helium",
+      name: "Oganesson",
     })
   );
 });
 
-// TODO: unskip when https://github.com/HorusGoul/atom-pwa/issues/27 is fixed
-test.skip("search for atomic number 25", async () => {
+test("search for atomic number 25", async () => {
   const onElement = jest.fn();
 
   render(<ElementPicker onElement={onElement} />);
