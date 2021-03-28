@@ -2,9 +2,14 @@ import { useCallback } from "react";
 import { Element } from "../Element";
 import { useLocale } from "./useLocale";
 
-const elementsMap = import.meta.globEager("../data/elements/*.json");
+const elementsMap = import.meta.globEager("../data/elements/*.json") as Record<
+  string,
+  Element
+>;
 
-const elements = Object.values(elementsMap) as Element[];
+const elements = Object.values(elementsMap).sort(
+  (elementA, elementB) => elementA.atomic - elementB.atomic
+);
 
 const elementLookup = elements.reduce((prev, next) => {
   prev[next.atomic] = next;
