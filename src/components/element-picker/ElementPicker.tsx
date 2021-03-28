@@ -13,15 +13,23 @@ interface ElementPickerProps {
   onElement: (element: Element) => void;
 }
 
+interface SearchState {
+  query: string;
+  elements: Element[];
+}
+
 function ElementPicker({ onElement }: ElementPickerProps) {
   const { i18n } = useLocale();
   const { elements: allElements, getElementLocales } = useElements();
-  const [elements, setElements] = useState<Element[]>([]);
+  const [search, setSearch] = useState<SearchState>(() => ({
+    query: "",
+    elements: allElements,
+  }));
   const elementListRef = useRef<HTMLDivElement>(null);
 
   const elementListRowRenderer = useCallback(
     (index: number, ref: React.RefObject<HTMLDivElement>) => {
-      const element = elements[index];
+      const element = search.elements[index];
       const elementLocales = getElementLocales(element);
 
       return (
@@ -53,13 +61,13 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         </div>
       );
     },
-    [elements, onElement, getElementLocales]
+    [search, onElement, getElementLocales]
   );
 
   const searchElements = useCallback(
     (searchValue?: string) => {
       if (!searchValue) {
-        return setElements(allElements);
+        return setSearch({ query: "", elements: allElements });
       }
 
       const newElements = allElements.filter((element) => {
@@ -87,7 +95,7 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         return false;
       });
 
-      setElements(newElements);
+      setSearch({ query: searchValue, elements: newElements });
     },
     [allElements, getElementLocales]
   );
@@ -99,7 +107,8 @@ function ElementPicker({ onElement }: ElementPickerProps) {
   const scroller = useVirtualScroller({
     estimatedItemHeight: 64,
     targetView: elementListRef,
-    itemCount: elements.length,
+    itemCount: search.elements.length,
+    cacheKey: `element-picker:${search.query}`,
   });
 
   return (
