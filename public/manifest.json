@@ -1,7 +1,7 @@
 {
   "short_name": "Atom",
   "name": "Atom - Periodic Table & Quizzes",
-  "description": "Learn the basics of chemistry doing the quizzes and using the periodic table.\n\n<b>FEATURES:</b>\n• Periodic table quiz\n• Chemical valences quiz\n• All the elements of the periodic table\n• Atomic number, atomic mass, electronic configuration, electronegativity, oxidation states, bonding type, melting point, boiling point, density, year of discovery and valency\n• Molar mass calculator\n\nThere will be more quizzes in the future!",
+  "description": "Learn the basics of chemistry doing the quizzes and using the periodic table.\n\nFEATURES:\n• Periodic table quiz\n• Chemical valences quiz\n• All the elements of the periodic table\n• Atomic number, atomic mass, electronic configuration, electronegativity, oxidation states, bonding type, melting point, boiling point, density, year of discovery and valency\n• Molar mass calculator\n\nThere will be more quizzes in the future!",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -17,42 +17,6 @@
     }
   ],
   "screenshots": [
-    {
-      "src": "/screenshots/desktop/1-pt.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Periodic table with all the elements at your fingertips"
-    },
-    {
-      "src": "/screenshots/desktop/2-ptinfo.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Look up available data of any element"
-    },
-    {
-      "src": "/screenshots/desktop/3-ptquiz.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Complete the periodic table to learn the position of all elements"
-    },
-    {
-      "src": "/screenshots/desktop/4-masscalc.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Use the calculator to find the mass of your formulas"
-    },
-    {
-      "src": "/screenshots/desktop/5-valencyquiz.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Learn the valences practicing with the quiz"
-    },
-    {
-      "src": "/screenshots/desktop/6-quizsettings.png",
-      "sizes": "1920x1080",
-      "platform": "wide",
-      "label": "Select the elements you need to learn in each test"
-    },
     {
       "src": "/screenshots/phone/1-pt.png",
       "sizes": "1080x1920",
@@ -87,6 +51,42 @@
       "src": "/screenshots/phone/6-quizsettings.png",
       "sizes": "1080x1920",
       "platform": "narrow",
+      "label": "Select the elements you need to learn in each test"
+    },
+    {
+      "src": "/screenshots/desktop/1-pt.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
+      "label": "Periodic table with all the elements at your fingertips"
+    },
+    {
+      "src": "/screenshots/desktop/2-ptinfo.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
+      "label": "Look up available data of any element"
+    },
+    {
+      "src": "/screenshots/desktop/3-ptquiz.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
+      "label": "Complete the periodic table to learn the position of all elements"
+    },
+    {
+      "src": "/screenshots/desktop/4-masscalc.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
+      "label": "Use the calculator to find the mass of your formulas"
+    },
+    {
+      "src": "/screenshots/desktop/5-valencyquiz.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
+      "label": "Learn the valences practicing with the quiz"
+    },
+    {
+      "src": "/screenshots/desktop/6-quizsettings.png",
+      "sizes": "1920x1080",
+      "platform": "wide",
       "label": "Select the elements you need to learn in each test"
     }
   ],
