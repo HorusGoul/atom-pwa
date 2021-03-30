@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router";
 import { useLocale } from "@/hooks/useLocale";
-import { MAIN_MENU } from "@/routes";
+import { HUB } from "@/routes";
 import Navbar from "../shared/navbar/Navbar";
 import TestEntry from "./test-entry/TestEntry";
 import "./TestSelection.scss";
@@ -32,7 +32,7 @@ function TestSelection() {
         className="test-selection__navbar"
         title={i18n("nav_test")}
         // TODO: replace "push" with "replace" in the future
-        onBackButtonClick={() => history.push(MAIN_MENU)}
+        onBackButtonClick={() => history.push(HUB)}
       />
 
       <div className="test-selection__entries">

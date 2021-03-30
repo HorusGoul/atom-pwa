@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { SpycatSetup } from "@/services/spycat";
 import {
   ABOUT,
-  MAIN_MENU,
+  HUB,
   MASS_CALCULATOR,
   PERIODIC_TABLE,
   TEST_PERIODIC_TABLE,
@@ -17,7 +17,6 @@ import { useLocale } from "@/hooks/useLocale";
 import { useTheme } from "@/hooks/useTheme";
 import About from "./about/About";
 import "./App.scss";
-import MainMenu from "./main-menu/MainMenu";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import NotFound from "./not-found/NotFound";
 import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
@@ -26,6 +25,7 @@ import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTa
 import TestSelection from "./test-selection/TestSelection";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 import ValencesTest from "./valences-test/ValencesTest";
+import Hub from "./hub/Hub";
 
 function App() {
   const { lang, i18n } = useLocale();
@@ -61,7 +61,7 @@ function App() {
         <Route path="/" component={SpycatSetup} />
 
         <Switch>
-          <Route exact={true} path={MAIN_MENU} component={MainMenu} />
+          <Route exact={true} path={HUB} component={Hub} />
           <Route exact={true} path={TEST_SELECTION} component={TestSelection} />
           <Route exact={true} path={TEST_VALENCES} component={ValencesTest} />
           <Route

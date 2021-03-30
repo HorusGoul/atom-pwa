@@ -1,0 +1,45 @@
+@import "../../../scss/helpers.scss";
+
+.root[data-hub-item] {
+  position: relative;
+  min-height: 120px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  @include box-shadow($level: 2);
+}
+
+.title {
+  font-weight: 600;
+  z-index: 1;
+  text-align: left;
+}
+
+.category {
+  font-weight: 800;
+  text-transform: uppercase;
+  // TODO: add variants for each color and use the light one here
+  color: var(--accent);
+  letter-spacing: 0.8;
+  z-index: 1;
+  text-align: left;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+  border-radius: 16px;
+}

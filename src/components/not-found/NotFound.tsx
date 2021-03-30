@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
-import { MAIN_MENU } from "@/routes";
+import { HUB } from "@/routes";
 import Button from "../shared/button/Button";
 import "./NotFound.scss";
 
@@ -9,7 +9,7 @@ function NotFound() {
   const history = useHistory();
   const { i18n } = useLocale();
 
-  const goHome = React.useCallback(() => history.push(MAIN_MENU), [history]);
+  const goHome = React.useCallback(() => history.push(HUB), [history]);
 
   return (
     <div className="not-found">

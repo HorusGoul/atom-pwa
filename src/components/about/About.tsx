@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
-import { MAIN_MENU } from "@/routes";
+import { HUB } from "@/routes";
 import LocaleSelector from "@/components/locale-selector/LocaleSelector";
 import Card from "@/components/shared/card/Card";
 import IconButton from "@/components/shared/icon-button/IconButton";
@@ -13,10 +13,9 @@ function About() {
   const history = useHistory();
   const { i18n } = useLocale();
 
-  const onNavbarBackButtonClick = React.useCallback(
-    () => history.push(MAIN_MENU),
-    [history]
-  );
+  const onNavbarBackButtonClick = React.useCallback(() => history.push(HUB), [
+    history,
+  ]);
   return (
     <div className="about">
       <Navbar

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import { MAIN_MENU } from "@/routes";
+import { HUB } from "@/routes";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Navbar from "../shared/navbar/Navbar";
@@ -43,7 +43,7 @@ function PeriodicTablePage() {
   };
 
   const onNavbarBackButtonClick = () => {
-    history.push(MAIN_MENU);
+    history.push(HUB);
   };
 
   const elementRenderer = (atomic: number) => {

@@ -1,4 +1,4 @@
-export const MAIN_MENU = "/";
+export const HUB = "/";
 
 export const TEST_SELECTION = "/tests";
 export const PERIODIC_TABLE = "/periodic-table";
@@ -12,7 +12,7 @@ export const TEST_PERIODIC_TABLE = TEST_SELECTION + "/periodic-table";
 export const TEST_PERIODIC_TABLE_SETTINGS = TEST_PERIODIC_TABLE + "/settings";
 
 export const SCREEN_NAME = {
-  [MAIN_MENU]: "Atom Hub",
+  [HUB]: "Atom Hub",
   [TEST_SELECTION]: "Test Selection",
   [PERIODIC_TABLE]: "Periodic Table",
   [MASS_CALCULATOR]: "Mass Calculator",

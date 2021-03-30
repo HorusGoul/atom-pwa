@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
-import { MAIN_MENU } from "@/routes";
+import { HUB } from "@/routes";
 import IconButton from "../shared/icon-button/IconButton";
 import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
 import Navbar from "../shared/navbar/Navbar";
@@ -32,7 +32,7 @@ function MassCalculator() {
   const { i18n } = useLocale();
 
   const onNavbarBackButtonClick = React.useCallback(() => {
-    history.push(MAIN_MENU);
+    history.push(HUB);
   }, [history]);
 
   return (
