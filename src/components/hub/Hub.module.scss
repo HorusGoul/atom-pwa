@@ -63,6 +63,15 @@
   }
 }
 
+:global(.theme-dark) .search,
+:global(.theme-black) .search {
+  border: 2px solid rgba(255, 255, 255, 0.644);
+
+  &:focus-within {
+    border: 2px solid var(--accent);
+  }
+}
+
 .sections {
   width: 100%;
   padding: 16px 0;

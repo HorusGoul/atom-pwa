@@ -1,9 +1,9 @@
-@import "../../../scss/helpers.scss";
+@import "../../../scss/common.scss";
 
 .root[data-hub-item] {
   position: relative;
   min-height: 120px;
-  border-radius: 16px;
+  border-radius: $card-border-radius;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
+  overflow: hidden;
 
   @include box-shadow($level: 2);
 }
@@ -41,5 +42,4 @@
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
   z-index: 0;
-  border-radius: 16px;
 }
