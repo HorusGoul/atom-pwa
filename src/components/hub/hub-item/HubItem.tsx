@@ -8,6 +8,8 @@ export interface HubItemProps {
   title?: string;
   category?: string;
   imageUrl?: string;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 function HubItem({
@@ -16,6 +18,8 @@ function HubItem({
   title = "Item",
   category,
   imageUrl,
+  onClick,
+  disabled = !onClick,
 }: HubItemProps) {
   return (
     <ButtonBase
@@ -26,6 +30,8 @@ function HubItem({
         gridRow: `span ${rowSpan}`,
         backgroundImage: `url(${imageUrl})`,
       }}
+      onClick={onClick}
+      aria-disabled={disabled}
     >
       <div className={styles.overlay} />
 

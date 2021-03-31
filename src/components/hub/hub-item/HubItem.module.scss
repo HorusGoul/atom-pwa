@@ -15,6 +15,10 @@
   overflow: hidden;
 
   @include box-shadow($level: 2);
+
+  &[aria-disabled="true"] {
+    filter: grayscale(100%);
+  }
 }
 
 .title {

@@ -27,6 +27,7 @@ function Hub() {
             }}
           >
             <Atom
+              aria-label="Atom"
               weight={24}
               size={48}
               color={theme === "light" ? "primary" : "white"}
@@ -79,6 +80,17 @@ function Hub() {
               title="Courses"
               imageUrl="http://placeimg.com/300/300/courses"
               colSpan={2}
+            />
+          </HubSection>
+
+          <HubSection title="Other">
+            <HubItem
+              title="Settings"
+              imageUrl="http://placeimg.com/200/300/settings"
+            />
+            <HubItem
+              title="About"
+              imageUrl="http://placeimg.com/300/300/about"
             />
           </HubSection>
         </div>
