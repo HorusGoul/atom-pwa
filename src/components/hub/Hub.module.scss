@@ -9,6 +9,13 @@
   color: var(--contentTextColor);
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .content {
   display: flex;
   align-items: center;
@@ -22,7 +29,6 @@
 }
 
 .logo {
-  background-color: #fff;
   border-radius: 128px;
   padding: 8px;
   margin-top: 32px;
@@ -31,11 +37,11 @@
 }
 
 .search {
-  margin-top: 32px;
+  margin: 32px 0 16px;
   width: 100%;
   height: 48px;
   background-color: var(--cardBackgroundColor);
-  color: var(--textColorPrimary);
+  color: var(--contentTextColor);
   border-radius: $card-border-radius;
   overflow: hidden;
 
@@ -49,6 +55,11 @@
     border: none;
     padding: 0 16px;
     font-size: 18px;
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
   }
 }
 
