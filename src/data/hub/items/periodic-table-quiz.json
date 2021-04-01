@@ -1,0 +1,7 @@
+{
+  "disabled": false,
+  "id": "periodic-table-quiz",
+  "title": "Periodic Table",
+  "category": "quiz",
+  "href": "/tests/periodic-table"
+}

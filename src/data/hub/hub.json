@@ -7,6 +7,41 @@
           "item": "periodic-table",
           "colSpan": 2,
           "rowSpan": 1
+        },
+        {
+          "item": "mass-calculator",
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+          "item": "unit-converter",
+          "colSpan": 1,
+          "rowSpan": 1
+        }
+      ]
+    },
+    {
+      "title": "learn",
+      "items": [
+        {
+          "item": "quizzes",
+          "colSpan": 2,
+          "rowSpan": 1
+        },
+        {
+          "item": "courses",
+          "colSpan": 2,
+          "rowSpan": 1
+        }
+      ]
+    },
+    {
+      "title": "Other",
+      "items": [
+        {
+          "item": "settings",
+          "rowSpan": 1,
+          "colSpan": 2
         }
       ]
     }
