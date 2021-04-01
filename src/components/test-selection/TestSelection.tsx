@@ -5,9 +5,12 @@ import { HUB } from "@/routes";
 import Navbar from "../shared/navbar/Navbar";
 import TestEntry from "./test-entry/TestEntry";
 import "./TestSelection.scss";
+import { useAddRecent } from "@/hooks/useRecent";
 
 function TestSelection() {
   const { i18n } = useLocale();
+
+  useAddRecent("quizzes");
 
   const testEntries = [
     {

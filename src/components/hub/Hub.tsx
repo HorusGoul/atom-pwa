@@ -1,5 +1,7 @@
 import { useHubCategoryById } from "@/hooks/useHubCategories";
 import { useHubItemById } from "@/hooks/useHubItems";
+import { useLocale } from "@/hooks/useLocale";
+import { useRecent } from "@/hooks/useRecent";
 import { useTheme } from "@/hooks/useTheme";
 import * as React from "react";
 import { useHistory } from "react-router";
@@ -10,8 +12,10 @@ import styles from "./Hub.module.scss";
 import { HubSectionData, useHub } from "./useHub";
 
 function Hub() {
+  const { i18n } = useLocale();
   const { theme } = useTheme();
   const { sections } = useHub();
+  const { recent } = useRecent();
 
   return (
     <div className={styles.hub}>
@@ -46,18 +50,13 @@ function Hub() {
       </div>
       <div className={styles.content}>
         <div className={styles.sections}>
-          <HubSection title="Recent">
-            <HubItem
-              category="Tool"
-              title="Periodic Table"
-              imageUrl="http://placeimg.com/200/300/periodic-table"
-            />
-            <HubItem
-              category="Quiz"
-              title="Valency Test"
-              imageUrl="http://placeimg.com/200/300/valency-test"
-            />
-          </HubSection>
+          {recent.length > 0 && (
+            <HubSection title={i18n("Recent")}>
+              {recent.slice(0, 2).map((id) => (
+                <HubItemWithData key={id} item={id} showCategory={true} />
+              ))}
+            </HubSection>
+          )}
 
           {sections.map((section) => (
             <HubSectionWithData key={section.title} {...section} />

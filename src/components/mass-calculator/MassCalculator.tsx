@@ -11,6 +11,7 @@ import CalculatorElement from "./CalculatorElement";
 import { useMassCalculator } from "./hooks/useMassCalculator";
 import { useModal } from "./hooks/useModal";
 import "./MassCalculator.scss";
+import { useAddRecent } from "@/hooks/useRecent";
 
 function MassCalculator() {
   const {
@@ -30,6 +31,8 @@ function MassCalculator() {
   const { addModal, editModal } = useModal();
   const history = useHistory();
   const { i18n } = useLocale();
+
+  useAddRecent("mass-calculator");
 
   const onNavbarBackButtonClick = React.useCallback(() => {
     history.push(HUB);

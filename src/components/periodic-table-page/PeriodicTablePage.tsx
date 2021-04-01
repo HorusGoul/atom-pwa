@@ -10,6 +10,7 @@ import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
+import { useAddRecent } from "@/hooks/useRecent";
 
 interface ElementInfoState {
   element: Element;
@@ -20,6 +21,8 @@ function PeriodicTablePage() {
   const history = useHistory();
   const { i18n } = useLocale();
   const { getElement } = useElements();
+
+  useAddRecent("periodic-table");
 
   const [elementInfo, setElementInfo] = React.useState<ElementInfoState>(
     () => ({

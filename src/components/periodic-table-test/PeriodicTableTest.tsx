@@ -16,6 +16,7 @@ import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
 import TestResults from "../test-results/TestResults";
 import { usePeriodicTableTestSettings } from "./hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTest.scss";
+import { useAddRecent } from "@/hooks/useRecent";
 
 interface PeriodicTableTestQuestion {
   element: Element;
@@ -25,6 +26,8 @@ function PeriodicTableTest() {
   const history = useHistory();
   const { i18n } = useLocale();
   const { getElement } = useElements();
+
+  useAddRecent("periodic-table-quiz");
 
   const { settings, updateSettings } = usePeriodicTableTestSettings();
 

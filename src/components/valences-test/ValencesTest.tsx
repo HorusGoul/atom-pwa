@@ -14,6 +14,7 @@ import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
 import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
+import { useAddRecent } from "@/hooks/useRecent";
 
 interface ValencesTestQuestion extends Question {
   data: Element;
@@ -48,6 +49,8 @@ function ValencesTest() {
   const { i18n } = useLocale();
   const { getElement } = useElements();
   const { settings, updateSettings } = useValencesTestSettings();
+
+  useAddRecent("valency-quiz");
 
   function createTestQuestions(settings: ElementsSettings) {
     if (!settings.elements) {
