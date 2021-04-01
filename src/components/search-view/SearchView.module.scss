@@ -1,0 +1,65 @@
+@import "../../scss/common.scss";
+
+.searchView {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backgroundColor);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  max-width: var(--max-width);
+  width: var(--max-width);
+
+  // Mobile
+  --max-width: 288px;
+}
+
+.topbar {
+  margin: 16px;
+  width: 100%;
+  border-radius: $card-border-radius;
+  height: 48px;
+  background-color: var(--cardBackgroundColor);
+  display: flex;
+  overflow: hidden;
+
+  @include box-shadow($level: 1);
+
+  .backButton {
+    --size: 40px;
+
+    margin: 4px 4px 4px 8px;
+
+    min-width: var(--size);
+    min-height: var(--size);
+    max-width: var(--size);
+    max-width: var(--size);
+    padding: 0;
+    opacity: 0.6;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0 16px 0 8px;
+    font-size: 18px;
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+}

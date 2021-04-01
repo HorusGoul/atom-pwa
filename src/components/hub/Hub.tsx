@@ -2,6 +2,7 @@ import { useHubCategoryById } from "@/hooks/useHubCategories";
 import { useHubItemById } from "@/hooks/useHubItems";
 import { useLocale } from "@/hooks/useLocale";
 import { useRecent } from "@/hooks/useRecent";
+import { useSearchInput } from "@/hooks/useSearchInput";
 import { useTheme } from "@/hooks/useTheme";
 import * as React from "react";
 import { useHistory } from "react-router";
@@ -16,6 +17,7 @@ function Hub() {
   const { theme } = useTheme();
   const { sections } = useHub();
   const { recent } = useRecent();
+  const searchInput = useSearchInput("push");
 
   return (
     <div className={styles.hub}>
@@ -44,7 +46,7 @@ function Hub() {
           </div>
 
           <div className={styles.search}>
-            <input type="text" placeholder="Search..." aria-label="Search" />
+            <input type="text" {...searchInput} />
           </div>
         </div>
       </div>

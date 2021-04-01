@@ -26,6 +26,7 @@ import TestSelection from "./test-selection/TestSelection";
 import ValencesTestSettings from "./valences-test/settings/ValencesTestSettings";
 import ValencesTest from "./valences-test/ValencesTest";
 import Hub from "./hub/Hub";
+import SearchView from "./search-view";
 
 function App() {
   const { lang, i18n } = useLocale();
@@ -61,7 +62,10 @@ function App() {
         <Route path="/" component={SpycatSetup} />
 
         <Switch>
-          <Route exact={true} path={HUB} component={Hub} />
+          <Route exact={true} path={HUB}>
+            <SearchView />
+            <Hub />
+          </Route>
           <Route exact={true} path={TEST_SELECTION} component={TestSelection} />
           <Route exact={true} path={TEST_VALENCES} component={ValencesTest} />
           <Route
