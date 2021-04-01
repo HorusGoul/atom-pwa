@@ -1,0 +1,9 @@
+{
+  "disabled": false,
+  "id": "periodic-table",
+  "title": "Periodic Table",
+  "category": "tools",
+  "colSpan": 2,
+  "imageUrl": "http://placeimg.com/200/300/periodic-table",
+  "href": "/periodic-table"
+}

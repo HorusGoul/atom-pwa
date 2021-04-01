@@ -1,0 +1,14 @@
+{
+  "sections": [
+    {
+      "title": "tools",
+      "items": [
+        {
+          "item": "periodic-table",
+          "colSpan": 2,
+          "rowSpan": 1
+        }
+      ]
+    }
+  ]
+}
