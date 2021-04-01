@@ -50,6 +50,8 @@ export function useLocale() {
 
   const i18n = useCallback(
     (localeName: string): string => {
+      localeName = localeName.replace(/ /g, "_").toLowerCase();
+
       const result =
         locale?.[localeName] ||
         defaultLocales[localeName] ||
