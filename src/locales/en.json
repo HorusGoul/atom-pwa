@@ -231,5 +231,7 @@
   "close": "Close",
   "go_back": "Go back",
   "cancel": "Cancel",
-  "continue_text": "Continue"
+  "continue_text": "Continue",
+  "are_you_sure": "Are you sure?",
+  "confirm_exit_quiz_message": "Quiz progress will be lost if you leave."
 }

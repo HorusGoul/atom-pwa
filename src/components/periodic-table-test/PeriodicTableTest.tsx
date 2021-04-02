@@ -17,6 +17,7 @@ import TestResults from "../test-results/TestResults";
 import { usePeriodicTableTestSettings } from "./hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTest.scss";
 import { useAddRecent } from "@/hooks/useRecent";
+import { useConfirm } from "../shared/confirm";
 
 interface PeriodicTableTestQuestion {
   element: Element;
@@ -26,6 +27,7 @@ function PeriodicTableTest() {
   const history = useHistory();
   const { i18n } = useLocale();
   const { getElement } = useElements();
+  const { confirmAction } = useConfirm();
 
   useAddRecent("periodic-table-quiz");
 
@@ -202,11 +204,22 @@ function PeriodicTableTest() {
       <Navbar
         title="Periodic Table Test"
         className="periodic-table-test__navbar"
-        onBackButtonClick={onNavbarBackButtonClick}
+        onBackButtonClick={() =>
+          confirmAction({
+            title: i18n("are_you_sure"),
+            message: i18n("confirm_exit_quiz_message"),
+            onConfirm: () => onNavbarBackButtonClick(),
+          })
+        }
         rightButton={{
           iconName: "settings",
           label: i18n("Settings"),
-          onClick: () => history.push(TEST_PERIODIC_TABLE_SETTINGS),
+          onClick: () =>
+            confirmAction({
+              title: i18n("are_you_sure"),
+              message: i18n("confirm_exit_quiz_message"),
+              onConfirm: () => history.push(TEST_PERIODIC_TABLE_SETTINGS),
+            }),
         }}
       />
 
