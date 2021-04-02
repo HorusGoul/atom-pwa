@@ -1,4 +1,5 @@
-import { useCallback } from "react";
+import MiniSearch from "minisearch";
+import { useCallback, useMemo, useRef } from "react";
 import { Element } from "../Element";
 import { useLocale } from "./useLocale";
 
@@ -53,10 +54,45 @@ export function useElements() {
     [getElement, getElementLocales]
   );
 
+  const localizedElements = useMemo(() => {
+    return elements.map(getElementLocales);
+  }, [getElementLocales]);
+
+  const searchIndexRef = useRef<MiniSearch<Element>>();
+
+  if (!searchIndexRef.current) {
+    searchIndexRef.current = new MiniSearch<Element>({
+      idField: "atomic",
+      fields: [
+        "atomic",
+        "symbol",
+        "name",
+        "atomicMass",
+        "group",
+        "standardState",
+        "bondingType",
+        "electronicConfiguration",
+      ],
+      searchOptions: {
+        fuzzy: 0.5,
+        boost: {
+          atomic: 5,
+          symbol: 5,
+          name: 2,
+          group: 2,
+        },
+        prefix: true,
+      },
+    });
+
+    searchIndexRef.current.addAll(localizedElements);
+  }
+
   return {
     elements,
     getElement,
     getElementLocales,
     getLocalizedElement,
+    searchIndex: searchIndexRef.current as MiniSearch<Element>,
   };
 }
