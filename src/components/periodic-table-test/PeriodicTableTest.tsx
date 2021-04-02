@@ -5,7 +5,7 @@ import { Element } from "@/Element";
 import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import { TEST_SELECTION } from "@/routes";
+import { TEST_PERIODIC_TABLE_SETTINGS, TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
@@ -203,6 +203,11 @@ function PeriodicTableTest() {
         title="Periodic Table Test"
         className="periodic-table-test__navbar"
         onBackButtonClick={onNavbarBackButtonClick}
+        rightButton={{
+          iconName: "settings",
+          label: i18n("Settings"),
+          onClick: () => history.push(TEST_PERIODIC_TABLE_SETTINGS),
+        }}
       />
 
       {currentQuestion && (

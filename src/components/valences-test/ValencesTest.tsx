@@ -4,7 +4,7 @@ import { Element } from "@/Element";
 import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import { TEST_SELECTION } from "@/routes";
+import { TEST_SELECTION, TEST_VALENCES_SETTINGS } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { Question } from "../questions-test/question-card/QuestionCard";
@@ -162,6 +162,11 @@ function ValencesTest() {
       <Navbar
         title={i18n("valences_test")}
         onBackButtonClick={onNavbarBackButtonClick}
+        rightButton={{
+          iconName: "settings",
+          label: i18n("Settings"),
+          onClick: () => history.push(TEST_VALENCES_SETTINGS),
+        }}
       />
 
       {hasQuestions && (
