@@ -28,6 +28,10 @@ import ValencesTest from "./valences-test/ValencesTest";
 import Hub from "./hub/Hub";
 import SearchView from "./search-view";
 import { ElementProvider } from "@/contexts/ElementContext";
+import { createPack } from "react-component-pack";
+import ConfirmProvider from "./shared/confirm";
+
+const ProviderPack = createPack(ElementProvider, ConfirmProvider);
 
 function App() {
   const { lang, i18n } = useLocale();
@@ -38,7 +42,7 @@ function App() {
   }, [theme]);
 
   return (
-    <ElementProvider>
+    <ProviderPack>
       <div className="app">
         <Helmet>
           <html lang={lang} />
@@ -101,7 +105,7 @@ function App() {
           </Switch>
         </div>
       </div>
-    </ElementProvider>
+    </ProviderPack>
   );
 }
 

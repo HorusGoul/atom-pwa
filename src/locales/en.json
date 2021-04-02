@@ -229,5 +229,7 @@
   "search_dots": "Search...",
   "search": "Search",
   "close": "Close",
-  "go_back": "Go back"
+  "go_back": "Go back",
+  "cancel": "Cancel",
+  "continue_text": "Continue"
 }

@@ -1,0 +1,34 @@
+.modal {
+  padding: 0;
+  max-width: 288px;
+  max-height: 80%;
+  height: auto;
+  will-change: transform;
+  overflow: hidden;
+
+  p {
+    padding: 0 16px 16px;
+    margin: 0;
+  }
+}
+
+.footer {
+  display: flex;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.okButton[data-atom-button] {
+  color: var(--accent);
+  fill: var(--accent);
+
+  span {
+    padding-left: 8px;
+  }
+
+  svg {
+    margin-left: 8px;
+  }
+}
