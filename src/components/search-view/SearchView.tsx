@@ -15,6 +15,7 @@ import { Element } from "@/Element";
 import { useDebounce } from "use-debounce";
 import Atom from "../atom";
 import { PERIODIC_TABLE } from "@/routes";
+import { ReactComponent as NoResults } from "./no-results.svg";
 
 function SearchView() {
   const { i18n } = useLocale();
@@ -55,6 +56,9 @@ function SearchView() {
 
   useLockBodyScroll(searchViewRef, open);
 
+  const isLoading = query !== debouncedQuery;
+  const noResults = !isLoading && results.elements.length === 0;
+
   if (!open) {
     return null;
   }
@@ -81,24 +85,32 @@ function SearchView() {
 
               <input type="text" autoFocus {...searchInput} />
 
-              {query !== debouncedQuery && (
+              {isLoading && (
                 <div className={styles.spinner}>
                   <Atom spinning={true} color="primary" weight={24} />
                 </div>
               )}
             </div>
 
-            <div className={styles.results}>
-              <div className={styles.section}>
-                <h2 className={styles.title}>Elements</h2>
+            {noResults && (
+              <div className={styles.noResults}>
+                <NoResults aria-label="No results" />
+              </div>
+            )}
 
-                <div className={styles.items}>
-                  {results.elements.slice(0, 10).map((result) => (
-                    <ElementSearchResult key={result.id} {...result} />
-                  ))}
+            {results.elements.length > 0 && (
+              <div className={styles.results}>
+                <div className={styles.section}>
+                  <h2 className={styles.title}>Elements</h2>
+
+                  <div className={styles.items}>
+                    {results.elements.slice(0, 10).map((result) => (
+                      <ElementSearchResult key={result.id} {...result} />
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </FocusTrap>

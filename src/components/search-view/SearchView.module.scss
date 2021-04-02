@@ -79,6 +79,29 @@
   }
 }
 
+.noResults {
+  width: 100%;
+  flex: 1;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 80%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+
+  .title {
+    margin: 32px 0;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+}
+
 .results {
   width: 100%;
 
