@@ -1,7 +1,7 @@
 @import "../../scss/common.scss";
 
 .searchView {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
@@ -11,6 +11,23 @@
   display: flex;
   justify-content: center;
   overflow-y: auto;
+  animation: slideIn 180ms ease-in forwards;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, 20%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0%, 0);
+  }
 }
 
 .content {
@@ -29,7 +46,8 @@
   margin: 16px;
   width: 100%;
   border-radius: $card-border-radius;
-  min-height: 48px;
+  min-height: 52px;
+  max-height: 52px;
   background-color: var(--cardBackgroundColor);
   display: flex;
   overflow: hidden;
@@ -48,6 +66,7 @@
     max-width: var(--size);
     padding: 0;
     opacity: 0.6;
+    fill: currentColor;
   }
 
   input {
@@ -76,6 +95,15 @@
       width: 24px;
       height: 24px;
     }
+  }
+}
+
+:global(.theme-dark) .topbar,
+:global(.theme-black) .topbar {
+  border: 2px solid rgba(255, 255, 255, 0.644);
+
+  &:focus-within {
+    border: 2px solid var(--accent);
   }
 }
 
@@ -121,9 +149,9 @@
 
   .items {
     width: 100%;
-    padding: 8px 0;
     background-color: var(--cardBackgroundColor);
     border-radius: $card-border-radius;
+    overflow: hidden;
 
     @include box-shadow($level: 1);
   }

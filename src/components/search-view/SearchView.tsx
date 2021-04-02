@@ -87,7 +87,7 @@ function SearchView() {
 
               {isLoading && (
                 <div className={styles.spinner}>
-                  <Atom spinning={true} color="primary" weight={24} />
+                  <Atom spinning={true} color="primary" weight={32} />
                 </div>
               )}
             </div>
