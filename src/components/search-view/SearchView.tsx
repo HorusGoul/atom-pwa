@@ -21,7 +21,7 @@ function SearchView() {
   const searchInput = useSearchInput("replace");
   const query = searchInput.value;
   const [open, setOpen] = React.useState(() => !!query);
-  const [debouncedQuery] = useDebounce(query, 600);
+  const [debouncedQuery] = useDebounce(query, 300);
   const results = useContentSearch(debouncedQuery);
 
   React.useEffect(() => {
