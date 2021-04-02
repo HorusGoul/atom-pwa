@@ -14,6 +14,7 @@ import classNames from "classnames";
 import { Element } from "@/Element";
 import { useDebounce } from "use-debounce";
 import Atom from "../atom";
+import { PERIODIC_TABLE } from "@/routes";
 
 function SearchView() {
   const { i18n } = useLocale();
@@ -112,6 +113,7 @@ function ElementSearchResult({ id, match }: SearchResult) {
   const { getLocalizedElement, getElement } = useElements();
   const element = getElement(id);
   const elementLocales = getLocalizedElement(id);
+  const history = useHistory();
 
   if (!elementLocales || !element) {
     return null;
@@ -136,8 +138,12 @@ function ElementSearchResult({ id, match }: SearchResult) {
     secondLineValue = elementLocales.group;
   }
 
+  function open() {
+    history.push(`${PERIODIC_TABLE}/${element.atomic}`);
+  }
+
   return (
-    <Button className={styles.elementSearchResult}>
+    <Button className={styles.elementSearchResult} onClick={open}>
       <div className={classNames(styles.symbol, "element", element.group)}>
         {elementLocales.symbol}
       </div>

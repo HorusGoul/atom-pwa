@@ -1,9 +1,9 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { Route, useHistory, useParams } from "react-router-dom";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import { HUB } from "@/routes";
+import { HUB, PERIODIC_TABLE } from "@/routes";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import Navbar from "../shared/navbar/Navbar";
@@ -12,11 +12,6 @@ import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
 import { useAddRecent } from "@/hooks/useRecent";
 
-interface ElementInfoState {
-  element: Element;
-  open: boolean;
-}
-
 function PeriodicTablePage() {
   const history = useHistory();
   const { i18n } = useLocale();
@@ -24,41 +19,18 @@ function PeriodicTablePage() {
 
   useAddRecent("periodic-table");
 
-  const [elementInfo, setElementInfo] = React.useState<ElementInfoState>(
-    () => ({
-      element: getElement(1) as Element,
-      open: false,
-    })
-  );
-
-  const openElementInfo = (element: Element) => {
-    setElementInfo({
-      element,
-      open: true,
-    });
-  };
-
-  const closeElementInfo = () => {
-    setElementInfo((info) => ({
-      ...info,
-      open: false,
-    }));
-  };
-
   const onNavbarBackButtonClick = () => {
     history.push(HUB);
   };
 
   const elementRenderer = (atomic: number) => {
     const element = getElement(atomic);
-    if (!element) {
-      return null;
-    }
+
     return (
       <PtElementInfo
         element={element}
         onClick={(element: Element) => {
-          openElementInfo(element);
+          history.push(`${PERIODIC_TABLE}/${element.atomic}`);
         }}
       />
     );
@@ -76,15 +48,28 @@ function PeriodicTablePage() {
         <PeriodicTable elementRenderer={elementRenderer} />
       </div>
 
-      <SwipeableModal
-        className="periodic-table-page__modal-element-info"
-        open={elementInfo.open}
-        onClose={closeElementInfo}
-      >
-        <ElementInfo element={elementInfo.element} />
-      </SwipeableModal>
+      <Route path={`${PERIODIC_TABLE}/:atomic`}>
+        <ElementInfoView />
+      </Route>
     </div>
   );
 }
 
 export default PeriodicTablePage;
+
+function ElementInfoView() {
+  const { getElement } = useElements();
+  const { atomic } = useParams<{ atomic: string }>();
+  const element = getElement(Number(atomic));
+  const history = useHistory();
+
+  return (
+    <SwipeableModal
+      className="periodic-table-page__modal-element-info"
+      open={true}
+      onClose={() => history.replace(PERIODIC_TABLE)}
+    >
+      <ElementInfo element={element} />
+    </SwipeableModal>
+  );
+}
