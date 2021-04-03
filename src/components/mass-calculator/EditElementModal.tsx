@@ -25,7 +25,9 @@ function EditElementModal({
   const { i18n } = useLocale();
   const { getLocalizedElement } = useElements();
 
-  const element = getLocalizedElement(selectedElement?.atomic);
+  const element = selectedElement
+    ? getLocalizedElement(selectedElement.atomic)
+    : null;
 
   if (!selectedElement || !element) {
     return null;
