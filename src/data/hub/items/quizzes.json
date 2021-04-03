@@ -3,5 +3,6 @@
   "category": "learn",
   "id": "quizzes",
   "title": "Quizzes",
-  "href": "/tests"
+  "href": "/tests",
+  "imageUrl": "/public/media/quizzes.svg"
 }

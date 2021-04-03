@@ -3,5 +3,6 @@
   "id": "periodic-table-quiz",
   "title": "Periodic Table",
   "category": "quiz",
-  "href": "/tests/periodic-table"
+  "href": "/tests/periodic-table",
+  "imageUrl": "/public/media/periodic-table-quiz.svg"
 }

@@ -1,7 +1,8 @@
 {
   "disabled": true,
-  "id": "courses",
-  "title": "Courses",
+  "id": "resources",
+  "title": "Resources",
   "category": "learn",
-  "href": "/courses"
+  "href": "/resources",
+  "imageUrl": "/public/media/resources.svg"
 }

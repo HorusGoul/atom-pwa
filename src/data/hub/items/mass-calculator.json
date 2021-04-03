@@ -3,5 +3,6 @@
   "id": "mass-calculator",
   "title": "Mass Calculator",
   "category": "tools",
-  "href": "/mass-calculator"
+  "href": "/mass-calculator",
+  "imageUrl": "/public/media/mass-calculator.svg"
 }

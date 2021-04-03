@@ -29,19 +29,9 @@
           "rowSpan": 1
         },
         {
-          "item": "courses",
+          "item": "resources",
           "colSpan": 2,
           "rowSpan": 1
-        }
-      ]
-    },
-    {
-      "title": "Other",
-      "items": [
-        {
-          "item": "settings",
-          "rowSpan": 1,
-          "colSpan": 2
         }
       ]
     }

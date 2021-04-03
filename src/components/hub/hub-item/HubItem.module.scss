@@ -2,7 +2,7 @@
 
 .root[data-hub-item] {
   position: relative;
-  min-height: 120px;
+  min-height: 136px;
   border-radius: $card-border-radius;
   padding: 16px;
   display: flex;
@@ -18,6 +18,11 @@
 
   &[aria-disabled="true"] {
     filter: grayscale(100%);
+
+    .overlay {
+      backdrop-filter: blur(2px);
+      background-color: rgba(26, 26, 26, 0.8);
+    }
   }
 }
 
@@ -25,6 +30,7 @@
   font-weight: 600;
   z-index: 1;
   text-align: left;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .category {
@@ -35,6 +41,7 @@
   letter-spacing: 0.8px;
   z-index: 1;
   text-align: left;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .overlay {
@@ -43,7 +50,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(3px);
   z-index: 0;
+  box-shadow: inset 0px -32px 96px rgba(0, 0, 0, 0.4),
+    inset 0px -16px 48px rgba(0, 0, 0, 0.8);
 }

@@ -4,6 +4,6 @@
   "title": "Periodic Table",
   "category": "tools",
   "colSpan": 2,
-  "imageUrl": "http://placeimg.com/200/300/periodic-table",
+  "imageUrl": "/public/media/periodic-table.svg",
   "href": "/periodic-table"
 }

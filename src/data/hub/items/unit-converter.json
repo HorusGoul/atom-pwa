@@ -3,5 +3,6 @@
   "category": "tools",
   "id": "unit-converter",
   "title": "Unit Converter",
-  "href": "/unit-converter"
+  "href": "/unit-converter",
+  "imageUrl": "/public/media/unit-converter.svg"
 }
