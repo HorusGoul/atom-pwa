@@ -7,6 +7,8 @@ import {
 import { MemoryRouter, Route } from "react-router";
 import { LocationDescriptor, Location } from "history";
 import { ElementProvider } from "./contexts/ElementContext";
+import ConfirmProvider from "./components/shared/confirm";
+import { createPack } from "react-component-pack";
 
 interface RenderParams extends RenderOptions {
   initialHistoryEntries?: LocationDescriptor<unknown>[];
@@ -21,9 +23,11 @@ export function render(
 ) {
   const route: Partial<{ location: Location }> = {};
 
+  const ProviderPack = createPack(ElementProvider, ConfirmProvider);
+
   function Wrapper({ children }: { children?: React.ReactNode }) {
     return (
-      <ElementProvider>
+      <ProviderPack>
         <MemoryRouter initialEntries={initialHistoryEntries}>
           {children}
 
@@ -36,7 +40,7 @@ export function render(
             }}
           />
         </MemoryRouter>
-      </ElementProvider>
+      </ProviderPack>
     );
   }
 

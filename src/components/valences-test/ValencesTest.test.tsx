@@ -1,10 +1,11 @@
 import * as React from "react";
-import { screen, within } from "@testing-library/react";
+import { act, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TEST_SELECTION } from "@/routes";
 import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import ValencesTest from "./ValencesTest";
 import { render } from "@/test-utils";
+import "hammerjs";
 
 beforeEach(() => {
   window.localStorage.setItem(
@@ -81,11 +82,19 @@ test("should keep the same question when clicking on a wrong answer", async () =
 
 test("should go back to tests", async () => {
   const { container, route } = render(<ValencesTest />);
-  const backLink = container.querySelector(
-    ".navbar__back-button"
-  ) as HTMLElement;
 
-  userEvent.click(backLink);
+  await act(async () => {
+    const backLink = container.querySelector(
+      ".navbar__back-button"
+    ) as HTMLElement;
+
+    userEvent.click(backLink);
+
+    const continueButton = await screen.findByText("Continue");
+
+    userEvent.click(continueButton);
+  });
+
   expect(route.location.pathname).toBe(TEST_SELECTION);
 });
 

@@ -11,6 +11,7 @@ import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import { TEST_SELECTION } from "@/routes";
 import PeriodicTableTest from "./PeriodicTableTest";
 import { render } from "@/test-utils";
+import { act } from "react-dom/test-utils";
 
 // Mocking shuffle so the order of the elements is always the same
 jest.mock("../../utils/shuffle", () => ({
@@ -219,15 +220,22 @@ test("should show question modal", async () => {
   expect(screen.getByRole("dialog")).toBeInTheDocument();
 });
 
-test("should go back to tests", () => {
+test("should go back to tests", async () => {
   const { container, route } = render(<PeriodicTableTest />, {
     initialHistoryEntries: ["/tests/periodic-table"],
   });
 
-  const backLink = container.querySelector(
-    ".navbar__back-button"
-  ) as HTMLElement;
+  await act(async () => {
+    const backLink = container.querySelector(
+      ".navbar__back-button"
+    ) as HTMLElement;
 
-  userEvent.click(backLink);
+    userEvent.click(backLink);
+
+    const continueButton = await screen.findByText("Continue");
+
+    userEvent.click(continueButton);
+  });
+
   expect(route.location.pathname).toBe(TEST_SELECTION);
 });
