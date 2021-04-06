@@ -1,22 +1,13 @@
 import * as React from "react";
-import { render, screen, within, waitFor } from "@testing-library/react";
+import { screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
 import ValencesTestSettings from "./ValencesTestSettings";
+import { render } from "@/test-utils";
 
 window.scrollTo = jest.fn();
 
 test("should render the valences test settings", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table/settings"],
-  });
-
-  render(
-    <Router history={history}>
-      <ValencesTestSettings />
-    </Router>
-  );
+  render(<ValencesTestSettings />);
 
   expect(screen.getByText(/settings/i)).toBeInTheDocument();
 
@@ -36,15 +27,7 @@ test("should render the valences test settings", async () => {
 });
 
 test("selection buttons should work", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table/settings"],
-  });
-
-  render(
-    <Router history={history}>
-      <ValencesTestSettings />
-    </Router>
-  );
+  render(<ValencesTestSettings />);
 
   const hydrogen = screen.getByRole("button", {
     name: /H 1. Hydrogen Hydrogen/i,

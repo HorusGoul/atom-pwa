@@ -1,8 +1,5 @@
 import * as React from "react";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
 import {
-  render,
   screen,
   waitFor,
   waitForElementToBeRemoved,
@@ -13,6 +10,7 @@ import "hammerjs";
 import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import { TEST_SELECTION } from "@/routes";
 import PeriodicTableTest from "./PeriodicTableTest";
+import { render } from "@/test-utils";
 
 // Mocking shuffle so the order of the elements is always the same
 jest.mock("../../utils/shuffle", () => ({
@@ -57,15 +55,7 @@ afterEach(() => {
 });
 
 test("should render the periodic table test", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table"],
-  });
-
-  render(
-    <Router history={history}>
-      <PeriodicTableTest />
-    </Router>
-  );
+  render(<PeriodicTableTest />);
 
   await waitForElementToBeRemoved(
     () => screen.queryAllByLabelText(/loading/i),
@@ -80,15 +70,7 @@ test("should render the periodic table test", async () => {
 });
 
 test("should show results correct answers", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table"],
-  });
-
-  const { container } = render(
-    <Router history={history}>
-      <PeriodicTableTest />
-    </Router>
-  );
+  const { container } = render(<PeriodicTableTest />);
 
   await waitForElementToBeRemoved(
     () => screen.queryAllByLabelText(/loading/i),
@@ -149,15 +131,7 @@ test("should show results correct answers", async () => {
 });
 
 test("should show correct results with incorrect answers", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table"],
-  });
-
-  const { container } = render(
-    <Router history={history}>
-      <PeriodicTableTest />
-    </Router>
-  );
+  const { container } = render(<PeriodicTableTest />);
 
   await waitForElementToBeRemoved(
     () => screen.queryAllByLabelText(/loading/i),
@@ -226,15 +200,7 @@ test("should show correct results with incorrect answers", async () => {
 });
 
 test("should show question modal", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table"],
-  });
-
-  const { container } = render(
-    <Router history={history}>
-      <PeriodicTableTest />
-    </Router>
-  );
+  const { container } = render(<PeriodicTableTest />);
 
   await waitForElementToBeRemoved(
     () => screen.queryAllByLabelText(/loading/i),
@@ -254,19 +220,14 @@ test("should show question modal", async () => {
 });
 
 test("should go back to tests", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/tests/periodic-table"],
+  const { container, route } = render(<PeriodicTableTest />, {
+    initialHistoryEntries: ["/tests/periodic-table"],
   });
-  const { container } = render(
-    <Router history={history}>
-      <PeriodicTableTest />
-    </Router>
-  );
 
   const backLink = container.querySelector(
     ".navbar__back-button"
   ) as HTMLElement;
 
   userEvent.click(backLink);
-  expect(history.location.pathname).toBe(TEST_SELECTION);
+  expect(route.location.pathname).toBe(TEST_SELECTION);
 });

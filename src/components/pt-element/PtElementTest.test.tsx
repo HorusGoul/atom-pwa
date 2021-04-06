@@ -1,5 +1,6 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils";
 import PtElementTest from "./PtElementTest";
 import IRON_ELEMENT from "@/data/elements/26.json";
 import { Element } from "@/Element";

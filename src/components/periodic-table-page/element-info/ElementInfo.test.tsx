@@ -1,6 +1,7 @@
 import * as React from "react";
 import ElementInfo from "./ElementInfo";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils";
 import THALLIUM_ELEMENT from "@/data/elements/81.json";
 import { Element } from "@/Element";
 

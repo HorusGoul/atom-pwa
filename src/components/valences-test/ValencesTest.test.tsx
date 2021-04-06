@@ -1,23 +1,10 @@
 import * as React from "react";
-import { Router } from "react-router-dom";
-import { render, screen, within } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { createMemoryHistory } from "history";
 import { TEST_SELECTION } from "@/routes";
 import { STORAGE_KEY, defaultSettings } from "@/hooks/useSettings";
 import ValencesTest from "./ValencesTest";
-
-const setup = () => {
-  const history = createMemoryHistory();
-  return {
-    ...render(
-      <Router history={history}>
-        <ValencesTest />
-      </Router>
-    ),
-    history,
-  };
-};
+import { render } from "@/test-utils";
 
 beforeEach(() => {
   window.localStorage.setItem(
@@ -48,7 +35,7 @@ afterEach(() => {
 });
 
 test("should render a question and four answers", () => {
-  const { container } = setup();
+  const { container } = render(<ValencesTest />);
 
   const questionCard = container.querySelector(".question-card") as HTMLElement;
   expect(questionCard).toBeInTheDocument();
@@ -58,7 +45,7 @@ test("should render a question and four answers", () => {
 });
 
 test("should display a new question when clicking on the correct answer", () => {
-  const { container } = setup();
+  const { container } = render(<ValencesTest />);
 
   const rightAnswer = screen.getByRole("button", { name: /\+1 \/ \-1/i });
 
@@ -68,7 +55,7 @@ test("should display a new question when clicking on the correct answer", () => 
 });
 
 test("should keep the same question when clicking on a wrong answer", async () => {
-  const { container } = setup();
+  const { container } = render(<ValencesTest />);
 
   // Getting a wrong answer
   const questionCard = container.querySelector(".question-card") as HTMLElement;
@@ -93,17 +80,17 @@ test("should keep the same question when clicking on a wrong answer", async () =
 });
 
 test("should go back to tests", async () => {
-  const { container, history } = setup();
+  const { container, route } = render(<ValencesTest />);
   const backLink = container.querySelector(
     ".navbar__back-button"
   ) as HTMLElement;
 
   userEvent.click(backLink);
-  expect(history.location.pathname).toBe(TEST_SELECTION);
+  expect(route.location.pathname).toBe(TEST_SELECTION);
 });
 
 test("should display results", () => {
-  const { container } = setup();
+  const { container } = render(<ValencesTest />);
 
   const rightAnswer = screen.getByRole("button", { name: /\+1 \/ \-1/i });
   userEvent.click(rightAnswer);

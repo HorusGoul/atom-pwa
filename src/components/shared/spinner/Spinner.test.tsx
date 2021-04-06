@@ -1,5 +1,6 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils";
 import { Spinner } from "./Spinner";
 
 test("It can render without className", () => {

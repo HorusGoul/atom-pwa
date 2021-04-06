@@ -1,23 +1,18 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import About from "./About";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
+import { Location } from "history";
 import cases from "jest-in-case";
+import { render } from "@/test-utils";
+import { Route } from "react-router-dom";
 
 cases(
   "should verify links",
   ({ linkItem }) => {
-    const history = createMemoryHistory({
-      initialEntries: ["/about"],
+    render(<About />, {
+      initialHistoryEntries: ["/about"],
     });
-
-    render(
-      <Router history={history}>
-        <About />
-      </Router>
-    );
 
     expect(screen.getByText(linkItem)).toBeInTheDocument();
   },
@@ -54,14 +49,9 @@ cases(
 );
 
 test("should validate contact me link", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
+  render(<About />, {
+    initialHistoryEntries: ["/about"],
   });
-  render(
-    <Router history={history}>
-      <About />
-    </Router>
-  );
 
   expect(screen.getByText(/contact me/i).closest("a")).toHaveAttribute(
     "href",
@@ -70,14 +60,9 @@ test("should validate contact me link", () => {
 });
 
 test("should validate source code link", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
+  render(<About />, {
+    initialHistoryEntries: ["/about"],
   });
-  render(
-    <Router history={history}>
-      <About />
-    </Router>
-  );
 
   expect(screen.getByText(/source code/i).closest("a")).toHaveAttribute(
     "href",
@@ -86,14 +71,9 @@ test("should validate source code link", () => {
 });
 
 test("should validate Report bug link", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
+  render(<About />, {
+    initialHistoryEntries: ["/about"],
   });
-  render(
-    <Router history={history}>
-      <About />
-    </Router>
-  );
 
   expect(screen.getByText(/report bug/i).closest("a")).toHaveAttribute(
     "href",
@@ -102,13 +82,23 @@ test("should validate Report bug link", () => {
 });
 
 test("should invoke onNavbarBackButtonClick", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
-  });
+  let testLocation: Location;
+
   const { container } = render(
-    <Router history={history}>
+    <>
       <About />
-    </Router>
+
+      <Route
+        path="/"
+        render={({ location }) => {
+          testLocation = location;
+          return null;
+        }}
+      />
+    </>,
+    {
+      initialHistoryEntries: ["/about"],
+    }
   );
 
   const navButton = container.querySelector(
@@ -116,5 +106,5 @@ test("should invoke onNavbarBackButtonClick", () => {
   ) as HTMLAnchorElement;
 
   userEvent.click(navButton);
-  expect(history.location.pathname).toBe("/");
+  expect(testLocation!.pathname).toBe("/");
 });

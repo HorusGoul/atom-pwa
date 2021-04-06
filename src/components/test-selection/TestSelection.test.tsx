@@ -1,6 +1,7 @@
 import * as React from "react";
 import cases from "jest-in-case";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils";
 import userEvent from "@testing-library/user-event";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";

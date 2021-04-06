@@ -1,12 +1,9 @@
 import * as React from "react";
 import PeriodicTable from "./PeriodicTable";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { screen, waitForElementToBeRemoved } from "@testing-library/react";
 import PtElementInfo from "../pt-element/PtElementInfo";
 import { Element } from "@/Element";
+import { render } from "@/test-utils";
 
 const elementsMap = import.meta.globEager("../../data/elements/*.json");
 const elements = Object.values(elementsMap) as Element[];

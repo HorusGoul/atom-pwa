@@ -1,16 +1,10 @@
 import * as React from "react";
-import { render } from "@testing-library/react";
-import { Router, Route } from "react-router-dom";
-import { createMemoryHistory } from "history";
 import App from "./App";
+import { Route } from "react-router-dom";
+import { render } from "@/test-utils";
 
 test("It can render without crashing", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/"],
+  render(<Route path="/" component={App} />, {
+    initialHistoryEntries: ["/"],
   });
-  render(
-    <Router history={history}>
-      <Route path="/" component={App} />
-    </Router>
-  );
 });
