@@ -25,5 +25,7 @@ CMS.init({
     ],
 
     media_folder: "public/media",
+
+    public_folder: "/media",
   },
 });

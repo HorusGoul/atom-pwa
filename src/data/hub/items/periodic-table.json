@@ -4,6 +4,6 @@
   "title": "Periodic Table",
   "category": "tools",
   "colSpan": 2,
-  "imageUrl": "/public/media/periodic-table.svg",
+  "imageUrl": "/media/periodic-table.svg",
   "href": "/periodic-table"
 }
