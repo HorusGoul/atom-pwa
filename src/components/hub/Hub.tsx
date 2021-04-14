@@ -24,17 +24,13 @@ function Hub() {
 
   return (
     <div className={styles.hub}>
-      <div
-        className={styles.header}
-        style={{
-          background:
-            theme === "light"
-              ? "linear-gradient(-130deg, #00897b 0%, #01665c 100%)"
-              : "",
-        }}
-      >
+      <div className={styles.header}>
         <div className={styles.content}>
           <div className={styles.topbar}>
+            <div className={styles.logo}>
+              <Atom aria-label="Atom" weight={24} size={32} color="primary" />
+            </div>
+
             <IconButton
               className={styles.topbarButton}
               aria-label={
@@ -49,20 +45,6 @@ function Hub() {
                 theme === "light" ? setTheme("dark") : setTheme("light")
               }
             />
-
-            <div
-              className={styles.logo}
-              style={{
-                backgroundColor: theme === "light" ? "#fff" : "var(--primary)",
-              }}
-            >
-              <Atom
-                aria-label="Atom"
-                weight={24}
-                size={48}
-                color={theme === "light" ? "primary" : "white"}
-              />
-            </div>
 
             <IconButton
               className={styles.topbarButton}
