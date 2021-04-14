@@ -4,9 +4,11 @@ import { useLocale } from "@/hooks/useLocale";
 import { useRecent } from "@/hooks/useRecent";
 import { useSearchInput } from "@/hooks/useSearchInput";
 import { useTheme } from "@/hooks/useTheme";
+import { ABOUT } from "@/routes";
 import * as React from "react";
 import { useHistory } from "react-router";
 import Atom from "../atom";
+import IconButton from "../shared/icon-button/IconButton";
 import HubItem from "./hub-item";
 import HubSection from "./hub-section";
 import styles from "./Hub.module.scss";
@@ -14,10 +16,11 @@ import { HubSectionData, useHub } from "./useHub";
 
 function Hub() {
   const { i18n } = useLocale();
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const { sections } = useHub();
   const { recent } = useRecent();
   const searchInput = useSearchInput("push");
+  const history = useHistory();
 
   return (
     <div className={styles.hub}>
@@ -31,17 +34,41 @@ function Hub() {
         }}
       >
         <div className={styles.content}>
-          <div
-            className={styles.logo}
-            style={{
-              backgroundColor: theme === "light" ? "#fff" : "var(--primary)",
-            }}
-          >
-            <Atom
-              aria-label="Atom"
-              weight={24}
-              size={48}
-              color={theme === "light" ? "primary" : "white"}
+          <div className={styles.topbar}>
+            <IconButton
+              className={styles.topbarButton}
+              aria-label={
+                theme === "light"
+                  ? "Switch to dark mode"
+                  : "Switch to light mode"
+              }
+              iconName={
+                theme === "light" ? "dark_mode_outlined" : "dark_mode_filled"
+              }
+              onClick={() =>
+                theme === "light" ? setTheme("dark") : setTheme("light")
+              }
+            />
+
+            <div
+              className={styles.logo}
+              style={{
+                backgroundColor: theme === "light" ? "#fff" : "var(--primary)",
+              }}
+            >
+              <Atom
+                aria-label="Atom"
+                weight={24}
+                size={48}
+                color={theme === "light" ? "primary" : "white"}
+              />
+            </div>
+
+            <IconButton
+              className={styles.topbarButton}
+              aria-label="Settings"
+              iconName="settings"
+              onClick={() => history.push(ABOUT)}
             />
           </div>
 

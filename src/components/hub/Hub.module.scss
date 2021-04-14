@@ -28,10 +28,26 @@
   --max-width: 288px;
 }
 
+.topbar {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbarButton[data-atom-button] {
+  color: var(--textColorPrimary);
+  fill: var(--textColorPrimary);
+  border-radius: 999px;
+  height: 48px;
+  width: 48px;
+  padding: 12px;
+}
+
 .logo {
   border-radius: 128px;
   padding: 8px;
-  margin-top: 32px;
 
   @include box-shadow($level: 1);
 }
