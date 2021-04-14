@@ -6,7 +6,7 @@
   "valenceFail": "Try another!",
   "valenceGood": "Well done!",
   "nav_about": "About",
-  "nav_elements": "Elements",
+  "elements": "Elements",
   "nav_test": "Tests",
   "select_valence": "Select the correct valence:",
   "about": "Version: %s",

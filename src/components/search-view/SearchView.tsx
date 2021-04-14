@@ -101,7 +101,7 @@ function SearchView() {
             {results.elements.length > 0 && (
               <div className={styles.results}>
                 <div className={styles.section}>
-                  <h2 className={styles.title}>Elements</h2>
+                  <h2 className={styles.title}>{i18n("elements")}</h2>
 
                   <div className={styles.items}>
                     {results.elements.slice(0, 10).map((result) => (
