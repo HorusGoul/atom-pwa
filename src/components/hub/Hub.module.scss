@@ -25,11 +25,13 @@
   align-items: center;
   flex-direction: column;
 
-  max-width: var(--max-width);
-  width: var(--max-width);
-
   // Mobile
-  --max-width: 288px;
+  width: 100%;
+  padding: 0 24px;
+
+  @media screen and (min-width: 420px) {
+    max-width: 420px;
+  }
 }
 
 .topbar {
