@@ -77,7 +77,7 @@ test("should validate Report bug link", () => {
 
   expect(screen.getByText(/report bug/i).closest("a")).toHaveAttribute(
     "href",
-    "mailto:horusgoul@gmail.com"
+    "mailto:atom@horus.dev"
   );
 });
 
