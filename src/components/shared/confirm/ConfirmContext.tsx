@@ -14,6 +14,7 @@ export interface ConfirmAction<T = unknown, C = unknown> {
   onCancel?: (() => Promise<C>) | (() => C);
   onConfirm?: (() => Promise<T>) | (() => T);
   hideCancel?: boolean;
+  hideConfirm?: boolean;
 }
 
 export interface ConfirmContext {
@@ -98,14 +99,18 @@ function ConfirmProvider({ children }: ConfirmProviderProps) {
           <p>{action.message}</p>
 
           <div className={styles.footer}>
-            <Button onClick={onCancelClick}>
-              <span>{action.cancelButtonText || i18n("Cancel")}</span>
-            </Button>
+            {!action.hideCancel && (
+              <Button onClick={onCancelClick}>
+                <span>{action.cancelButtonText || i18n("Cancel")}</span>
+              </Button>
+            )}
 
-            <Button className={styles.okButton} onClick={onConfirmClick}>
-              <span>{action.okButtonText || i18n("Continue_text")}</span>
-              <Icon name="arrow_forward" />
-            </Button>
+            {!action.hideConfirm && (
+              <Button className={styles.okButton} onClick={onConfirmClick}>
+                <span>{action.okButtonText || i18n("Continue_text")}</span>
+                <Icon name="arrow_forward" />
+              </Button>
+            )}
           </div>
         </SwipeableModal>
       )}

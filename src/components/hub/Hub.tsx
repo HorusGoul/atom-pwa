@@ -8,6 +8,7 @@ import { ABOUT } from "@/routes";
 import * as React from "react";
 import { useHistory } from "react-router";
 import Atom from "../atom";
+import { useConfirm } from "../shared/confirm";
 import IconButton from "../shared/icon-button/IconButton";
 import HubItem from "./hub-item";
 import HubSection from "./hub-section";
@@ -103,9 +104,17 @@ function HubItemWithData({
   const data = useHubItemById(item);
   const category = useHubCategoryById(data.category);
   const history = useHistory();
+  const { confirmAction } = useConfirm();
+  const { i18n } = useLocale();
 
   function onClick() {
     if (data.disabled) {
+      confirmAction({
+        title: i18n("wip_title"),
+        message: i18n("wip_message"),
+        hideCancel: true,
+        hideConfirm: true,
+      });
       return;
     }
 
