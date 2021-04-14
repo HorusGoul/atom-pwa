@@ -6,7 +6,6 @@
   "valenceFail": "Încearcă altul!",
   "valenceGood": "Foarte bine!",
   "nav_about": "Despre",
-  "elements": "Elemente",
   "nav_test": "Teste",
   "select_valence": "Selectați valența corectă:",
   "about": "Versiune: %s",
@@ -234,6 +233,5 @@
   "are_you_sure": "Ești sigur?",
   "confirm_exit_quiz_message": "Progresul chestionarului va fi pierdut dacă plecați.",
   "wip_title": "Muncă în desfășurare",
-  "wip_message": "Lucrăm la această funcție, vă mulțumim că ne-ați anunțat că sunteți interesat de ea!",
-  "download_title": "Descărcați aplicația oficială!"
+  "wip_message": "Lucrăm la această funcție, vă mulțumim că ne-ați anunțat că sunteți interesat de ea!"
 }
