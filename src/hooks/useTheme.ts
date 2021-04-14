@@ -1,3 +1,4 @@
+import { logEvent } from "@/services/spycat";
 import { useCallback, useMemo } from "react";
 import { useSettings } from "./useSettings";
 
@@ -19,6 +20,8 @@ export function useTheme() {
 
   const setTheme = useCallback(
     (theme: string) => {
+      logEvent(`set ${theme} theme`);
+
       updateSettings((settings) => {
         settings.theme = theme;
       });
