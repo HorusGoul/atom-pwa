@@ -6,7 +6,7 @@ it("verifies that application wont explode", () => {
 it("verifies clicking around application works", () => {
   cy.visit("/");
 
-  cy.findByRole("button", { name: /tests/i }).click();
+  cy.findByRole("button", { name: /quizzes/i }).click();
   cy.reload();
   cy.findByText(/valences test/i).should("be.visible");
   cy.findAllByRole("button").eq(0).click();
@@ -23,7 +23,7 @@ it("verifies clicking around application works", () => {
   }).should("be.visible");
   cy.findAllByRole("button").eq(0).click();
 
-  cy.findByRole("button", { name: /about/i }).click();
+  cy.findByRole("button", { name: /settings/i }).click();
   cy.reload();
   cy.findByRole("button", { name: /change language/i }).should("be.visible");
   cy.findAllByRole("button").eq(0).click();
