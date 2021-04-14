@@ -33,7 +33,6 @@ test("should display themes in modal", () => {
 
   expect(screen.getByRole("button", { name: /dark/i })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /light/i })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /black/i })).toBeInTheDocument();
 });
 
 test("should change theme", async () => {
