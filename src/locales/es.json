@@ -6,7 +6,6 @@
   "valenceFail": "¡Prueba otra!",
   "valenceGood": "¡Bien hecho!",
   "nav_about": "Acerca de la aplicación",
-  "elements": "Elementos",
   "nav_test": "Pruebas",
   "select_valence": "Selecciona la valencia correcta",
   "about": "Versión: %s",
@@ -234,6 +233,5 @@
   "are_you_sure": "¿Estás seguro/a?",
   "confirm_exit_quiz_message": "El progreso de la prueba se perderá si sales.",
   "wip_title": "Trabajo en progreso",
-  "wip_message": "Estamos trabajando en esta función, gracias por hacernos saber que estás interesado en ella!",
-  "download_title": "¡Descarga la aplicación oficial!"
+  "wip_message": "Estamos trabajando en esta función, gracias por hacernos saber que estás interesado en ella!"
 }
