@@ -234,5 +234,6 @@
   "are_you_sure": "¿Estás seguro/a?",
   "confirm_exit_quiz_message": "El progreso de la prueba se perderá si sales.",
   "wip_title": "Trabajo en progreso",
-  "wip_message": "Estamos trabajando en esta función, gracias por hacernos saber que estás interesado en ella!"
+  "wip_message": "Estamos trabajando en esta función, gracias por hacernos saber que estás interesado en ella!",
+  "download_title": "¡Descarga la aplicación oficial!"
 }

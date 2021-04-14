@@ -8,6 +8,7 @@ import { ABOUT } from "@/routes";
 import * as React from "react";
 import { useHistory } from "react-router";
 import Atom from "../atom";
+import DownloadApp from "../download-app/DownloadApp";
 import RateApp from "../rate-app/RateApp";
 import { useConfirm } from "../shared/confirm";
 import IconButton from "../shared/icon-button/IconButton";
@@ -63,6 +64,7 @@ function Hub() {
       </div>
       <div className={styles.content}>
         <RateApp />
+        <DownloadApp />
 
         <div className={styles.sections}>
           {recent.length > 0 && (
