@@ -7,8 +7,3 @@
     min-height: 100%;
   }
 }
-
-@include themifyRoot($themes) {
-  background-color: themed("backgroundColor");
-  color: themed("contentTextColor");
-}

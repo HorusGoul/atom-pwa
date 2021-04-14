@@ -2,17 +2,20 @@ import { useCallback, useMemo } from "react";
 import { useSettings } from "./useSettings";
 
 export const DEFAULT_THEME = "dark";
-export const THEMES_LIST = ["dark", "light", "black"];
+export const THEMES_LIST = ["dark", "light"];
 
 const PRIMARY_COLORS: Record<string, string> = {
-  black: "#000000",
-  dark: "#193132",
+  dark: "#1a1a1a",
   light: "#00897b",
 };
 
 export function useTheme() {
   const { settings, updateSettings } = useSettings();
-  const theme = settings.theme;
+  let theme = settings.theme;
+
+  if (theme === "black") {
+    theme = "dark";
+  }
 
   const setTheme = useCallback(
     (theme: string) => {

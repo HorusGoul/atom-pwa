@@ -132,3 +132,8 @@ body:not(.theme-light) .element {
     }
   }
 }
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--contentTextColor);
+}
