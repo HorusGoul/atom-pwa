@@ -57,6 +57,7 @@ function Atom({
   spinning = false,
   weight = defaultWeight,
   className,
+  ...props
 }: AtomProps) {
   let variantColor: VariantColor;
 
@@ -86,6 +87,7 @@ function Atom({
       viewBox="0 0 614 614"
       width={size}
       height={size}
+      {...props}
     >
       <g transform="translate(-129 -129) scale(.85134)" paintOrder="fill">
         <circle

@@ -4,7 +4,7 @@ import { Element } from "@/Element";
 import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import { TEST_SELECTION } from "@/routes";
+import { TEST_SELECTION, TEST_VALENCES_SETTINGS } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
 import { Question } from "../questions-test/question-card/QuestionCard";
@@ -14,6 +14,8 @@ import Navbar from "../shared/navbar/Navbar";
 import TestResults from "../test-results/TestResults";
 import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
+import { useAddRecent } from "@/hooks/useRecent";
+import { useConfirm } from "../shared/confirm";
 
 interface ValencesTestQuestion extends Question {
   data: Element;
@@ -48,6 +50,9 @@ function ValencesTest() {
   const { i18n } = useLocale();
   const { getElement } = useElements();
   const { settings, updateSettings } = useValencesTestSettings();
+  const { confirmAction } = useConfirm();
+
+  useAddRecent("valency-quiz");
 
   function createTestQuestions(settings: ElementsSettings) {
     if (!settings.elements) {
@@ -158,7 +163,23 @@ function ValencesTest() {
     <div className="valences-test">
       <Navbar
         title={i18n("valences_test")}
-        onBackButtonClick={onNavbarBackButtonClick}
+        onBackButtonClick={() =>
+          confirmAction({
+            title: i18n("are_you_sure"),
+            message: i18n("confirm_exit_quiz_message"),
+            onConfirm: () => onNavbarBackButtonClick(),
+          })
+        }
+        rightButton={{
+          iconName: "settings",
+          label: i18n("Settings"),
+          onClick: () =>
+            confirmAction({
+              title: i18n("are_you_sure"),
+              message: i18n("confirm_exit_quiz_message"),
+              onConfirm: () => history.push(TEST_VALENCES_SETTINGS),
+            }),
+        }}
       />
 
       {hasQuestions && (

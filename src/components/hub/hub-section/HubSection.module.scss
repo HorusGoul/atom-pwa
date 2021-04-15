@@ -1,0 +1,20 @@
+.title {
+  font-weight: 500;
+  padding-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--accent);
+}
+
+.theme-light .title {
+  opacity: 0.5;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+}

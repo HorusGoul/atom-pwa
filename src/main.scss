@@ -124,3 +124,16 @@ body:not(.theme-light) .element {
     color: #78909c;
   }
 }
+
+@each $theme, $map in $themes {
+  .theme-#{$theme} {
+    @each $key, $submap in $map {
+      --#{$key}: #{$submap};
+    }
+  }
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--contentTextColor);
+}

@@ -1,0 +1,8 @@
+{
+  "disabled": true,
+  "category": "tools",
+  "id": "unit-converter",
+  "title": "Unit Converter",
+  "href": "/unit-converter",
+  "imageUrl": "/media/unit-converter.svg"
+}

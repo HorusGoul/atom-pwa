@@ -1,0 +1,213 @@
+@import "../../scss/common.scss";
+
+.searchView {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backgroundColor);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  animation: slideIn 180ms ease-in forwards;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, 20%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0%, 0);
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  // Mobile
+  width: 100%;
+  padding: 0 24px;
+
+  @media screen and (min-width: 420px) {
+    max-width: 420px;
+  }
+}
+
+.topbar {
+  margin: 16px;
+  width: 100%;
+  border-radius: $card-border-radius;
+  min-height: 52px;
+  max-height: 52px;
+  background-color: var(--cardBackgroundColor);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  @include box-shadow($level: 1);
+
+  .backButton {
+    --size: 40px;
+
+    margin: 4px 4px 4px 8px;
+
+    min-width: var(--size);
+    min-height: var(--size);
+    max-width: var(--size);
+    max-width: var(--size);
+    padding: 0;
+    opacity: 0.6;
+    fill: currentColor;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0 16px 0 8px;
+    font-size: 18px;
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    opacity: 0.75;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+:global(.theme-dark) .topbar {
+  border: 2px solid rgba(255, 255, 255, 0.644);
+
+  &:focus-within {
+    border: 2px solid var(--accent);
+  }
+}
+
+.noResults {
+  width: 100%;
+  flex: 1;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 80%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+
+  .title {
+    margin: 32px 0;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+}
+
+.results {
+  width: 100%;
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px 0 16px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  .items {
+    width: 100%;
+    background-color: var(--cardBackgroundColor);
+    border-radius: $card-border-radius;
+    overflow: hidden;
+
+    @include box-shadow($level: 1);
+  }
+}
+
+.elementSearchResult {
+  &[data-atom-button] {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 12px 16px;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .symbol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    border-radius: 50%;
+  }
+
+  .desc {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    text-align: start;
+  }
+
+  .name {
+    font-size: 13pt;
+    font-weight: 500;
+  }
+
+  .group {
+    font-size: 11pt;
+    padding-top: 4px;
+    opacity: 0.75;
+
+    strong {
+      font-weight: 400;
+      opacity: 0.5;
+      text-transform: uppercase;
+      font-size: 10pt;
+      letter-spacing: -0.05px;
+    }
+
+    span {
+      display: block;
+      padding-top: 4px;
+    }
+  }
+}

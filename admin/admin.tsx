@@ -1,5 +1,10 @@
 import CMS from "netlify-cms-app";
 import { elementsCollection } from "./collections/elements";
+import {
+  hubCategoriesCollection,
+  hubCollection,
+  hubItemsCollection,
+} from "./collections/hub";
 
 CMS.init({
   config: {
@@ -12,8 +17,15 @@ CMS.init({
 
     publish_mode: "editorial_workflow",
 
-    collections: [elementsCollection],
+    collections: [
+      elementsCollection,
+      hubCategoriesCollection,
+      hubItemsCollection,
+      hubCollection,
+    ],
 
     media_folder: "public/media",
+
+    public_folder: "/media",
   },
 });

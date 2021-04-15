@@ -23,4 +23,9 @@
     font-size: 14pt;
     font-weight: 600;
   }
+
+  &__right-button[data-atom-button] {
+    height: 100%;
+    margin-left: auto;
+  }
 }

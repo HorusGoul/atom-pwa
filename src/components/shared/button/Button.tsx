@@ -19,6 +19,7 @@ function Button({
   id,
   children,
   onClick,
+  ...props
 }: ButtonProps) {
   const buttonClass = classNames(
     "button",
@@ -37,6 +38,7 @@ function Button({
         href={link}
         className={buttonClass}
         onClick={onClick}
+        {...props}
       >
         {children}
       </ButtonBase>
@@ -51,6 +53,7 @@ function Button({
       role="button"
       className={buttonClass}
       onClick={onClick}
+      {...props}
     >
       {children}
     </ButtonBase>

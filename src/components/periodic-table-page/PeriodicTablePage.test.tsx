@@ -1,24 +1,14 @@
 import * as React from "react";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { screen, waitForElementToBeRemoved } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PeriodicTablePage from "./PeriodicTablePage";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
 import "hammerjs";
+import { render } from "@/test-utils";
 
 test("should render periodic table and able to see details of element", async () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/periodic-table"],
+  render(<PeriodicTablePage />, {
+    initialHistoryEntries: ["/periodic-table"],
   });
-  render(
-    <Router history={history}>
-      <PeriodicTablePage />
-    </Router>
-  );
 
   await waitForElementToBeRemoved(
     () => screen.queryAllByLabelText(/loading/i),
@@ -37,15 +27,10 @@ test("should render periodic table and able to see details of element", async ()
 });
 
 test("should be able to navigate back to main menu", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/periodic-table"],
+  const { route } = render(<PeriodicTablePage />, {
+    initialHistoryEntries: ["/periodic-table"],
   });
-  render(
-    <Router history={history}>
-      <PeriodicTablePage />
-    </Router>
-  );
 
   userEvent.click(screen.getByTestId("navbar-back-button"));
-  expect(history.location.pathname).toBe("/");
+  expect(route.location.pathname).toBe("/");
 });

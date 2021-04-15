@@ -1,0 +1,39 @@
+{
+  "sections": [
+    {
+      "title": "tools",
+      "items": [
+        {
+          "item": "periodic-table",
+          "colSpan": 2,
+          "rowSpan": 1
+        },
+        {
+          "item": "mass-calculator",
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+          "item": "unit-converter",
+          "colSpan": 1,
+          "rowSpan": 1
+        }
+      ]
+    },
+    {
+      "title": "learn",
+      "items": [
+        {
+          "item": "quizzes",
+          "colSpan": 2,
+          "rowSpan": 1
+        },
+        {
+          "item": "resources",
+          "colSpan": 2,
+          "rowSpan": 1
+        }
+      ]
+    }
+  ]
+}

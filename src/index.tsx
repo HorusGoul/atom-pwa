@@ -13,9 +13,11 @@ import "./main.scss";
 import "hammerjs";
 
 import { initSentry } from "@/services/sentry";
+import { loadFlags } from "@/services/flags";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 
+loadFlags();
 initSentry();
 
 ReactDOM.render(

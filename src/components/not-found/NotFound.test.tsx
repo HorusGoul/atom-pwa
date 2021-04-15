@@ -1,20 +1,15 @@
 import * as React from "react";
-import { Router } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import NotFound from "./NotFound";
-import { createMemoryHistory } from "history";
 import userEvent from "@testing-library/user-event";
-
-const history = createMemoryHistory({
-  initialEntries: ["/not-found"],
-});
+import { render } from "@/test-utils";
+import { Location } from "history";
+import { Route } from "react-router-dom";
 
 test("should render NotFound page", () => {
-  render(
-    <Router history={history}>
-      <NotFound />
-    </Router>
-  );
+  render(<NotFound />, {
+    initialHistoryEntries: ["/not-found"],
+  });
 
   expect(screen.getByText(/404/i)).toBeInTheDocument();
 
@@ -28,13 +23,22 @@ test("should render NotFound page", () => {
 });
 
 test("should be able to navigate back to home", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/about"],
-  });
+  let testLocation: Location;
+
   render(
-    <Router history={history}>
+    <>
       <NotFound />
-    </Router>
+      <Route
+        path="/"
+        render={({ location }) => {
+          testLocation = location;
+          return null;
+        }}
+      />
+    </>,
+    {
+      initialHistoryEntries: ["/not-found"],
+    }
   );
 
   userEvent.click(
@@ -42,5 +46,5 @@ test("should be able to navigate back to home", () => {
       name: /home/i,
     })
   );
-  expect(history.location.pathname).toBe("/");
+  expect(testLocation!.pathname).toBe("/");
 });

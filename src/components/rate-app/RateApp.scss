@@ -4,35 +4,43 @@
 
 .rate-app {
   &[data-atom-button] {
-    position: absolute;
-    right: 0;
-    top: 24px;
-    height: 48px;
+    position: relative;
+    height: 56px;
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 16px;
 
     display: flex;
     align-items: center;
-    padding: 16px;
-    border-radius: 24px 0 0 24px;
+    border-radius: $card-border-radius;
+    justify-content: flex-start;
+    background: linear-gradient(-130deg, #18d3ba 0%, rgb(2, 164, 185) 100%);
+    color: #fff;
+    overflow: hidden;
 
-    @include themify($themes) {
-      background-color: themed("cardBackgroundColor");
-      color: themed("contentTextColor");
-    }
-
-    @include box-shadow($level: 2);
+    @include box-shadow($level: 1);
   }
 
   &--animation {
-    animation: popRate 250ms ease-in-out;
+    animation: popRate 500ms ease-in-out;
   }
 
   svg {
-    fill: #ffd400;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    opacity: 0.2;
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+    transform: scale(2.5) rotate(-45deg);
   }
 
   &__text {
     margin-left: 8px;
     font-weight: 500;
+    line-height: 1.1;
+    font-size: 18px;
   }
 
   &__modal {
@@ -74,11 +82,22 @@
 }
 
 @keyframes popRate {
-  from {
-    transform: translateX(100%);
+  0% {
+    height: 0px;
+    transform: translateX(200%);
+    opacity: 0;
+    margin-top: 0px;
   }
 
-  to {
+  50% {
+    height: 56px;
+    transform: translateX(100%);
+    opacity: 0;
+    margin-top: 16px;
+  }
+
+  100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }

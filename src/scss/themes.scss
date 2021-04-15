@@ -1,25 +1,14 @@
 $themes: (
   "dark": (
     accent: #00c8b4,
-    primary: #193132,
-    primaryDarker: #112122,
+    primary: #1a1a1a,
+    primaryDarker: #222,
     textColorPrimary: #ffffff,
     contentTextColor: #ffffff,
-    backgroundColor: #0e1a1b,
-    cardBackgroundColor: #132526,
+    backgroundColor: #111,
+    cardBackgroundColor: #161616,
     danger: #d50000,
-    textColorDanger: #ffffff
-  ),
-  "black": (
-    accent: #00c8b4,
-    primary: #000,
-    primaryDarker: #000,
-    textColorPrimary: #ffffff,
-    contentTextColor: #ffffff,
-    backgroundColor: #000,
-    cardBackgroundColor: #000,
-    danger: #d50000,
-    textColorDanger: #ffffff
+    textColorDanger: #ffffff,
   ),
   "light": (
     accent: #00897b,
@@ -30,6 +19,6 @@ $themes: (
     backgroundColor: #fafafa,
     cardBackgroundColor: #ffffff,
     danger: #d50000,
-    textColorDanger: #ffffff
-  )
+    textColorDanger: #ffffff,
+  ),
 );

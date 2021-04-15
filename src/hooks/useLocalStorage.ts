@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
+import useDeepCompareEffect from "use-deep-compare-effect";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [storedValue, setStoredValue] = useState<T>(() => {
@@ -11,32 +12,28 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   });
 
-  const setValue = useCallback(
-    (value: T | ((currentValue: T) => T)) => {
-      try {
-        const valueToStore =
-          value instanceof Function ? value(storedValue) : value;
-        setStoredValue(valueToStore);
-        const serializedValue = JSON.stringify(valueToStore);
-        window.localStorage.setItem(key, serializedValue);
-        window.dispatchEvent(
-          new StorageEvent("storage", { key, newValue: serializedValue })
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    [key, storedValue]
-  );
+  useDeepCompareEffect(() => {
+    const serializedValue = JSON.stringify(storedValue);
+
+    window.localStorage.setItem(key, serializedValue);
+
+    const event = new StorageEvent("storage", {
+      key,
+      newValue: serializedValue,
+    });
+
+    window.dispatchEvent(event);
+  }, [key, storedValue]);
 
   useEffect(() => {
     const eventListener = (event: StorageEvent) => {
-      if (event.key === key) {
-        const newValue = JSON.parse(event.newValue ?? "") as T;
-        if (storedValue !== newValue) {
-          setStoredValue(newValue);
-        }
+      if (event.key !== key) {
+        return;
       }
+
+      const newValue = JSON.parse(event.newValue ?? "") as T;
+
+      setStoredValue(newValue);
     };
 
     window.addEventListener("storage", eventListener);
@@ -44,7 +41,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     return () => {
       window.removeEventListener("storage", eventListener);
     };
-  }, [key, storedValue]);
+  }, [key]);
 
-  return [storedValue, setValue] as const;
+  return [storedValue, setStoredValue] as const;
 }

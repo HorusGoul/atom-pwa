@@ -47,12 +47,4 @@ describe("About", () => {
       expect(window.localStorage.getItem("atom:settings")).contains("light");
     });
   });
-  it("verifies theme change to black", () => {
-    cy.findByRole("button", { name: /change theme/i }).click();
-
-    cy.findByRole("button", { name: /black/i }).click();
-    cy.window().then((window) => {
-      expect(window.localStorage.getItem("atom:settings")).contains("black");
-    });
-  });
 });

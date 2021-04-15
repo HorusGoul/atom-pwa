@@ -23,13 +23,22 @@
     "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "off",
   },
   "overrides": [
     {
       "files": ["src/**/*.tsx", "src/**/*.ts", "admin/**/*.tsx", "admin/**/*.ts"],
       "parserOptions": {
         "project": ["./tsconfig.json"]
+      }
+    },
+    {
+      "files": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
       }
     }
   ],

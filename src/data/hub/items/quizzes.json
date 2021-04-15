@@ -1,0 +1,8 @@
+{
+  "disabled": false,
+  "category": "learn",
+  "id": "quizzes",
+  "title": "Quizzes",
+  "href": "/tests",
+  "imageUrl": "/media/quizzes.svg"
+}

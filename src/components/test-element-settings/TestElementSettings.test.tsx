@@ -1,6 +1,7 @@
 import * as React from "react";
 import TestElementSettings from "./TestElementSettings";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils";
 
 const TEST_SETTING = {
   atomic: 26,

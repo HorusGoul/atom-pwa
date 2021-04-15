@@ -82,6 +82,11 @@ function RateApp() {
 
   function userCloseModal() {
     setOpen(false);
+
+    setConfig((current) => ({
+      ...current,
+      rated: true,
+    }));
   }
 
   return (
