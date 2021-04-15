@@ -5,7 +5,7 @@ import "./NativeBridge";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import "normalize.css";
 import "./main.scss";
@@ -22,7 +22,7 @@ initSentry();
 
 ReactDOM.render(
   <BrowserRouter basename="/">
-    <Route path="/" component={App} />
+    <App />
   </BrowserRouter>,
   document.getElementById("root")
 );

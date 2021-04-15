@@ -2,7 +2,6 @@ import { useHubCategoryById } from "@/hooks/useHubCategories";
 import { useHubItemById } from "@/hooks/useHubItems";
 import { useLocale } from "@/hooks/useLocale";
 import { useRecent } from "@/hooks/useRecent";
-import { useSearchInput } from "@/hooks/useSearchInput";
 import { useTheme } from "@/hooks/useTheme";
 import { ABOUT } from "@/routes";
 import * as React from "react";
@@ -24,7 +23,6 @@ function Hub() {
   const { theme, setTheme } = useTheme();
   const { sections } = useHub();
   const { recent } = useRecent();
-  const searchInput = useSearchInput("push");
   const history = useHistory();
 
   return (
@@ -65,7 +63,7 @@ function Hub() {
           >
             <Icon name="search" aria-hidden={true} />
 
-            <span>{searchInput.placeholder}</span>
+            <span>{i18n("Search_dots")}</span>
           </Button>
         </div>
       </div>

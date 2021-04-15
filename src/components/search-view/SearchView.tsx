@@ -1,4 +1,4 @@
-import { useSearchInput } from "@/hooks/useSearchInput";
+import { useSearchInput } from "./useSearchInput";
 import * as React from "react";
 import { useHistory } from "react-router";
 import FocusTrap from "focus-trap-react";
@@ -26,7 +26,7 @@ function SearchView() {
   const query = searchInput.value.trim();
   const openSearch = params.get("openSearch");
   const [open, setOpen] = React.useState(() => !!query);
-  const [debouncedQuery] = useDebounce(query, 300);
+  const [debouncedQuery] = useDebounce(query, 1000);
   const results = useContentSearch(debouncedQuery);
 
   React.useEffect(() => {
