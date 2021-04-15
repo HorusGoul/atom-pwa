@@ -10,8 +10,10 @@ import { useHistory } from "react-router";
 import Atom from "../atom";
 import DownloadApp from "../download-app/DownloadApp";
 import RateApp from "../rate-app/RateApp";
+import Button from "../shared/button/Button";
 import { useConfirm } from "../shared/confirm";
 import IconButton from "../shared/icon-button/IconButton";
+import Icon from "../shared/icon/Icon";
 import HubItem from "./hub-item";
 import HubSection from "./hub-section";
 import styles from "./Hub.module.scss";
@@ -57,9 +59,14 @@ function Hub() {
             />
           </div>
 
-          <div className={styles.search}>
-            <input type="text" {...searchInput} />
-          </div>
+          <Button
+            className={styles.search}
+            onClick={() => history.push({ search: "openSearch=true" })}
+          >
+            <Icon name="search" aria-hidden={true} />
+
+            <span>{searchInput.placeholder}</span>
+          </Button>
         </div>
       </div>
       <div className={styles.content}>

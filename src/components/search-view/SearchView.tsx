@@ -16,21 +16,24 @@ import { useDebounce } from "use-debounce";
 import Atom from "../atom";
 import { PERIODIC_TABLE } from "@/routes";
 import { ReactComponent as NoResults } from "./no-results.svg";
+import { useQuery } from "@/hooks/useQuery";
 
 function SearchView() {
   const { i18n } = useLocale();
   const history = useHistory();
+  const params = useQuery();
   const searchInput = useSearchInput("replace");
   const query = searchInput.value.trim();
+  const openSearch = params.get("openSearch");
   const [open, setOpen] = React.useState(() => !!query);
   const [debouncedQuery] = useDebounce(query, 300);
   const results = useContentSearch(debouncedQuery);
 
   React.useEffect(() => {
-    if (query) {
+    if (query || openSearch) {
       setOpen(true);
     }
-  }, [query, history]);
+  }, [query, history, openSearch]);
 
   React.useEffect(() => {
     if (!open) {
