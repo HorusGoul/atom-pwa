@@ -1,5 +1,6 @@
+import { logEvent } from "@/services/spycat";
 import { SearchResult as MiniSearchResult } from "minisearch";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useElements } from "./useElements";
 
 export type SearchResult = MiniSearchResult;
@@ -10,6 +11,14 @@ export function useContentSearch(query: string) {
   const elements = useMemo(() => {
     return elementsIndex.search(query);
   }, [elementsIndex, query]);
+
+  useEffect(() => {
+    if (query) {
+      logEvent("search", {
+        search_query: query,
+      });
+    }
+  }, [query]);
 
   return { elements };
 }

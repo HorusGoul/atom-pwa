@@ -21,7 +21,7 @@ function SearchView() {
   const { i18n } = useLocale();
   const history = useHistory();
   const searchInput = useSearchInput("replace");
-  const query = searchInput.value;
+  const query = searchInput.value.trim();
   const [open, setOpen] = React.useState(() => !!query);
   const [debouncedQuery] = useDebounce(query, 300);
   const results = useContentSearch(debouncedQuery);
