@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router";
-import { useLocale } from "./useLocale";
-import { useQuery } from "./useQuery";
+import { useLocale } from "@/hooks/useLocale";
+import { useQuery } from "@/hooks/useQuery";
 
 export function useSearchInput(type: "push" | "replace") {
   const { i18n } = useLocale();
