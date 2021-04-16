@@ -18,9 +18,11 @@ function PeriodicTableTestSettings() {
     resetSettings,
   } = usePeriodicTableTestSettings();
 
-  const elementStates = React.useMemo(() => settings.elements ?? [], [
-    settings,
-  ]);
+  const elementStates = React.useMemo(() => {
+    const elements = settings.elements ?? [];
+
+    return elements.sort((a, b) => a.atomic - b.atomic);
+  }, [settings.elements]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
     updateSettings((settings) => {

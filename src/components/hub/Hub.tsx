@@ -124,6 +124,8 @@ function HubItemWithData({
 
   function onClick() {
     if (data.disabled) {
+      logEvent(`interested in ${item}`);
+
       confirmAction({
         title: i18n("wip_title"),
         message: i18n("wip_message"),
