@@ -77,7 +77,7 @@ export function ServiceWorkerProvider({
       }
     }
 
-    if (import.meta.env.DEV && "serviceWorker" in navigator) {
+    if (import.meta.env.PROD && "serviceWorker" in navigator) {
       register();
     }
 
