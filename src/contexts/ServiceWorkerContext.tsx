@@ -5,12 +5,14 @@ import { useImmer } from "use-immer";
 interface ServiceWorkerContextType {
   waitingState: ServiceWorker["state"] | null;
   update: () => void;
+  checkForUpdates: () => void;
 }
 
 export const ServiceWorkerContext = React.createContext<ServiceWorkerContextType>(
   {
     waitingState: null,
     update: () => null,
+    checkForUpdates: () => null,
   }
 );
 
@@ -109,9 +111,17 @@ export function ServiceWorkerProvider({
     waiting.postMessage({ type: "SKIP_WAITING" });
   }, [state.waiting, setState]);
 
+  const checkForUpdates = React.useCallback(() => {
+    if (import.meta.env.PROD && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then((registration) =>
+        registration.update()
+      );
+    }
+  }, []);
+
   return (
     <ServiceWorkerContext.Provider
-      value={{ waitingState: state.waitingState, update }}
+      value={{ waitingState: state.waitingState, update, checkForUpdates }}
     >
       {children}
     </ServiceWorkerContext.Provider>

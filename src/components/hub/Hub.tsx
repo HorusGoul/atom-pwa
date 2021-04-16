@@ -155,9 +155,13 @@ function HubItemWithData({
 }
 
 function UpdateButton() {
-  const { waitingState, update } = useServiceWorker();
+  const { waitingState, update, checkForUpdates } = useServiceWorker();
   const { confirmAction } = useConfirm();
   const { i18n } = useLocale();
+
+  React.useEffect(() => {
+    checkForUpdates();
+  }, [checkForUpdates]);
 
   if (!waitingState) {
     return null;
