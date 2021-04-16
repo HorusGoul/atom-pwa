@@ -235,5 +235,9 @@
   "confirm_exit_quiz_message": "Der Quiz-Fortschritt geht verloren, wenn Sie gehen.",
   "wip_title": "Laufende Arbeiten",
   "wip_message": "Wir arbeiten an dieser Funktion, danke, dass Sie uns wissen lassen, dass Sie daran interessiert sind!",
-  "download_title": "Laden Sie die offizielle App herunter!"
+  "download_title": "Laden Sie die offizielle App herunter!",
+  "update_title": "Update verfügbar!",
+  "update_message": "Sie können es jetzt oder nach einem Neustart der App installieren.",
+  "update_button_label": "Update verfügbar",
+  "update_confirm": "Installieren"
 }

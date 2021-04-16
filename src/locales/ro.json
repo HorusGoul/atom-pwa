@@ -235,5 +235,9 @@
   "confirm_exit_quiz_message": "Progresul chestionarului va fi pierdut dacă plecați.",
   "wip_title": "Muncă în desfășurare",
   "wip_message": "Lucrăm la această funcție, vă mulțumim că ne-ați anunțat că sunteți interesat de ea!",
-  "download_title": "Descărcați aplicația oficială!"
+  "download_title": "Descarcă aplicația oficială!",
+  "update_title": "Actualizare disponibilă!",
+  "update_message": "Îl puteți instala acum sau după ce aplicația se repornește.",
+  "update_button_label": "Actualizare disponibilă",
+  "update_confirm": "Instalaţi"
 }
