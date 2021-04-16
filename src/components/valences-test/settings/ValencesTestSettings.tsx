@@ -17,7 +17,7 @@ function ValencesTestSettings() {
   const elementStates = React.useMemo(() => {
     const elements = settings.elements ?? [];
 
-    return elements.sort((a, b) => a.atomic - b.atomic);
+    return elements.slice().sort((a, b) => a.atomic - b.atomic);
   }, [settings.elements]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
