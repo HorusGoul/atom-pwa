@@ -14,9 +14,11 @@ function ValencesTestSettings() {
   const { i18n } = useLocale();
   const { settings, updateSettings, resetSettings } = useValencesTestSettings();
 
-  const elementStates = React.useMemo(() => settings.elements ?? [], [
-    settings,
-  ]);
+  const elementStates = React.useMemo(() => {
+    const elements = settings.elements ?? [];
+
+    return elements.sort((a, b) => a.atomic - b.atomic);
+  }, [settings.elements]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
     updateSettings((settings) => {
