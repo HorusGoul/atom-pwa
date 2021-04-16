@@ -235,5 +235,9 @@
   "confirm_exit_quiz_message": "Quiz progress will be lost if you leave.",
   "wip_title": "Work in Progress",
   "wip_message": "We're working on this feature, thanks for letting us know you're interested on it!",
-  "download_title": "Download the official app!"
+  "download_title": "Download the official app!",
+  "update_title": "Update available!",
+  "update_message": "You can install it now or after the app gets restarted.",
+  "update_button_label": "Update available",
+  "update_confirm": "Install"
 }

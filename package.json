@@ -63,6 +63,7 @@
     "spycat": "^0.0.7",
     "use-debounce": "^6.0.1",
     "use-deep-compare-effect": "^1.6.1",
+    "use-immer": "^0.5.1",
     "workbox-precaching": "^6.1.0"
   },
   "devDependencies": {

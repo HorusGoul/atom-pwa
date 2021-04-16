@@ -50,6 +50,24 @@
   padding: 12px;
 }
 
+.updateButtonInstalled .icon {
+  animation: makina ease-in-out 2000ms infinite;
+}
+
+@keyframes makina {
+  0%,
+  10%,
+  20%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  5%,
+  15% {
+    transform: translateY(-6px);
+  }
+}
+
 .logo {
   border-radius: 128px;
   padding: 8px;

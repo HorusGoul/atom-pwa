@@ -1,9 +1,12 @@
+import { useServiceWorker } from "@/contexts/ServiceWorkerContext";
 import { useHubCategoryById } from "@/hooks/useHubCategories";
 import { useHubItemById } from "@/hooks/useHubItems";
 import { useLocale } from "@/hooks/useLocale";
 import { useRecent } from "@/hooks/useRecent";
 import { useTheme } from "@/hooks/useTheme";
 import { ABOUT } from "@/routes";
+import { logEvent } from "@/services/spycat";
+import classNames from "classnames";
 import * as React from "react";
 import { useHistory } from "react-router";
 import Atom from "../atom";
@@ -33,6 +36,8 @@ function Hub() {
             <div className={styles.logo}>
               <Atom aria-label="Atom" weight={24} size={32} color="primary" />
             </div>
+
+            <UpdateButton />
 
             <IconButton
               className={styles.topbarButton}
@@ -146,5 +151,44 @@ function HubItemWithData({
       rowSpan={rowSpan}
       onClick={onClick}
     />
+  );
+}
+
+function UpdateButton() {
+  const { waitingState, update } = useServiceWorker();
+  const { confirmAction } = useConfirm();
+  const { i18n } = useLocale();
+
+  if (!waitingState) {
+    return null;
+  }
+
+  function launchUpdatePrompt() {
+    confirmAction({
+      message: i18n("update_message"),
+      title: i18n("update_title"),
+      okButtonText: i18n("update_confirm"),
+      onConfirm: () => {
+        logEvent("install update");
+        update();
+      },
+    });
+  }
+
+  return (
+    <Button
+      className={classNames(styles.topbarButton, {
+        [styles.updateButtonInstalled]: waitingState === "installed",
+      })}
+      onClick={launchUpdatePrompt}
+      circle={true}
+      aria-label={i18n("update_button_label")}
+    >
+      {waitingState === "installed" ? (
+        <Icon name="system_update" className={styles.icon} />
+      ) : (
+        <Atom spinning={true} color="inherit" size={24} weight={32} />
+      )}
+    </Button>
   );
 }

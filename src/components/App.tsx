@@ -30,8 +30,13 @@ import SearchView from "./search-view";
 import { ElementProvider } from "@/contexts/ElementContext";
 import { createPack } from "react-component-pack";
 import ConfirmProvider from "./shared/confirm";
+import { ServiceWorkerProvider } from "@/contexts/ServiceWorkerContext";
 
-const ProviderPack = createPack(ElementProvider, ConfirmProvider);
+const ProviderPack = createPack(
+  ServiceWorkerProvider,
+  ElementProvider,
+  ConfirmProvider
+);
 
 function App() {
   const { lang, i18n } = useLocale();

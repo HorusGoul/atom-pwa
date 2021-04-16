@@ -15983,6 +15983,11 @@ use-deep-compare-effect@^1.6.1:
     "@types/react" "^17.0.0"
     dequal "^2.0.2"
 
+use-immer@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/use-immer/-/use-immer-0.5.1.tgz#3862ebbb194ebfe66b8eb221082c2fb2585f8fe1"
+  integrity sha512-Orb7PokM+jiLQfA1oJ3B3P7Guq0c2IxUHHmBpLeEMnJiz4ZOMlj9mkqq6D7iXJsnurRX0EOB134annf3RjEWHw==
+
 use-isomorphic-layout-effect@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.1.tgz#7bb6589170cd2987a152042f9084f9effb75c225"
