@@ -10,9 +10,15 @@
   environment = { NODE_VERSION = "14.15.4", NODE_OPTIONS = "--max_old_space_size=4096" }
 
 [[redirects]]
-  from = "/spycat"
-  to = "https://spycat.horus.dev/api/AddEvents"
+  from = "/js/script.js"
+  to = "https://plausible.io/js/plausible.js"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/event"
+  to = "https://plausible.io/api/event"
+  status = 202
   force = true
 
 [[redirects]]

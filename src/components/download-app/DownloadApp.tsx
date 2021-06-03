@@ -58,11 +58,7 @@ function DownloadApp() {
       downloaded: true,
     }));
 
-    logEvent("download app click", {
-      event_category: "User",
-      event_label: "download",
-      event_action: "Download app click",
-    });
+    logEvent("download app click");
   }
 
   return (

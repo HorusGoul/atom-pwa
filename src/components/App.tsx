@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
-import { SpycatSetup } from "@/services/spycat";
 import {
   ABOUT,
   HUB,
@@ -70,8 +69,6 @@ function App() {
         </Helmet>
 
         <div className="app__content">
-          <Route path="/" component={SpycatSetup} />
-
           <Switch>
             <Route exact={true} path={HUB}>
               <SearchView />

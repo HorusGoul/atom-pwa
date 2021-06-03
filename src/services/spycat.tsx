@@ -1,32 +1,19 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { SCREEN_NAME } from "../routes";
-import { send, setup } from "spycat";
-import { APP_VERSION, COMMIT_SHORT_HASH, IS_DEVELOPMENT } from "../constants";
-
-export function SpycatSetup() {
-  const location = useLocation();
-
-  useEffect(() => {
-    setup({
-      url: "/spycat",
-      projectId: "atom-pt",
-    });
-  }, []);
-
-  useEffect(() => {
-    logEvent("screen_view", {
-      screen_name: SCREEN_NAME[location.pathname],
-    });
-  }, [location.pathname]);
-
-  return null;
+declare global {
+  interface PlausibleEvents {
+    ["404"]: { path: string };
+    search: { search_query: string };
+    test: {
+      value: number;
+      event_action: string;
+    };
+    rating: { event_action: string };
+    [key: string]: never;
+  }
 }
 
-export function logEvent(type: string, params: Record<string, unknown> = {}) {
-  params.app_version = APP_VERSION;
-  params.commit_short_hash = COMMIT_SHORT_HASH;
-  params.development = IS_DEVELOPMENT;
-
-  send(type, params);
+export function logEvent<T extends keyof PlausibleEvents>(
+  type: T,
+  params?: PlausibleEvents[T]
+) {
+  plausible(type, { props: params } as EventOptionsTuple<PlausibleEvents[T]>);
 }

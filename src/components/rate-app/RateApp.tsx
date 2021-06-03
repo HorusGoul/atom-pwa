@@ -61,8 +61,6 @@ function RateApp() {
       }));
 
       logEvent("rating", {
-        event_category: "User",
-        event_label: "rating",
         event_action: "Rated the app",
       });
     }
@@ -74,8 +72,6 @@ function RateApp() {
     setOpen(true);
 
     logEvent("rating", {
-      event_category: "User",
-      event_label: "rating",
       event_action: "Opened the RateApp modal",
     });
   }

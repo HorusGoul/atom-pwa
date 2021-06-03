@@ -28,8 +28,6 @@ function TestResults({
   React.useEffect(() => {
     if (total > 0) {
       logEvent("test", {
-        event_category: "User",
-        event_label: "test",
         event_action: `Finished a ${gaTestName}`,
         value: percentage,
       });

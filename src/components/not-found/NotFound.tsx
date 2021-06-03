@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
 import Button from "../shared/button/Button";
+import { logEvent } from "@/services/spycat";
 import "./NotFound.scss";
 
 function NotFound() {
@@ -10,6 +11,10 @@ function NotFound() {
   const { i18n } = useLocale();
 
   const goHome = React.useCallback(() => history.push(HUB), [history]);
+
+  React.useEffect(() => {
+    logEvent("404", { path: window.location.pathname });
+  }, []);
 
   return (
     <div className="not-found">

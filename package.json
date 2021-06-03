@@ -60,7 +60,6 @@
     "react-hyper-scroller": "^3.0.0-beta.5",
     "react-portal": "^4.2.1",
     "react-router-dom": "^5.2.0",
-    "spycat": "^0.0.7",
     "use-debounce": "^6.0.1",
     "use-deep-compare-effect": "^1.6.1",
     "use-immer": "^0.5.1",
