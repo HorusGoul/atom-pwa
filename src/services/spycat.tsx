@@ -15,5 +15,5 @@ export function logEvent<T extends keyof PlausibleEvents>(
   type: T,
   params?: PlausibleEvents[T]
 ) {
-  plausible(type, { props: params } as EventOptionsTuple<PlausibleEvents[T]>);
+  plausible?.(type, { props: params } as EventOptionsTuple<PlausibleEvents[T]>);
 }
