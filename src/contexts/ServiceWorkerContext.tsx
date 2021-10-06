@@ -91,31 +91,40 @@ export function ServiceWorkerProvider({
   }, [unmountedRef, setState]);
 
   const update = React.useCallback(() => {
-    const waiting = state.waiting;
+    try {
+      const waiting = state.waiting;
 
-    if (!waiting) {
-      return;
-    }
-
-    waiting.addEventListener("statechange", () => {
-      if (waiting.state === "activated") {
-        localStorage.setItem(STORAGE_UPDATE_KEY, new Date().toISOString());
-        updateInstance();
+      if (!waiting) {
+        return;
       }
 
-      setState((draft) => {
-        draft.waitingState = waiting.state;
-      });
-    });
+      waiting.addEventListener("statechange", () => {
+        if (waiting.state === "activated") {
+          localStorage.setItem(STORAGE_UPDATE_KEY, new Date().toISOString());
+          updateInstance();
+        }
 
-    waiting.postMessage({ type: "SKIP_WAITING" });
+        setState((draft) => {
+          draft.waitingState = waiting.state;
+        });
+      });
+
+      waiting.postMessage({ type: "SKIP_WAITING" });
+    } catch (e) {
+      window.console.error("Error during service worker update:", e);
+    }
   }, [state.waiting, setState]);
 
   const checkForUpdates = React.useCallback(() => {
     if (import.meta.env.PROD && "serviceWorker" in navigator) {
-      navigator.serviceWorker.ready.then((registration) =>
-        registration.update()
-      );
+      navigator.serviceWorker.ready
+        .then((registration) => registration.update())
+        .catch((e) =>
+          window.console.error(
+            "Error while checking for service worker updates:",
+            e
+          )
+        );
     }
   }, []);
 
