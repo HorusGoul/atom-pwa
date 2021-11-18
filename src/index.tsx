@@ -1,5 +1,5 @@
 /// <reference types="node" />
-
+import "./polyfills";
 import "./NativeBridge";
 
 import * as React from "react";

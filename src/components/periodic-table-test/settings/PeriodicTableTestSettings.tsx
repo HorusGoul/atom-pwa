@@ -1,5 +1,7 @@
 import * as React from "react";
-import { useVirtualScroller, VirtualScroller } from "react-hyper-scroller";
+import HyperScroller, {
+  useHyperScrollerController,
+} from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
@@ -8,6 +10,7 @@ import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
 import { usePeriodicTableTestSettings } from "../hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTestSettings.scss";
+import { ElementSettings } from "@/hooks/useSettings";
 
 function PeriodicTableTestSettings() {
   const history = useHistory();
@@ -67,33 +70,6 @@ function PeriodicTableTestSettings() {
     [updateSettings]
   );
 
-  const rowRenderer = React.useCallback(
-    (index: number, ref: React.RefObject<HTMLDivElement>) => {
-      const elementState = elementStates[index];
-
-      return (
-        <div key={elementState.atomic} ref={ref}>
-          <TestElementSettings
-            setting={elementState}
-            onClick={onTestElementSettingsClick}
-          />
-        </div>
-      );
-    },
-    [elementStates, onTestElementSettingsClick]
-  );
-
-  const scroller = useVirtualScroller({
-    estimatedItemHeight: 64,
-    itemCount: elementStates.length,
-  });
-
-  const { updateProjection } = scroller;
-
-  React.useEffect(() => {
-    updateProjection();
-  }, [elementStates, updateProjection]);
-
   return (
     <div className="valences-test-settings">
       <Navbar
@@ -124,10 +100,37 @@ function PeriodicTableTestSettings() {
           />
         </div>
 
-        <VirtualScroller {...scroller} itemRenderer={rowRenderer} />
+        <SettingsList
+          settings={elementStates}
+          onClick={onTestElementSettingsClick}
+        />
       </div>
     </div>
   );
 }
 
 export default PeriodicTableTestSettings;
+
+interface SettingsListProps {
+  settings: ElementSettings[];
+  onClick: (atomic: number) => void;
+}
+
+function SettingsList({ settings, onClick }: SettingsListProps) {
+  const controller = useHyperScrollerController({
+    estimatedItemHeight: 64,
+    measureItems: false,
+  });
+
+  return (
+    <HyperScroller controller={controller}>
+      {settings.map((elementState) => (
+        <TestElementSettings
+          key={elementState.atomic}
+          setting={elementState}
+          onClick={onClick}
+        />
+      ))}
+    </HyperScroller>
+  );
+}

@@ -1,7 +1,10 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { VirtualScroller, useVirtualScroller } from "react-hyper-scroller";
+import HyperScroller, {
+  HyperScrollerCache,
+  useHyperScrollerController,
+} from "react-hyper-scroller";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
@@ -25,44 +28,6 @@ function ElementPicker({ onElement }: ElementPickerProps) {
     query: "",
     elements: allElements,
   }));
-  const elementListRef = useRef<HTMLDivElement>(null);
-
-  const elementListRowRenderer = useCallback(
-    (index: number, ref: React.RefObject<HTMLDivElement>) => {
-      const element = search.elements[index];
-      const elementLocales = getElementLocales(element);
-
-      return (
-        <div key={element.atomic} ref={ref}>
-          <Button
-            onClick={() => onElement(element)}
-            className="element-picker__element"
-          >
-            <div
-              className={classNames(
-                "element-picker__element__symbol",
-                "element",
-                element.group
-              )}
-            >
-              {element.symbol}
-            </div>
-
-            <div className="element-picker__element__desc">
-              <span className="element-picker__element__name">
-                {elementLocales.name}
-              </span>
-
-              <span className="element-picker__element__group">
-                {elementLocales.group}
-              </span>
-            </div>
-          </Button>
-        </div>
-      );
-    },
-    [search, onElement, getElementLocales]
-  );
 
   const searchElements = useCallback(
     (searchValue?: string) => {
@@ -104,13 +69,6 @@ function ElementPicker({ onElement }: ElementPickerProps) {
     searchElements();
   }, [searchElements]);
 
-  const scroller = useVirtualScroller({
-    estimatedItemHeight: 64,
-    targetView: elementListRef,
-    itemCount: search.elements.length,
-    cacheKey: `element-picker:${search.query}`,
-  });
-
   return (
     <div className="element-picker">
       <div className="element-picker__search-bar">
@@ -129,11 +87,67 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         />
       </div>
 
-      <div ref={elementListRef} className="element-picker__element-list">
-        <VirtualScroller {...scroller} itemRenderer={elementListRowRenderer} />
-      </div>
+      <SearchResultList search={search} onElement={onElement} />
     </div>
   );
 }
 
 export default ElementPicker;
+
+interface SearchResultListProps {
+  search: SearchState;
+  onElement: (element: Element) => void;
+}
+
+function SearchResultList({ search, onElement }: SearchResultListProps) {
+  const { getElementLocales } = useElements();
+
+  const elementListRef = useRef<HTMLDivElement>(null);
+
+  const controller = useHyperScrollerController({
+    estimatedItemHeight: 64,
+    targetView: elementListRef,
+    cache: HyperScrollerCache.getOrCreateCache(
+      `element-picker:${search.query}`
+    ),
+    measureItems: false,
+  });
+
+  return (
+    <div ref={elementListRef} className="element-picker__element-list">
+      <HyperScroller controller={controller}>
+        {search.elements.map((element) => {
+          const elementLocales = getElementLocales(element);
+
+          return (
+            <Button
+              key={element.atomic}
+              onClick={() => onElement(element)}
+              className="element-picker__element"
+            >
+              <div
+                className={classNames(
+                  "element-picker__element__symbol",
+                  "element",
+                  element.group
+                )}
+              >
+                {element.symbol}
+              </div>
+
+              <div className="element-picker__element__desc">
+                <span className="element-picker__element__name">
+                  {elementLocales.name}
+                </span>
+
+                <span className="element-picker__element__group">
+                  {elementLocales.group}
+                </span>
+              </div>
+            </Button>
+          );
+        })}
+      </HyperScroller>
+    </div>
+  );
+}

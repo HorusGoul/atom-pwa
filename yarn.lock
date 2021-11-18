@@ -2009,6 +2009,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@juggle/resize-observer@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
+  integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@kwsites/file-exists/-/file-exists-1.1.1.tgz#ad1efcac13e1987d8dbaf235ef3be5b0d96faa99"
@@ -13204,10 +13209,10 @@ react-hot-loader@^4.8.0:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-hyper-scroller@^3.0.0-beta.5:
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-3.0.0-beta.5.tgz#b2e9f6f53bfe0e337a7529290ecb32ecdcd4a6c2"
-  integrity sha512-XHUUGEdI5wmQfRLdQe3luuybpVynIZd4kVjRbCWB8QsTI934LG+uT8adMMH+AbjwFxVcTrGpIBLY9NPwKT8LBw==
+react-hyper-scroller@^3.0.0-beta.10:
+  version "3.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-3.0.0-beta.10.tgz#e24462863c22a4a989c28e7beab541debac852f2"
+  integrity sha512-lV0RRMSl0d7D5E79zmfjY8HPTWZKCNTKAHQGo/W/iwNYysgue7VOdjdewqe/RCpnurwdGUM7YSSyMKfIwgv2Ag==
 
 react-immutable-proptypes@^2.1.0:
   version "2.2.0"
