@@ -26,20 +26,31 @@ function useElementContextLogic() {
     []
   );
 
+  const localizedElementsMap = React.useMemo(() => {
+    return Object.fromEntries(
+      elements.map((element) => {
+        return [
+          element.atomic,
+          {
+            ...element,
+            bondingType:
+              element.bondingType && i18n(`bonding_${element.bondingType}`),
+            group: i18n(`group_${element.group}`),
+            name: i18n(`element_name_${element.name.toLowerCase()}`),
+            standardState:
+              element.standardState &&
+              i18n(`standard_state_${element.standardState}`),
+          },
+        ];
+      })
+    );
+  }, [i18n]);
+
   const getElementLocales = React.useCallback(
     (element: Element): Element => {
-      return {
-        ...element,
-        bondingType:
-          element.bondingType && i18n(`bonding_${element.bondingType}`),
-        group: i18n(`group_${element.group}`),
-        name: i18n(`element_name_${element.name.toLowerCase()}`),
-        standardState:
-          element.standardState &&
-          i18n(`standard_state_${element.standardState}`),
-      };
+      return localizedElementsMap[element.atomic];
     },
-    [i18n]
+    [localizedElementsMap]
   );
 
   const getLocalizedElement = React.useCallback(
