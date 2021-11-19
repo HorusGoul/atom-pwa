@@ -1,7 +1,5 @@
 import * as React from "react";
-import HyperScroller, {
-  useHyperScrollerController,
-} from "react-hyper-scroller";
+import HyperScroller from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
@@ -10,7 +8,6 @@ import Navbar from "../../shared/navbar/Navbar";
 import TestElementSettings from "../../test-element-settings/TestElementSettings";
 import { usePeriodicTableTestSettings } from "../hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTestSettings.scss";
-import { ElementSettings } from "@/hooks/useSettings";
 
 function PeriodicTableTestSettings() {
   const history = useHistory();
@@ -100,37 +97,18 @@ function PeriodicTableTestSettings() {
           />
         </div>
 
-        <SettingsList
-          settings={elementStates}
-          onClick={onTestElementSettingsClick}
-        />
+        <HyperScroller estimatedItemHeight={64} measureItems={false}>
+          {elementStates.map((elementState) => (
+            <TestElementSettings
+              key={elementState.atomic}
+              setting={elementState}
+              onClick={onTestElementSettingsClick}
+            />
+          ))}
+        </HyperScroller>
       </div>
     </div>
   );
 }
 
 export default PeriodicTableTestSettings;
-
-interface SettingsListProps {
-  settings: ElementSettings[];
-  onClick: (atomic: number) => void;
-}
-
-function SettingsList({ settings, onClick }: SettingsListProps) {
-  const controller = useHyperScrollerController({
-    estimatedItemHeight: 64,
-    measureItems: false,
-  });
-
-  return (
-    <HyperScroller controller={controller}>
-      {settings.map((elementState) => (
-        <TestElementSettings
-          key={elementState.atomic}
-          setting={elementState}
-          onClick={onClick}
-        />
-      ))}
-    </HyperScroller>
-  );
-}

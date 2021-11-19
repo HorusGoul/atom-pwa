@@ -13209,10 +13209,10 @@ react-hot-loader@^4.8.0:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-hyper-scroller@^3.0.0-beta.10:
-  version "3.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-3.0.0-beta.10.tgz#e24462863c22a4a989c28e7beab541debac852f2"
-  integrity sha512-lV0RRMSl0d7D5E79zmfjY8HPTWZKCNTKAHQGo/W/iwNYysgue7VOdjdewqe/RCpnurwdGUM7YSSyMKfIwgv2Ag==
+react-hyper-scroller@^3.0.0-beta.11:
+  version "3.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/react-hyper-scroller/-/react-hyper-scroller-3.0.0-beta.11.tgz#e467553a9e582cddf4d21f527e8c6b2a150a969f"
+  integrity sha512-AS+u1Dk0ir79I6TvDDpcVpl+3ZaxmaudSWBk4jJLyrcraK6e6lNAZ6RoQYWOxLruByUyHSjbAxxx5NPTZ1iVqQ==
 
 react-immutable-proptypes@^2.1.0:
   version "2.2.0"

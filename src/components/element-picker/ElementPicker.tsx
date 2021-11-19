@@ -1,10 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useState, useRef, useEffect, useCallback } from "react";
-import HyperScroller, {
-  HyperScrollerCache,
-  useHyperScrollerController,
-} from "react-hyper-scroller";
+import HyperScroller, { HyperScrollerCache } from "react-hyper-scroller";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
@@ -69,6 +66,8 @@ function ElementPicker({ onElement }: ElementPickerProps) {
     searchElements();
   }, [searchElements]);
 
+  const elementListRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="element-picker">
       <div className="element-picker__search-bar">
@@ -87,67 +86,50 @@ function ElementPicker({ onElement }: ElementPickerProps) {
         />
       </div>
 
-      <SearchResultList search={search} onElement={onElement} />
+      <div ref={elementListRef} className="element-picker__element-list">
+        <HyperScroller
+          estimatedItemHeight={64}
+          targetView={elementListRef}
+          measureItems={false}
+          cache={HyperScrollerCache.getOrCreateCache(
+            `element-picker:${search.query}`
+          )}
+        >
+          {search.elements.map((element) => {
+            const elementLocales = getElementLocales(element);
+
+            return (
+              <Button
+                key={element.atomic}
+                onClick={() => onElement(element)}
+                className="element-picker__element"
+              >
+                <div
+                  className={classNames(
+                    "element-picker__element__symbol",
+                    "element",
+                    element.group
+                  )}
+                >
+                  {element.symbol}
+                </div>
+
+                <div className="element-picker__element__desc">
+                  <span className="element-picker__element__name">
+                    {elementLocales.name}
+                  </span>
+
+                  <span className="element-picker__element__group">
+                    {elementLocales.group}
+                  </span>
+                </div>
+              </Button>
+            );
+          })}
+        </HyperScroller>
+      </div>
     </div>
   );
 }
 
 export default ElementPicker;
-
-interface SearchResultListProps {
-  search: SearchState;
-  onElement: (element: Element) => void;
-}
-
-function SearchResultList({ search, onElement }: SearchResultListProps) {
-  const { getElementLocales } = useElements();
-
-  const elementListRef = useRef<HTMLDivElement>(null);
-
-  const controller = useHyperScrollerController({
-    estimatedItemHeight: 64,
-    targetView: elementListRef,
-    cache: HyperScrollerCache.getOrCreateCache(
-      `element-picker:${search.query}`
-    ),
-    measureItems: false,
-  });
-
-  return (
-    <div ref={elementListRef} className="element-picker__element-list">
-      <HyperScroller controller={controller}>
-        {search.elements.map((element) => {
-          const elementLocales = getElementLocales(element);
-
-          return (
-            <Button
-              key={element.atomic}
-              onClick={() => onElement(element)}
-              className="element-picker__element"
-            >
-              <div
-                className={classNames(
-                  "element-picker__element__symbol",
-                  "element",
-                  element.group
-                )}
-              >
-                {element.symbol}
-              </div>
-
-              <div className="element-picker__element__desc">
-                <span className="element-picker__element__name">
-                  {elementLocales.name}
-                </span>
-
-                <span className="element-picker__element__group">
-                  {elementLocales.group}
-                </span>
-              </div>
-            </Button>
-          );
-        })}
-      </HyperScroller>
-    </div>
-  );
-}
