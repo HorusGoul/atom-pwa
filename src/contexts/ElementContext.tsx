@@ -27,8 +27,8 @@ function useElementContextLogic() {
   );
 
   const localizedElementsMap = React.useMemo(() => {
-    return Object.fromEntries(
-      elements.map((element) => {
+    return elements
+      .map((element) => {
         return [
           element.atomic,
           {
@@ -41,9 +41,13 @@ function useElementContextLogic() {
               element.standardState &&
               i18n(`standard_state_${element.standardState}`),
           },
-        ];
+        ] as const;
       })
-    );
+      .reduce((prev, [atomic, element]) => {
+        prev[atomic] = element;
+
+        return prev;
+      }, {} as Record<number, Element>);
   }, [i18n]);
 
   const getElementLocales = React.useCallback(
