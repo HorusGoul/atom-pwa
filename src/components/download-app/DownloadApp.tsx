@@ -5,7 +5,7 @@ import { useLocale } from "@/hooks/useLocale";
 import Button from "../shared/button/Button";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
-import { flags } from "@/services/flags";
+import { useFlagStore } from "@/services/flags";
 
 export interface DownloadAppConfig {
   timesLaunched: number;
@@ -16,6 +16,7 @@ const DOWNLOAD_APP_STORAGE_KEY = "atom:download_app";
 
 function DownloadApp() {
   const { i18n } = useLocale();
+  const flags = useFlagStore();
   const [config, setConfig] = React.useState<DownloadAppConfig>(() => {
     const json = localStorage.getItem(DOWNLOAD_APP_STORAGE_KEY);
 

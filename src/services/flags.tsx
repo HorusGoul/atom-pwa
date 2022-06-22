@@ -22,13 +22,11 @@ export const useFlagStore = create<Flags>(() => ({
   eTeacherCampaign: false,
 }));
 
-export const flags = useFlagStore.getState();
-
 export function loadFlags() {
   const url = new URLSearchParams(window.location.search);
   const utmSource = url.get("utm_source");
 
-  const overrides: Partial<typeof flags> = {};
+  const overrides: Partial<Flags> = {};
 
   if (utmSource?.match(/moya/i)) {
     overrides.isMoya = true;
@@ -38,7 +36,7 @@ export function loadFlags() {
     overrides.isAndroid = true;
   }
 
-  if (flags.isMoya && flags.isAndroid) {
+  if (overrides.isMoya && overrides.isAndroid) {
     overrides.showDownloadAppAndroid = true;
   }
 
