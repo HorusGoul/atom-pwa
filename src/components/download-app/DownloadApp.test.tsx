@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import DownloadApp, { DownloadAppConfig } from "./DownloadApp";
-import { flags } from "@/services/flags";
+import { useFlagStore } from "@/services/flags";
 import userEvent from "@testing-library/user-event";
 import "hammerjs";
 import { clear, mockUserAgent } from "jest-useragent-mock";
@@ -19,7 +19,9 @@ beforeEach(() => {
 });
 
 test("should render download app button", () => {
-  flags.showDownloadAppAndroid = true;
+  useFlagStore.setState({
+    showDownloadAppAndroid: true,
+  });
 
   render(<DownloadApp />);
 
@@ -30,7 +32,9 @@ test("should open modal to download app", async () => {
   mockUserAgent("android");
   // Jest throwing error as it couldn't recognize window.open()
   global.open = jest.fn();
-  flags.showDownloadAppAndroid = true;
+  useFlagStore.setState({
+    showDownloadAppAndroid: true,
+  });
   render(<DownloadApp />);
 
   userEvent.click(screen.getByRole("button"));
