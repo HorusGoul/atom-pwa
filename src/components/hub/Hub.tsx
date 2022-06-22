@@ -126,7 +126,7 @@ function HubItemWithData({
 
   const isAd = category.id === "yelepo";
 
-  if (showCategory) {
+  if (isAd) {
     showCategory = true;
   }
 
