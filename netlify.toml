@@ -22,6 +22,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/flags"
+  to = "https://atom-flags.horusdev.workers.dev"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
@@ -30,4 +36,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
