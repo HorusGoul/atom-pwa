@@ -7,6 +7,7 @@ declare global {
       event_action: string;
     };
     rating: { event_action: string };
+    "ad clicked": { id: string };
     [key: string]: never;
   }
 }

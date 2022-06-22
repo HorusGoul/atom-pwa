@@ -239,5 +239,8 @@
   "update_title": "Update available!",
   "update_message": "You can install it now or after the app gets restarted.",
   "update_button_label": "Update available",
-  "update_confirm": "Install"
+  "update_confirm": "Install",
+  "ad": "Ad",
+  "learn_coding": "Learn Coding and Build Your First App!",
+  "become_a_youtuber": "Become a YouTube Creator!"
 }

@@ -8,6 +8,7 @@ export interface HubItemData {
   imageUrl?: string;
   href: string;
   disabled?: boolean;
+  flag?: string;
 }
 
 const itemsMap = import.meta.globEager("../data/hub/items/*.json") as Record<

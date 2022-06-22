@@ -5,6 +5,7 @@ import { useLocale } from "@/hooks/useLocale";
 import { useRecent } from "@/hooks/useRecent";
 import { useTheme } from "@/hooks/useTheme";
 import { ABOUT } from "@/routes";
+import { useFlagStore } from "@/services/flags";
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
@@ -116,11 +117,22 @@ function HubItemWithData({
   rowSpan,
   showCategory = false,
 }: HubItemWithDataProps) {
+  const flags = useFlagStore();
   const data = useHubItemById(item);
   const category = useHubCategoryById(data.category);
   const history = useHistory();
   const { confirmAction } = useConfirm();
   const { i18n } = useLocale();
+
+  const isAd = category.id === "yelepo";
+
+  if (showCategory) {
+    showCategory = true;
+  }
+
+  if (data.flag && !flags[data.flag]) {
+    return null;
+  }
 
   function onClick() {
     if (data.disabled) {
@@ -136,6 +148,12 @@ function HubItemWithData({
     }
 
     if (data.href.startsWith("http")) {
+      if (isAd) {
+        logEvent(`ad clicked`, {
+          id: data.id,
+        });
+      }
+
       window.open(data.href);
       return;
     }

@@ -239,5 +239,8 @@
   "update_title": "¡Actualización disponible!",
   "update_message": "Puedes instalarla ahora o la próxima vez que abras la aplicación.",
   "update_button_label": "Actualización disponible",
-  "update_confirm": "Instalar"
+  "update_confirm": "Instalar",
+  "ad": "Ad",
+  "learn_coding": "Aprende a programar y crea tu primera app!",
+  "become_a_youtuber": "Empieza tu carrera como YouTuber!"
 }

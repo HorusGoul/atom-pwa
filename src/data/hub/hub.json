@@ -29,6 +29,16 @@
           "rowSpan": 1
         },
         {
+          "item": "tekkie-youtube",
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+          "item": "tekkie-coding",
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
           "item": "resources",
           "colSpan": 2,
           "rowSpan": 1

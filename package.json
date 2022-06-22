@@ -64,7 +64,8 @@
     "use-debounce": "^6.0.1",
     "use-deep-compare-effect": "^1.6.1",
     "use-immer": "^0.5.1",
-    "workbox-precaching": "^6.1.0"
+    "workbox-precaching": "^6.1.0",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

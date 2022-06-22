@@ -160,5 +160,11 @@ export const hubItemsCollection: CmsCollection = {
       widget: "string",
       required: true,
     },
+    {
+      name: "flag",
+      label: "Required flag",
+      widget: "string",
+      required: false,
+    },
   ],
 };
