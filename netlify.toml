@@ -6,8 +6,8 @@
 [build]
   base = "./"
   publish = "dist"
-  command = "yarn build"
-  environment = { NODE_VERSION = "14.15.4", NODE_OPTIONS = "--max_old_space_size=4096" }
+  command = "pnpm build"
+  environment = { NODE_VERSION = "18.12.0", NODE_OPTIONS = "--max_old_space_size=4096" }
 
 [[redirects]]
   from = "/js/script.js"

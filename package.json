@@ -5,9 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "concurrently 'netlify dev' 'yarn netlify-cms-proxy-server'",
+    "dev": "concurrently 'netlify dev' 'pnpm netlify-cms-proxy-server'",
     "prebuild": "rimraf dist",
-    "build": "yarn typecheck; vite build && workbox generateSW workbox-config.js",
+    "build": "pnpm typecheck; vite build && workbox generateSW workbox-config.js",
     "lint": "eslint src admin --ext .ts,.tsx",
     "locales-coverage": "node scripts/build-locales-coverage.js",
     "locales-coverage:description": "node scripts/locales-coverage-description.js",
@@ -18,12 +18,12 @@
     "cy:install": "cypress install",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "coverage": "yarn coverage:clean-all && (yarn test:ci; mv coverage jest-coverage) && (yarn cy:run; mv coverage cypress-coverage) && yarn coverage",
-    "coverage:ci": "yarn coverage:clean && yarn coverage:make-dir && yarn coverage:copy-reports && yarn coverage:generate-report",
+    "coverage": "pnpm coverage:clean-all && (pnpm test:ci; mv coverage jest-coverage) && (pnpm cy:run; mv coverage cypress-coverage) && pnpm coverage",
+    "coverage:ci": "pnpm coverage:clean && pnpm coverage:make-dir && pnpm coverage:copy-reports && pnpm coverage:generate-report",
     "coverage:clean": "rm -rf coverage",
-    "coverage:clean-all": "yarn coverage:clean && rm -rf jest-coverage cypress-coverage",
+    "coverage:clean-all": "pnpm coverage:clean && rm -rf jest-coverage cypress-coverage",
     "coverage:make-dir": "mkdir -p coverage",
-    "coverage:copy-reports": "yarn coverage:copy-jest && yarn coverage:copy-cypress",
+    "coverage:copy-reports": "pnpm coverage:copy-jest && pnpm coverage:copy-cypress",
     "coverage:copy-jest": "cp jest-coverage/coverage-final.json coverage/jest-final.json",
     "coverage:copy-cypress": "cp cypress-coverage/coverage-final.json coverage/cypress-final.json",
     "coverage:generate-report": "nyc report --reporter lcov --reporter text --temp-dir coverage"
@@ -131,5 +131,6 @@
   "resolutions": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "packageManager": "pnpm@7.14.1"
 }
