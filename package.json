@@ -52,6 +52,7 @@
     "invariant": "^2.2.4",
     "minisearch": "^3.0.2",
     "netlify-cms-app": "2.14.32",
+    "netlify-cms-core": "^2.55.2",
     "netlify-identity-widget": "^1.9.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
