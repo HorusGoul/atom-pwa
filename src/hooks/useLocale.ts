@@ -10,7 +10,12 @@ export const SUPPORTED_LOCALES = Object.entries(localePercentages)
   .filter(([, percentage]) => percentage >= 85)
   .map(([locale]) => locale);
 
-const localesMap = import.meta.globEager("../locales/*.json");
+const localesMap = import.meta.glob<true, string, Record<string, string>>(
+  "../locales/*.json",
+  {
+    eager: true,
+  }
+);
 const getLocaleKey = (locale: string) => `../locales/${locale}.json`;
 
 const common: Record<string, string> = localesMap[getLocaleKey("common")];

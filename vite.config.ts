@@ -1,4 +1,4 @@
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import path from "path";
@@ -39,7 +39,7 @@ export default defineConfig({
     exclude: ["hammerjs"],
   },
   plugins: [
-    reactRefresh(),
+    react(),
     svgr(),
     legacy({
       targets: ["defaults", "not IE 11", "chrome > 60"],
@@ -55,5 +55,8 @@ export default defineConfig({
       "@": path.resolve("./src"),
     },
     dedupe: ["react", "react-dom"],
+  },
+  server: {
+    port: 3000,
   },
 });
