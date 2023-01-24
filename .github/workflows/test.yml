@@ -54,7 +54,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Run Tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           install-command: pnpm install --frozen-lockfile
           start: pnpm dev
