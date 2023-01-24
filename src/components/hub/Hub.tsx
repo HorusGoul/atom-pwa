@@ -9,7 +9,7 @@ import { useFlagStore } from "@/services/flags";
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import Atom from "../atom";
 import DownloadApp from "../download-app/DownloadApp";
 import RateApp from "../rate-app/RateApp";

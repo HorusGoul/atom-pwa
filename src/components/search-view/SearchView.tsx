@@ -1,6 +1,6 @@
 import { useSearchInput } from "./useSearchInput";
 import * as React from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import Button from "../shared/button/Button";
 import { Portal } from "react-portal";

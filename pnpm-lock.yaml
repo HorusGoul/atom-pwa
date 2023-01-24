@@ -23,6 +23,7 @@ specifiers:
   '@types/body-scroll-lock': ^2.6.1
   '@types/classnames': ^2.2.11
   '@types/hammerjs': ^2.0.39
+  '@types/history': ^4
   '@types/invariant': ^2.2.34
   '@types/jest': ^26.0.22
   '@types/jest-in-case': ^1.0.3
@@ -140,6 +141,7 @@ devDependencies:
   '@types/body-scroll-lock': 2.6.1
   '@types/classnames': 2.2.11
   '@types/hammerjs': 2.0.39
+  '@types/history': 4.7.11
   '@types/invariant': 2.2.34
   '@types/jest': 26.0.22
   '@types/jest-in-case': 1.0.3
@@ -5512,8 +5514,15 @@ packages:
     resolution: {integrity: sha512-lYR2Y/tV2ujpk/WyUc7S0VLI0a9hrtVIN9EwnrNo5oSEJI2cK2/XrgwOQmXLL3eTulOESvh9qP6si9+DWM9cOA==}
     dev: true
 
-  /@types/history/4.7.8:
-    resolution: {integrity: sha512-S78QIYirQcUoo6UJZx9CSP0O2ix9IaeAXwQi26Rhr/+mg7qqPy8TzaxHSUut7eGjL8WmLccT7/MXf304WjqHcA==}
+  /@types/history/4.7.11:
+    resolution: {integrity: sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==}
+    dev: true
+
+  /@types/history/5.0.0:
+    resolution: {integrity: sha512-hy8b7Y1J8OGe6LbAjj3xniQrj3v6lsivCcrmf4TzSgPzLkhIeKgc5IZnT7ReIqmEuodjfO8EYAuoFvIrHi/+jQ==}
+    deprecated: This is a stub types definition. history provides its own type definitions, so you do not need this installed.
+    dependencies:
+      history: 4.10.1
     dev: true
 
   /@types/hoist-non-react-statics/3.3.1:
@@ -5650,7 +5659,7 @@ packages:
   /@types/react-router-dom/5.1.7:
     resolution: {integrity: sha512-D5mHD6TbdV/DNHYsnwBTv+y73ei+mMjrkGrla86HthE4/PVvL1J94Bu3qABU+COXzpL23T1EZapVVpwHuBXiUg==}
     dependencies:
-      '@types/history': 4.7.8
+      '@types/history': 5.0.0
       '@types/react': 17.0.3
       '@types/react-router': 5.1.12
     dev: true
@@ -5658,7 +5667,7 @@ packages:
   /@types/react-router/5.1.12:
     resolution: {integrity: sha512-0bhXQwHYfMeJlCh7mGhc0VJTRm0Gk+Z8T00aiP4702mDUuLs9SMhnd2DitpjWFjdOecx2UXtICK14H9iMnziGA==}
     dependencies:
-      '@types/history': 4.7.8
+      '@types/history': 5.0.0
       '@types/react': 17.0.3
     dev: true
 
@@ -10981,7 +10990,6 @@ packages:
       tiny-invariant: 1.1.0
       tiny-warning: 1.0.3
       value-equal: 1.0.1
-    dev: false
 
   /hmac-drbg/1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==}
@@ -16754,7 +16762,6 @@ packages:
 
   /resolve-pathname/3.0.0:
     resolution: {integrity: sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==}
-    dev: false
 
   /resolve-protobuf-schema/2.1.0:
     resolution: {integrity: sha512-kI5ffTiZWmJaS/huM8wZfEMer1eRd7oJQhDuxeCLe3t7N7mX3z94CN0xPxBQxFYQTSNz9T0i+v6inKqSdK8xrQ==}
@@ -18111,7 +18118,6 @@ packages:
 
   /tiny-invariant/1.1.0:
     resolution: {integrity: sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==}
-    dev: false
 
   /tiny-warning/0.0.3:
     resolution: {integrity: sha512-r0SSA5Y5IWERF9Xh++tFPx0jITBgGggOsRLDWWew6YRw/C2dr4uNO1fw1vanrBmHsICmPyMLNBZboTlxUmUuaA==}
@@ -18119,7 +18125,6 @@ packages:
 
   /tiny-warning/1.0.3:
     resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
-    dev: false
 
   /tinycolor2/1.4.2:
     resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
@@ -18898,7 +18903,6 @@ packages:
 
   /value-equal/1.0.1:
     resolution: {integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==}
-    dev: false
 
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
