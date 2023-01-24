@@ -32,6 +32,7 @@ specifiers:
   '@types/react-helmet': ^6.1.0
   '@types/react-portal': ^4.0.2
   '@types/react-router-dom': ^5.1.7
+  '@types/testing-library__jest-dom': ^5.14.5
   '@typescript-eslint/eslint-plugin': ^4.21.0
   '@typescript-eslint/parser': ^4.21.0
   '@vitejs/plugin-legacy': ^1.3.2
@@ -150,6 +151,7 @@ devDependencies:
   '@types/react-helmet': 6.1.0
   '@types/react-portal': 4.0.2
   '@types/react-router-dom': 5.1.7
+  '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 4.21.0_gws25iroby4plzd35ejco4glga
   '@typescript-eslint/parser': 4.21.0_fiokpmyopzkfqgcyzlsuljpi3y
   '@vitejs/plugin-legacy': 1.3.2_vite@2.1.5
@@ -5361,7 +5363,7 @@ packages:
     engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
     dependencies:
       '@babel/runtime': 7.13.10
-      '@types/testing-library__jest-dom': 5.9.5
+      '@types/testing-library__jest-dom': 5.14.5
       aria-query: 4.2.2
       chalk: 3.0.0
       css: 3.0.0
@@ -5719,8 +5721,8 @@ packages:
     resolution: {integrity: sha512-RJJrrySY7A8havqpGObOB4W92QXKJo63/jFLLgpvOtsGUqbQZ9Sbgl35KMm1DjC6j7AvmmU2bIno+3IyEaemaw==}
     dev: true
 
-  /@types/testing-library__jest-dom/5.9.5:
-    resolution: {integrity: sha512-ggn3ws+yRbOHog9GxnXiEZ/35Mow6YtPZpd7Z5mKDeZS/o7zx3yAle0ov/wjhVB5QT4N2Dt+GNoGCdqkBGCajQ==}
+  /@types/testing-library__jest-dom/5.14.5:
+    resolution: {integrity: sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==}
     dependencies:
       '@types/jest': 26.0.22
     dev: true
