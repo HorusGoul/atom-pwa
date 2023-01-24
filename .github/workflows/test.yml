@@ -53,13 +53,11 @@ jobs:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
-          start: npm run dev
+          install-command: pnpm install --frozen-lockfile
+          start: pnpm dev
           browser: chrome
           wait-on: "http://localhost:8888"
 
