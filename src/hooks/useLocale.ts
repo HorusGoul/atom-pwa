@@ -1,10 +1,8 @@
 import { useCallback, useMemo } from "react";
 import invariant from "invariant";
-import NativeBridge from "../NativeBridge";
 import localePercentages from "../locales/percentages.json";
 import { useSettings } from "./useSettings";
-
-const DEFAULT_LOCALE = "en";
+import { DEFAULT_LOCALE } from "@/services/locale/defaultLocale";
 
 export const SUPPORTED_LOCALES = Object.entries(localePercentages)
   .filter(([, percentage]) => percentage >= 85)
@@ -21,11 +19,6 @@ const getLocaleKey = (locale: string) => `../locales/${locale}.json`;
 const common: Record<string, string> = localesMap[getLocaleKey("common")];
 const defaultLocales: Record<string, string> =
   localesMap[getLocaleKey(DEFAULT_LOCALE)];
-
-export function getBrowserLocale() {
-  const lang = NativeBridge.getSystemLanguage() || DEFAULT_LOCALE;
-  return lang;
-}
 
 export function useLocale() {
   const { settings, updateSettings } = useSettings();

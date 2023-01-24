@@ -38,7 +38,7 @@ jobs:
       - name: Upload coverage data
         uses: actions/upload-artifact@v2
         with:
-          name: jest-coverage
+          name: vitest-coverage
           path: coverage
 
       - name: Upload coverage to Codecov

@@ -1,0 +1,21 @@
+diff --git a/index.d.ts b/index.d.ts
+index 43ba6b7fe458e77d152fe0b2f7afeac05d8fc563..dfa540aa7d1ab8c78c31104d3210eee3c33a94c0 100755
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -7,12 +7,9 @@
+ // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+ // Minimum TypeScript Version: 4.3
+ 
+-/// <reference types="jest" />
++// NOTE: these definitions are left blank, to support using Testing Library Jest matchers with
++// Vitest, without having to use Jest's global types (for `expect`, etc).
+ 
+-import { TestingLibraryMatchers } from './matchers';
++// Vitest's `expect` type is instead extended in `src/setupTests.ts`.
+ 
+-declare global {
+-    namespace jest {
+-        interface Matchers<R = void, T = {}> extends TestingLibraryMatchers<typeof expect.stringContaining, R> {}
+-    }
+-}
++// For more context, see https://github.com/testing-library/jest-dom/issues/427

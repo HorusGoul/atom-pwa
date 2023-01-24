@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import Overlay from "./Overlay";
 
 test("should fire a custom clickHandler", () => {
-  const handleClick = jest.fn();
+  const handleClick = vi.fn();
 
   render(<Overlay onClick={handleClick} />);
 

@@ -14,7 +14,7 @@ import { render } from "@/test-utils";
 import { act } from "react-dom/test-utils";
 
 // Mocking shuffle so the order of the elements is always the same
-jest.mock("../../utils/shuffle", () => ({
+vi.mock("../../utils/shuffle", () => ({
   shuffle: (a: unknown) => a,
 }));
 

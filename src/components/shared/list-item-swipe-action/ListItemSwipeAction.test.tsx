@@ -5,7 +5,7 @@ import "hammerjs";
 import ListItemSwipeAction from "./ListItemSwipeAction";
 
 test("Should call onAction when swipe", async () => {
-  const onAction = jest.fn();
+  const onAction = vi.fn();
   const touchstart = {
     bubbles: true,
     clientX: 0,

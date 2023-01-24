@@ -4,9 +4,11 @@ import { render } from "@/test-utils";
 import Button from "./Button";
 import userEvent from "@testing-library/user-event";
 
-const onClickMock = jest.fn();
+const onClickMock = vi.fn();
 
-beforeEach(() => jest.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 test("should render button component with circle", () => {
   render(<Button circle>Text</Button>);
 

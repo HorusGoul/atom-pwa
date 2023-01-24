@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import PeriodicTableTestSettings from "./PeriodicTableTestSettings";
 import { render } from "@/test-utils";
 
-window.scrollTo = jest.fn();
+window.scrollTo = (vi.fn() as unknown) as typeof window.scrollTo;
 
 test("should render the periodic table test settings", async () => {
   render(<PeriodicTableTestSettings />);

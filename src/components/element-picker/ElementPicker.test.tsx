@@ -5,7 +5,7 @@ import ElementPicker from "./ElementPicker";
 import { render } from "@/test-utils";
 
 test("search for Neon", () => {
-  const onElement = jest.fn();
+  const onElement = vi.fn();
 
   render(<ElementPicker onElement={onElement} />);
   expect(screen.getByText("Helium")).toBeVisible();
@@ -23,7 +23,7 @@ test("search for Neon", () => {
 });
 
 test("search for atomic number 118", () => {
-  const onElement = jest.fn();
+  const onElement = vi.fn();
 
   render(<ElementPicker onElement={onElement} />);
 
@@ -39,7 +39,7 @@ test("search for atomic number 118", () => {
 });
 
 test("search for atomic number 25", async () => {
-  const onElement = jest.fn();
+  const onElement = vi.fn();
 
   render(<ElementPicker onElement={onElement} />);
 

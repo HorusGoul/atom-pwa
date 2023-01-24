@@ -19,7 +19,7 @@ beforeEach(() => {
 });
 
 test("should render rate app button", () => {
-  jest.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
+  vi.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
   render(<RateApp />);
 
   expect(screen.getByText(/do you like this app\?/i)).toBeInTheDocument();
@@ -28,8 +28,8 @@ test("should render rate app button", () => {
 test("should open modal to provide rating", async () => {
   mockUserAgent("android");
   // Jest throwing error as it couldn't recognize window.open()
-  global.open = jest.fn();
-  jest.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
+  global.open = vi.fn();
+  vi.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
   render(<RateApp />);
 
   userEvent.click(screen.getByRole("button"));
@@ -59,7 +59,7 @@ test("should open modal to provide rating", async () => {
 });
 
 test("should close modal", () => {
-  jest.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
+  vi.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
   render(<RateApp />);
 
   userEvent.click(screen.getByRole("button"));
@@ -73,7 +73,7 @@ test("should close modal", () => {
 
 test("should close modal", () => {
   mockUserAgent("mock");
-  jest.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
+  vi.spyOn(NativeBridge, "isHybrid").mockReturnValue(true);
   render(<RateApp />);
 
   userEvent.click(screen.getByRole("button"));

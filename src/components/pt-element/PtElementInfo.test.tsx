@@ -36,7 +36,7 @@ describe("PTElementInfo", () => {
   });
 
   it("calls onClick when the element is clicked", () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     render(<PtElementInfo element={element} onClick={onClick} />);
 
     userEvent.click(screen.getByText(element.name));

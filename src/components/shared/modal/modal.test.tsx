@@ -31,7 +31,7 @@ const CustomModalWrapper = ({ onClose }: CustomModalWrapperProps) => {
 };
 
 test("should be able to toggle modal by clicking the overlay", () => {
-  const onClose = jest.fn();
+  const onClose = vi.fn();
 
   render(<CustomModalWrapper onClose={onClose} />);
 
@@ -49,7 +49,7 @@ test("should be able to toggle modal by clicking the overlay", () => {
 });
 
 test("should close after clicking the close button", () => {
-  const onClose = jest.fn();
+  const onClose = vi.fn();
   render(
     <Modal open closeButton onClose={onClose}>
       <div>modal content</div>
@@ -66,7 +66,7 @@ test("should close after clicking the close button", () => {
 
 test("should render the modal with a title", () => {
   render(
-    <Modal open onClose={jest.fn()} title="modal title">
+    <Modal open onClose={vi.fn()} title="modal title">
       <div>modal content</div>
     </Modal>
   );

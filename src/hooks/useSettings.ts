@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { produce } from "immer";
 import { useLocalStorage } from "./useLocalStorage";
-import { getBrowserLocale } from "./useLocale";
 import { DEFAULT_THEME } from "./useTheme";
+import { getBrowserLocale } from "@/services/locale/getBrowserLocale";
 
 export interface ElementSettings {
   atomic: number;

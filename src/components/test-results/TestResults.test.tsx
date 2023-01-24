@@ -2,12 +2,14 @@ import * as React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import TestResults, { TestResultsProps } from "./TestResults";
 
-const onRepeatMock = jest.fn();
-const onRepeatWrongAnswersMock = jest.fn();
+const onRepeatMock = vi.fn();
+const onRepeatWrongAnswersMock = vi.fn();
 
 const wrapper = (props: TestResultsProps) => render(<TestResults {...props} />);
 
-beforeEach(() => jest.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 test("should render component and perform basic validations", () => {
   const props: TestResultsProps = {
