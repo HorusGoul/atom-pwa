@@ -10,14 +10,12 @@ export function initSentry() {
   SentrySDK.init({
     dsn:
       "https://8c979cf560094d8aac2aa531d72a8a62@o524893.ingest.sentry.io/5638124",
+    tunnel: "/api/sentry",
     integrations: [new Integrations.BrowserTracing()],
-
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
     tracesSampleRate: 1.0,
-
     release: `${COMMIT_HASH}`,
-
     environment: `${BRANCH}`,
   });
 }

@@ -28,6 +28,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/sentry"
+  to = "https://8c979cf560094d8aac2aa531d72a8a62@o524893.ingest.sentry.io/api/5638124/envelope/"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
