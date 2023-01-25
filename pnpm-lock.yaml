@@ -42,7 +42,6 @@ specifiers:
   '@vitejs/plugin-react': ^3.0.1
   '@vitest/coverage-istanbul': ^0.28.1
   animejs: ^3.2.1
-  autobind-decorator: ^2.1.0
   body-scroll-lock: ^3.1.5
   classnames: ^2.3.1
   concurrently: ^6.0.1
@@ -81,7 +80,7 @@ specifiers:
   react-component-pack: ^1.0.1
   react-dom: ^17.0.2
   react-helmet: ^6.1.0
-  react-hyper-scroller: ^3.0.0-beta.11
+  react-hyper-scroller: ^3.1.0-beta.2
   react-portal: ^4.2.1
   react-router-dom: ^5.2.0
   rimraf: ^3.0.2
@@ -96,8 +95,8 @@ specifiers:
   vitest: ^0.28.1
   whatwg-fetch: ^3.6.1
   workbox-cli: ^6.1.0
-  workbox-precaching: ^6.1.0
-  zustand: ^4.0.0-rc.1
+  workbox-precaching: ^6.5.4
+  zustand: ^4.3.2
 
 dependencies:
   '@juggle/resize-observer': 3.3.1
@@ -105,7 +104,6 @@ dependencies:
   '@sentry/react': 6.2.5_react@17.0.2
   '@sentry/tracing': 6.2.5
   animejs: 3.2.1
-  autobind-decorator: 2.4.0
   body-scroll-lock: 3.1.5
   classnames: 2.3.1
   cypress: 6.8.0
@@ -123,14 +121,14 @@ dependencies:
   react-component-pack: 1.0.1_react@17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-helmet: 6.1.0_react@17.0.2
-  react-hyper-scroller: 3.0.0-beta.11_sfoxds7t5ydpegc3knd667wn6m
+  react-hyper-scroller: 3.1.0-beta.2_sfoxds7t5ydpegc3knd667wn6m
   react-portal: 4.2.1_sfoxds7t5ydpegc3knd667wn6m
   react-router-dom: 5.2.0_react@17.0.2
   use-debounce: 6.0.1_react@17.0.2
   use-deep-compare-effect: 1.6.1_react@17.0.2
   use-immer: 0.5.1_immer@9.0.6+react@17.0.2
-  workbox-precaching: 6.1.2
-  zustand: 4.0.0-rc.1_immer@9.0.6+react@17.0.2
+  workbox-precaching: 6.5.4
+  zustand: 4.3.2_immer@9.0.6+react@17.0.2
 
 devDependencies:
   '@babel/core': 7.13.14
@@ -5844,11 +5842,6 @@ packages:
     engines: {node: '>= 4.5.0'}
     hasBin: true
     dev: true
-
-  /autobind-decorator/2.4.0:
-    resolution: {integrity: sha512-OGYhWUO72V6DafbF8PM8rm3EPbfuyMZcJhtm5/n26IDwO18pohE4eNazLoCGhPiXOCD0gEGmrbU3849QvM8bbw==}
-    engines: {node: '>=8.10', npm: '>=6.4.1'}
-    dev: false
 
   /aws-sdk/2.868.0:
     resolution: {integrity: sha512-ZayPsA/ycaAXqqa2oDyf8iUpl1WOLODZS8ZdvYj77L5owMQm0XC7yqiD+WHj9nToUECF9VAD+AKQMIN6695tVQ==}
@@ -15153,11 +15146,11 @@ packages:
       source-map: 0.7.3
     dev: false
 
-  /react-hyper-scroller/3.0.0-beta.11_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-AS+u1Dk0ir79I6TvDDpcVpl+3ZaxmaudSWBk4jJLyrcraK6e6lNAZ6RoQYWOxLruByUyHSjbAxxx5NPTZ1iVqQ==}
+  /react-hyper-scroller/3.1.0-beta.2_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-u2ATihI63t6pYhsw/NXoNhsy1uSnY7KsIVHqJ25xZeSjQXftXQEE5G7PwAwegHk9XDSagivjTEeI9SRSLRtg5g==}
     peerDependencies:
-      react: ^16.8 || ^17
-      react-dom: ^16.8 || ^17
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -18069,8 +18062,8 @@ packages:
       use-isomorphic-layout-effect: 1.1.1_mnzaipdkghwi2w6bgyhobeilpe
     dev: false
 
-  /use-sync-external-store/1.1.0_react@17.0.2:
-    resolution: {integrity: sha512-SEnieB2FPKEVne66NpXPd1Np4R1lTNKfjuy3XdIoPQKYBAFdzbzSZlSn1KJZUiihQLQC5Znot4SBz1EOTBwQAQ==}
+  /use-sync-external-store/1.2.0_react@17.0.2:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -18577,13 +18570,13 @@ packages:
   /workbox-background-sync/6.1.2:
     resolution: {integrity: sha512-rdXbGCI7KIxlw/rtVc3Bfp7S2ylZ7u+bSPoW8W6bxBR4RsSSagNIJOvkiS1+3zZOwvNcUxcRvVhDcwDz1cBbhQ==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /workbox-broadcast-update/6.1.2:
     resolution: {integrity: sha512-pISOgOMH5pRVBlnvverxoaMgZzxdopzozuyjAt6UcctOjvuISQyTGa28C4qQ6XN20/rb3tk3n94N122wxicGXg==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /workbox-build/6.1.2:
@@ -18615,15 +18608,15 @@ packages:
       workbox-background-sync: 6.1.2
       workbox-broadcast-update: 6.1.2
       workbox-cacheable-response: 6.1.2
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
       workbox-expiration: 6.1.2
       workbox-google-analytics: 6.1.2
       workbox-navigation-preload: 6.1.2
-      workbox-precaching: 6.1.2
+      workbox-precaching: 6.5.4
       workbox-range-requests: 6.1.2
       workbox-recipes: 6.1.2
-      workbox-routing: 6.1.2
-      workbox-strategies: 6.1.2
+      workbox-routing: 6.5.4
+      workbox-strategies: 6.5.4
       workbox-streams: 6.1.2
       workbox-sw: 6.1.2
       workbox-window: 6.1.2
@@ -18635,7 +18628,7 @@ packages:
   /workbox-cacheable-response/6.1.2:
     resolution: {integrity: sha512-zSTQWJU+CBHC90N/Dccb9n0IzbTsmnl28usKOlVYbfHS5wit3izpD7djqqHzgzyS+gdemRjY4s02VV9WvyeD1w==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /workbox-cli/6.1.2:
@@ -18660,69 +18653,69 @@ packages:
       - supports-color
     dev: true
 
-  /workbox-core/6.1.2:
-    resolution: {integrity: sha512-69rch7EyPsNAx5Y5YlSoHV39/EEE1oDeb5zmLIy6+mgB4BnaG6u/tlDtvjvKqHcPM0gz2L5SzYtTEvWmk5WRTQ==}
+  /workbox-core/6.5.4:
+    resolution: {integrity: sha512-OXYb+m9wZm8GrORlV2vBbE5EC1FKu71GGp0H4rjmxmF4/HLbMCoTFws87M3dFwgpmg0v00K++PImpNQ6J5NQ6Q==}
 
   /workbox-expiration/6.1.2:
     resolution: {integrity: sha512-86cXz8Ae5cAJMgJ6aD/8E1NMNON4qGnE4ir1G3VuOu1xLsx2ItbbXmz6b0BB2dZ+kX6BDwqE0wkgS5As5Sds7g==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /workbox-google-analytics/6.1.2:
     resolution: {integrity: sha512-7mO/gMms1yivnoVPnm8LXYHV2SsHBxTijYNXx032nzMX0gpBKJfRHmNvZDVRvn2L6YRxFiMg0x9JuHe2b2wSeg==}
     dependencies:
       workbox-background-sync: 6.1.2
-      workbox-core: 6.1.2
-      workbox-routing: 6.1.2
-      workbox-strategies: 6.1.2
+      workbox-core: 6.5.4
+      workbox-routing: 6.5.4
+      workbox-strategies: 6.5.4
     dev: true
 
   /workbox-navigation-preload/6.1.2:
     resolution: {integrity: sha512-A41yO/mLjHMNV1EGWFTDExYAYkNvdtu2U0deRNL3HKKEMomqhLfFHJVg/b2jyarMf9Iosm7jHFbbTr8hiaMWwA==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
-  /workbox-precaching/6.1.2:
-    resolution: {integrity: sha512-jGwv6tMdIecsyBSdVCgXoD7bHxLRI972lvYOfvcosGjP3oFKe8p2DVPsn3TIzEVYTl+b3j59utC7yrOP9oEHSg==}
+  /workbox-precaching/6.5.4:
+    resolution: {integrity: sha512-hSMezMsW6btKnxHB4bFy2Qfwey/8SYdGWvVIKFaUm8vJ4E53JAY+U2JwLTRD8wbLWoP6OVUdFlXsTdKu9yoLTg==}
     dependencies:
-      workbox-core: 6.1.2
-      workbox-routing: 6.1.2
-      workbox-strategies: 6.1.2
+      workbox-core: 6.5.4
+      workbox-routing: 6.5.4
+      workbox-strategies: 6.5.4
 
   /workbox-range-requests/6.1.2:
     resolution: {integrity: sha512-VNwg8DKpQtIRBQ+3GPAv7/OFjs1AdJDt06BJOnNxy4NiY3/Abhjry5P7SJ8uXMNwxiSHKpcLY8nAF+YVYlLuRQ==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /workbox-recipes/6.1.2:
     resolution: {integrity: sha512-KT9qome7svIajmXP6/4kmZYr8UzWua6MO2GIeM0Th+mr28WzrHfw2iCeo3362hCW/yMiNMlP5uuXiqsaFxUjHg==}
     dependencies:
       workbox-cacheable-response: 6.1.2
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
       workbox-expiration: 6.1.2
-      workbox-precaching: 6.1.2
-      workbox-routing: 6.1.2
-      workbox-strategies: 6.1.2
+      workbox-precaching: 6.5.4
+      workbox-routing: 6.5.4
+      workbox-strategies: 6.5.4
     dev: true
 
-  /workbox-routing/6.1.2:
-    resolution: {integrity: sha512-aRcqO+KX9A0J5W6hEeEpGhT6Lesqd3WfgaqlSD5LRajm0vAgYnlQzY37w6uC55Ev7M5Gh/xg0lA99qKc6ozsEA==}
+  /workbox-routing/6.5.4:
+    resolution: {integrity: sha512-apQswLsbrrOsBUWtr9Lf80F+P1sHnQdYodRo32SjiByYi36IDyL2r7BH1lJtFX8fwNHDa1QOVY74WKLLS6o5Pg==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
 
-  /workbox-strategies/6.1.2:
-    resolution: {integrity: sha512-IX7UNePHmmfb1dcXSxgcephYShnLc0pmP3MRT/TZGjv8f0qcZYH7Sr/lTmwaxGXQL8yCSCrQICZwJnHLw2G5Ng==}
+  /workbox-strategies/6.5.4:
+    resolution: {integrity: sha512-DEtsxhx0LIYWkJBTQolRxG4EI0setTJkqR4m7r4YpBdxtWJH1Mbg01Cj8ZjNOO8etqfA3IZaOPHUxCs8cBsKLw==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
 
   /workbox-streams/6.1.2:
     resolution: {integrity: sha512-iAHamHNZPSfN8k2QMrfei6/2FrReSHCkQUi4gU4B+tDXi4lY33/iU3+xlWLsMunLzoJhtPChDLG10s+EU5egvQ==}
     dependencies:
-      workbox-core: 6.1.2
-      workbox-routing: 6.1.2
+      workbox-core: 6.5.4
+      workbox-routing: 6.5.4
     dev: true
 
   /workbox-sw/6.1.2:
@@ -18732,7 +18725,7 @@ packages:
   /workbox-window/6.1.2:
     resolution: {integrity: sha512-SXOAv56PWHzLhJcyQGPio1OXGzSza814lc2D42+go8CmeNIJDb03nzUi1FGMF4Tt1F7h5q8IYzq5bPQLTZ7IKQ==}
     dependencies:
-      workbox-core: 6.1.2
+      workbox-core: 6.5.4
     dev: true
 
   /wrap-ansi/3.0.1:
@@ -18935,8 +18928,8 @@ packages:
       readable-stream: 3.6.0
     dev: true
 
-  /zustand/4.0.0-rc.1_immer@9.0.6+react@17.0.2:
-    resolution: {integrity: sha512-qgcs7zLqBdHu0PuT3GW4WCIY5SgXdsv30GQMu9Qpp1BA2aS+sNS8l4x0hWuyEhjXkN+701aGWawhKDv6oWJAcw==}
+  /zustand/4.3.2_immer@9.0.6+react@17.0.2:
+    resolution: {integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'
@@ -18949,7 +18942,7 @@ packages:
     dependencies:
       immer: 9.0.6
       react: 17.0.2
-      use-sync-external-store: 1.1.0_react@17.0.2
+      use-sync-external-store: 1.2.0_react@17.0.2
     dev: false
 
   /zwitch/1.0.5:
