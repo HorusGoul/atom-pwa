@@ -5,6 +5,7 @@ import { useFlagStore } from "@/services/flags";
 import userEvent from "@testing-library/user-event";
 import "hammerjs";
 import { clear, mockUserAgent } from "jest-useragent-mock";
+import { useLocalStorageCacheStore } from "@/hooks/useLocalStorage";
 
 const DOWNLOAD_APP_STORAGE_KEY = "atom:download_app";
 const config: DownloadAppConfig = {
@@ -15,7 +16,7 @@ const config: DownloadAppConfig = {
 beforeEach(() => {
   clear();
   window.localStorage.clear();
-  window.localStorage.setItem(DOWNLOAD_APP_STORAGE_KEY, JSON.stringify(config));
+  useLocalStorageCacheStore.getState().set(DOWNLOAD_APP_STORAGE_KEY, config);
 });
 
 test("should render download app button", () => {

@@ -7,7 +7,7 @@ interface LocalStorageCacheStore<T = unknown> {
   get: <T>(key: string, defaultValue: T) => T;
 }
 
-const useLocalStorageCacheStore = create<LocalStorageCacheStore>(
+export const useLocalStorageCacheStore = create<LocalStorageCacheStore>(
   (update, getState) => ({
     data: {},
     set: (key, value) => {
@@ -16,16 +16,25 @@ const useLocalStorageCacheStore = create<LocalStorageCacheStore>(
       }
 
       update((state) => {
+        const newData = { ...state.data };
+
+        if (value === undefined || value === null) {
+          delete newData[key];
+        } else {
+          newData[key] = value;
+        }
+
         return {
           ...state,
-          data: {
-            ...state.data,
-            [key]: value,
-          },
+          data: newData,
         };
       });
 
-      window.localStorage.setItem(key, JSON.stringify(value));
+      if (value === undefined || value === null) {
+        window.localStorage.removeItem(key);
+      } else {
+        window.localStorage.setItem(key, JSON.stringify(value));
+      }
     },
     get: <T = unknown>(key: string, defaultValue: T) => {
       const { set, data } = getState();
@@ -54,7 +63,14 @@ window.addEventListener("storage", (event) => {
     return;
   }
 
-  const newValue = JSON.parse(event.newValue ?? "") as Record<string, unknown>;
+  let newValue: unknown;
+
+  try {
+    newValue = event.newValue ? JSON.parse(event.newValue) : null;
+  } catch {
+    newValue = null;
+  }
+
   const { set } = useLocalStorageCacheStore.getState();
 
   set(event.key, newValue);

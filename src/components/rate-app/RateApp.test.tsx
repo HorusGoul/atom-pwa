@@ -5,6 +5,7 @@ import NativeBridge from "@/NativeBridge";
 import userEvent from "@testing-library/user-event";
 import "hammerjs";
 import { clear, mockUserAgent } from "jest-useragent-mock";
+import { useLocalStorageCacheStore } from "@/hooks/useLocalStorage";
 
 const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const config: RateAppConfig = {
@@ -15,7 +16,7 @@ const config: RateAppConfig = {
 beforeEach(() => {
   clear();
   window.localStorage.clear();
-  window.localStorage.setItem(RATE_APP_STORAGE_KEY, JSON.stringify(config));
+  useLocalStorageCacheStore.getState().set(RATE_APP_STORAGE_KEY, config);
 });
 
 test("should render rate app button", () => {
