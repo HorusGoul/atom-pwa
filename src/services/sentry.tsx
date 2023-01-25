@@ -1,5 +1,5 @@
 import { BRANCH, COMMIT_HASH } from "@/constants";
-import * as SentrySDK from "@sentry/react/esm/sdk";
+import * as SentrySDK from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 
 export function initSentry() {
