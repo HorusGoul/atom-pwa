@@ -1,4 +1,3 @@
-import { ButtonBase } from "@material-ui/core";
 import * as React from "react";
 import styles from "./HubItem.module.scss";
 
@@ -22,7 +21,7 @@ function HubItem({
   disabled = !onClick,
 }: HubItemProps) {
   return (
-    <ButtonBase
+    <button
       className={styles.root}
       data-hub-item={true}
       style={{
@@ -58,7 +57,7 @@ function HubItem({
       >
         {title}
       </span>
-    </ButtonBase>
+    </button>
   );
 }
 

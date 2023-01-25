@@ -1,6 +1,8 @@
 [data-atom-button].button {
+  margin: 0;
   border: 0;
   padding: 16px;
+  background-color: transparent;
 
   display: flex;
   align-items: center;
@@ -19,4 +21,5 @@
 a.button[data-atom-button] {
   text-decoration: none;
   text-align: center;
+  color: inherit;
 }

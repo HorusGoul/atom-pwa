@@ -10,9 +10,12 @@
   justify-content: flex-end;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: transparent;
   background-position: center;
   color: #fff;
   overflow: hidden;
+  border: none;
+  margin: 0;
 
   @include box-shadow($level: 2);
 
@@ -23,6 +26,10 @@
       backdrop-filter: blur(2px);
       background-color: rgba(26, 26, 26, 0.8);
     }
+  }
+
+  &[aria-disabled="false"] {
+    cursor: pointer;
   }
 }
 

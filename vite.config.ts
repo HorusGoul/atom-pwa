@@ -40,7 +40,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ["@material-ui/core/ButtonBase"],
+    include: [],
     exclude: ["hammerjs"],
   },
   plugins: [
