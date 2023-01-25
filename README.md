@@ -32,24 +32,24 @@ Atom is a Progressive Web App to help students learn about periodic table elemen
 
 ## How to run
 
-It would be best if you had Node.js and Yarn 1 to run this project.
+It would be best if you had Node.js and PNPM 7 to run this project.
 
 - Install all dependencies
 
 ```
-yarn
+pnpm install
 ```
 
 - Launch a dev server listening in https://localhost:8888/
 
 ```
-yarn dev
+pnpm dev
 ```
 
 - Build for production
 
 ```
-yarn build
+pnpm build
 ```
 
 ## Sponsored by

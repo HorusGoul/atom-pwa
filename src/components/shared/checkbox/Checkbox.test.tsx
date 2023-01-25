@@ -2,7 +2,7 @@ import * as React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 
-const onChangeMock = jest.fn();
+const onChangeMock = vi.fn();
 
 test("should render checkbox with default state", () => {
   const { container } = render(<Checkbox />);

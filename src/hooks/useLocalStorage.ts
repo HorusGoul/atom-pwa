@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useDeepCompareEffect from "use-deep-compare-effect";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
@@ -12,17 +12,17 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   });
 
+  const isInitialMount = useRef(true);
+
   useDeepCompareEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const serializedValue = JSON.stringify(storedValue);
 
     window.localStorage.setItem(key, serializedValue);
-
-    const event = new StorageEvent("storage", {
-      key,
-      newValue: serializedValue,
-    });
-
-    window.dispatchEvent(event);
   }, [key, storedValue]);
 
   useEffect(() => {

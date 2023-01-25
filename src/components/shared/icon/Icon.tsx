@@ -3,7 +3,15 @@ import * as React from "react";
 import styles from "./Icon.module.scss";
 import invariant from "invariant";
 
-const iconMap = import.meta.globEager("../../../images/icons/*.svg");
+const iconMap = import.meta.glob<
+  true,
+  string,
+  {
+    ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  }
+>("../../../images/icons/*.svg", {
+  eager: true,
+});
 
 export interface IconProps {
   name: string;

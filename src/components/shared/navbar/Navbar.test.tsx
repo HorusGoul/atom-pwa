@@ -23,7 +23,7 @@ test("should not render a back button by default", () => {
 });
 
 test("should handle clicking the back button", () => {
-  const onBackButtonClickMock = jest.fn();
+  const onBackButtonClickMock = vi.fn();
 
   render(<Navbar onBackButtonClick={onBackButtonClickMock} />);
 

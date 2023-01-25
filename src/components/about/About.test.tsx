@@ -3,50 +3,45 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import About from "./About";
 import { Location } from "history";
-import cases from "jest-in-case";
 import { render } from "@/test-utils";
 import { Route } from "react-router-dom";
 
-cases(
-  "should verify links",
-  ({ linkItem }) => {
-    render(<About />, {
-      initialHistoryEntries: ["/about"],
-    });
-
-    expect(screen.getByText(linkItem)).toBeInTheDocument();
+test.each([
+  {
+    name: "about",
+    linkItem: /about/i,
   },
-  [
-    {
-      name: "about",
-      linkItem: /about/i,
-    },
-    {
-      name: "app settings",
-      linkItem: /app settings/i,
-    },
-    {
-      name: "change language",
-      linkItem: /change language/i,
-    },
-    {
-      name: "change theme",
-      linkItem: /change theme/i,
-    },
-    {
-      name: "contact me",
-      linkItem: /contact me/i,
-    },
-    {
-      name: "source code",
-      linkItem: /source code/i,
-    },
-    {
-      name: "report bug",
-      linkItem: /report bug/i,
-    },
-  ]
-);
+  {
+    name: "app settings",
+    linkItem: /app settings/i,
+  },
+  {
+    name: "change language",
+    linkItem: /change language/i,
+  },
+  {
+    name: "change theme",
+    linkItem: /change theme/i,
+  },
+  {
+    name: "contact me",
+    linkItem: /contact me/i,
+  },
+  {
+    name: "source code",
+    linkItem: /source code/i,
+  },
+  {
+    name: "report bug",
+    linkItem: /report bug/i,
+  },
+])("should verify links", ({ linkItem }) => {
+  render(<About />, {
+    initialHistoryEntries: ["/about"],
+  });
+
+  expect(screen.getByText(linkItem)).toBeInTheDocument();
+});
 
 test("should validate contact me link", () => {
   render(<About />, {

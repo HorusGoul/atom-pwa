@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { useQuery } from "@/hooks/useQuery";
 

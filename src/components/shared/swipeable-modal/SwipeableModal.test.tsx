@@ -25,7 +25,7 @@ test("Should call onClose when swipe modal", async () => {
     clientX: 600,
     clientY: 0,
   };
-  const onClose = jest.fn();
+  const onClose = vi.fn();
 
   render(
     <SwipeableModal open={true} onClose={onClose}>
@@ -33,7 +33,7 @@ test("Should call onClose when swipe modal", async () => {
     </SwipeableModal>
   );
   const modal = screen.getByRole("dialog");
-  jest.spyOn(modal, "clientWidth", "get").mockImplementation(() => 100);
+  vi.spyOn(modal, "clientWidth", "get").mockImplementation(() => 100);
 
   expect(screen.getByRole("button")).toBeInTheDocument();
 

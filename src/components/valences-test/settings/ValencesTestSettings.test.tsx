@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import ValencesTestSettings from "./ValencesTestSettings";
 import { render } from "@/test-utils";
 
-window.scrollTo = jest.fn();
+window.scrollTo = (vi.fn() as unknown) as typeof window.scrollTo;
 
 test("should render the valences test settings", async () => {
   render(<ValencesTestSettings />);

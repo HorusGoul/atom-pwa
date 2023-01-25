@@ -4,9 +4,11 @@ import { render } from "@/test-utils";
 import SelectorModal, { SelectorModalOption } from "./SelectorModal";
 import userEvent from "@testing-library/user-event";
 
-const onOptionSelectedMock = jest.fn();
+const onOptionSelectedMock = vi.fn();
 
-beforeEach(() => jest.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 const options: SelectorModalOption[] = [
   {

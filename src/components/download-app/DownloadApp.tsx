@@ -6,6 +6,7 @@ import Button from "../shared/button/Button";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
 import { useFlagStore } from "@/services/flags";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export interface DownloadAppConfig {
   timesLaunched: number;
@@ -14,32 +15,25 @@ export interface DownloadAppConfig {
 
 const DOWNLOAD_APP_STORAGE_KEY = "atom:download_app";
 
+const initialValue: DownloadAppConfig = {
+  timesLaunched: 0,
+  downloaded: false,
+};
+
 function DownloadApp() {
   const { i18n } = useLocale();
   const flags = useFlagStore();
-  const [config, setConfig] = React.useState<DownloadAppConfig>(() => {
-    const json = localStorage.getItem(DOWNLOAD_APP_STORAGE_KEY);
+  const [config, setConfig] = useLocalStorage<DownloadAppConfig>(
+    DOWNLOAD_APP_STORAGE_KEY,
+    initialValue
+  );
 
-    if (!json) {
-      return {
-        timesLaunched: 0,
-        downloaded: false,
-      };
-    }
-
-    return JSON.parse(json);
-  });
-
-  React.useEffect(() => {
-    localStorage.setItem(DOWNLOAD_APP_STORAGE_KEY, JSON.stringify(config));
-  }, [config]);
-
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     setConfig((current) => ({
       ...current,
       timesLaunched: current.timesLaunched + 1,
     }));
-  }, []);
+  }, [setConfig]);
 
   if (
     !flags.showDownloadAppAndroid ||

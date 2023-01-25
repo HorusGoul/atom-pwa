@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import "./polyfills";
 import "./NativeBridge";
 

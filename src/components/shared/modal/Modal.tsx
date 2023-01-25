@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import { useEffect, ReactNode } from "react";
-import { Portal } from "react-portal";
+import Portal from "@/components/shared/portal/Portal";
 import IconButton from "../icon-button/IconButton";
 import Overlay from "../overlay/Overlay";
 import "./Modal.scss";

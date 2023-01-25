@@ -6,8 +6,8 @@
 [build]
   base = "./"
   publish = "dist"
-  command = "yarn build"
-  environment = { NODE_VERSION = "14.15.4", NODE_OPTIONS = "--max_old_space_size=4096" }
+  command = "pnpm build"
+  environment = { NODE_VERSION = "18.12.0", NODE_OPTIONS = "--max_old_space_size=4096" }
 
 [[redirects]]
   from = "/js/script.js"
@@ -24,6 +24,12 @@
 [[redirects]]
   from = "/api/flags"
   to = "https://atom-flags.horusdev.workers.dev"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/sentry"
+  to = "https://8c979cf560094d8aac2aa531d72a8a62@o524893.ingest.sentry.io/api/5638124/envelope/"
   status = 200
   force = true
 

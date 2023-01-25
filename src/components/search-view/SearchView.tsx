@@ -1,9 +1,9 @@
 import { useSearchInput } from "./useSearchInput";
 import * as React from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import Button from "../shared/button/Button";
-import { Portal } from "react-portal";
+import Portal from "@/components/shared/portal/Portal";
 import { useLocale } from "@/hooks/useLocale";
 import styles from "./SearchView.module.scss";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";

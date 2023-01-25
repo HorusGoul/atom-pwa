@@ -1,4 +1,5 @@
-import reactRefresh from "@vitejs/plugin-react-refresh";
+/// <reference types="vitest/config" />
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import path from "path";
@@ -20,6 +21,10 @@ for (const envVar of prefixEnvVars) {
   env[`VITE_${envVar}`] = env[envVar];
 }
 
+const isProduction = env.NODE_ENV === "production";
+const isTest = env.NODE_ENV === "test";
+const isDevelopment = !isProduction && !isTest;
+
 export default defineConfig({
   build: {
     sourcemap: true,
@@ -35,25 +40,38 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ["@material-ui/core/ButtonBase"],
+    include: [],
     exclude: ["hammerjs"],
   },
   plugins: [
-    reactRefresh(),
+    react(),
     svgr(),
     legacy({
       targets: ["defaults", "not IE 11", "chrome > 60"],
     }),
-    istanbul({
-      include: "src/*",
-      exclude: ["node_modules", "**.*.test.{ts,tsx}"],
-      extension: [".ts", "tsx"],
-    }),
+    isDevelopment &&
+      istanbul({
+        include: "src/*",
+        exclude: ["node_modules", "**.*.test.{ts,tsx}"],
+        extension: [".ts", "tsx"],
+        checkProd: true,
+      }),
   ],
   resolve: {
     alias: {
       "@": path.resolve("./src"),
     },
     dedupe: ["react", "react-dom"],
+  },
+  server: {
+    port: 3000,
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/setupTests.ts"],
+    coverage: {
+      provider: "istanbul",
+    },
   },
 });

@@ -4,7 +4,7 @@ import {
   RenderOptions,
   waitFor,
 } from "@testing-library/react";
-import { MemoryRouter, Route } from "react-router";
+import { MemoryRouter, Route } from "react-router-dom";
 import { LocationDescriptor, Location } from "history";
 import { ElementProvider } from "./contexts/ElementContext";
 import ConfirmProvider from "./components/shared/confirm";

@@ -7,6 +7,7 @@ import Button from "../shared/button/Button";
 import NativeBridge from "@/NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export interface RateAppConfig {
   timesLaunched: number;
@@ -16,32 +17,25 @@ export interface RateAppConfig {
 const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const MINIMUM_TIMES_LAUNCHED = 3;
 
+const initialValue: RateAppConfig = {
+  timesLaunched: 0,
+  rated: false,
+};
+
 function RateApp() {
   const { i18n } = useLocale();
   const [open, setOpen] = React.useState(false);
-  const [config, setConfig] = React.useState<RateAppConfig>(() => {
-    const json = localStorage.getItem(RATE_APP_STORAGE_KEY);
+  const [config, setConfig] = useLocalStorage<RateAppConfig>(
+    RATE_APP_STORAGE_KEY,
+    initialValue
+  );
 
-    if (!json) {
-      return {
-        timesLaunched: 0,
-        rated: false,
-      };
-    }
-
-    return JSON.parse(json);
-  });
-
-  React.useEffect(() => {
-    localStorage.setItem(RATE_APP_STORAGE_KEY, JSON.stringify(config));
-  }, [config]);
-
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     setConfig((current) => ({
       ...current,
       timesLaunched: current.timesLaunched + 1,
     }));
-  }, []);
+  }, [setConfig]);
 
   if (
     !NativeBridge.isHybrid() ||

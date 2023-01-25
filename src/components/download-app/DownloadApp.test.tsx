@@ -31,7 +31,7 @@ test("should render download app button", () => {
 test("should open modal to download app", async () => {
   mockUserAgent("android");
   // Jest throwing error as it couldn't recognize window.open()
-  global.open = jest.fn();
+  global.open = vi.fn();
   useFlagStore.setState({
     showDownloadAppAndroid: true,
   });

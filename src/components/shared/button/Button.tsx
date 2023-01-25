@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
 import "./Button.scss";
-import ButtonBase from "@material-ui/core/ButtonBase";
 
 export interface ButtonProps {
   className?: string;
@@ -31,32 +30,30 @@ function Button({
 
   if (link) {
     return (
-      <ButtonBase
+      <a
         data-testid={id}
         data-atom-button
-        component="a"
         href={link}
         className={buttonClass}
         onClick={onClick}
         {...props}
       >
         {children}
-      </ButtonBase>
+      </a>
     );
   }
 
   return (
-    <ButtonBase
+    <div
+      role="button"
       data-testid={id}
       data-atom-button
-      component="a"
-      role="button"
       className={buttonClass}
       onClick={onClick}
       {...props}
     >
       {children}
-    </ButtonBase>
+    </div>
   );
 }
 
