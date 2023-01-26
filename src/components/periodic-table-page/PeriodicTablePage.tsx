@@ -42,6 +42,14 @@ function PeriodicTablePage() {
         title={i18n("periodic_table")}
         className="periodic-table-page__navbar"
         onBackButtonClick={onNavbarBackButtonClick}
+        rightButton={{
+          label: i18n("Search"),
+          iconName: "search",
+          onClick: () =>
+            history.push({
+              search: "openSearch=true",
+            }),
+        }}
       />
 
       <div className="periodic-table-page__table">

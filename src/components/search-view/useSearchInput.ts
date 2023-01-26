@@ -13,7 +13,7 @@ export function useSearchInput(type: "push" | "replace") {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const query = encodeURIComponent(event.target.value);
 
-      history[type]({ search: query ? `search=${query}` : "" });
+      history[type]({ search: query ? `search=${query}` : "openSearch=true" });
     },
     [type, history]
   );

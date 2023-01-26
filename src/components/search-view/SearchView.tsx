@@ -25,31 +25,12 @@ function SearchView() {
   const searchInput = useSearchInput("replace");
   const query = searchInput.value.trim();
   const openSearch = params.get("openSearch");
-  const [open, setOpen] = React.useState(() => !!query);
   const [debouncedQuery] = useDebounce(query, 1000);
   const results = useContentSearch(debouncedQuery);
 
-  React.useEffect(() => {
-    if (query || openSearch) {
-      setOpen(true);
-    }
-  }, [query, history, openSearch]);
-
-  React.useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    const unregister = history.listen(() => {
-      if (history.action === "POP") {
-        setOpen(false);
-      }
-    });
-
-    return () => {
-      unregister();
-    };
-  }, [open, history]);
+  const open = React.useMemo(() => {
+    return !!openSearch || !!query;
+  }, [openSearch, query]);
 
   function close() {
     history.goBack();

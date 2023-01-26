@@ -100,7 +100,10 @@ function App() {
               path={MASS_CALCULATOR}
               component={MassCalculator}
             />
-            <Route path={PERIODIC_TABLE} component={PeriodicTablePage} />
+            <Route path={PERIODIC_TABLE}>
+              <SearchView />
+              <PeriodicTablePage />
+            </Route>
             <Route exact={true} path={ABOUT} component={About} />
 
             <Route component={NotFound} />
