@@ -91,14 +91,10 @@ test("should show results correct answers", async () => {
   }
 
   // Place Hydrogen to correct position
-  userEvent.click(
-    within(firstRow).getByRole("button", { name: /1 \? \?\?\?/i })
-  );
+  userEvent.click(within(firstRow).getByRole("button", { name: "1. ?" }));
 
   // Place Helium to correct position
-  userEvent.click(
-    within(firstRow).getByRole("button", { name: /2 \? \?\?\?/i })
-  );
+  userEvent.click(within(firstRow).getByRole("button", { name: "2. ?" }));
 
   expect(screen.getByText(/test results/i)).toBeInTheDocument();
   // Test results will have a 2/2 text but it's divided into span-elements and can't be queried with a single query
@@ -124,10 +120,10 @@ test("should show results correct answers", async () => {
 
   // test that that all the answers are reset
   expect(
-    within(firstRow).getByRole("button", { name: /1 \? \?\?\?/i })
+    within(firstRow).getByRole("button", { name: "1. ?" })
   ).toBeInTheDocument();
   expect(
-    within(firstRow).getByRole("button", { name: /2 \? \?\?\?/i })
+    within(firstRow).getByRole("button", { name: "2. ?" })
   ).toBeInTheDocument();
 });
 
@@ -152,19 +148,13 @@ test("should show correct results with incorrect answers", async () => {
   }
 
   // Place Hydrogen to incorrect position
-  userEvent.click(
-    within(firstRow).getByRole("button", { name: /2 \? \?\?\?/i })
-  );
+  userEvent.click(within(firstRow).getByRole("button", { name: "2. ?" }));
 
   // Place Hydrogen to correct position
-  userEvent.click(
-    within(firstRow).getByRole("button", { name: /1 \? \?\?\?/i })
-  );
+  userEvent.click(within(firstRow).getByRole("button", { name: "1. ?" }));
 
   // Place Helium to correct position
-  userEvent.click(
-    within(firstRow).getByRole("button", { name: /2 \? \?\?\?/i })
-  );
+  userEvent.click(within(firstRow).getByRole("button", { name: "2. ?" }));
 
   expect(screen.getByText(/test results/i)).toBeInTheDocument();
   // Test results will have a 1/2 text but it's divided into span-elements and can't be queried with a single query
@@ -193,10 +183,10 @@ test("should show correct results with incorrect answers", async () => {
 
   // test that only wrong answers are reset
   expect(
-    within(firstRow).getByRole("button", { name: /1 \? \?\?\?/i })
+    within(firstRow).getByRole("button", { name: "1. ?" })
   ).toBeInTheDocument();
   expect(
-    within(firstRow).queryByRole("button", { name: /2 \? \?\?\?/i })
+    within(firstRow).queryByRole("button", { name: "2. ?" })
   ).not.toBeInTheDocument();
 });
 

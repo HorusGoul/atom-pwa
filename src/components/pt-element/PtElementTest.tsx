@@ -1,7 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
 import { useElements } from "@/hooks/useElements";
-import Button from "../shared/button/Button";
 import Icon from "../shared/icon/Icon";
 import "./PtElement.scss";
 import { PtElementInfoProps } from "./PtElementInfo";
@@ -23,7 +22,7 @@ function PtElementTest({
   const elementLocales = getElementLocales(element);
 
   const onElementButtonClick = () => {
-    if (onClick) {
+    if (onClick && !discovered) {
       onClick(element);
       shouldShowError && setShowError(true);
     }
@@ -41,30 +40,46 @@ function PtElementTest({
     };
   }, [showError]);
 
+  const label = discovered
+    ? `${element.atomic}. ${elementLocales.name}`
+    : `${element.atomic}. ?`;
+
   return (
-    <Button
+    <div
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === "Space") {
+          onElementButtonClick();
+        }
+      }}
       onClick={onElementButtonClick}
       className={classNames("pt-element", "element", {
         [element.group]: discovered,
         clear: !discovered,
         "pt-element--error": showError,
       })}
+      aria-disabled={discovered}
+      aria-label={label}
     >
-      <div className="pt-element__atomic">{element.atomic}</div>
+      <div className="pt-element__atomic" aria-hidden={true}>
+        {element.atomic}
+      </div>
 
-      <div className="pt-element__symbol">
+      <div className="pt-element__symbol" aria-hidden={true}>
         {discovered ? element.symbol : "?"}
       </div>
-      <div className="pt-element__name">
+      <div className="pt-element__name" aria-hidden={true}>
         {discovered ? elementLocales.name : "???"}
       </div>
 
-      <div className="pt-element__error">
-        <Icon name="close" />
+      {showError && (
+        <div className="pt-element__error" role="alert">
+          <Icon name="close" aria-hidden={true} />
 
-        <div>Oops!</div>
-      </div>
-    </Button>
+          <div>Oops!</div>
+        </div>
+      )}
+    </div>
   );
 }
 

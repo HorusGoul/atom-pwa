@@ -9,7 +9,6 @@ import { TEST_PERIODIC_TABLE_SETTINGS, TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
 import PeriodicTable from "../periodic-table/PeriodicTable";
 import PtElementTest from "../pt-element/PtElementTest";
-import Button from "../shared/button/Button";
 import Card from "../shared/card/Card";
 import Navbar from "../shared/navbar/Navbar";
 import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
@@ -269,20 +268,24 @@ function PeriodicTableTest() {
 
       {currentQuestion && (
         <div className={classNames("periodic-table-test__current-question")}>
-          <Button
+          <button
             className={classNames(
               "periodic-table-test__current-question__button",
               "element",
               currentQuestion.element.group
             )}
             onClick={openQuestionModal}
+            aria-live="polite"
           >
             {currentQuestion.element.symbol}
 
-            <div className="periodic-table-test__current-question__label">
+            <div
+              className="periodic-table-test__current-question__label"
+              aria-label={i18n("help")}
+            >
               ?
             </div>
-          </Button>
+          </button>
         </div>
       )}
     </div>
