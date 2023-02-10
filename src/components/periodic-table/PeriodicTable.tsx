@@ -10,6 +10,15 @@ interface PeriodicTableProps {
   elementRenderer: ElementRendered;
 }
 
+function EmptyElement() {
+  return (
+    <div
+      className="periodic-table__cell periodic-table__cell--empty"
+      aria-hidden={true}
+    />
+  );
+}
+
 function buildTable(elementRenderer: ElementRendered) {
   const rows: JSX.Element[] = [
     <div key="row-head" className="periodic-table__row">
@@ -41,21 +50,26 @@ function buildTable(elementRenderer: ElementRendered) {
     rows.push(
       <div className="periodic-table__row" key={`row-${i}`}>
         {i <= 6 ? (
+          // TODO: localize "Period N"
           <div className="periodic-table__cell periodic-table__cell--label">
             {i + 1}
           </div>
         ) : (
+          // TODO: localize and label "Lanthanides" and "Actinides"
           <div className="periodic-table__cell periodic-table__cell--label" />
         )}
 
         {row.map((element, index) => {
+          const key = `row-${i}-cell-${index}`;
+
           if (element <= 0) {
-            return (
-              <div
-                key={`row-${i}-cell-${index}`}
-                className="periodic-table__cell periodic-table__cell--empty"
-              />
-            );
+            return <EmptyElement key={key} />;
+          }
+
+          const renderedElement = elementRenderer(element);
+
+          if (!renderedElement) {
+            return <EmptyElement key={key} />;
           }
 
           return (

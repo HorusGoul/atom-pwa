@@ -1,13 +1,14 @@
 import * as React from "react";
-import HyperScroller from "react-hyper-scroller";
 import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
 import Navbar from "../../shared/navbar/Navbar";
-import TestElementSettings from "../../test-element-settings/TestElementSettings";
 import { useValencesTestSettings } from "../hooks/useValencesTestSettings";
 import "./ValencesTestSettings.scss";
+import PeriodicTable from "@/components/periodic-table/PeriodicTable";
+import { useElements } from "@/hooks/useElements";
+import PtElementSetting from "@/components/pt-element/PtElementSetting";
 
 function ValencesTestSettings() {
   const history = useHistory();
@@ -17,7 +18,11 @@ function ValencesTestSettings() {
   const elementStates = React.useMemo(() => {
     const elements = settings.elements ?? [];
 
-    return elements.slice().sort((a, b) => a.atomic - b.atomic);
+    return elements.reduce((map, element) => {
+      map[element.atomic] = element.enabled;
+
+      return map;
+    }, {} as Record<number, boolean>);
   }, [settings.elements]);
 
   const onSelectAllButtonClick = React.useCallback(() => {
@@ -63,6 +68,28 @@ function ValencesTestSettings() {
     [updateSettings]
   );
 
+  const { getElement } = useElements();
+
+  const elementRenderer = (atomic: number) => {
+    const element = getElement(atomic);
+    const enabled = elementStates[atomic];
+    const isAvailable = atomic in elementStates;
+
+    if (!isAvailable) {
+      return null;
+    }
+
+    return (
+      <PtElementSetting
+        element={element}
+        enabled={enabled}
+        onClick={(element) => {
+          onTestElementSettingsClick(element.atomic);
+        }}
+      />
+    );
+  };
+
   return (
     <div className="valences-test-settings">
       <Navbar
@@ -91,15 +118,10 @@ function ValencesTestSettings() {
             text={i18n("restore_defaults")}
           />
         </div>
-        <HyperScroller estimatedItemHeight={64} measureItems={false}>
-          {elementStates.map((elementState) => (
-            <TestElementSettings
-              key={elementState.atomic}
-              setting={elementState}
-              onClick={onTestElementSettingsClick}
-            />
-          ))}
-        </HyperScroller>
+      </div>
+
+      <div className="valences-test-settings__table">
+        <PeriodicTable elementRenderer={elementRenderer} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 .pt-element {
   $w: &;
 
+  &,
   &[data-atom-button] {
     position: relative;
     font-weight: 600;
@@ -14,6 +15,7 @@
     transition: none;
     display: block;
     text-transform: none;
+    user-select: none;
   }
 
   &--error #{$w}__error {
