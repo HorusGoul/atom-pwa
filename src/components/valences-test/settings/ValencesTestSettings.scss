@@ -2,7 +2,9 @@
 @import "../../../scss/theming.scss";
 
 .valences-test-settings {
-  @extend %page;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &__content {
     @include themify($themes) {
@@ -26,6 +28,7 @@
       flex-direction: column;
       font-weight: bold;
       font-size: 12px;
+      text-align: center;
     }
   }
 
@@ -34,6 +37,15 @@
 
     @include themify($themes) {
       color: transparentize(themed("contentTextColor"), 0.44);
+    }
+  }
+
+  &__table {
+    flex: 1;
+    overflow: auto;
+
+    @include themify($themes) {
+      background-color: themed("cardBackgroundColor");
     }
   }
 }

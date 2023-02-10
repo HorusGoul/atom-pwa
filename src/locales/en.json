@@ -20,6 +20,7 @@
   "title_activity_settings": "Settings",
   "element_data_atomic": "Atomic number",
   "element_data_symbol": "Symbol",
+  "element_data_group": "Group",
   "element_data_atomicMass": "Mass",
   "element_data_electronicConfiguration": "Electronic C.",
   "element_data_electronegativity": "Electronegativity",

@@ -1,5 +1,9 @@
 import * as React from "react";
-import { screen, within, waitFor } from "@testing-library/react";
+import {
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PeriodicTableTestSettings from "./PeriodicTableTestSettings";
 import { render } from "@/test-utils";
@@ -21,47 +25,55 @@ test("should render the periodic table test settings", async () => {
     screen.getByRole("button", { name: /restore defaults/i })
   ).toBeInTheDocument();
 
+  await waitForElementToBeRemoved(
+    () => screen.queryAllByLabelText(/loading/i),
+    { timeout: 4000 }
+  );
+
   expect(
-    screen.getByRole("button", { name: /H 1. Hydrogen Hydrogen/i })
+    screen.getByRole("checkbox", { name: "1. Hydrogen" })
   ).toBeInTheDocument();
 });
 
 test("selection buttons should work", async () => {
   render(<PeriodicTableTestSettings />);
 
-  const hydrogen = screen.getByRole("button", {
-    name: /H 1. Hydrogen Hydrogen/i,
-  });
-  const neon = screen.getByRole("button", { name: /Ne 10. Neon Noble gases/i });
+  await waitForElementToBeRemoved(
+    () => screen.queryAllByLabelText(/loading/i),
+    { timeout: 4000 }
+  );
 
-  expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
-  expect(within(neon).getByRole("checkbox")).toBeChecked();
+  const hydrogen = screen.getByRole("checkbox", { name: "1. Hydrogen" });
+  const neon = screen.getByRole("checkbox", { name: "10. Neon" });
+
+  expect(hydrogen).toBeChecked();
+  expect(neon).toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /deselect all/i }));
 
   await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
-  expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
-  expect(within(neon).getByRole("checkbox")).not.toBeChecked();
+  expect(hydrogen).not.toBeChecked();
+  expect(neon).not.toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /^select all/i }));
 
   await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
-  expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
-  expect(within(neon).getByRole("checkbox")).toBeChecked();
+  expect(hydrogen).toBeChecked();
+  expect(neon).toBeChecked();
 
   userEvent.click(hydrogen);
 
   await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
-  expect(within(hydrogen).getByRole("checkbox")).not.toBeChecked();
-  expect(within(neon).getByRole("checkbox")).toBeChecked();
+  expect(hydrogen).not.toBeChecked();
+  expect(neon).toBeChecked();
 
   userEvent.click(screen.getByRole("button", { name: /restore defaults/i }));
 
   await waitFor(() => new Promise((resolve) => setTimeout(resolve, 1)));
 
-  expect(within(hydrogen).getByRole("checkbox")).toBeChecked();
-  expect(within(neon).getByRole("checkbox")).toBeChecked();
+  expect(hydrogen).toBeChecked();
+  expect(neon).toBeChecked();
 });
