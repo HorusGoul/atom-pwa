@@ -20,6 +20,7 @@
   "title_activity_settings": "Setări",
   "element_data_atomic": "Număr atomic",
   "element_data_symbol": "Simbol",
+  "element_data_group": "Grup",
   "element_data_atomicMass": "Masa",
   "element_data_electronicConfiguration": "Electronice C.",
   "element_data_electronegativity": "Electronegativitatea",
@@ -239,5 +240,7 @@
   "update_title": "Actualizare disponibilă!",
   "update_message": "Îl puteți instala acum sau după ce aplicația se repornește.",
   "update_button_label": "Actualizare disponibilă",
-  "update_confirm": "Instalaţi"
+  "update_confirm": "Instalaţi",
+  "become_a_youtuber": "Deveniți un Creator Youtube!",
+  "help": "Ajutor"
 }
