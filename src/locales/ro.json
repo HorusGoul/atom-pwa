@@ -240,5 +240,6 @@
   "update_title": "Actualizare disponibilă!",
   "update_message": "Îl puteți instala acum sau după ce aplicația se repornește.",
   "update_button_label": "Actualizare disponibilă",
-  "update_confirm": "Instalaţi"
+  "update_confirm": "Instalaţi",
+  "help": "Ajutor"
 }

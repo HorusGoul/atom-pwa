@@ -3,7 +3,6 @@ import classNames from "classnames";
 
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
-import Button from "../shared/button/Button";
 import "./PtElement.scss";
 
 export interface PtElementInfoProps {
@@ -22,7 +21,13 @@ function PtElementInfo({ element, onClick }: PtElementInfoProps) {
   };
 
   return (
-    <Button
+    <div
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === "Space") {
+          onElementButtonClick();
+        }
+      }}
       onClick={onElementButtonClick}
       className={classNames("pt-element", "element", element.group)}
     >
@@ -31,7 +36,7 @@ function PtElementInfo({ element, onClick }: PtElementInfoProps) {
       <div className="pt-element__symbol">{element.symbol}</div>
 
       <div className="pt-element__name">{elementLocales.name}</div>
-    </Button>
+    </div>
   );
 }
 

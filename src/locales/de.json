@@ -240,5 +240,6 @@
   "update_title": "Update verfügbar!",
   "update_message": "Sie können es jetzt oder nach einem Neustart der App installieren.",
   "update_button_label": "Update verfügbar",
-  "update_confirm": "Installieren"
+  "update_confirm": "Installieren",
+  "help": "Hilfe"
 }
