@@ -20,6 +20,7 @@
   "title_activity_settings": "Opciones",
   "element_data_atomic": "Número atómico",
   "element_data_symbol": "Símbolo",
+  "element_data_group": "Grupo",
   "element_data_atomicMass": "Masa",
   "element_data_electronicConfiguration": "C. Electrónica",
   "element_data_electronegativity": "Electronegatividad",
@@ -239,5 +240,8 @@
   "update_title": "¡Actualización disponible!",
   "update_message": "Puedes instalarla ahora o la próxima vez que abras la aplicación.",
   "update_button_label": "Actualización disponible",
-  "update_confirm": "Instalar"
+  "update_confirm": "Instalar",
+  "learn_coding": "Aprende a programar y crea tu primera app!",
+  "become_a_youtuber": "Empieza tu carrera como YouTuber!",
+  "help": "Ayuda"
 }
