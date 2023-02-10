@@ -20,6 +20,7 @@
   "title_activity_settings": "Einstellungen",
   "element_data_atomic": "Ordnungszahl",
   "element_data_symbol": "Elementsymbol",
+  "element_data_group": "Gruppe",
   "element_data_atomicMass": "Atommasse",
   "element_data_electronicConfiguration": "Electronen K.",
   "element_data_electronegativity": "Elektronegativität",
@@ -239,5 +240,6 @@
   "update_title": "Update verfügbar!",
   "update_message": "Sie können es jetzt oder nach einem Neustart der App installieren.",
   "update_button_label": "Update verfügbar",
-  "update_confirm": "Installieren"
+  "update_confirm": "Installieren",
+  "help": "Hilfe"
 }
