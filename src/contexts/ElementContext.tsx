@@ -1,4 +1,4 @@
-import MiniSearch from "minisearch";
+import MiniSearch, { SearchOptions } from "minisearch";
 import { Element } from "@/Element";
 import { useLocale } from "@/hooks/useLocale";
 import * as React from "react";
@@ -69,10 +69,12 @@ function useElementContextLogic() {
     return elements.map(getElementLocales);
   }, [getElementLocales]);
 
-  const searchIndexRef = React.useRef<MiniSearch<Element>>();
+  const searchIndex = React.useMemo(() => {
+    const defaultProcessTerm: NonNullable<
+      SearchOptions["processTerm"]
+    > = MiniSearch.getDefault("processTerm");
 
-  if (!searchIndexRef.current) {
-    searchIndexRef.current = new MiniSearch<Element>({
+    const miniSearch = new MiniSearch<Element>({
       idField: "atomic",
       fields: [
         "atomic",
@@ -85,26 +87,35 @@ function useElementContextLogic() {
         "electronicConfiguration",
       ],
       searchOptions: {
-        fuzzy: 0.5,
         boost: {
           atomic: 5,
           symbol: 5,
           name: 2,
           group: 2,
         },
-        prefix: true,
+      },
+      processTerm: (term) => {
+        term = term
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .trim();
+
+        return defaultProcessTerm(term);
       },
     });
 
-    searchIndexRef.current.addAll(localizedElements);
-  }
+    miniSearch.addAll(localizedElements);
+
+    return miniSearch;
+  }, [localizedElements]);
 
   return {
     elements,
     getElement,
     getElementLocales,
     getLocalizedElement,
-    searchIndex: searchIndexRef.current as MiniSearch<Element>,
+    searchIndex,
   };
 }
 

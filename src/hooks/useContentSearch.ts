@@ -9,7 +9,10 @@ export function useContentSearch(query: string) {
   const { searchIndex: elementsIndex } = useElements();
 
   const elements = useMemo(() => {
-    return elementsIndex.search(query);
+    return elementsIndex.search(query, {
+      fuzzy: 0.5,
+      prefix: true,
+    });
   }, [elementsIndex, query]);
 
   useEffect(() => {
