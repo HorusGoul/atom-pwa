@@ -17,6 +17,7 @@ function PeriodicTableTestSettings() {
     settings,
     updateSettings,
     resetSettings,
+    isElementAvailable,
   } = usePeriodicTableTestSettings();
 
   const elementStates = React.useMemo(() => {
@@ -77,7 +78,7 @@ function PeriodicTableTestSettings() {
   const elementRenderer = (atomic: number) => {
     const element = getElement(atomic);
     const enabled = elementStates[atomic];
-    const isAvailable = atomic in elementStates;
+    const isAvailable = isElementAvailable(atomic);
 
     if (!isAvailable) {
       return null;

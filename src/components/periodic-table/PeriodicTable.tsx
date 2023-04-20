@@ -10,10 +10,19 @@ interface PeriodicTableProps {
   elementRenderer: ElementRendered;
 }
 
-function EmptyElement() {
+function EmptyCell() {
   return (
     <div
       className="periodic-table__cell periodic-table__cell--empty"
+      aria-hidden={true}
+    />
+  );
+}
+
+function EmptyElement() {
+  return (
+    <div
+      className="periodic-table__cell periodic-table__cell--empty-element"
       aria-hidden={true}
     />
   );
@@ -63,7 +72,7 @@ function buildTable(elementRenderer: ElementRendered) {
           const key = `row-${i}-cell-${index}`;
 
           if (element <= 0) {
-            return <EmptyElement key={key} />;
+            return <EmptyCell key={key} />;
           }
 
           const renderedElement = elementRenderer(element);

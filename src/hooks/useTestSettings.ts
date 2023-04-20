@@ -5,7 +5,8 @@ import { useElements } from "./useElements";
 
 export function useTestSettings(
   storageKey: keyof Settings["tests"],
-  enabledKey: keyof Element["testState"]
+  enabledKey: keyof Element["testState"],
+  isAvailable: (element: Element) => boolean
 ) {
   const { settings, updateSettings } = useSettings();
   const { elements } = useElements();
@@ -14,7 +15,7 @@ export function useTestSettings(
     () => ({
       elements: elements.map((element) => ({
         atomic: element.atomic,
-        enabled: element.testState[enabledKey],
+        enabled: isAvailable(element) && element.testState[enabledKey],
         stats: {
           right: 0,
           times: 0,
@@ -22,7 +23,7 @@ export function useTestSettings(
         },
       })),
     }),
-    [enabledKey, elements]
+    [enabledKey, elements, isAvailable]
   );
 
   const storedSettings = settings.tests[storageKey];
@@ -48,9 +49,33 @@ export function useTestSettings(
     }
   }, [storageKey, settings, resetSettings]);
 
+  const availableElements = React.useMemo(() => {
+    return elements
+      .map((element) => {
+        if (isAvailable(element)) {
+          return element.atomic;
+        }
+
+        return null;
+      })
+      .filter((element): element is number => Boolean(element));
+  }, [elements, isAvailable]);
+
+  const isElementAvailable = React.useCallback(
+    (element: Element["atomic"] | Element) => {
+      if (typeof element === "number") {
+        return availableElements.includes(element);
+      }
+
+      return availableElements.includes(element.atomic);
+    },
+    [availableElements]
+  );
+
   return {
     settings: storedSettings.elements ? storedSettings : defaultSetting,
     updateSettings: updateTestSettings,
     resetSettings,
+    isElementAvailable,
   };
 }

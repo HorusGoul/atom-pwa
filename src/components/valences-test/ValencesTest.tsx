@@ -49,7 +49,11 @@ function createQuestion(element: Element): ValencesTestQuestion {
 function ValencesTest() {
   const { i18n } = useLocale();
   const { getElement } = useElements();
-  const { settings, updateSettings } = useValencesTestSettings();
+  const {
+    settings,
+    updateSettings,
+    isElementAvailable,
+  } = useValencesTestSettings();
   const { confirmAction } = useConfirm();
 
   useAddRecent("valency-quiz");
@@ -60,7 +64,9 @@ function ValencesTest() {
     }
 
     const questions = settings.elements
-      .filter((element) => element.enabled)
+      .filter(
+        (element) => isElementAvailable(element.atomic) && element.enabled
+      )
       .map((element) => getElement(element.atomic))
       .map((element) => createQuestion(element as Element));
 

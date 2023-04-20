@@ -46,5 +46,10 @@
         background-color: themed("backgroundColor");
       }
     }
+
+    &--empty-element {
+      min-height: 72px;
+      min-width: 72px;
+    }
   }
 }

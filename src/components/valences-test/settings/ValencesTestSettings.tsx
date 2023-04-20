@@ -13,7 +13,12 @@ import PtElementSetting from "@/components/pt-element/PtElementSetting";
 function ValencesTestSettings() {
   const history = useHistory();
   const { i18n } = useLocale();
-  const { settings, updateSettings, resetSettings } = useValencesTestSettings();
+  const {
+    settings,
+    updateSettings,
+    resetSettings,
+    isElementAvailable,
+  } = useValencesTestSettings();
 
   const elementStates = React.useMemo(() => {
     const elements = settings.elements ?? [];
@@ -73,7 +78,7 @@ function ValencesTestSettings() {
   const elementRenderer = (atomic: number) => {
     const element = getElement(atomic);
     const enabled = elementStates[atomic];
-    const isAvailable = atomic in elementStates;
+    const isAvailable = isElementAvailable(atomic);
 
     if (!isAvailable) {
       return null;

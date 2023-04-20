@@ -30,7 +30,11 @@ function PeriodicTableTest() {
 
   useAddRecent("periodic-table-quiz");
 
-  const { settings, updateSettings } = usePeriodicTableTestSettings();
+  const {
+    settings,
+    updateSettings,
+    isElementAvailable,
+  } = usePeriodicTableTestSettings();
 
   const createTestQuestions = React.useCallback(
     (settings: ElementsSettings) => {
@@ -39,13 +43,15 @@ function PeriodicTableTest() {
       }
 
       const questions = settings.elements
-        .filter((element) => element.enabled)
+        .filter(
+          (element) => isElementAvailable(element.atomic) && element.enabled
+        )
         .map((elementSetting) => getElement(elementSetting.atomic))
         .map((element) => ({ element: element as Element }));
 
       return shuffle(questions);
     },
-    [getElement]
+    [getElement, isElementAvailable]
   );
 
   const [questionModalOpen, setQuestionModalOpen] = React.useState(true);
