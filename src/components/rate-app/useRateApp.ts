@@ -28,6 +28,13 @@ export function useRateApp() {
         return;
       }
 
+      if (
+        openMarket === false &&
+        !NativeBridge.supportsNativeMethod("rateApp")
+      ) {
+        return;
+      }
+
       NativeBridge.rateApp(openMarket);
 
       setConfig((current) => ({

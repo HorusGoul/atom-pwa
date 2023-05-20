@@ -1,11 +1,12 @@
 import * as React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import RateApp, { RateAppConfig } from "./RateApp";
+import RateApp from "./RateApp";
 import NativeBridge from "@/NativeBridge";
 import userEvent from "@testing-library/user-event";
 import "hammerjs";
 import { clear, mockUserAgent } from "jest-useragent-mock";
 import { useLocalStorageCacheStore } from "@/hooks/useLocalStorage";
+import { RateAppConfig } from "./useRateApp";
 
 const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const config: RateAppConfig = {

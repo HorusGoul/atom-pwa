@@ -1,5 +1,5 @@
 interface Window {
-  AtomNative: {
+  AtomNative?: {
     isHybrid?: () => boolean;
     getDebugMode?: () => boolean;
     getSystemLanguage?: () => string | undefined;

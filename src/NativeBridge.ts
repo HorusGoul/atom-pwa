@@ -1,7 +1,7 @@
+type BridgeType = NonNullable<typeof window.AtomNative>;
+
 type PlatformMethods = {
-  [key in keyof typeof window.AtomNative]-?: NonNullable<
-    typeof window.AtomNative[key]
-  >;
+  [key in keyof BridgeType]-?: NonNullable<BridgeType[key]>;
 };
 
 const platformMethods: PlatformMethods = {
@@ -15,7 +15,7 @@ const platformMethods: PlatformMethods = {
   },
 };
 
-const AtomNative = (window.AtomNative = window.AtomNative || platformMethods);
+const AtomNative = window.AtomNative || platformMethods;
 
 class NativeBridge {
   private cache = new Map<string, unknown>();
@@ -39,6 +39,10 @@ class NativeBridge {
 
   public rateApp(openMarket = false) {
     return this.exec("rateApp", [], [openMarket]);
+  }
+
+  public supportsNativeMethod(methodName: keyof typeof AtomNative) {
+    return !!window.AtomNative?.["rateApp"];
   }
 
   private exec<T extends keyof typeof AtomNative>(
