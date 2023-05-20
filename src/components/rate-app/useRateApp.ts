@@ -20,9 +20,11 @@ export function useRateApp() {
     initialValue
   );
 
+  const isRated = config.rated;
+
   const launchRateAppFlow = useCallback(
     (openMarket = false) => {
-      if (!NativeBridge.isHybrid()) {
+      if (!NativeBridge.isHybrid() || isRated) {
         return;
       }
 
@@ -33,7 +35,7 @@ export function useRateApp() {
         rated: true,
       }));
     },
-    [setConfig]
+    [setConfig, isRated]
   );
 
   return {
