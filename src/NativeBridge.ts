@@ -21,7 +21,6 @@ class NativeBridge {
   private cache = new Map<string, unknown>();
 
   constructor() {
-    console.log(AtomNative, Object.keys(AtomNative));
     window.__DEBUG__ = this.getDebugMode();
   }
 
