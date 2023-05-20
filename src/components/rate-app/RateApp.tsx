@@ -37,13 +37,13 @@ function RateApp() {
     }));
   }, [setConfig]);
 
-  if (
-    !NativeBridge.isHybrid() ||
-    config.timesLaunched < MINIMUM_TIMES_LAUNCHED ||
-    config.rated
-  ) {
-    return null;
-  }
+  // if (
+  //   !NativeBridge.isHybrid() ||
+  //   config.timesLaunched < MINIMUM_TIMES_LAUNCHED ||
+  //   config.rated
+  // ) {
+  //   return null;
+  // }
 
   function rateApp() {
     if (/android/i.test(navigator.userAgent)) {
