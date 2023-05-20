@@ -2,6 +2,11 @@ const platformMethods: typeof window.AtomNative = {
   getDebugMode: () => import.meta.env.DEV,
   isHybrid: () => false,
   getSystemLanguage: () => window.navigator.language,
+  rateApp: () => {
+    if (/android/i.test(navigator.userAgent)) {
+      window.open("market://details?id=tk.horusgoul.valenciasquimicas");
+    }
+  },
 };
 
 const AtomNative = (window.AtomNative = window.AtomNative || platformMethods);
@@ -17,6 +22,10 @@ class NativeBridge {
 
   public getSystemLanguage() {
     return this.exec("getSystemLanguage");
+  }
+
+  public rateApp() {
+    return this.exec("rateApp");
   }
 
   private exec<T extends keyof typeof AtomNative>(

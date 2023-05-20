@@ -3,6 +3,7 @@ interface Window {
     isHybrid?: () => boolean;
     getDebugMode?: () => boolean;
     getSystemLanguage?: () => string | undefined;
+    rateApp?: () => void;
   };
 }
 

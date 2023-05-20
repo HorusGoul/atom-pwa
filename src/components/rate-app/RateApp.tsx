@@ -47,7 +47,7 @@ function RateApp() {
 
   function rateApp() {
     if (/android/i.test(navigator.userAgent)) {
-      window.open("market://details?id=tk.horusgoul.valenciasquimicas");
+      NativeBridge.rateApp();
 
       setConfig((current) => ({
         ...current,
