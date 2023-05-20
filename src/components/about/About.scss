@@ -49,4 +49,13 @@
       padding: 0 16px 16px;
     }
   }
+
+  &__appVersion {
+    text-align: center;
+    font-size: 12px;
+
+    @include themify($themes) {
+      color: transparentize(themed("contentTextColor"), 0.22);
+    }
+  }
 }

@@ -8,6 +8,7 @@ import IconButton from "@/components/shared/icon-button/IconButton";
 import Navbar from "@/components/shared/navbar/Navbar";
 import ThemeSelector from "@/components/theme-selector/ThemeSelector";
 import "./About.scss";
+import { FULL_VERSION } from "@/constants";
 
 function About() {
   const history = useHistory();
@@ -54,6 +55,8 @@ function About() {
           />
         </div>
       </Card>
+
+      <div className="about__appVersion">{FULL_VERSION}</div>
     </div>
   );
 }
