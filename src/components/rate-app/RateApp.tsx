@@ -7,28 +7,14 @@ import Button from "../shared/button/Button";
 import NativeBridge from "@/NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useRateApp } from "./useRateApp";
 
-export interface RateAppConfig {
-  timesLaunched: number;
-  rated: boolean;
-}
-
-const RATE_APP_STORAGE_KEY = "atom:rate_app";
 const MINIMUM_TIMES_LAUNCHED = 3;
-
-const initialValue: RateAppConfig = {
-  timesLaunched: 0,
-  rated: false,
-};
 
 function RateApp() {
   const { i18n } = useLocale();
   const [open, setOpen] = React.useState(false);
-  const [config, setConfig] = useLocalStorage<RateAppConfig>(
-    RATE_APP_STORAGE_KEY,
-    initialValue
-  );
+  const { config, setConfig, launchRateAppFlow } = useRateApp();
 
   React.useLayoutEffect(() => {
     setConfig((current) => ({
@@ -37,22 +23,17 @@ function RateApp() {
     }));
   }, [setConfig]);
 
-  // if (
-  //   !NativeBridge.isHybrid() ||
-  //   config.timesLaunched < MINIMUM_TIMES_LAUNCHED ||
-  //   config.rated
-  // ) {
-  //   return null;
-  // }
+  if (
+    !NativeBridge.isHybrid() ||
+    config.timesLaunched < MINIMUM_TIMES_LAUNCHED ||
+    config.rated
+  ) {
+    return null;
+  }
 
   function rateApp() {
     if (/android/i.test(navigator.userAgent)) {
-      NativeBridge.rateApp();
-
-      setConfig((current) => ({
-        ...current,
-        rated: true,
-      }));
+      launchRateAppFlow(true);
 
       logEvent("rating", {
         event_action: "Rated the app",

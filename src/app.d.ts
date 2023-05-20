@@ -3,8 +3,9 @@ interface Window {
     isHybrid?: () => boolean;
     getDebugMode?: () => boolean;
     getSystemLanguage?: () => string | undefined;
-    rateApp?: () => void;
+    rateApp?: (openMarket?: boolean) => void;
   };
+  __DEBUG__?: boolean;
 }
 
 declare module "*.svg" {

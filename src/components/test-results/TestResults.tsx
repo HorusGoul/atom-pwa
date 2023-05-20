@@ -4,6 +4,7 @@ import * as React from "react";
 import { useLocale } from "@/hooks/useLocale";
 import IconButton from "../shared/icon-button/IconButton";
 import "./TestResults.scss";
+import { useRateApp } from "../rate-app/useRateApp";
 
 export interface TestResultsProps {
   gaTestName: string;
@@ -24,6 +25,7 @@ function TestResults({
   const percentage = total ? rightAnswers / total : 1;
 
   const { i18n } = useLocale();
+  const goodResults = percentage > 0.7;
 
   React.useEffect(() => {
     if (total > 0) {
@@ -34,10 +36,18 @@ function TestResults({
     }
   }, [total, percentage, gaTestName]);
 
+  const { launchRateAppFlow } = useRateApp();
+
+  React.useEffect(() => {
+    if (goodResults) {
+      launchRateAppFlow();
+    }
+  }, [goodResults, launchRateAppFlow]);
+
   return (
     <div
       className={classNames("test-results", {
-        "test-results--good": percentage > 0.7,
+        "test-results--good": goodResults,
       })}
     >
       <div className="test-results__title">{i18n("test_results")}</div>
