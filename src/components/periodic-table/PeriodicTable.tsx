@@ -4,6 +4,7 @@ import { Spinner } from "../shared/spinner/Spinner";
 import "./PeriodicTable.scss";
 
 import periodicTableData from "@/data/pt.json";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 type ElementRendered = (elementId: number) => React.ReactNode;
 interface PeriodicTableProps {
@@ -118,7 +119,22 @@ function PeriodicTable({ elementRenderer }: PeriodicTableProps) {
     );
   }
 
-  return <div className="periodic-table">{buildTable(elementRenderer)}</div>;
+  return (
+    <TransformWrapper
+      minScale={0.2}
+      limitToBounds={false}
+      doubleClick={{
+        disabled: true,
+      }}
+    >
+      <TransformComponent
+        contentStyle={{ width: "100%", height: "100%" }}
+        wrapperStyle={{ width: "100%", height: "100%" }}
+      >
+        <div className="periodic-table">{buildTable(elementRenderer)}</div>
+      </TransformComponent>
+    </TransformWrapper>
+  );
 }
 
 export default PeriodicTable;
