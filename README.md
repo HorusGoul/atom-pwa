@@ -4,7 +4,7 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![Test](https://github.com/OpenSourceRaidGuild/atom-pwa/actions/workflows/test.yml/badge.svg)](https://github.com/OpenSourceRaidGuild/atom-pwa/actions/workflows/test.yml)
 [![Crowdin][crowdin-badge]][crowdin]
-[![Github All Contributors][all-contributors-badge]](#contributors)
+[![Github All Contributors][contributors-@AdonaiChivoweee]
 [![License][license-badge]][license]
 
 ## About
