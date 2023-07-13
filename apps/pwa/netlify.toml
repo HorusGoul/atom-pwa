@@ -5,7 +5,7 @@
 
 [build]
   base = "./"
-  publish = "dist"
+  publish = "./dist"
   command = "pnpm build"
   environment = { NODE_VERSION = "18.12.0", NODE_OPTIONS = "--max_old_space_size=4096" }
 
