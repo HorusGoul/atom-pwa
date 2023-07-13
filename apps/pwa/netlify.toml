@@ -9,6 +9,9 @@
   command = "pnpm build"
   environment = { NODE_VERSION = "18.12.0", NODE_OPTIONS = "--max_old_space_size=4096" }
 
+# Any redirect added here needs to be added to the public/_redirects
+# file as well. This is because [[redirects]] in this file don't
+# work in monorepos because of a bug.
 [[redirects]]
   from = "/js/script.js"
   to = "https://plausible.io/js/plausible.js"

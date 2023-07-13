@@ -1,0 +1,6 @@
+/js/script.js https://plausible.io/js/plausible.js 200!
+/api/event https://plausible.io/api/event 202!
+/api/flags https://atom-flags.horusdev.workers.dev 200!
+/api/sentry https://8c979cf560094d8aac2aa531d72a8a62@o524893.ingest.sentry.io/api/5638124/envelope/ 200!
+/admin/* /admin/index.html 200
+/* /index.html 200
