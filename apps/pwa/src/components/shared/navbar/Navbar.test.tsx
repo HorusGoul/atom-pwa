@@ -13,7 +13,7 @@ test("should not render a title by default", () => {
 test("should render a title", () => {
   render(<Navbar title="Custom title" />);
 
-  expect(screen.queryByText(/Custom title/i)).toBeInTheDocument();
+  expect(screen.getByText(/Custom title/i)).toBeInTheDocument();
 });
 
 test("should not render a back button by default", () => {

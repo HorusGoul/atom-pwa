@@ -10,7 +10,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-
     env:
       NODE_OPTIONS: "--max_old_space_size=4096"
 
@@ -20,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Set output
         id: vars
@@ -41,4 +40,4 @@ jobs:
         with:
           environment: ${{ steps.vars.outputs.short_ref }}
           version: ${{ github.sha }}
-          sourcemaps: ./dist
+          sourcemaps: ./apps/pwa/dist

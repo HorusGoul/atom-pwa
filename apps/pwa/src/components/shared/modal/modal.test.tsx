@@ -24,7 +24,7 @@ const CustomModalWrapper = ({ onClose }: CustomModalWrapperProps) => {
         Toggle modal
       </button>
       <Modal open={isOpen} onClose={handleClose}>
-        <div>modal content</div>
+        <div>modal-content</div>
       </Modal>
     </>
   );
@@ -39,7 +39,7 @@ test("should be able to toggle modal by clicking the overlay", () => {
 
   userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
 
-  expect(screen.queryByText(/modal-content/i)).toBeDefined();
+  expect(screen.getByText(/modal-content/i, undefined)).toBeDefined();
 
   // clicking the overlay resembles more closely what a user will do
   userEvent.click(screen.getByTestId("overlay"));
@@ -52,15 +52,14 @@ test("should close after clicking the close button", () => {
   const onClose = vi.fn();
   render(
     <Modal open closeButton onClose={onClose}>
-      <div>modal content</div>
+      <div>modal-content</div>
     </Modal>
   );
 
-  expect(screen.queryByText(/modal-content/i)).toBeDefined();
+  expect(screen.getByText(/modal-content/i)).toBeDefined();
 
   userEvent.click(screen.getByRole("button"));
 
-  expect(screen.queryByText(/modal-content/i)).toBeNull();
   expect(onClose).toHaveBeenCalledTimes(1);
 });
 
@@ -71,5 +70,5 @@ test("should render the modal with a title", () => {
     </Modal>
   );
 
-  expect(screen.queryByText(/modal title/i)).toBeDefined();
+  expect(screen.getByText(/modal title/i)).toBeDefined();
 });

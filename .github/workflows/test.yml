@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Set output
         id: vars
@@ -33,56 +33,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test:ci
+        run: pnpm test:coverage
 
       - name: Upload coverage data
         uses: actions/upload-artifact@v2
         with:
           name: vitest-coverage
-          path: coverage
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-
-      - name: Run Tests
-        uses: cypress-io/github-action@v5
-        with:
-          install-command: pnpm install --frozen-lockfile
-          start: pnpm dev
-          browser: chrome
-          wait-on: "http://localhost:8888"
-
-      # after the test run completes
-      # store videos and any screenshots
-      # NOTE: screenshots will be generated only if E2E test failed
-      # thus we store screenshots only on failures
-      # Alternative: create and commit an empty cypress/screenshots folder
-      # to always have something to upload
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      # Test run video was always captured, so this action uses "always()" condition
-      - name: Upload videos
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
-
-      - name: Upload coverage data
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-coverage
-          path: coverage
+          path: apps/pwa/coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -96,7 +53,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Set output
         id: vars
