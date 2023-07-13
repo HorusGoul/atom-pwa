@@ -13,6 +13,14 @@
     },
     "typecheck": {
       "outputs": []
+    },
+    "test": {
+      "outputs": [],
+      "inputs": ["src/**/*.{ts,tsx}", "test/**/*.{ts,tsx}", "vite.config.ts"]
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"],
+      "inputs": ["src/**/*.{ts,tsx}", "test/**/*.{ts,tsx}", "vite.config.ts"]
     }
   }
 }

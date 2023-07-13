@@ -11,7 +11,7 @@
     "lint": "eslint src admin --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "test:ci": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage",
     "cy:install": "cypress install",
     "cy:run": "cypress run",
     "cy:open": "cypress open"

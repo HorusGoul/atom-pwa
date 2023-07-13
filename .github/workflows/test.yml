@@ -33,7 +33,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test:ci
+        run: pnpm test:coverage
 
       - name: Upload coverage data
         uses: actions/upload-artifact@v2
@@ -56,6 +56,7 @@ jobs:
           start: pnpm dev
           browser: chrome
           wait-on: "http://localhost:8888"
+          working-directory: apps/pwa
 
       # after the test run completes
       # store videos and any screenshots
