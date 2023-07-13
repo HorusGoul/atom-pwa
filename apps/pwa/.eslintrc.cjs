@@ -13,7 +13,7 @@ const config = {
     "plugin:import/warnings",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:testing-library/recommended",
+    "plugin:testing-library/dom",
     "plugin:cypress/recommended",
   ],
   parser: "@typescript-eslint/parser",
@@ -34,6 +34,7 @@ const config = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/no-unused-vars": "off",
+    "import/no-unresolved": "off",
   },
   overrides: [
     {

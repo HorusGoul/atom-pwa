@@ -39,7 +39,7 @@ test("should be able to toggle modal by clicking the overlay", () => {
 
   userEvent.click(screen.getByRole("button", { name: /toggle modal/i }));
 
-  expect(screen.queryByText(/modal-content/i)).toBeDefined();
+  expect(screen.getByText(/modal-content/i)).toBeDefined();
 
   // clicking the overlay resembles more closely what a user will do
   userEvent.click(screen.getByTestId("overlay"));
@@ -56,7 +56,7 @@ test("should close after clicking the close button", () => {
     </Modal>
   );
 
-  expect(screen.queryByText(/modal-content/i)).toBeDefined();
+  expect(screen.getByText(/modal-content/i)).toBeDefined();
 
   userEvent.click(screen.getByRole("button"));
 
@@ -71,5 +71,5 @@ test("should render the modal with a title", () => {
     </Modal>
   );
 
-  expect(screen.queryByText(/modal title/i)).toBeDefined();
+  expect(screen.getByText(/modal title/i)).toBeDefined();
 });
