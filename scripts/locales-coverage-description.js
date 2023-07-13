@@ -120,7 +120,7 @@ const languages = {
 };
 
 const percentages = fs.readFileSync(
-  `${__dirname}/../src/locales/percentages.json`
+  `${__dirname}/../apps/pwa/src/locales/percentages.json`
 );
 const rowData = JSON.parse(percentages);
 

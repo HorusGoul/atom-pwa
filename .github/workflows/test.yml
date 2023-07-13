@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Set output
         id: vars
@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: vitest-coverage
-          path: coverage
+          path: apps/pwa/coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -68,7 +68,7 @@ jobs:
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: apps/pwa/cypress/screenshots
 
       # Test run video was always captured, so this action uses "always()" condition
       - name: Upload videos
@@ -76,13 +76,13 @@ jobs:
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: apps/pwa/cypress/videos
 
       - name: Upload coverage data
         uses: actions/upload-artifact@v2
         with:
           name: cypress-coverage
-          path: coverage
+          path: apps/pwa/coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -96,7 +96,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Set output
         id: vars

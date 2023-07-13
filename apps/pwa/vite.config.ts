@@ -10,7 +10,7 @@ import istanbul from "vite-plugin-istanbul";
 const env = process.env;
 
 // Pass the latest commit short hash to the app
-const lcl = new LCL();
+const lcl = new LCL(path.resolve(__dirname, "../../"));
 const commit = lcl.getLastCommitSync();
 env.VITE_COMMIT_SHORT_HASH = commit.shortHash;
 env.VITE_COMMIT_HASH = commit.hash;

@@ -1,5 +1,5 @@
 const { readdirSync, writeFileSync } = require("fs");
-const files = readdirSync(`${__dirname}/../src/locales`);
+const files = readdirSync(`${__dirname}/../apps/pwa/src/locales`);
 
 const locales = files.filter(
   (file) =>
@@ -10,13 +10,13 @@ const locales = files.filter(
 
 const percentages = {};
 
-const baseLocale = require("../src/locales/en.json");
+const baseLocale = require("../apps/pwa/src/locales/en.json");
 
 const totalKeysCount = Object.keys(baseLocale).length;
 
 for (let index = 0; index < locales.length; index++) {
   const currentLocale = locales[index];
-  const data = require(`../src/locales/${currentLocale}`);
+  const data = require(`../apps/pwa/src/locales/${currentLocale}`);
 
   const localeKeysCount = Object.keys(data).length;
 
@@ -26,7 +26,7 @@ for (let index = 0; index < locales.length; index++) {
 }
 
 writeFileSync(
-  `${__dirname}/../src/locales/percentages.json`,
+  `${__dirname}/../apps/pwa/src/locales/percentages.json`,
   `${JSON.stringify(percentages, null, 2)}\n`,
   "utf8"
 );
