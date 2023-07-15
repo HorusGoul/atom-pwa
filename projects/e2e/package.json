@@ -1,0 +1,14 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test:next": "pnpm playwright test",
+    "test:ui": "pnpm playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.36.1",
+    "typescript": "^4.9.4"
+  }
+}
