@@ -4,8 +4,10 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "test:next": "pnpm playwright test",
-    "test:ui": "pnpm playwright test --ui"
+    "test": "pnpm playwright test",
+    "test:next": "ATOM_ENV=next pnpm run test",
+    "test:production": "ATOM_ENV=production pnpm run test",
+    "test:ui": "pnpm run test --ui"
   },
   "devDependencies": {
     "@playwright/test": "^1.36.1",
