@@ -35,14 +35,20 @@ jobs:
       - name: Run tests
         run: pnpm test:coverage
 
-      - name: Upload coverage data
+      - name: Upload integration/unit coverage data
         uses: actions/upload-artifact@v2
         with:
           name: vitest-coverage
           path: apps/pwa/coverage
 
+      - name: Upload e2e coverage data
+        uses: actions/upload-artifact@v2
+        with:
+          name: e2e-coverage
+          path: apps/e2e/coverage
+
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
   typechecking:
     runs-on: ubuntu-latest
     env:
