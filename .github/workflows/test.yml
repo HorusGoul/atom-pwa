@@ -32,20 +32,34 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install Playwright Browsers
+        run: pnpm playwright install-deps
+        working-directory: projecst/e2e
+
       - name: Run tests
         run: pnpm test:coverage
 
       - name: Upload integration/unit coverage data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: vitest-coverage
           path: apps/pwa/coverage
+          retention-days: 30
 
       - name: Upload e2e coverage data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: e2e-coverage
           path: apps/e2e/coverage
+          retention-days: 30
+
+      - name: Upload playwright report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: apps/e2e/playwright-report/
+          retention-days: 30
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
