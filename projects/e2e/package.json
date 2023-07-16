@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "pnpm playwright test",
-    "test:coverage": "ATOM_ENV=local nyc pnpm run test",
+    "test:coverage": "ATOM_ENV=local nyc pnpm run test && pnpm nyc merge coverage/ ./coverage/coverage-final.json",
     "test:next": "ATOM_ENV=next pnpm run test",
     "test:production": "ATOM_ENV=production pnpm run test",
     "test:ui": "pnpm run test --ui"
