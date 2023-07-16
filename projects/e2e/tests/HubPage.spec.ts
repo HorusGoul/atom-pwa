@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test } from "playwright-test-coverage";
 import { HubPage } from "@/HubPage";
 
 test("HubPage should have a title", async ({ page }) => {

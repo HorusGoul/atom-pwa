@@ -256,9 +256,18 @@ importers:
 
   projects/e2e:
     devDependencies:
+      '@istanbuljs/nyc-config-typescript':
+        specifier: ^1.0.2
+        version: 1.0.2(nyc@15.1.0)
       '@playwright/test':
         specifier: ^1.36.1
         version: 1.36.1
+      nyc:
+        specifier: ^15.1.0
+        version: 15.1.0
+      playwright-test-coverage:
+        specifier: ^1.2.12
+        version: 1.2.12(@playwright/test@1.36.1)
       typescript:
         specifier: ^4.9.4
         version: 4.9.4
@@ -428,7 +437,7 @@ packages:
       debug: 4.3.4(supports-color@7.2.0)
       lodash.debounce: 4.0.8
       resolve: 1.22.2
-      semver: 6.3.0
+      semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1337,7 +1346,7 @@ packages:
       babel-plugin-polyfill-corejs3: 0.1.7(@babel/core@7.20.12)(supports-color@7.2.0)
       babel-plugin-polyfill-regenerator: 0.1.6(@babel/core@7.20.12)(supports-color@7.2.0)
       core-js-compat: 3.9.1
-      semver: 6.3.0
+      semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2026,6 +2035,16 @@ packages:
       resolve-from: 5.0.0
     dev: true
 
+  /@istanbuljs/nyc-config-typescript@1.0.2(nyc@15.1.0):
+    resolution: {integrity: sha512-iKGIyMoyJuFnJRSVTZ78POIRvNnwZaWIf8vG4ZS3rQq58MMDrqEX2nnzx0R28V2X8JvmKYiqY9FP2hlJsm8A0w==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      nyc: '>=15'
+    dependencies:
+      '@istanbuljs/schema': 0.1.3
+      nyc: 15.1.0
+    dev: true
+
   /@istanbuljs/schema@0.1.3:
     resolution: {integrity: sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==}
     engines: {node: '>=8'}
@@ -2396,7 +2415,7 @@ packages:
       precinct: 6.3.1(supports-color@7.2.0)
       require-package-name: 2.0.1
       resolve: 2.0.0-next.3
-      semver: 6.3.0
+      semver: 6.3.1
       unixify: 1.0.0
       yargs: 15.4.1
     transitivePeerDependencies:
@@ -3684,7 +3703,7 @@ packages:
       glob: 7.1.6
       is-glob: 4.0.3
       lodash: 4.17.21
-      semver: 7.3.4
+      semver: 7.5.4
       tsutils: 3.21.0(typescript@3.9.9)
       typescript: 3.9.9
     transitivePeerDependencies:
@@ -4003,7 +4022,7 @@ packages:
       global-cache-dir: 2.0.0
       jest-validate: 25.5.0
       path-exists: 4.0.0
-      semver: 7.3.4
+      semver: 7.5.4
       write-file-atomic: 3.0.3
     dev: true
 
@@ -4562,7 +4581,7 @@ packages:
       '@babel/compat-data': 7.20.10
       '@babel/core': 7.20.12(supports-color@7.2.0)
       '@babel/helper-define-polyfill-provider': 0.1.5(@babel/core@7.20.12)(supports-color@7.2.0)
-      semver: 6.3.0
+      semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5292,7 +5311,7 @@ packages:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
     dependencies:
       string-width: 4.2.2
-      strip-ansi: 6.0.0
+      strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
     dev: true
 
@@ -5300,7 +5319,7 @@ packages:
     resolution: {integrity: sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==}
     dependencies:
       string-width: 4.2.2
-      strip-ansi: 6.0.0
+      strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
     dev: true
 
@@ -5896,7 +5915,7 @@ packages:
       decompress-tarbz2: 4.1.1
       decompress-targz: 4.1.1
       decompress-unzip: 4.0.1
-      graceful-fs: 4.2.6
+      graceful-fs: 4.2.11
       make-dir: 1.3.0
       pify: 2.3.0
       strip-dirs: 2.1.0
@@ -6918,7 +6937,7 @@ packages:
       is-stream: 1.1.0
       npm-run-path: 2.0.2
       p-finally: 1.0.0
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
       strip-eof: 1.0.0
     dev: true
 
@@ -6934,7 +6953,7 @@ packages:
       npm-run-path: 4.0.1
       onetime: 5.1.2
       p-finally: 2.0.1
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
       strip-final-newline: 2.0.0
     dev: true
 
@@ -7802,7 +7821,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.4
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -8195,7 +8214,7 @@ packages:
     resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
     engines: {node: '>=8'}
     dependencies:
-      is-stream: 2.0.0
+      is-stream: 2.0.1
       type-fest: 0.8.1
     dev: true
 
@@ -9169,7 +9188,7 @@ packages:
       '@babel/core': 7.20.12(supports-color@7.2.0)
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
-      semver: 6.3.0
+      semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9979,7 +9998,7 @@ packages:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
     dependencies:
-      semver: 6.3.0
+      semver: 6.3.1
     dev: true
 
   /map-cache@0.2.2:
@@ -11703,7 +11722,7 @@ packages:
       all-node-versions: 8.0.0
       filter-obj: 2.0.1
       jest-validate: 25.5.0
-      semver: 7.3.4
+      semver: 7.5.4
     dev: true
 
   /normalize-package-data@2.5.0:
@@ -11811,7 +11830,7 @@ packages:
       process-on-spawn: 1.0.0
       resolve-from: 5.0.0
       rimraf: 3.0.2
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
       spawn-wrap: 2.0.0
       test-exclude: 6.0.0
       yargs: 15.4.1
@@ -12256,7 +12275,7 @@ packages:
     resolution: {integrity: sha512-whdkPIooSu/bASggZ96BWVvZTRMOFxnyUG5PnTSGKoJE2gd5mbVNmR2Nj20QFzxYYgAXpoqC+AiXzl+UMRh7zQ==}
     engines: {node: '>=8'}
     dependencies:
-      graceful-fs: 4.2.6
+      graceful-fs: 4.2.11
       hasha: 5.2.2
       lodash.flattendeep: 4.4.0
       release-zalgo: 1.0.0
@@ -12269,7 +12288,7 @@ packages:
       got: 9.6.0
       registry-auth-token: 4.2.1
       registry-url: 5.1.0
-      semver: 6.3.0
+      semver: 6.3.1
     dev: true
 
   /parallel-transform@1.2.0:
@@ -12508,6 +12527,14 @@ packages:
     resolution: {integrity: sha512-7+tmPuMcEW4xeCL9cp9KxmYpQYHKkyjwoXRnoeTowaeNat8PoBMk/HwCYhqkH2fRkshfKEOiVus/IhID2Pg8kg==}
     engines: {node: '>=16'}
     hasBin: true
+    dev: true
+
+  /playwright-test-coverage@1.2.12(@playwright/test@1.36.1):
+    resolution: {integrity: sha512-WdR3shV+7IWtlB1AZcXSysUyZmyAqXM9+DT3iBSS1p4SkJoWZslkTqk04l5ZExSkuaM+5fKl0M9TyUuJWuGgLA==}
+    peerDependencies:
+      '@playwright/test': ^1.14.1
+    dependencies:
+      '@playwright/test': 1.36.1
     dev: true
 
   /please-upgrade-node@3.2.0:
@@ -13923,7 +13950,7 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       onetime: 2.0.1
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
     dev: true
 
   /restore-cursor@3.1.0:
@@ -13931,7 +13958,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       onetime: 5.1.2
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
     dev: true
 
   /ret@0.1.15:
@@ -14126,7 +14153,7 @@ packages:
     resolution: {integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==}
     engines: {node: '>=8'}
     dependencies:
-      semver: 6.3.0
+      semver: 6.3.1
     dev: true
 
   /semver@5.7.1:
@@ -15119,7 +15146,7 @@ packages:
     resolution: {integrity: sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==}
     engines: {node: '>=10'}
     dependencies:
-      is-stream: 2.0.0
+      is-stream: 2.0.1
       temp-dir: 2.0.0
       type-fest: 0.16.0
       unique-string: 2.0.0
