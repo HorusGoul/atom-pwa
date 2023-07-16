@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Playwright Browsers
         run: pnpm playwright install-deps
-        working-directory: projecst/e2e
+        working-directory: projects/e2e
 
       - name: Run tests
         run: pnpm test:coverage
