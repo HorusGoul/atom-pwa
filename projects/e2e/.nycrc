@@ -8,9 +8,9 @@
   ],
   "exclude": [
     "apps/pwa/src/**/*.test.ts",
-    "apps/pwa/src/**/*.test.tsx"
+    "apps/pwa/src/**/*.test.tsx",
+    "apps/pwa/src/**/*.d.ts"
   ],
   "cwd": "../../",
-  "report-dir": "projects/e2e/coverage",
   "temp-dir": "projects/e2e/.nyc_output"
 }
