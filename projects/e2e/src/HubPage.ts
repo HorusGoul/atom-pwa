@@ -45,6 +45,10 @@ export class HubPage {
     return this.page.getByRole("button", { name: "Resources" });
   }
 
+  get rateAppButton() {
+    return this.page.getByRole("button", { name: "Do you like this app?" });
+  }
+
   constructor(public readonly page: Page) {}
 
   async goto() {
@@ -116,5 +120,61 @@ export class HubPage {
     await expect(this.page.getByText("Work in Progress")).toBeVisible();
     await this.page.getByRole("button", { name: "Close" }).click();
     await expect(this.page.getByText("Work in Progress")).toBeHidden();
+  }
+
+  async rateAppCancel() {
+    await expect(this.rateAppButton).toBeHidden();
+
+    await this.page.reload();
+    await this.page.reload();
+    await this.page.reload();
+
+    await expect(this.rateAppButton).toBeVisible();
+
+    await this.rateAppButton.click();
+
+    await expect(
+      this.page.getByText(
+        "If you think this app is useful, please rate it at the store so others will find it and learn too."
+      )
+    ).toBeVisible();
+
+    await this.page.getByRole("button", { name: "Cancel" }).click();
+
+    await expect(
+      this.page.getByText(
+        "If you think this app is useful, please rate it at the store so others will find it and learn too."
+      )
+    ).toBeHidden();
+
+    await expect(this.rateAppButton).toBeHidden();
+  }
+
+  async rateAppOk() {
+    await expect(this.rateAppButton).toBeHidden();
+
+    await this.page.reload();
+    await this.page.reload();
+    await this.page.reload();
+
+    await expect(this.rateAppButton).toBeVisible();
+
+    await this.rateAppButton.click();
+
+    await expect(
+      this.page.getByText(
+        "If you think this app is useful, please rate it at the store so others will find it and learn too."
+      )
+    ).toBeVisible();
+
+    await this.page.getByRole("button", { name: "Ok" }).click();
+
+    await expect(
+      this.page.getByText(
+        "If you think this app is useful, please rate it at the store so others will find it and learn too."
+      )
+    ).toBeHidden();
+
+    await expect(this.rateAppButton).toBeHidden();
   }
 }

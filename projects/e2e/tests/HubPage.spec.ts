@@ -1,4 +1,4 @@
-import { test } from "playwright-test-coverage";
+import { expect, test } from "playwright-test-coverage";
 import { HubPage } from "@/HubPage";
 
 test("HubPage should have a title", async ({ page }) => {
@@ -63,4 +63,40 @@ test("HubPage's open resources button works", async ({ page }) => {
 
   await hubPage.goto();
   await hubPage.openResources();
+});
+
+test("HubPage's Rate App button works when cancelling", async ({ page }) => {
+  const hubPage = new HubPage(page);
+
+  await page.addInitScript(() => {
+    // Mock the AtomNative bridge
+    // @ts-ignore
+    window.AtomNative = {
+      getDebugMode: () => true,
+      isHybrid: () => true,
+      getSystemLanguage: () => "en",
+      rateApp: () => null,
+    };
+  });
+
+  await hubPage.goto();
+  await hubPage.rateAppCancel();
+});
+
+test("HubPage's Rate App button works when clicking ok", async ({ page }) => {
+  const hubPage = new HubPage(page);
+
+  await page.addInitScript(() => {
+    // Mock the AtomNative bridge
+    // @ts-ignore
+    window.AtomNative = {
+      getDebugMode: () => true,
+      isHybrid: () => true,
+      getSystemLanguage: () => "en",
+      rateApp: () => null,
+    };
+  });
+
+  await hubPage.goto();
+  await hubPage.rateAppOk();
 });
