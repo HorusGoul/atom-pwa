@@ -8,17 +8,18 @@ import { defineConfig, devices } from "@playwright/test";
 
 let ATOM_ENV = process.env.ATOM_ENV ?? null;
 let ATOM_BASE_URL = process.env.ATOM_BASE_URL ?? null;
+let env: "production" | "next" | "local";
 
 switch (ATOM_ENV) {
   case "production":
-    ATOM_ENV = "production";
+    env = "production";
     break;
   case "next":
-    ATOM_ENV = "next";
+    env = "next";
     break;
   case "local":
   default:
-    ATOM_ENV = "local";
+    env = "local";
 }
 
 const baseUrlByEnv = {
@@ -27,7 +28,7 @@ const baseUrlByEnv = {
   local: "http://localhost:8888",
 };
 
-const baseUrl = ATOM_BASE_URL ?? (baseUrlByEnv[ATOM_ENV] as string);
+const baseUrl = ATOM_BASE_URL ?? baseUrlByEnv[env];
 
 /**
  * See https://playwright.dev/docs/test-configuration.
