@@ -6,6 +6,7 @@ import IconButton from "../icon-button/IconButton";
 import { ModalProps } from "../modal/Modal";
 import "../modal/Modal.scss";
 import Overlay from "../overlay/Overlay";
+import { useLocale } from "@/hooks/useLocale";
 
 type ModalContentProps = Omit<ModalProps, "open">;
 
@@ -136,6 +137,8 @@ function SwipeableModalContent({
   className,
   children,
 }: ModalContentProps) {
+  // TODO: Don't use App's i18n here, use the one from the Design System instead
+  const { i18n } = useLocale();
   const showHeader = !!title || closeButton;
   const { frontDivRef, opacity, translateX } = useSwipeToClose(onClose);
 
@@ -169,6 +172,7 @@ function SwipeableModalContent({
                 className="modal__header__close-button"
                 iconName="close"
                 onClick={onClose}
+                aria-label={i18n("Close")}
               />
             )}
           </div>
