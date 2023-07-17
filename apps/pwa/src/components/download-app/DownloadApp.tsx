@@ -38,7 +38,7 @@ function DownloadApp() {
   if (
     !flags.showDownloadAppAndroid ||
     config.downloaded ||
-    config.timesLaunched === 0
+    config.timesLaunched < 2
   ) {
     return null;
   }

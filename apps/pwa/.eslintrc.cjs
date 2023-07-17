@@ -2,9 +2,6 @@
  * @type {import('eslint').Linter.Config}
  */
 const config = {
-  env: {
-    "cypress/globals": true,
-  },
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
@@ -14,7 +11,6 @@ const config = {
     "plugin:import/errors",
     "plugin:import/typescript",
     "plugin:testing-library/dom",
-    "plugin:cypress/recommended",
   ],
   parser: "@typescript-eslint/parser",
   plugins: [

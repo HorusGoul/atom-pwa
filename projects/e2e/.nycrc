@@ -1,0 +1,16 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "all": true,
+  "check-coverage": false,
+  "include": [
+    "apps/pwa/src/**/*.ts",
+    "apps/pwa/src/**/*.tsx"
+  ],
+  "exclude": [
+    "apps/pwa/src/**/*.test.ts",
+    "apps/pwa/src/**/*.test.tsx",
+    "apps/pwa/src/**/*.d.ts"
+  ],
+  "cwd": "../../",
+  "temp-dir": "projects/e2e/.nyc_output"
+}
