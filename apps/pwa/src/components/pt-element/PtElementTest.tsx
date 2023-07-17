@@ -73,7 +73,7 @@ function PtElementTest({
       </div>
 
       {showError && (
-        <div className="pt-element__error" role="alert">
+        <div className="pt-element__error" role="alert" aria-label="Oops!">
           <Icon name="close" aria-hidden={true} />
 
           <div>Oops!</div>
