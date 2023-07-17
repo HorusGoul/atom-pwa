@@ -38,6 +38,8 @@ function QuestionCard({ question, title, onAnswerClick }: QuestionCardProps) {
           },
           question.questionClass
         )}
+        aria-live="polite"
+        data-testid="question-title"
       >
         {question.question}
       </div>
@@ -45,9 +47,10 @@ function QuestionCard({ question, title, onAnswerClick }: QuestionCardProps) {
       <div className="question-card__answers">
         {question.answers.map((answer, index) => (
           <QuestionCardAnswer
-            key={index}
+            key={answer.answer}
             answer={answer}
             onClick={onQuestionCardAnswerClickListener(answer)}
+            index={index}
           />
         ))}
       </div>

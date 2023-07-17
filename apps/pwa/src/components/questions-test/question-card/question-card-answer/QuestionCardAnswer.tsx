@@ -11,10 +11,12 @@ export interface Answer {
 
 interface QuestionCardAnswerProps extends Omit<ButtonProps, "children"> {
   answer: Answer;
+  index: number;
 }
 
 function QuestionCardAnswer({
   answer: { answer, right },
+  index,
   onClick,
 }: QuestionCardAnswerProps) {
   const [clicked, setClicked] = React.useState(false);
@@ -34,7 +36,11 @@ function QuestionCardAnswer({
   });
 
   return (
-    <Button className={answerClass} onClick={onButtonClick}>
+    <Button
+      className={answerClass}
+      onClick={onButtonClick}
+      id={`question-answer-${index}`}
+    >
       {answer}
     </Button>
   );

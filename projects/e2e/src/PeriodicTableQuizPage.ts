@@ -1,8 +1,11 @@
 import type { Page } from "@playwright/test";
 import { expect } from "playwright-test-coverage";
 import { mapSymbolToAtomicNumber } from "./data/PeriodicTableQuiz";
+import { QuizPage } from "./QuizPage";
 
-export class PeriodicTableQuizPage {
+export class PeriodicTableQuizPage extends QuizPage {
+  pathname = "/tests/periodic-table";
+
   get title() {
     return this.page.getByText("Periodic Table Test");
   }
@@ -29,53 +32,11 @@ export class PeriodicTableQuizPage {
     return this.page.getByRole("alert", { name: "Oops!" });
   }
 
-  get testResultsTitle() {
-    return this.page.getByText("Test Results");
-  }
-
-  get retakeFullTestButton() {
-    return this.page.getByRole("button", { name: "Retake full test" });
-  }
-
-  get retakeIncorrectAnswersButton() {
-    return this.page.getByRole("button", { name: "Retake incorrect answers" });
-  }
-
-  get goBackButton() {
-    return this.page.getByRole("button", { name: "Go back" });
-  }
-
-  get settingsButton() {
-    return this.page.getByRole("button", { name: "Settings" });
-  }
-
-  get areYouSureDialog() {
-    return this.page.getByRole("dialog", { name: "Are you sure?" });
-  }
-
-  get areYouSureDialogContinueButton() {
-    return this.areYouSureDialog.getByRole("button", { name: "Continue" });
-  }
-
-  get areYouSureDialogCancelButton() {
-    return this.areYouSureDialog.getByRole("button", { name: "Cancel" });
-  }
-
-  get areYouSureDialogCloseButton() {
-    return this.areYouSureDialog.getByRole("button", { name: "Close" });
-  }
-
-  constructor(public readonly page: Page) {}
-
   getElementButtonByAtomicNumber(atomicNumber: number) {
     // Regexp that matches "2. " but not "12. "
     const regex = new RegExp(`^${atomicNumber}\\. `, "i");
 
     return this.page.getByLabel(regex);
-  }
-
-  async goto() {
-    await this.page.goto("/tests/periodic-table");
   }
 
   async titleIsVisible() {
@@ -104,18 +65,6 @@ export class PeriodicTableQuizPage {
     await expect(this.oopsAlert).toBeHidden();
   }
 
-  async testResultsTitleIsVisible() {
-    await expect(this.testResultsTitle).toBeVisible();
-  }
-
-  async retakeFullTestButtonIsVisible() {
-    await expect(this.retakeFullTestButton).toBeVisible();
-  }
-
-  async retakeIncorrectAnswersButtonIsVisible() {
-    await expect(this.retakeIncorrectAnswersButton).toBeVisible();
-  }
-
   async completeTheTableWithoutMistakes() {
     await this.completeTheTable();
     await expect(this.page.getByText("118/118")).toBeVisible();
@@ -138,34 +87,6 @@ export class PeriodicTableQuizPage {
   async retakeFullTest() {
     await this.retakeFullTestButton.click();
     await this.completeTheTableWithoutMistakes();
-  }
-
-  async goBack() {
-    await this.goBackButton.click();
-    await expect(this.areYouSureDialog).toBeVisible();
-  }
-
-  async openSettings() {
-    await this.settingsButton.click();
-    await expect(this.areYouSureDialog).toBeVisible();
-  }
-
-  async confirmAreYouSureDialog() {
-    await this.areYouSureDialogContinueButton.click();
-    await expect(this.areYouSureDialog).toBeHidden();
-    await expect(this.title).toBeHidden();
-  }
-
-  async cancelAreYouSureDialog() {
-    await this.areYouSureDialogCancelButton.click();
-    await expect(this.areYouSureDialog).toBeHidden();
-    await this.titleIsVisible();
-  }
-
-  async closeAreYouSureDialog() {
-    await this.areYouSureDialogCloseButton.click();
-    await expect(this.areYouSureDialog).toBeHidden();
-    await this.titleIsVisible();
   }
 
   private async completeTheTable() {
