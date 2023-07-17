@@ -49,6 +49,12 @@ export class HubPage {
     return this.page.getByRole("button", { name: "Do you like this app?" });
   }
 
+  get downloadAppButton() {
+    return this.page.getByRole("button", {
+      name: "Download the official app!",
+    });
+  }
+
   constructor(public readonly page: Page) {}
 
   async goto() {
@@ -176,5 +182,15 @@ export class HubPage {
     ).toBeHidden();
 
     await expect(this.rateAppButton).toBeHidden();
+  }
+
+  async downloadApp() {
+    await expect(this.downloadAppButton).toBeHidden();
+
+    await this.page.reload();
+
+    await expect(this.downloadAppButton).toBeVisible();
+
+    await this.downloadAppButton.click();
   }
 }

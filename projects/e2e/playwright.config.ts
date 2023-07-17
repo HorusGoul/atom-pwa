@@ -58,20 +58,24 @@ export default defineConfig({
     {
       name: "Desktop Chrome",
       use: { ...devices["Desktop Chrome"] },
+      grepInvert: [/@android/i, /@ios/i],
     },
     {
       name: "Desktop Safari",
       use: { ...devices["Desktop Safari"] },
+      grepInvert: [/@android/i, /@ios/i],
     },
 
     /* Test against mobile viewports. */
     {
       name: "Mobile Chrome",
       use: { ...devices["Pixel 5"] },
+      grepInvert: [/@ios/i, /@desktop/i],
     },
     {
       name: "Mobile Safari",
       use: { ...devices["iPhone 12"] },
+      grepInvert: [/@android/i, /@desktop/i],
     },
 
     /* Test against branded browsers. */

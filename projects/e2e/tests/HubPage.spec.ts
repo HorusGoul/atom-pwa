@@ -65,38 +65,55 @@ test("HubPage's open resources button works", async ({ page }) => {
   await hubPage.openResources();
 });
 
-test("HubPage's Rate App button works when cancelling", async ({ page }) => {
-  const hubPage = new HubPage(page);
+test.describe("@android", () => {
+  test("HubPage's Rate App button works when cancelling", async ({ page }) => {
+    const hubPage = new HubPage(page);
 
-  await page.addInitScript(() => {
-    // Mock the AtomNative bridge
-    // @ts-ignore
-    window.AtomNative = {
-      getDebugMode: () => true,
-      isHybrid: () => true,
-      getSystemLanguage: () => "en",
-      rateApp: () => null,
-    };
+    await page.addInitScript(() => {
+      // Mock the AtomNative bridge
+      // @ts-ignore
+      window.AtomNative = {
+        getDebugMode: () => true,
+        isHybrid: () => true,
+        getSystemLanguage: () => "en",
+        rateApp: () => null,
+      };
+    });
+
+    await hubPage.goto();
+    await hubPage.rateAppCancel();
   });
 
-  await hubPage.goto();
-  await hubPage.rateAppCancel();
-});
+  test("HubPage's Rate App button works when clicking ok", async ({ page }) => {
+    const hubPage = new HubPage(page);
 
-test("HubPage's Rate App button works when clicking ok", async ({ page }) => {
-  const hubPage = new HubPage(page);
+    await page.addInitScript(() => {
+      // Mock the AtomNative bridge
+      // @ts-ignore
+      window.AtomNative = {
+        getDebugMode: () => true,
+        isHybrid: () => true,
+        getSystemLanguage: () => "en",
+        rateApp: () => null,
+      };
+    });
 
-  await page.addInitScript(() => {
-    // Mock the AtomNative bridge
-    // @ts-ignore
-    window.AtomNative = {
-      getDebugMode: () => true,
-      isHybrid: () => true,
-      getSystemLanguage: () => "en",
-      rateApp: () => null,
-    };
+    await hubPage.goto();
+    await hubPage.rateAppOk();
   });
 
-  await hubPage.goto();
-  await hubPage.rateAppOk();
+  test("HubPage's Download app button works", async ({ page }) => {
+    const hubPage = new HubPage(page);
+
+    await page.route("/api/flags", (route) =>
+      route.fulfill({
+        json: {
+          showDownloadAppAndroid: true,
+        },
+      })
+    );
+
+    await hubPage.goto();
+    await hubPage.downloadApp();
+  });
 });
