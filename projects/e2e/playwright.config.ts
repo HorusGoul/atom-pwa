@@ -6,6 +6,8 @@ import { defineConfig, devices } from "@playwright/test";
  */
 // require('dotenv').config();
 
+const isCI = !!process.env.CI;
+
 let ATOM_ENV = process.env.ATOM_ENV ?? null;
 let ATOM_BASE_URL = process.env.ATOM_BASE_URL ?? null;
 let env: "production" | "next" | "local";
@@ -56,12 +58,13 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
+    !isCI && {
       name: "Desktop Chrome",
       use: { ...devices["Desktop Chrome"] },
       grepInvert: [/@android/i, /@ios/i],
     },
-    {
+
+    !isCI && {
       name: "Desktop Safari",
       use: { ...devices["Desktop Safari"] },
       grepInvert: [/@android/i, /@ios/i],
@@ -88,7 +91,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  ].filter(isTruthy),
 
   /* Run your local dev server before starting the tests */
   webServer:
@@ -100,3 +103,7 @@ export default defineConfig({
         }
       : undefined,
 });
+
+function isTruthy<T>(value: T | null | undefined | false): value is T {
+  return !!value;
+}
