@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
 import Button from "../shared/button/Button";
@@ -7,10 +7,10 @@ import { logEvent } from "@/services/spycat";
 import "./NotFound.scss";
 
 function NotFound() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
 
-  const goHome = React.useCallback(() => history.push(HUB), [history]);
+  const goHome = React.useCallback(() => navigate(HUB), [navigate]);
 
   React.useEffect(() => {
     logEvent("404", { path: window.location.pathname });

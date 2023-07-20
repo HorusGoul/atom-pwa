@@ -2,9 +2,7 @@ import * as React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import About from "./About";
-import { Location } from "history";
 import { render } from "@/test-utils";
-import { Route } from "react-router-dom";
 
 test.each([
   {
@@ -77,19 +75,9 @@ test("should validate Report bug link", () => {
 });
 
 test("should invoke onNavbarBackButtonClick", () => {
-  let testLocation: Location;
-
-  const { container } = render(
+  const { container, route } = render(
     <>
       <About />
-
-      <Route
-        path="/"
-        render={({ location }) => {
-          testLocation = location;
-          return null;
-        }}
-      />
     </>,
     {
       initialHistoryEntries: ["/about"],
@@ -101,5 +89,5 @@ test("should invoke onNavbarBackButtonClick", () => {
   ) as HTMLAnchorElement;
 
   userEvent.click(navButton);
-  expect(testLocation!.pathname).toBe("/");
+  expect(route.location.pathname).toBe("/");
 });

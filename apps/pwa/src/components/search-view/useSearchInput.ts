@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { useQuery } from "@/hooks/useQuery";
 
 export function useSearchInput(type: "push" | "replace") {
   const { i18n } = useLocale();
-  const history = useHistory();
+  const navigate = useNavigate();
   const query = useQuery();
   const value = query.get("search") ?? "";
 
@@ -13,9 +13,14 @@ export function useSearchInput(type: "push" | "replace") {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const query = encodeURIComponent(event.target.value);
 
-      history[type]({ search: query ? `search=${query}` : "openSearch=true" });
+      navigate(
+        { search: query ? `search=${query}` : "openSearch=true" },
+        {
+          replace: type === "replace",
+        }
+      );
     },
-    [type, history]
+    [type, navigate]
   );
 
   return {

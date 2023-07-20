@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
 import IconButton from "../shared/icon-button/IconButton";
@@ -12,6 +11,7 @@ import { useMassCalculator } from "./hooks/useMassCalculator";
 import { useModal } from "./hooks/useModal";
 import "./MassCalculator.scss";
 import { useAddRecent } from "@/hooks/useRecent";
+import { useNavigate } from "react-router-dom";
 
 function MassCalculator() {
   const {
@@ -29,14 +29,14 @@ function MassCalculator() {
     changeAmount,
   } = useMassCalculator();
   const { addModal, editModal } = useModal();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
 
   useAddRecent("mass-calculator");
 
   const onNavbarBackButtonClick = React.useCallback(() => {
-    history.push(HUB);
-  }, [history]);
+    navigate(HUB);
+  }, [navigate]);
 
   return (
     <div className="mass-calculator">

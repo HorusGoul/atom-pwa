@@ -22,7 +22,6 @@
     "classnames": "^2.3.1",
     "focus-trap-react": "^8.4.2",
     "hammerjs": "^2.0.8",
-    "history": "^4",
     "immer": "^9.0.6",
     "invariant": "^2.2.4",
     "minisearch": "^3.0.2",
@@ -30,12 +29,12 @@
     "netlify-cms-core": "^2.55.2",
     "netlify-identity-widget": "^1.9.1",
     "normalize.css": "^8.0.1",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-component-pack": "^1.0.1",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0",
     "react-hyper-scroller": "^3.1.0-beta.2",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.14.2",
     "react-zoom-pan-pinch": "^3.0.7",
     "use-debounce": "^6.0.1",
     "workbox-precaching": "^6.5.4",
@@ -54,12 +53,10 @@
     "@types/body-scroll-lock": "^2.6.1",
     "@types/classnames": "^2.2.11",
     "@types/hammerjs": "^2.0.39",
-    "@types/history": "^4",
     "@types/invariant": "^2.2.34",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.3",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "@types/react-helmet": "^6.1.0",
-    "@types/react-router-dom": "^5.1.7",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -95,7 +92,7 @@
     "workbox-cli": "^6.1.0"
   },
   "resolutions": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

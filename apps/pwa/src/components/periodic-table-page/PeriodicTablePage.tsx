@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Route, useHistory, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
@@ -13,14 +13,14 @@ import "./PeriodicTablePage.scss";
 import { useAddRecent } from "@/hooks/useRecent";
 
 function PeriodicTablePage() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
   const { getElement } = useElements();
 
   useAddRecent("periodic-table");
 
   const onNavbarBackButtonClick = () => {
-    history.push(HUB);
+    navigate(HUB);
   };
 
   const elementRenderer = (atomic: number) => {
@@ -30,7 +30,7 @@ function PeriodicTablePage() {
       <PtElementInfo
         element={element}
         onClick={(element: Element) => {
-          history.push(`${PERIODIC_TABLE}/${element.atomic}`);
+          navigate(`${PERIODIC_TABLE}/${element.atomic}`);
         }}
       />
     );
@@ -46,7 +46,7 @@ function PeriodicTablePage() {
           label: i18n("Search"),
           iconName: "search",
           onClick: () =>
-            history.push({
+            navigate({
               search: "openSearch=true",
             }),
         }}
@@ -56,26 +56,24 @@ function PeriodicTablePage() {
         <PeriodicTable elementRenderer={elementRenderer} />
       </div>
 
-      <Route path={`${PERIODIC_TABLE}/:atomic`}>
-        <ElementInfoView />
-      </Route>
+      <Outlet />
     </div>
   );
 }
 
 export default PeriodicTablePage;
 
-function ElementInfoView() {
+export function ElementInfoView() {
   const { getElement } = useElements();
   const { atomic } = useParams<{ atomic: string }>();
   const element = getElement(Number(atomic));
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <SwipeableModal
       className="periodic-table-page__modal-element-info"
       open={true}
-      onClose={() => history.replace(PERIODIC_TABLE)}
+      onClose={() => navigate(PERIODIC_TABLE, { replace: true })}
     >
       <ElementInfo element={element} />
     </SwipeableModal>

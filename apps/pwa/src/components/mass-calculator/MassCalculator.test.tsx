@@ -3,20 +3,12 @@ import { screen } from "@testing-library/react";
 import { render } from "@/test-utils";
 import userEvent from "@testing-library/user-event";
 import MassCalculator from "./MassCalculator";
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
 import "hammerjs";
 
 test("should render mass calculator", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   expect(screen.getByText(/mass calculator/i)).toBeInTheDocument();
   expect(screen.getByText(/total/i)).toBeInTheDocument();
@@ -28,15 +20,9 @@ test("should render mass calculator", () => {
 });
 
 test("should clear elements", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   userEvent.click(screen.getByText(/clear/i));
   expect(screen.getByText(/0 g \/ mol/i)).toBeInTheDocument();
@@ -44,15 +30,9 @@ test("should clear elements", () => {
 });
 
 test("should add elements and verify total mass", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   // clear elements
   userEvent.click(screen.getByText(/clear/i));
@@ -81,15 +61,9 @@ test("should add elements and verify total mass", () => {
 });
 
 test("should be able to increase and decrease element amount with icons", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   // clear elements
   userEvent.click(screen.getByText(/clear/i));
@@ -118,15 +92,9 @@ test("should be able to increase and decrease element amount with icons", () => 
 });
 
 test("should increase element amount by +1 if user add same element again", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   // clear elements
   userEvent.click(screen.getByText(/clear/i));
@@ -147,30 +115,18 @@ test("should increase element amount by +1 if user add same element again", () =
 });
 
 test("should navigate back", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  const { route } = render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
 
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
-
   userEvent.click(screen.getAllByRole("button")[0]);
-  expect(history.location.pathname).toBe("/");
+  expect(route.location.pathname).toBe("/");
 });
 
 test("should not allow user to add negative amounts", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   // clear elements
   userEvent.click(screen.getByText(/clear/i));
@@ -198,15 +154,9 @@ test("should not allow user to add negative amounts", () => {
 });
 
 test("should be able to close add element modal by clicking on overlay", () => {
-  const history = createMemoryHistory({
-    initialEntries: ["/mass-calculator"],
+  render(<MassCalculator />, {
+    initialHistoryEntries: ["/mass-calculator"],
   });
-
-  render(
-    <Router history={history}>
-      <MassCalculator />
-    </Router>
-  );
 
   // clear elements
   userEvent.click(screen.getByText(/clear/i));

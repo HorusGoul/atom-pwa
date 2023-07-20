@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
 import LocaleSelector from "@/components/locale-selector/LocaleSelector";
@@ -11,11 +11,11 @@ import "./About.scss";
 import { FULL_VERSION } from "@/constants";
 
 function About() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
 
-  const onNavbarBackButtonClick = React.useCallback(() => history.push(HUB), [
-    history,
+  const onNavbarBackButtonClick = React.useCallback(() => navigate(HUB), [
+    navigate,
   ]);
   return (
     <div className="about">

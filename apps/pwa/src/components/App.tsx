@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
-import { Route, Switch } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Route, Routes } from "react-router-dom";
 import {
   ABOUT,
   HUB,
@@ -18,7 +18,9 @@ import About from "./about/About";
 import "./App.scss";
 import MassCalculator from "./mass-calculator/MassCalculator";
 import NotFound from "./not-found/NotFound";
-import PeriodicTablePage from "./periodic-table-page/PeriodicTablePage";
+import PeriodicTablePage, {
+  ElementInfoView,
+} from "./periodic-table-page/PeriodicTablePage";
 import PeriodicTableTest from "./periodic-table-test/PeriodicTableTest";
 import PeriodicTableTestSettings from "./periodic-table-test/settings/PeriodicTableTestSettings";
 import TestSelection from "./test-selection/TestSelection";
@@ -32,6 +34,9 @@ import ConfirmProvider from "./shared/confirm";
 import { ServiceWorkerProvider } from "@/contexts/ServiceWorkerContext";
 
 const ProviderPack = createPack(
+  (HelmetProvider as unknown) as React.FunctionComponent<{
+    children: React.ReactNode;
+  }>,
   ServiceWorkerProvider,
   ElementProvider,
   ConfirmProvider
@@ -69,45 +74,43 @@ function App() {
         </Helmet>
 
         <div className="app__content">
-          <Switch>
-            <Route exact={true} path={HUB}>
-              <SearchView />
-              <Hub />
-            </Route>
+          <Routes>
             <Route
-              exact={true}
-              path={TEST_SELECTION}
-              component={TestSelection}
+              path={HUB}
+              element={
+                <>
+                  <SearchView />
+                  <Hub />
+                </>
+              }
             />
-            <Route exact={true} path={TEST_VALENCES} component={ValencesTest} />
+            <Route path={TEST_SELECTION} element={<TestSelection />} />
+            <Route path={TEST_VALENCES} element={<ValencesTest />} />
             <Route
-              exact={true}
               path={TEST_VALENCES_SETTINGS}
-              component={ValencesTestSettings}
+              element={<ValencesTestSettings />}
             />
+            <Route path={TEST_PERIODIC_TABLE} element={<PeriodicTableTest />} />
             <Route
-              exact={true}
-              path={TEST_PERIODIC_TABLE}
-              component={PeriodicTableTest}
-            />
-            <Route
-              exact={true}
               path={TEST_PERIODIC_TABLE_SETTINGS}
-              component={PeriodicTableTestSettings}
+              element={<PeriodicTableTestSettings />}
             />
+            <Route path={MASS_CALCULATOR} element={<MassCalculator />} />
             <Route
-              exact={true}
-              path={MASS_CALCULATOR}
-              component={MassCalculator}
-            />
-            <Route path={PERIODIC_TABLE}>
-              <SearchView />
-              <PeriodicTablePage />
+              path={`${PERIODIC_TABLE}/*`}
+              element={
+                <>
+                  <SearchView />
+                  <PeriodicTablePage />
+                </>
+              }
+            >
+              <Route path={`:atomic`} element={<ElementInfoView />} />
             </Route>
-            <Route exact={true} path={ABOUT} component={About} />
+            <Route path={ABOUT} element={<About />} />
 
-            <Route component={NotFound} />
-          </Switch>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </ProviderPack>

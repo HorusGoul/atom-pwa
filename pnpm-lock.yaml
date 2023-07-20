@@ -20,7 +20,7 @@ importers:
         version: 3.3.1
       '@sentry/react':
         specifier: ^7.33.0
-        version: 7.33.0(react@17.0.2)
+        version: 7.33.0(react@18.2.0)
       '@sentry/tracing':
         specifier: ^7.33.0
         version: 7.33.0
@@ -35,13 +35,10 @@ importers:
         version: 2.3.1
       focus-trap-react:
         specifier: ^8.4.2
-        version: 8.4.2(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+        version: 8.4.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       hammerjs:
         specifier: ^2.0.8
         version: 2.0.8
-      history:
-        specifier: ^4
-        version: 4.10.1
       immer:
         specifier: ^9.0.6
         version: 9.0.6
@@ -53,10 +50,10 @@ importers:
         version: 3.0.2
       netlify-cms-app:
         specifier: 2.14.32
-        version: 2.14.32(@types/react@17.0.3)(codemirror@5.65.13)(netlify-cms-lib-widgets@1.8.1)(react-dom@17.0.2)(react@17.0.2)
+        version: 2.14.32(@types/react@18.2.15)(codemirror@5.65.13)(netlify-cms-lib-widgets@1.8.1)(react-dom@18.2.0)(react@18.2.0)
       netlify-cms-core:
         specifier: ^2.55.2
-        version: 2.55.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(@types/react@17.0.3)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)(netlify-cms-editor-component-image@2.7.0)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
+        version: 2.55.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(@types/react@18.2.15)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)(netlify-cms-editor-component-image@2.7.0)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)
       netlify-identity-widget:
         specifier: ^1.9.1
         version: 1.9.1
@@ -64,38 +61,35 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1
       react:
-        specifier: ^17.0.2
-        version: 17.0.2
+        specifier: ^18.2.0
+        version: 18.2.0
       react-component-pack:
         specifier: ^1.0.1
-        version: 1.0.1(react@17.0.2)
+        version: 1.0.1(react@18.2.0)
       react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-      react-helmet:
-        specifier: ^6.1.0
-        version: 6.1.0(react@17.0.2)
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-helmet-async:
+        specifier: ^1.3.0
+        version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
       react-hyper-scroller:
         specifier: ^3.1.0-beta.2
-        version: 3.1.0-beta.2(react-dom@17.0.2)(react@17.0.2)
+        version: 3.1.0-beta.2(react-dom@18.2.0)(react@18.2.0)
       react-router-dom:
-        specifier: ^5.2.0
-        version: 5.2.0(react@17.0.2)
+        specifier: ^6.14.2
+        version: 6.14.2(react-dom@18.2.0)(react@18.2.0)
       react-zoom-pan-pinch:
         specifier: ^3.0.7
-        version: 3.0.7(react-dom@17.0.2)(react@17.0.2)
+        version: 3.0.7(react-dom@18.2.0)(react@18.2.0)
       use-debounce:
         specifier: ^6.0.1
-        version: 6.0.1(react@17.0.2)
-      use-immer:
-        specifier: ^0.5.1
-        version: 0.5.1(immer@9.0.6)(react@17.0.2)
+        version: 6.0.1(react@18.2.0)
       workbox-precaching:
         specifier: ^6.5.4
         version: 6.5.4
       zustand:
         specifier: ^4.3.2
-        version: 4.3.2(immer@9.0.6)(react@17.0.2)
+        version: 4.3.2(immer@9.0.6)(react@18.2.0)
     devDependencies:
       '@babel/core':
         specifier: ^7.13.14
@@ -114,10 +108,10 @@ importers:
         version: 5.11.10
       '@testing-library/react':
         specifier: ^11.2.6
-        version: 11.2.6(react-dom@17.0.2)(react@17.0.2)
+        version: 11.2.6(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/react-hooks':
         specifier: ^5.1.1
-        version: 5.1.1(react-dom@17.0.2)(react@17.0.2)
+        version: 5.1.1(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/user-event':
         specifier: ^13.1.1
         version: 13.1.1(@testing-library/dom@7.30.3)
@@ -133,24 +127,18 @@ importers:
       '@types/hammerjs':
         specifier: ^2.0.39
         version: 2.0.39
-      '@types/history':
-        specifier: ^4
-        version: 4.7.11
       '@types/invariant':
         specifier: ^2.2.34
         version: 2.2.34
       '@types/react':
-        specifier: ^17.0.2
-        version: 17.0.3
+        specifier: ^18.2.15
+        version: 18.2.15
       '@types/react-dom':
-        specifier: ^17.0.3
-        version: 17.0.3
+        specifier: ^18.2.7
+        version: 18.2.7
       '@types/react-helmet':
         specifier: ^6.1.0
         version: 6.1.0
-      '@types/react-router-dom':
-        specifier: ^5.1.7
-        version: 5.1.7
       '@types/testing-library__jest-dom':
         specifier: ^5.14.5
         version: 5.14.5(patch_hash=otbk6aazg5hynwg33wybr6i2ey)
@@ -1411,7 +1399,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: false
 
   /@babel/standalone@7.20.13:
     resolution: {integrity: sha512-L13qadxX3yB4mU92iSiWKePm3hYfGaAXPMqGEPUDNzzsmNh0+1M7agMBF62UHM29kFWOWowGfRRDvfAU8uLovg==}
@@ -1523,7 +1510,7 @@ packages:
       '@emotion/weak-memoize': 0.2.5
     dev: false
 
-  /@emotion/core@10.1.1(react@17.0.2):
+  /@emotion/core@10.1.1(react@18.2.0):
     resolution: {integrity: sha512-ZMLG6qpXR8x031NXD8HJqugy/AZSkAuMxxqB46pmAR7ze47MhNJ56cdoX243QPZdGctrdfo+s08yZTiwaUcRKA==}
     peerDependencies:
       react: '>=16.3.0'
@@ -1534,10 +1521,10 @@ packages:
       '@emotion/serialize': 0.11.16
       '@emotion/sheet': 0.9.4
       '@emotion/utils': 0.11.3
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /@emotion/core@10.3.1(react@17.0.2):
+  /@emotion/core@10.3.1(react@18.2.0):
     resolution: {integrity: sha512-447aUEjPIm0MnE6QYIaFz9VQOHSXf4Iu6EWOIqq11EAPqinkSZmfymPTmlOE3QjLv846lH4JVZBUOtwGbuQoww==}
     peerDependencies:
       react: '>=16.3.0'
@@ -1548,7 +1535,7 @@ packages:
       '@emotion/serialize': 0.11.16
       '@emotion/sheet': 0.9.4
       '@emotion/utils': 0.11.3
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /@emotion/css@10.0.27:
@@ -1604,56 +1591,56 @@ packages:
     resolution: {integrity: sha512-zM9PFmgVSqBw4zL101Q0HrBVTGmpAxFZH/pYx/cjJT5advXguvcgjHFTCaIO3enL/xr89vK2bh0Mfyj9aa0ANA==}
     dev: false
 
-  /@emotion/styled-base@10.0.31(@emotion/core@10.1.1)(react@17.0.2):
+  /@emotion/styled-base@10.0.31(@emotion/core@10.1.1)(react@18.2.0):
     resolution: {integrity: sha512-wTOE1NcXmqMWlyrtwdkqg87Mu6Rj1MaukEoEmEkHirO5IoHDJ8LgCQL4MjJODgxWxXibGR3opGp1p7YvkNEdXQ==}
     peerDependencies:
       '@emotion/core': ^10.0.28
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.13.10
-      '@emotion/core': 10.1.1(react@17.0.2)
+      '@babel/runtime': 7.22.6
+      '@emotion/core': 10.1.1(react@18.2.0)
       '@emotion/is-prop-valid': 0.8.8
       '@emotion/serialize': 0.11.16
       '@emotion/utils': 0.11.3
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /@emotion/styled-base@10.3.0(@emotion/core@10.3.1)(react@17.0.2):
+  /@emotion/styled-base@10.3.0(@emotion/core@10.3.1)(react@18.2.0):
     resolution: {integrity: sha512-PBRqsVKR7QRNkmfH78hTSSwHWcwDpecH9W6heujWAcyp2wdz/64PP73s7fWS1dIPm8/Exc8JAzYS8dEWXjv60w==}
     peerDependencies:
       '@emotion/core': ^10.0.28
       react: '>=16.3.0'
     dependencies:
       '@babel/runtime': 7.22.6
-      '@emotion/core': 10.3.1(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
       '@emotion/is-prop-valid': 0.8.8
       '@emotion/serialize': 0.11.16
       '@emotion/utils': 0.11.3
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /@emotion/styled@10.0.27(@emotion/core@10.1.1)(react@17.0.2):
+  /@emotion/styled@10.0.27(@emotion/core@10.1.1)(react@18.2.0):
     resolution: {integrity: sha512-iK/8Sh7+NLJzyp9a5+vIQIXTYxfT4yB/OJbjzQanB2RZpvmzBQOHZWhpAMZWYEKRNNbsD6WfBw5sVWkb6WzS/Q==}
     peerDependencies:
       '@emotion/core': ^10.0.27
       react: '>=16.3.0'
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled-base': 10.0.31(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled-base': 10.0.31(@emotion/core@10.1.1)(react@18.2.0)
       babel-plugin-emotion: 10.2.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /@emotion/styled@10.3.0(@emotion/core@10.3.1)(react@17.0.2):
+  /@emotion/styled@10.3.0(@emotion/core@10.3.1)(react@18.2.0):
     resolution: {integrity: sha512-GgcUpXBBEU5ido+/p/mCT2/Xx+Oqmp9JzQRuC+a4lYM4i4LBBn/dWvc0rQ19N9ObA8/T4NWMrPNe79kMBDJqoQ==}
     peerDependencies:
       '@emotion/core': ^10.0.27
       react: '>=16.3.0'
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled-base': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled-base': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       babel-plugin-emotion: 10.2.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /@emotion/stylis@0.7.1:
@@ -2019,12 +2006,12 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: false
 
-  /@icons/material@0.2.4(react@17.0.2):
+  /@icons/material@0.2.4(react@18.2.0):
     resolution: {integrity: sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==}
     peerDependencies:
       react: '*'
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /@istanbuljs/load-nyc-config@1.1.0:
@@ -2852,6 +2839,11 @@ packages:
     resolution: {integrity: sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==}
     dev: false
 
+  /@remix-run/router@1.7.2:
+    resolution: {integrity: sha512-7Lcn7IqGMV+vizMPoEl5F0XDshcdDYtMI6uJLQdQz5CfZAwy3vvGKYSUk789qndt5dEC4HfSjviSYlSoHGL2+A==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@rollup/plugin-babel@5.3.0(@babel/core@7.20.12)(rollup@2.42.0):
     resolution: {integrity: sha512-9uIC8HZOnVLrLHxayq/PTzw+uS25E14KPUBh5ktF+18Mjo5yK0ToMMx6epY0uEgkjwJw0aBW4x2horYXh8juWw==}
     engines: {node: '>= 10.0.0'}
@@ -3010,7 +3002,7 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/react@7.33.0(react@17.0.2):
+  /@sentry/react@7.33.0(react@18.2.0):
     resolution: {integrity: sha512-uLgH4Frg6QhST8wj+3F7JvfKPAGkxYl2cessl3KQiYv4lB0x7BpRMQ5PA9X2c6CwiQArNiwy7p+NjrUV6gIcFg==}
     engines: {node: '>=8'}
     peerDependencies:
@@ -3020,7 +3012,7 @@ packages:
       '@sentry/types': 7.33.0
       '@sentry/utils': 7.33.0
       hoist-non-react-statics: 3.3.2
-      react: 17.0.2
+      react: 18.2.0
       tslib: 1.14.1
     dev: false
 
@@ -3253,7 +3245,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@5.1.1(react-dom@17.0.2)(react@17.0.2):
+  /@testing-library/react-hooks@5.1.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-52D2XnpelFDefnWpy/V6z2qGNj8JLIvW5DjYtelMvFXdEyWiykSaI7IXHwFy4ICoqXJDmmwHAiFRiFboub/U5g==}
     peerDependencies:
       react: '>=16.9.0'
@@ -3270,12 +3262,12 @@ packages:
       '@types/react-dom': 17.0.3
       '@types/react-test-renderer': 17.0.1
       filter-console: 0.1.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-error-boundary: 3.1.1(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-error-boundary: 3.1.1(react@18.2.0)
     dev: true
 
-  /@testing-library/react@11.2.6(react-dom@17.0.2)(react@17.0.2):
+  /@testing-library/react@11.2.6(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-TXMCg0jT8xmuU8BkKMtp8l7Z50Ykew5WNX8UoIKTaLFwKkP2+1YDhOLA2Ga3wY4x29jyntk7EWfum0kjlYiSjQ==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -3284,8 +3276,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.13.10
       '@testing-library/dom': 7.30.3
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: true
 
   /@testing-library/user-event@13.1.1(@testing-library/dom@7.30.3):
@@ -3382,10 +3374,6 @@ packages:
     dependencies:
       '@types/unist': 2.0.3
     dev: false
-
-  /@types/history@4.7.11:
-    resolution: {integrity: sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==}
-    dev: true
 
   /@types/http-cache-semantics@4.0.0:
     resolution: {integrity: sha512-c3Xy026kOF7QOTn00hbIllV1dLR9hG9NkSrLQgCVs8NF6sBU+VGWjD3wLPhmh1TYAc7ugCFsvHYMN4VcBN1U1A==}
@@ -3499,24 +3487,15 @@ packages:
       '@types/react': 17.0.3
     dev: true
 
+  /@types/react-dom@18.2.7:
+    resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
+    dependencies:
+      '@types/react': 17.0.3
+    dev: true
+
   /@types/react-helmet@6.1.0:
     resolution: {integrity: sha512-PYRoU1XJFOzQ3BHvWL1T8iDNbRjdMDJMT5hFmZKGbsq09kbSqJy61uwEpTrbTNWDopVphUT34zUSVLK9pjsgYQ==}
     dependencies:
-      '@types/react': 17.0.3
-    dev: true
-
-  /@types/react-router-dom@5.1.7:
-    resolution: {integrity: sha512-D5mHD6TbdV/DNHYsnwBTv+y73ei+mMjrkGrla86HthE4/PVvL1J94Bu3qABU+COXzpL23T1EZapVVpwHuBXiUg==}
-    dependencies:
-      '@types/history': 4.7.11
-      '@types/react': 17.0.3
-      '@types/react-router': 5.1.12
-    dev: true
-
-  /@types/react-router@5.1.12:
-    resolution: {integrity: sha512-0bhXQwHYfMeJlCh7mGhc0VJTRm0Gk+Z8T00aiP4702mDUuLs9SMhnd2DitpjWFjdOecx2UXtICK14H9iMnziGA==}
-    dependencies:
-      '@types/history': 4.7.11
       '@types/react': 17.0.3
     dev: true
 
@@ -3531,7 +3510,15 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.3
       '@types/scheduler': 0.16.1
-      csstype: 3.0.7
+      csstype: 3.1.2
+    dev: true
+
+  /@types/react@18.2.15:
+    resolution: {integrity: sha512-oEjE7TQt1fFTFSbf8kkNuc798ahTUzn3Le67/PWjE8MAfYAD/qB7O8hSTcromLFqHCt9bcdOg5GXMokzTjJ5SA==}
+    dependencies:
+      '@types/prop-types': 15.7.3
+      '@types/scheduler': 0.16.1
+      csstype: 3.1.2
 
   /@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
@@ -4577,7 +4564,7 @@ packages:
   /babel-plugin-macros@2.8.0:
     resolution: {integrity: sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg==}
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       cosmiconfig: 6.0.0
       resolve: 1.22.2
     dev: false
@@ -5698,15 +5685,15 @@ packages:
       object-assign: 4.1.1
     dev: false
 
-  /create-react-context@0.3.0(prop-types@15.7.2)(react@17.0.2):
+  /create-react-context@0.3.0(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-dNldIoSuNSvlTJ7slIKC/ZFGKexBMBrrcc+TTe1NdmROnaASuLPvqpwj9v4XS4uXZ8+YPu0sNmShX2rXI5LNsw==}
     peerDependencies:
       prop-types: ^15.0.0
       react: ^0.14.0 || ^15.0.0 || ^16.0.0
     dependencies:
       gud: 1.0.0
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
       warning: 4.0.3
     dev: false
 
@@ -5771,12 +5758,8 @@ packages:
     resolution: {integrity: sha512-61FBWoDHp/gRtsoDkq/B1nWrCUG/ok1E3tUrcNbZjsE9Cxd9yzUirjS3+nAATB8U4cTtaQmAHbNndoFz5L6C9Q==}
     dev: false
 
-  /csstype@3.0.7:
-    resolution: {integrity: sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==}
-
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
-    dev: false
 
   /cyclist@1.0.1:
     resolution: {integrity: sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==}
@@ -6238,7 +6221,7 @@ packages:
   /dom-helpers@3.4.0:
     resolution: {integrity: sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==}
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
     dev: false
 
   /dom-helpers@5.2.1:
@@ -7412,7 +7395,7 @@ packages:
     resolution: {integrity: sha512-IA01dzk2cStQso/qnt2rWhXCFBZlBfjZmohB9mXUx9feEaJcORAK0FQGvwaApsNNGwzEnqrp/2qTR4lq8PXfnQ==}
     dev: false
 
-  /focus-trap-react@8.4.2(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /focus-trap-react@8.4.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-yuItOIwgriOBMrbHDqbWMpQjGVs9SbtugYrT0vs0yPjHiPKja3NZ9dBMxDQrV1JhyojGK5d6j7ayqBS7Kcm9xQ==}
     peerDependencies:
       prop-types: ^15.7.2
@@ -7421,8 +7404,8 @@ packages:
     dependencies:
       focus-trap: 6.3.0
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       tabbable: 5.3.3
     dev: false
 
@@ -8265,7 +8248,7 @@ packages:
   /history@4.10.1:
     resolution: {integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==}
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.1.0
@@ -10374,16 +10357,16 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /mini-create-react-context@0.4.1(prop-types@15.7.2)(react@17.0.2):
+  /mini-create-react-context@0.4.1(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-YWCYEmd5CQeHGSAKrYvXgmzzkrvssZcuuQDDeqkT+PziKGMgE+0MCCtcKbROzocGBG1meBLl2FotlRwf4gAzbQ==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     peerDependencies:
       prop-types: ^15.0.0
       react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
-      prop-types: 15.7.2
-      react: 17.0.2
+      '@babel/runtime': 7.22.6
+      prop-types: 15.8.1
+      react: 18.2.0
       tiny-warning: 1.0.3
     dev: false
 
@@ -10689,48 +10672,48 @@ packages:
       - zenObservable
     dev: true
 
-  /netlify-cms-app@2.14.32(@types/react@17.0.3)(codemirror@5.65.13)(netlify-cms-lib-widgets@1.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-app@2.14.32(@types/react@18.2.15)(codemirror@5.65.13)(netlify-cms-lib-widgets@1.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Zuz9CGqLH3ifmLqEUofgfltKUYvHI3zlHmcnlm7clQo+PIK+MXZKL1AZYLkeUrEak/0sxmz4CTeEXdFxJQKmQw==}
     peerDependencies:
       react: ^16.8.4
       react-dom: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       immutable: 3.8.2
       lodash: 4.17.21
       moment: 2.29.1
-      netlify-cms-backend-azure: 1.1.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)
-      netlify-cms-backend-bitbucket: 2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
-      netlify-cms-backend-git-gateway: 2.11.11(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-backend-bitbucket@2.12.8)(netlify-cms-backend-github@2.12.0)(netlify-cms-backend-gitlab@2.9.9)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)
-      netlify-cms-backend-github: 2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
-      netlify-cms-backend-gitlab: 2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
-      netlify-cms-backend-test: 2.10.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)(uuid@3.4.0)
-      netlify-cms-core: 2.55.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(@types/react@17.0.3)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.1)(netlify-cms-editor-component-image@2.6.7)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-editor-component-image: 2.6.7(react@17.0.2)
+      netlify-cms-backend-azure: 1.1.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)
+      netlify-cms-backend-bitbucket: 2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
+      netlify-cms-backend-git-gateway: 2.11.11(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-backend-bitbucket@2.12.8)(netlify-cms-backend-github@2.12.0)(netlify-cms-backend-gitlab@2.9.9)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)
+      netlify-cms-backend-github: 2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
+      netlify-cms-backend-gitlab: 2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
+      netlify-cms-backend-test: 2.10.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)(uuid@3.4.0)
+      netlify-cms-core: 2.55.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(@types/react@18.2.15)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.1)(netlify-cms-editor-component-image@2.6.7)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-editor-component-image: 2.6.7(react@18.2.0)
       netlify-cms-lib-auth: 2.3.0(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.13.0(immutable@3.8.2)(lodash@4.17.21)
       netlify-cms-locales: 1.29.1
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-boolean: 2.3.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-code: 1.2.8(@emotion/core@10.1.1)(codemirror@5.65.13)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-colorstring: 1.0.3(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-date: 2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-datetime: 2.6.8(@emotion/core@10.1.1)(netlify-cms-widget-date@2.5.7)(react@17.0.2)
-      netlify-cms-widget-file: 2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)(uuid@3.4.0)
-      netlify-cms-widget-image: 2.7.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-file@2.9.2)(prop-types@15.7.2)(react@17.0.2)
-      netlify-cms-widget-list: 2.8.5(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-object@2.6.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-map: 1.4.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-markdown: 2.12.12(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-number: 2.4.7(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)
-      netlify-cms-widget-object: 2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-relation: 2.8.9(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)(uuid@3.4.0)
-      netlify-cms-widget-select: 2.7.4(immutable@3.8.2)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)
-      netlify-cms-widget-string: 2.2.10(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)
-      netlify-cms-widget-text: 2.3.6(@types/react@17.0.3)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-boolean: 2.3.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-code: 1.2.8(@emotion/core@10.1.1)(codemirror@5.65.13)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-colorstring: 1.0.3(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-date: 2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-datetime: 2.6.8(@emotion/core@10.1.1)(netlify-cms-widget-date@2.5.7)(react@18.2.0)
+      netlify-cms-widget-file: 2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)(uuid@3.4.0)
+      netlify-cms-widget-image: 2.7.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-file@2.9.2)(prop-types@15.7.2)(react@18.2.0)
+      netlify-cms-widget-list: 2.8.5(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-object@2.6.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-map: 1.4.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-markdown: 2.12.12(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-number: 2.4.7(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)
+      netlify-cms-widget-object: 2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-relation: 2.8.9(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@3.4.0)
+      netlify-cms-widget-select: 2.7.4(immutable@3.8.2)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)
+      netlify-cms-widget-string: 2.2.10(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)
+      netlify-cms-widget-text: 2.3.6(@types/react@18.2.15)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       uuid: 3.4.0
     transitivePeerDependencies:
@@ -10743,7 +10726,7 @@ packages:
       - supports-color
     dev: false
 
-  /netlify-cms-backend-azure@1.1.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-backend-azure@1.1.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-UlQC06I6kPFEyMsWS52Q1Ff2o+4551v0orH7OH8zSlsxYH29Dy0pt5Cbqf1OiPRiXpTsMwk0nYzUyU7msqXYPQ==}
     peerDependencies:
       '@emotion/core': ^10.0.9
@@ -10756,20 +10739,20 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       immutable: 3.8.2
       js-base64: 3.6.0
       lodash: 4.17.21
       netlify-cms-lib-auth: 2.3.0(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.13.0(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       semaphore: 1.1.0
     dev: false
 
-  /netlify-cms-backend-bitbucket@2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2):
+  /netlify-cms-backend-bitbucket@2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-cjrS5nA6dcBPeyyOefgGfATxoSyZNN4rdfOcQyLGFZj4U3+cfDvu9NRLNNqaKl9/G08rvzbFG4C27l2Mmfte2w==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10782,22 +10765,22 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       common-tags: 1.8.0
       immutable: 3.8.2
       js-base64: 3.6.0
       lodash: 4.17.21
       netlify-cms-lib-auth: 2.4.2(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.15.1(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       semaphore: 1.1.0
       what-the-diff: 0.6.0
     dev: false
 
-  /netlify-cms-backend-git-gateway@2.11.11(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-backend-bitbucket@2.12.8)(netlify-cms-backend-github@2.12.0)(netlify-cms-backend-gitlab@2.9.9)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-backend-git-gateway@2.11.11(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-backend-bitbucket@2.12.8)(netlify-cms-backend-github@2.12.0)(netlify-cms-backend-gitlab@2.9.9)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-ESjte6NK09AN2jVnZHYq0Z7VVM0WOXe7qyZ5qkWZN5mYiIalweo5Sqope6tIf6og9OIw4xivnOPvHX5kVE7YPQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10812,24 +10795,24 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       gotrue-js: 0.9.29
       ini: 2.0.0
       jwt-decode: 3.1.2
       lodash: 4.17.21
       minimatch: 3.1.2
-      netlify-cms-backend-bitbucket: 2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
-      netlify-cms-backend-github: 2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
-      netlify-cms-backend-gitlab: 2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2)
+      netlify-cms-backend-bitbucket: 2.12.8(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
+      netlify-cms-backend-github: 2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
+      netlify-cms-backend-gitlab: 2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0)
       netlify-cms-lib-auth: 2.3.0(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.13.0(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-backend-github@2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2):
+  /netlify-cms-backend-github@2.12.0(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-PVBwIdBvECUPSRzEsIVxxVqh56bJaXsOpU6qLUK4jy1Nb8coPE14ZutPyNAUp7jQAcyAlm3/pHW2cA9ujhn13w==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10841,8 +10824,8 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       apollo-cache-inmemory: 1.6.6(graphql@15.5.0)
       apollo-client: 2.6.10(graphql@15.5.0)
       apollo-link-context: 1.0.20(graphql@15.5.0)
@@ -10854,13 +10837,13 @@ packages:
       lodash: 4.17.21
       netlify-cms-lib-auth: 2.4.2(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.15.1(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       semaphore: 1.1.0
     dev: false
 
-  /netlify-cms-backend-gitlab@2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@17.0.2):
+  /netlify-cms-backend-gitlab@2.9.9(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-UIRA6cA+y3dShIuId3CebYypAjm8R+pKwEgnwGI5sMoTYxBEncaCwN5GINBbYddioVsU5OdyN3FngPx/eHKCcg==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10873,20 +10856,20 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       immutable: 3.8.2
       js-base64: 3.6.0
       lodash: 4.17.21
       netlify-cms-lib-auth: 2.4.2(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.15.1(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       semaphore: 1.1.0
     dev: false
 
-  /netlify-cms-backend-test@2.10.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2)(uuid@3.4.0):
+  /netlify-cms-backend-test@2.10.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(netlify-cms-lib-util@2.13.0)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0)(uuid@3.4.0):
     resolution: {integrity: sha512-AoCLHVUocXLSzfXJwn4CeqqKph1lIeyzQcsjJN6Je5r2UU66fiayG+skhu3RjudeKiIfmA4Cf/p0Ay9ooRkxOg==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10898,17 +10881,17 @@ packages:
       react: ^16.8.4
       uuid: ^3.3.2
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       lodash: 4.17.21
       netlify-cms-lib-util: 2.13.0(immutable@3.8.2)(lodash@4.17.21)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       uuid: 3.4.0
     dev: false
 
-  /netlify-cms-core@2.55.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(@types/react@17.0.3)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.1)(netlify-cms-editor-component-image@2.6.7)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-core@2.55.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(@types/react@18.2.15)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.1)(netlify-cms-editor-component-image@2.6.7)(netlify-cms-lib-auth@2.3.0)(netlify-cms-lib-util@2.13.0)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-g7pU53axFQt8n3zzyNt/FI8vPv/lZ+G4cJnh5sfyWSM9/rK4wr7DeDfZTbmjPeonfuUFiD1UrFqzwqAnT7BjTA==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -10926,8 +10909,8 @@ packages:
       react-dom: ^16.8.4 || ^17.0.0
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       '@iarna/toml': 2.2.5
       ajv: 8.1.0
       ajv-errors: 3.0.0(ajv@8.1.0)
@@ -10946,36 +10929,36 @@ packages:
       jwt-decode: 3.1.2
       lodash: 4.17.21
       moment: 2.29.1
-      netlify-cms-editor-component-image: 2.6.7(react@17.0.2)
+      netlify-cms-editor-component-image: 2.6.7(react@18.2.0)
       netlify-cms-lib-auth: 2.3.0(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.13.0(immutable@3.8.2)(lodash@4.17.21)
       netlify-cms-lib-widgets: 1.8.1(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       node-polyglot: 2.4.0
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dnd: 14.0.5(@types/react@17.0.3)(react@17.0.2)
+      react: 18.2.0
+      react-dnd: 14.0.5(@types/react@18.2.15)(react@18.2.0)
       react-dnd-html5-backend: 14.1.0
-      react-dom: 17.0.2(react@17.0.2)
-      react-frame-component: 5.2.6(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      react-hot-loader: 4.13.0(@types/react@17.0.3)(react-dom@17.0.2)(react@17.0.2)
+      react-dom: 18.2.0(react@18.2.0)
+      react-frame-component: 5.2.6(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      react-hot-loader: 4.13.0(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       react-is: 16.13.1
-      react-markdown: 6.0.3(@types/react@17.0.3)(react@17.0.2)
-      react-modal: 3.12.1(react-dom@17.0.2)(react@17.0.2)
-      react-polyglot: 0.7.1(node-polyglot@2.4.0)(react@17.0.2)
-      react-redux: 7.2.2(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0)
-      react-router-dom: 5.2.0(react@17.0.2)
-      react-scroll-sync: 0.9.0(react-dom@17.0.2)(react@17.0.2)
-      react-sortable-hoc: 2.0.0(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      react-split-pane: 0.1.92(react-dom@17.0.2)(react@17.0.2)
-      react-topbar-progress-indicator: 4.1.0(react@17.0.2)
-      react-virtualized-auto-sizer: 1.0.5(react-dom@17.0.2)(react@17.0.2)
-      react-waypoint: 10.3.0(react@17.0.2)
-      react-window: 1.8.6(react-dom@17.0.2)(react@17.0.2)
+      react-markdown: 6.0.3(@types/react@18.2.15)(react@18.2.0)
+      react-modal: 3.12.1(react-dom@18.2.0)(react@18.2.0)
+      react-polyglot: 0.7.1(node-polyglot@2.4.0)(react@18.2.0)
+      react-redux: 7.2.2(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
+      react-router-dom: 5.2.0(react@18.2.0)
+      react-scroll-sync: 0.9.0(react-dom@18.2.0)(react@18.2.0)
+      react-sortable-hoc: 2.0.0(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      react-split-pane: 0.1.92(react-dom@18.2.0)(react@18.2.0)
+      react-topbar-progress-indicator: 4.1.0(react@18.2.0)
+      react-virtualized-auto-sizer: 1.0.5(react-dom@18.2.0)(react@18.2.0)
+      react-waypoint: 10.3.0(react@18.2.0)
+      react-window: 1.8.6(react-dom@18.2.0)(react@18.2.0)
       redux: 4.2.0
       redux-devtools-extension: 2.13.9(redux@4.2.0)
-      redux-notifications: 4.0.1(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0)
+      redux-notifications: 4.0.1(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
       redux-thunk: 2.3.0(redux@4.2.0)
       remark-gfm: 1.0.0
       sanitize-filename: 1.6.3
@@ -10993,7 +10976,7 @@ packages:
       - supports-color
     dev: false
 
-  /netlify-cms-core@2.55.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(@types/react@17.0.3)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)(netlify-cms-editor-component-image@2.7.0)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-core@2.55.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(@types/react@18.2.15)(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)(netlify-cms-editor-component-image@2.7.0)(netlify-cms-lib-auth@2.4.2)(netlify-cms-lib-util@2.15.1)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-g7pU53axFQt8n3zzyNt/FI8vPv/lZ+G4cJnh5sfyWSM9/rK4wr7DeDfZTbmjPeonfuUFiD1UrFqzwqAnT7BjTA==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11011,8 +10994,8 @@ packages:
       react-dom: ^16.8.4 || ^17.0.0
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       '@iarna/toml': 2.2.5
       ajv: 8.1.0
       ajv-errors: 3.0.0(ajv@8.1.0)
@@ -11031,36 +11014,36 @@ packages:
       jwt-decode: 3.1.2
       lodash: 4.17.21
       moment: 2.29.4
-      netlify-cms-editor-component-image: 2.7.0(react@17.0.2)
+      netlify-cms-editor-component-image: 2.7.0(react@18.2.0)
       netlify-cms-lib-auth: 2.4.2(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0)
       netlify-cms-lib-util: 2.15.1(immutable@3.8.2)(lodash@4.17.21)
       netlify-cms-lib-widgets: 1.8.1(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       node-polyglot: 2.4.0
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dnd: 14.0.5(@types/react@17.0.3)(react@17.0.2)
+      react: 18.2.0
+      react-dnd: 14.0.5(@types/react@18.2.15)(react@18.2.0)
       react-dnd-html5-backend: 14.1.0
-      react-dom: 17.0.2(react@17.0.2)
-      react-frame-component: 5.2.6(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
-      react-hot-loader: 4.13.0(@types/react@17.0.3)(react-dom@17.0.2)(react@17.0.2)
+      react-dom: 18.2.0(react@18.2.0)
+      react-frame-component: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      react-hot-loader: 4.13.0(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       react-is: 16.13.1
-      react-markdown: 6.0.3(@types/react@17.0.3)(react@17.0.2)
-      react-modal: 3.12.1(react-dom@17.0.2)(react@17.0.2)
-      react-polyglot: 0.7.1(node-polyglot@2.4.0)(react@17.0.2)
-      react-redux: 7.2.2(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0)
-      react-router-dom: 5.2.0(react@17.0.2)
-      react-scroll-sync: 0.9.0(react-dom@17.0.2)(react@17.0.2)
-      react-sortable-hoc: 2.0.0(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
-      react-split-pane: 0.1.92(react-dom@17.0.2)(react@17.0.2)
-      react-topbar-progress-indicator: 4.1.0(react@17.0.2)
-      react-virtualized-auto-sizer: 1.0.5(react-dom@17.0.2)(react@17.0.2)
-      react-waypoint: 10.3.0(react@17.0.2)
-      react-window: 1.8.6(react-dom@17.0.2)(react@17.0.2)
+      react-markdown: 6.0.3(@types/react@18.2.15)(react@18.2.0)
+      react-modal: 3.12.1(react-dom@18.2.0)(react@18.2.0)
+      react-polyglot: 0.7.1(node-polyglot@2.4.0)(react@18.2.0)
+      react-redux: 7.2.2(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
+      react-router-dom: 5.2.0(react@18.2.0)
+      react-scroll-sync: 0.9.0(react-dom@18.2.0)(react@18.2.0)
+      react-sortable-hoc: 2.0.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      react-split-pane: 0.1.92(react-dom@18.2.0)(react@18.2.0)
+      react-topbar-progress-indicator: 4.1.0(react@18.2.0)
+      react-virtualized-auto-sizer: 1.0.5(react-dom@18.2.0)(react@18.2.0)
+      react-waypoint: 10.3.0(react@18.2.0)
+      react-window: 1.8.6(react-dom@18.2.0)(react@18.2.0)
       redux: 4.2.0
       redux-devtools-extension: 2.13.9(redux@4.2.0)
-      redux-notifications: 4.0.1(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0)
+      redux-notifications: 4.0.1(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
       redux-thunk: 2.3.0(redux@4.2.0)
       remark-gfm: 1.0.0
       sanitize-filename: 1.6.3
@@ -11078,20 +11061,20 @@ packages:
       - supports-color
     dev: false
 
-  /netlify-cms-editor-component-image@2.6.7(react@17.0.2):
+  /netlify-cms-editor-component-image@2.6.7(react@18.2.0):
     resolution: {integrity: sha512-aUkueCG+rLXcvY5Lfc77pllREpA0oY2V9v8Q+AXu08CvW61kigVTa/AKFTd1oGN8CDpoIr0uO8580tYskzjIRw==}
     peerDependencies:
       react: ^16.8.4
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-editor-component-image@2.7.0(react@17.0.2):
+  /netlify-cms-editor-component-image@2.7.0(react@18.2.0):
     resolution: {integrity: sha512-pQ7vcviNSHz0tAkW+lpw1zAh2BNplb5R8w58ZeA6svVte+v9Db8n54mZeVwk6y+e7quZoEl4isV1LMVcox5HLQ==}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /netlify-cms-lib-auth@2.3.0(immutable@3.8.2)(lodash@4.17.21)(uuid@3.4.0):
@@ -11178,7 +11161,7 @@ packages:
       - supports-color
     dev: true
 
-  /netlify-cms-ui-default@2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-ui-default@2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-N88nLQi10wHCwXyPe4FnHMYsWSHut6MLcu27IIY96sI1SL4a/SiMKAUNtEIwKHO36CUG0zlNtXQtaSOi6FFvmQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11187,19 +11170,19 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       lodash: 4.17.21
       prop-types: 15.7.2
-      react: 17.0.2
-      react-aria-menubutton: 6.3.0(react-dom@17.0.2)(react@17.0.2)
-      react-toggled: 1.2.7(prop-types@15.7.2)(react@17.0.2)
-      react-transition-group: 2.9.0(react-dom@17.0.2)(react@17.0.2)
+      react: 18.2.0
+      react-aria-menubutton: 6.3.0(react-dom@18.2.0)(react@18.2.0)
+      react-toggled: 1.2.7(prop-types@15.7.2)(react@18.2.0)
+      react-transition-group: 2.9.0(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-ui-default@2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-ui-default@2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-hrdS1zEF/Pb3jpxqHdRrb4cOxsTUBHgSr7doyRfZaa2il6S5s/Pgq49Otu6xr0CHiGNB721U4mXxFn8nCigcYw==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11208,19 +11191,19 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4 || ^17.0.0
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       lodash: 4.17.21
       prop-types: 15.8.1
-      react: 17.0.2
-      react-aria-menubutton: 7.0.3(react@17.0.2)
-      react-toggled: 1.2.7(prop-types@15.8.1)(react@17.0.2)
-      react-transition-group: 4.4.5(react-dom@17.0.2)(react@17.0.2)
+      react: 18.2.0
+      react-aria-menubutton: 7.0.3(react@18.2.0)
+      react-toggled: 1.2.7(prop-types@15.8.1)(react@18.2.0)
+      react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-boolean@2.3.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-boolean@2.3.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-d2Bs7L/irffvvZlvRvEPraOc3L6dbQmowDZW6Mb2QbxXjYs/mDgVcANFZcB/3p0kCa65DuknJkGLl6fZMV/QsQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11230,15 +11213,15 @@ packages:
       react: ^16.8.4
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
       lodash: 4.17.21
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
     dev: false
 
-  /netlify-cms-widget-code@1.2.8(@emotion/core@10.1.1)(codemirror@5.65.13)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-widget-code@1.2.8(@emotion/core@10.1.1)(codemirror@5.65.13)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-l603N2nL+Tv1qVQ9PVA8R+uXLxxFNBy0JSiw6O6gSweba2G+HJCML2GZnzLo3lKB8bRlj1FxSeX1qAuObFxhBQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11247,18 +11230,18 @@ packages:
       netlify-cms-ui-default: ^2.12.1
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
       codemirror: 5.65.13
       lodash: 4.17.21
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      react: 17.0.2
-      react-codemirror2: 7.2.1(codemirror@5.65.13)(react@17.0.2)
-      react-select: 2.4.4(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-codemirror2: 7.2.1(codemirror@5.65.13)(react@18.2.0)
+      react-select: 2.4.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-colorstring@1.0.3(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-widget-colorstring@1.0.3(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-O2clcdug+31AhozeeLPE9HPl4i4GrP0VrG9ljpz9Al2QdDMnAqloh2wTi93KxUb03WNbfCMOHUyX1mN3Lc5jyA==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11267,18 +11250,18 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
-      react-color: 2.19.3(react@17.0.2)
-      validate-color: 2.1.1(react-dom@17.0.2)(react@17.0.2)
+      react: 18.2.0
+      react-color: 2.19.3(react@18.2.0)
+      validate-color: 2.1.1(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-date@2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /netlify-cms-widget-date@2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-GZNzj793qEeoK2tVLDbhVWLIwhSq+KhcNV8jKIFGMho38kOV7mb/GRCsDwsI4ADtklqfjYkXs8PPtA2ZDl/4/w==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11289,29 +11272,29 @@ packages:
       react: ^16.8.4
       react-dom: ^16.8.4
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       moment: 2.29.4
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
-      react-datetime: 2.16.3(moment@2.29.4)(react-dom@17.0.2)(react@17.0.2)
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-datetime: 2.16.3(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /netlify-cms-widget-datetime@2.6.8(@emotion/core@10.1.1)(netlify-cms-widget-date@2.5.7)(react@17.0.2):
+  /netlify-cms-widget-datetime@2.6.8(@emotion/core@10.1.1)(netlify-cms-widget-date@2.5.7)(react@18.2.0):
     resolution: {integrity: sha512-fo09cdnxDXJyrLghF5PGmyTsgGZB/Ori2AGY2nWTtuFY7+o1CvLDGeOEPHwod6wMamLUhR4HOvKfQZCmweD2tg==}
     peerDependencies:
       '@emotion/core': ^10.0.35
       netlify-cms-widget-date: ^2.5.7
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      netlify-cms-widget-date: 2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
-      react: 17.0.2
+      '@emotion/core': 10.1.1(react@18.2.0)
+      netlify-cms-widget-date: 2.5.7(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(moment@2.29.4)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-widget-file@2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)(uuid@3.4.0):
+  /netlify-cms-widget-file@2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)(uuid@3.4.0):
     resolution: {integrity: sha512-3ByQ6iAPGqNCdE2Mb2HCAlhA3siPRAo7oDnqBum9b4NKod7BB9olew1IEPG3GCji5t0/2VZKdi7xql9vM4ieYg==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11323,22 +11306,22 @@ packages:
       react-immutable-proptypes: ^2.1.0
       uuid: ^3.3.2
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       array-move: 3.0.1
       common-tags: 1.8.0
       immutable: 3.8.2
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
-      react-sortable-hoc: 1.11.0(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      react-sortable-hoc: 1.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       uuid: 3.4.0
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-image@2.7.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-file@2.9.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-widget-image@2.7.7(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-file@2.9.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-wG8o9riClhmst+fpLkod38Ee0sk4vUR7NoqpQ3TAvpdoVjsPf5qYQnK/EUpFLRzHT3gYgaLTIG/NpezZoMuAJA==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11349,16 +11332,16 @@ packages:
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       immutable: 3.8.2
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-file: 2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2)(uuid@3.4.0)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-file: 2.9.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0)(uuid@3.4.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-widget-list@2.8.5(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-object@2.6.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-list@2.8.5(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(netlify-cms-widget-object@2.6.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-/yfH5KDtxoG4eEVewf1ytoq3Jhp1jyib8udSdI7x1DHmUf9qt71C52bkeGrgbc1J/a9AOgmGqe1J8v0vKvxmQQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11372,22 +11355,22 @@ packages:
       react: ^16.8.4
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       immutable: 3.8.2
       lodash: 4.17.21
       netlify-cms-lib-widgets: 1.8.1(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
-      netlify-cms-widget-object: 2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
+      netlify-cms-widget-object: 2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
-      react-sortable-hoc: 1.11.0(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      react-sortable-hoc: 1.11.0(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-map@1.4.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-map@1.4.6(@emotion/core@10.1.1)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ip1YAsRRHxu7GuSFdJTyQMtFLZ2IOCMSaiQvF/T4M4YtszSqxUf/ByK2nJxK6pvFQOUrM3uiMZqE5oXT7zsX9w==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11397,16 +11380,16 @@ packages:
       react: ^16.8.4
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
       lodash: 4.17.21
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       ol: 5.3.3
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
     dev: false
 
-  /netlify-cms-widget-markdown@2.12.12(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-markdown@2.12.12(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-2RuWCCpUmczitymAhEkNuUPYxTnhh4A09MDiJmvy2gJA4Ak8wt4xzKsXBOs3/UyQhmxkpbrVTrwHKq4N4CNDeg==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11419,20 +11402,20 @@ packages:
       react-dom: ^16.8.4
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       dompurify: 2.2.7
       immutable: 3.8.2
       is-hotkey: 0.2.0
       lodash: 4.17.21
       mdast-util-definitions: 1.2.5
       mdast-util-to-string: 1.1.0
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
-      react-select: 2.4.4(react-dom@17.0.2)(react@17.0.2)
+      react-select: 2.4.4(react-dom@18.2.0)(react@18.2.0)
       rehype-parse: 6.0.2
       rehype-remark: 8.0.0
       rehype-stringify: 7.0.0
@@ -11442,7 +11425,7 @@ packages:
       slate: 0.47.9(immutable@3.8.2)
       slate-base64-serializer: 0.2.115(slate@0.47.9)
       slate-plain-serializer: 0.7.13(immutable@3.8.2)(slate@0.47.9)
-      slate-react: 0.22.10(immutable@3.8.2)(react-dom@17.0.2)(react@17.0.2)(slate@0.47.9)
+      slate-react: 0.22.10(immutable@3.8.2)(react-dom@18.2.0)(react@18.2.0)(slate@0.47.9)
       slate-soft-break: 0.9.0(slate-react@0.22.10)(slate@0.47.9)
       unified: 7.1.0
       unist-builder: 1.0.4
@@ -11451,19 +11434,19 @@ packages:
       - supports-color
     dev: false
 
-  /netlify-cms-widget-number@2.4.7(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-widget-number@2.4.7(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-gT9lEa4CYxSeBZtoaYEDsE8mYifYUYLqPaTcxw1yq2ziV+u5ylBMSy540934FEIk+lmalvUw6tJmjvn5d7Rowg==}
     peerDependencies:
       netlify-cms-ui-default: ^2.12.1
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-widget-object@2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-object@2.6.2(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-ui-default@2.15.5)(prop-types@15.8.1)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-wSF3c3sMqlifBKmUFgoe6b5H2e//OI3AT9wSMNQmB5YJlnr3FUxS+nyUWMF6w9SzwFvEpGcHlEL/hKE0ZDZ9oQ==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11475,17 +11458,17 @@ packages:
       react: ^16.8.4
       react-immutable-proptypes: ^2.1.0
     dependencies:
-      '@emotion/core': 10.3.1(react@17.0.2)
-      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@17.0.2)
+      '@emotion/core': 10.3.1(react@18.2.0)
+      '@emotion/styled': 10.3.0(@emotion/core@10.3.1)(react@18.2.0)
       immutable: 3.8.2
       lodash: 4.17.21
-      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.15.5(@emotion/core@10.3.1)(@emotion/styled@10.3.0)(lodash@4.17.21)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
     dev: false
 
-  /netlify-cms-widget-relation@2.8.9(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)(uuid@3.4.0):
+  /netlify-cms-widget-relation@2.8.9(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(immutable@3.8.2)(lodash@4.17.21)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@3.4.0):
     resolution: {integrity: sha512-a4timqI/fNXy84HrrfM9MIZF4fZ+TqqmdHsyjo/ckwgRIZmSUBy79sWGVh9aDJnBAWrx5YBJSQEkAwUD7h8vYw==}
     peerDependencies:
       '@emotion/core': ^10.0.35
@@ -11498,22 +11481,22 @@ packages:
       react: ^16.8.4
       uuid: ^3.3.2
     dependencies:
-      '@emotion/core': 10.1.1(react@17.0.2)
-      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@17.0.2)
+      '@emotion/core': 10.1.1(react@18.2.0)
+      '@emotion/styled': 10.0.27(@emotion/core@10.1.1)(react@18.2.0)
       immutable: 3.8.2
       lodash: 4.17.21
       netlify-cms-lib-widgets: 1.8.1(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
-      react-select: 2.4.4(react-dom@17.0.2)(react@17.0.2)
-      react-window: 1.8.6(react-dom@17.0.2)(react@17.0.2)
+      react: 18.2.0
+      react-select: 2.4.4(react-dom@18.2.0)(react@18.2.0)
+      react-window: 1.8.6(react-dom@18.2.0)(react@18.2.0)
       uuid: 3.4.0
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-select@2.7.4(immutable@3.8.2)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@17.0.2)(react-immutable-proptypes@2.2.0)(react@17.0.2):
+  /netlify-cms-widget-select@2.7.4(immutable@3.8.2)(netlify-cms-lib-widgets@1.8.1)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react-dom@18.2.0)(react-immutable-proptypes@2.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ITmaSCj7fC4XmQMLHaKxqudFeh3W2O9awhHO5ZEuAI5nWCoWXwxt4f2Ck6yBulPxIjVt5gpgKKin5ynPwXs4fw==}
     peerDependencies:
       immutable: ^3.7.6
@@ -11525,38 +11508,38 @@ packages:
     dependencies:
       immutable: 3.8.2
       netlify-cms-lib-widgets: 1.8.1(immutable@3.8.2)(lodash@4.17.21)(moment@2.29.4)
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
-      react-select: 2.4.4(react-dom@17.0.2)(react@17.0.2)
+      react-select: 2.4.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /netlify-cms-widget-string@2.2.10(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-widget-string@2.2.10(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-7GiJt9Yzvd7jP+c7kDTsjubpmOenhrYu63m1VeyJW9354A1gmgucXDNOfcKt0PV1MpS4asshtMIbwhGj7yEkfg==}
     peerDependencies:
       netlify-cms-ui-default: ^2.12.1
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /netlify-cms-widget-text@2.3.6(@types/react@17.0.3)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@17.0.2):
+  /netlify-cms-widget-text@2.3.6(@types/react@18.2.15)(netlify-cms-ui-default@2.12.2)(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-/Q+eVxqrIicAym7C82kAleitmbaJp0YxU3uC5nJwkGHcxJ+m9rdK0NfFaf85RiykuTHMzLo9s/6FIZ0Tqy/EEw==}
     peerDependencies:
       netlify-cms-ui-default: ^2.12.1
       prop-types: ^15.7.2
       react: ^16.8.4
     dependencies:
-      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2)
+      netlify-cms-ui-default: 2.12.2(@emotion/core@10.1.1)(@emotion/styled@10.0.27)(lodash@4.17.21)(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.7.2
-      react: 17.0.2
-      react-textarea-autosize: 8.3.2(@types/react@17.0.3)(react@17.0.2)
+      react: 18.2.0
+      react-textarea-autosize: 8.3.2(@types/react@18.2.15)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -12879,66 +12862,66 @@ packages:
       whatwg-fetch: 3.6.2
     dev: true
 
-  /react-aria-menubutton@6.3.0(react-dom@17.0.2)(react@17.0.2):
+  /react-aria-menubutton@6.3.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-qlvbPgBDg+YreqrAsT2I0qpQfM7soRxA6dsTacogfCoVajcTEsgIPU3ewS7IzPvm+UMphK5Z8684WA2TNP3Zmg==}
     peerDependencies:
       react: 0.14.x || ^15.0.0 || ^16.0.0
       react-dom: 0.14.x || ^15.0.0 || ^16.0.0
     dependencies:
-      create-react-context: 0.3.0(prop-types@15.7.2)(react@17.0.2)
+      create-react-context: 0.3.0(prop-types@15.8.1)(react@18.2.0)
       focus-group: 0.3.1
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
       react-display-name: 0.2.5
-      react-dom: 17.0.2(react@17.0.2)
+      react-dom: 18.2.0(react@18.2.0)
       teeny-tap: 0.2.0
     dev: false
 
-  /react-aria-menubutton@7.0.3(react@17.0.2):
+  /react-aria-menubutton@7.0.3(react@18.2.0):
     resolution: {integrity: sha512-Ql4W3rNiZmuVJ1wQ0UUeV4OZX3IZq2evsfEqJGefSMdfkK6o8X/6Ufxrzu0wL+/Dr7JUY3xnrnIQimSCFghlCQ==}
     peerDependencies:
       react: ^16.3.0 || ^17.0.0
     dependencies:
       focus-group: 0.3.1
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
       teeny-tap: 0.2.0
     dev: false
 
-  /react-codemirror2@7.2.1(codemirror@5.65.13)(react@17.0.2):
+  /react-codemirror2@7.2.1(codemirror@5.65.13)(react@18.2.0):
     resolution: {integrity: sha512-t7YFmz1AXdlImgHXA9Ja0T6AWuopilub24jRaQdPVbzUJVNKIYuy3uCFZYa7CE5S3UW6SrSa5nAqVQvtzRF9gw==}
     peerDependencies:
       codemirror: 5.x
       react: '>=15.5 <=16.x'
     dependencies:
       codemirror: 5.65.13
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /react-color@2.19.3(react@17.0.2):
+  /react-color@2.19.3(react@18.2.0):
     resolution: {integrity: sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==}
     peerDependencies:
       react: '*'
     dependencies:
-      '@icons/material': 0.2.4(react@17.0.2)
+      '@icons/material': 0.2.4(react@18.2.0)
       lodash: 4.17.21
       lodash-es: 4.17.21
       material-colors: 1.2.6
-      prop-types: 15.7.2
-      react: 17.0.2
-      reactcss: 1.2.3(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      reactcss: 1.2.3(react@18.2.0)
       tinycolor2: 1.4.2
     dev: false
 
-  /react-component-pack@1.0.1(react@17.0.2):
+  /react-component-pack@1.0.1(react@18.2.0):
     resolution: {integrity: sha512-N+4CXXTLly8TcIVtwTTXOh7jtWpwKI+c9zsktBiwmDMxPDY3AJgJN4UicpHLmppxaCLtei/2ULo6fzZ6KdZdOg==}
     peerDependencies:
       react: '>=16'
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /react-datetime@2.16.3(moment@2.29.4)(react-dom@17.0.2)(react@17.0.2):
+  /react-datetime@2.16.3(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-amWfb5iGEiyqjLmqCLlPpu2oN415jK8wX1qoTq7qn6EYiU7qQgbNHglww014PT4O/3G5eo/3kbJu/M/IxxTyGw==}
     peerDependencies:
       moment: '>=2.16.0'
@@ -12948,10 +12931,10 @@ packages:
       create-react-class: 15.7.0
       moment: 2.29.4
       object-assign: 3.0.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-onclickoutside: 6.10.0(react-dom@17.0.2)(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-onclickoutside: 6.10.0(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /react-display-name@0.2.5:
@@ -12964,7 +12947,7 @@ packages:
       dnd-core: 14.0.1
     dev: false
 
-  /react-dnd@14.0.5(@types/react@17.0.3)(react@17.0.2):
+  /react-dnd@14.0.5(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-9i1jSgbyVw0ELlEVt/NkCUkxy1hmhJOkePoCH713u75vzHGyXhPDm28oLfc2NMSBjZRM1Y+wRjHXJT3sPrTy+A==}
     peerDependencies:
       '@types/hoist-non-react-statics': '>= 3.3.1'
@@ -12981,38 +12964,37 @@ packages:
     dependencies:
       '@react-dnd/invariant': 2.0.0
       '@react-dnd/shallowequal': 2.0.0
-      '@types/react': 17.0.3
+      '@types/react': 18.2.15
       dnd-core: 14.0.1
       fast-deep-equal: 3.1.3
       hoist-non-react-statics: 3.3.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /react-dom@17.0.2(react@17.0.2):
-    resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
+  /react-dom@18.2.0(react@18.2.0):
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
-      react: 17.0.2
+      react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react: 17.0.2
-      scheduler: 0.20.2
+      react: 18.2.0
+      scheduler: 0.23.0
 
-  /react-error-boundary@3.1.1(react@17.0.2):
+  /react-error-boundary@3.1.1(react@18.2.0):
     resolution: {integrity: sha512-W3xCd9zXnanqrTUeViceufD3mIW8Ut29BUD+S2f0eO2XCOU8b6UrJfY46RDGe5lxCJzfe4j0yvIfh0RbTZhKJw==}
     engines: {node: '>=10', npm: '>=6'}
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
       '@babel/runtime': 7.13.10
-      react: 17.0.2
+      react: 18.2.0
     dev: true
 
-  /react-fast-compare@3.2.0:
-    resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
+  /react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
 
-  /react-frame-component@5.2.6(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2):
+  /react-frame-component@5.2.6(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-CwkEM5VSt6nFwZ1Op8hi3JB5rPseZlmnp5CGiismVTauE6S4Jsc4TNMlT0O7Cts4WgIC3ZBAQ2p1Mm9XgLbj+w==}
     peerDependencies:
       prop-types: ^15.5.9
@@ -13020,11 +13002,11 @@ packages:
       react-dom: '>= 16.3'
     dependencies:
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-frame-component@5.2.6(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /react-frame-component@5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-CwkEM5VSt6nFwZ1Op8hi3JB5rPseZlmnp5CGiismVTauE6S4Jsc4TNMlT0O7Cts4WgIC3ZBAQ2p1Mm9XgLbj+w==}
     peerDependencies:
       prop-types: ^15.5.9
@@ -13032,23 +13014,26 @@ packages:
       react-dom: '>= 16.3'
     dependencies:
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-helmet@6.1.0(react@17.0.2):
-    resolution: {integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==}
+  /react-helmet-async@1.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9jZ57/dAn9t3q6hneQS0wukqC2ENOBgMNVEhb/ZG9ZSxUetzVIw4iAmEU38IaVg3QGYauQPhSeUTuIUtFglWpg==}
     peerDependencies:
-      react: '>=16.3.0'
+      react: ^16.6.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      object-assign: 4.1.1
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-fast-compare: 3.2.0
-      react-side-effect: 2.1.1(react@17.0.2)
+      '@babel/runtime': 7.22.6
+      invariant: 2.2.4
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-fast-compare: 3.2.2
+      shallowequal: 1.1.0
     dev: false
 
-  /react-hot-loader@4.13.0(@types/react@17.0.3)(react-dom@17.0.2)(react@17.0.2):
+  /react-hot-loader@4.13.0(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-JrLlvUPqh6wIkrK2hZDfOyq/Uh/WeVEr8nc7hkn2/3Ul0sx1Kr5y4kOGNacNRoj7RhwLNcQ3Udf1KJXrqc0ZtA==}
     engines: {node: '>= 6'}
     peerDependencies:
@@ -13059,27 +13044,27 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 17.0.3
+      '@types/react': 18.2.15
       fast-levenshtein: 2.0.6
       global: 4.4.0
       hoist-non-react-statics: 3.3.2
       loader-utils: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
       shallowequal: 1.1.0
       source-map: 0.7.3
     dev: false
 
-  /react-hyper-scroller@3.1.0-beta.2(react-dom@17.0.2)(react@17.0.2):
+  /react-hyper-scroller@3.1.0-beta.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-u2ATihI63t6pYhsw/NXoNhsy1uSnY7KsIVHqJ25xZeSjQXftXQEE5G7PwAwegHk9XDSagivjTEeI9SRSLRtg5g==}
     peerDependencies:
       react: ^16.8 || ^17 || ^18
       react-dom: ^16.8 || ^17 || ^18
     dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-immutable-proptypes@2.2.0(immutable@3.8.2):
@@ -13091,13 +13076,13 @@ packages:
       invariant: 2.2.4
     dev: false
 
-  /react-input-autosize@2.2.2(react@17.0.2):
+  /react-input-autosize@2.2.2(react@18.2.0):
     resolution: {integrity: sha512-jQJgYCA3S0j+cuOwzuCd1OjmBmnZLdqQdiLKRYrsMMzbjUrVDS5RvJUDwJqA7sKuksDuzFtm6hZGKFu7Mjk5aw==}
     peerDependencies:
       react: ^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0
     dependencies:
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-is@16.13.1:
@@ -13110,19 +13095,19 @@ packages:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
     dev: false
 
-  /react-markdown@6.0.3(@types/react@17.0.3)(react@17.0.2):
+  /react-markdown@6.0.3(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-kQbpWiMoBHnj9myLlmZG9T1JdoT/OEyHK7hqM6CqFT14MAkgWiWBUYijLyBmxbntaN6dCDicPcUhWhci1QYodg==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/hast': 2.3.4
-      '@types/react': 17.0.3
+      '@types/react': 18.2.15
       '@types/unist': 2.0.3
       comma-separated-tokens: 1.0.8
-      prop-types: 15.7.2
+      prop-types: 15.8.1
       property-information: 5.6.0
-      react: 17.0.2
+      react: 18.2.0
       react-is: 17.0.1
       remark-parse: 9.0.0
       remark-rehype: 8.1.0
@@ -13135,7 +13120,7 @@ packages:
       - supports-color
     dev: false
 
-  /react-modal@3.12.1(react-dom@17.0.2)(react@17.0.2):
+  /react-modal@3.12.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-WGuXn7Fq31PbFJwtWmOk+jFtGC7E9tJVbFX0lts8ZoS5EPi9+WWylUJWLKKVm3H4GlQ7ZxY7R6tLlbSIBQ5oZA==}
     engines: {node: '>=8'}
     peerDependencies:
@@ -13143,24 +13128,24 @@ packages:
       react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17
     dependencies:
       exenv: 1.2.2
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
       warning: 4.0.3
     dev: false
 
-  /react-onclickoutside@6.10.0(react-dom@17.0.2)(react@17.0.2):
+  /react-onclickoutside@6.10.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-7i2L3ef+0ILXpL6P+Hg304eCQswh4jl3ynwR71BSlMU49PE2uk31k8B2GkP6yE9s2D4jTGKnzuSpzWxu4YxfQQ==}
     peerDependencies:
       react: ^15.5.x || ^16.x || ^17.x
       react-dom: ^15.5.x || ^16.x || ^17.x
     dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-polyglot@0.7.1(node-polyglot@2.4.0)(react@17.0.2):
+  /react-polyglot@0.7.1(node-polyglot@2.4.0)(react@18.2.0):
     resolution: {integrity: sha512-V+yzYKbKsyp3EDkOXv4s3FVgnEWS475f7H4qLgDf2/qCc0MuspPYSWL42hnpsSqpf7YZTP9YCUPtHwJ2V8UMjQ==}
     peerDependencies:
       node-polyglot: ^2.0.0
@@ -13168,11 +13153,11 @@ packages:
     dependencies:
       hoist-non-react-statics: 3.3.2
       node-polyglot: 2.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
-  /react-redux@4.4.10(react@17.0.2)(redux@4.2.0):
+  /react-redux@4.4.10(react@18.2.0)(redux@4.2.0):
     resolution: {integrity: sha512-tjL0Bmpkj75Td0k+lXlF8Fc8a9GuXFv/3ahUOCXExWs/jhsKiQeTffdH0j5byejCGCRL4tvGFYlrwBF1X/Aujg==}
     peerDependencies:
       react: ^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0
@@ -13183,12 +13168,12 @@ packages:
       invariant: 2.2.4
       lodash: 4.17.21
       loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
       redux: 4.2.0
     dev: false
 
-  /react-redux@7.2.2(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0):
+  /react-redux@7.2.2(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
     resolution: {integrity: sha512-8+CQ1EvIVFkYL/vu6Olo7JFLWop1qRUeb46sGtIMDCSpgwPQq8fPLpirIB0iTqFe9XYEFPHssdX8/UwN6pAkEA==}
     peerDependencies:
       react: ^16.8.3 || ^17
@@ -13201,12 +13186,12 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-is: 16.13.1
       redux: 4.2.0
     dev: false
@@ -13216,51 +13201,74 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-router-dom@5.2.0(react@17.0.2):
+  /react-router-dom@5.2.0(react@18.2.0):
     resolution: {integrity: sha512-gxAmfylo2QUjcwxI63RhQ5G85Qqt4voZpUXSEqCwykV0baaOTQDR1f0PmY8AELqIyVc0NEZUj0Gov5lNGcXgsA==}
     peerDependencies:
       react: '>=15'
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       history: 4.10.1
       loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-router: 5.2.0(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-router: 5.2.0(react@18.2.0)
       tiny-invariant: 1.1.0
       tiny-warning: 1.0.3
     dev: false
 
-  /react-router@5.2.0(react@17.0.2):
+  /react-router-dom@6.14.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-5pWX0jdKR48XFZBuJqHosX3AAHjRAzygouMTyimnBPOLdY3WjzUSKhus2FVMihUFWzeLebDgr4r8UeQFAct7Bg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.7.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-router: 6.14.2(react@18.2.0)
+    dev: false
+
+  /react-router@5.2.0(react@18.2.0):
     resolution: {integrity: sha512-smz1DUuFHRKdcJC0jobGo8cVbhO3x50tCL4icacOlcwDOEQPq4TMqwx3sY1TP+DvtTgz4nm3thuo7A+BK2U0Dw==}
     peerDependencies:
       react: '>=15'
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       history: 4.10.1
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
-      mini-create-react-context: 0.4.1(prop-types@15.7.2)(react@17.0.2)
+      mini-create-react-context: 0.4.1(prop-types@15.8.1)(react@18.2.0)
       path-to-regexp: 1.8.0
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
       react-is: 16.13.1
       tiny-invariant: 1.1.0
       tiny-warning: 1.0.3
     dev: false
 
-  /react-scroll-sync@0.9.0(react-dom@17.0.2)(react@17.0.2):
+  /react-router@6.14.2(react@18.2.0):
+    resolution: {integrity: sha512-09Zss2dE2z+T1D03IheqAFtK4UzQyX8nFPWx6jkwdYzGLXd5ie06A6ezS2fO6zJfEb/SpG6UocN2O1hfD+2urQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.7.2
+      react: 18.2.0
+    dev: false
+
+  /react-scroll-sync@0.9.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-IaMUSTbarj9mhjVtBl9I45Er8gQqV8rdb9A0eK77JJ8MvnLcFIlnoiXVx1NS9ACy9QELq7xCTxdIVEdhDV9R0Q==}
     peerDependencies:
       react: 0.14.x || 15.x || 16.x || 17.x
       react-dom: 0.14.x || 15.x || 16.x || 17.x
     dependencies:
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-select@2.4.4(react-dom@17.0.2)(react@17.0.2):
+  /react-select@2.4.4(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-C4QPLgy9h42J/KkdrpVxNmkY6p4lb49fsrbDk/hRcZpX7JvZPNb6mGj+c5SzyEtBv1DmQ9oPH4NmhAFvCrg8Jw==}
     peerDependencies:
       react: ^15.3.0 || ^16.0.0
@@ -13269,87 +13277,79 @@ packages:
       classnames: 2.3.1
       emotion: 9.2.12
       memoize-one: 5.1.1
-      prop-types: 15.7.2
+      prop-types: 15.8.1
       raf: 3.4.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-input-autosize: 2.2.2(react@17.0.2)
-      react-transition-group: 2.9.0(react-dom@17.0.2)(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-input-autosize: 2.2.2(react@18.2.0)
+      react-transition-group: 2.9.0(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
-  /react-side-effect@2.1.1(react@17.0.2):
-    resolution: {integrity: sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.0
-    dependencies:
-      react: 17.0.2
-    dev: false
-
-  /react-sortable-hoc@1.11.0(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2):
+  /react-sortable-hoc@1.11.0(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-v1CDCvdfoR3zLGNp6qsBa4J1BWMEVH25+UKxF/RvQRh+mrB+emqtVHMgZ+WreUiKJoEaiwYoScaueIKhMVBHUg==}
     peerDependencies:
       prop-types: ^15.5.7
       react: ^0.14.0 || ^15.0.0 || ^16.0.0
       react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       invariant: 2.2.4
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-sortable-hoc@1.11.0(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /react-sortable-hoc@1.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-v1CDCvdfoR3zLGNp6qsBa4J1BWMEVH25+UKxF/RvQRh+mrB+emqtVHMgZ+WreUiKJoEaiwYoScaueIKhMVBHUg==}
     peerDependencies:
       prop-types: ^15.5.7
       react: ^0.14.0 || ^15.0.0 || ^16.0.0
       react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       invariant: 2.2.4
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-sortable-hoc@2.0.0(prop-types@15.7.2)(react-dom@17.0.2)(react@17.0.2):
+  /react-sortable-hoc@2.0.0(prop-types@15.7.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-JZUw7hBsAHXK7PTyErJyI7SopSBFRcFHDjWW5SWjcugY0i6iH7f+eJkY8cJmGMlZ1C9xz1J3Vjz0plFpavVeRg==}
     peerDependencies:
       prop-types: ^15.5.7
       react: ^16.3.0 || ^17.0.0
       react-dom: ^16.3.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       invariant: 2.2.4
       prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-sortable-hoc@2.0.0(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2):
+  /react-sortable-hoc@2.0.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-JZUw7hBsAHXK7PTyErJyI7SopSBFRcFHDjWW5SWjcugY0i6iH7f+eJkY8cJmGMlZ1C9xz1J3Vjz0plFpavVeRg==}
     peerDependencies:
       prop-types: ^15.5.7
       react: ^16.3.0 || ^17.0.0
       react-dom: ^16.3.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       invariant: 2.2.4
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-split-pane@0.1.92(react-dom@17.0.2)(react@17.0.2):
+  /react-split-pane@0.1.92(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-GfXP1xSzLMcLJI5BM36Vh7GgZBpy+U/X0no+VM3fxayv+p1Jly5HpMofZJraeaMl73b3hvlr+N9zJKvLB/uz9w==}
     peerDependencies:
       react: ^16.0.0-0
       react-dom: ^16.0.0-0
     dependencies:
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
       react-style-proptype: 3.2.2
     dev: false
@@ -13357,53 +13357,53 @@ packages:
   /react-style-proptype@3.2.2:
     resolution: {integrity: sha512-ywYLSjNkxKHiZOqNlso9PZByNEY+FTyh3C+7uuziK0xFXu9xzdyfHwg4S9iyiRRoPCR4k2LqaBBsWVmSBwCWYQ==}
     dependencies:
-      prop-types: 15.7.2
+      prop-types: 15.8.1
     dev: false
 
-  /react-textarea-autosize@8.3.2(@types/react@17.0.3)(react@17.0.2):
+  /react-textarea-autosize@8.3.2(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-JrMWVgQSaExQByP3ggI1eA8zF4mF0+ddVuX7acUeK2V7bmrpjVOY72vmLz2IXFJSAXoY3D80nEzrn0GWajWK3Q==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
-      react: 17.0.2
-      use-composed-ref: 1.1.0(react@17.0.2)
-      use-latest: 1.2.0(@types/react@17.0.3)(react@17.0.2)
+      '@babel/runtime': 7.22.6
+      react: 18.2.0
+      use-composed-ref: 1.1.0(react@18.2.0)
+      use-latest: 1.2.0(@types/react@18.2.15)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
 
-  /react-toggled@1.2.7(prop-types@15.7.2)(react@17.0.2):
+  /react-toggled@1.2.7(prop-types@15.7.2)(react@18.2.0):
     resolution: {integrity: sha512-3am1uA5ZzDwUkReEuUkK+fJ0DAYcGiLraWEPqXfL1kKD/NHbbB7fB/t+5FflMGd+FA6n9hih1es4pui1yzKi0w==}
     peerDependencies:
       prop-types: '>=15'
       react: '>=15'
     dependencies:
       prop-types: 15.7.2
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /react-toggled@1.2.7(prop-types@15.8.1)(react@17.0.2):
+  /react-toggled@1.2.7(prop-types@15.8.1)(react@18.2.0):
     resolution: {integrity: sha512-3am1uA5ZzDwUkReEuUkK+fJ0DAYcGiLraWEPqXfL1kKD/NHbbB7fB/t+5FflMGd+FA6n9hih1es4pui1yzKi0w==}
     peerDependencies:
       prop-types: '>=15'
       react: '>=15'
     dependencies:
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /react-topbar-progress-indicator@4.1.0(react@17.0.2):
+  /react-topbar-progress-indicator@4.1.0(react@18.2.0):
     resolution: {integrity: sha512-g6iEXI6gMKQlspckm2mtFt1yE8AiMRD9bZLRR3XRmB8ZqY0QMRi2TOQDLbH3YrEI7ma8I3rkL5CN9ZbfKv9GPg==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
       topbar: 0.1.4
     dev: false
 
-  /react-transition-group@1.2.1(react-dom@17.0.2)(react@17.0.2):
+  /react-transition-group@1.2.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-CWaL3laCmgAFdxdKbhhps+c0HRGF4c+hdM4H23+FI1QBNUyx/AMeIJGWorehPNSaKnQNOAxL7PQmqMu78CDj3Q==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0
@@ -13412,13 +13412,13 @@ packages:
       chain-function: 1.0.1
       dom-helpers: 3.4.0
       loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       warning: 3.0.0
     dev: false
 
-  /react-transition-group@2.9.0(react-dom@17.0.2)(react@17.0.2):
+  /react-transition-group@2.9.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==}
     peerDependencies:
       react: '>=15.0.0'
@@ -13426,13 +13426,13 @@ packages:
     dependencies:
       dom-helpers: 3.4.0
       loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
     dev: false
 
-  /react-transition-group@4.4.5(react-dom@17.0.2)(react@17.0.2):
+  /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
       react: '>=16.6.0'
@@ -13442,71 +13442,70 @@ packages:
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-virtualized-auto-sizer@1.0.5(react-dom@17.0.2)(react@17.0.2):
+  /react-virtualized-auto-sizer@1.0.5(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-kivjYVWX15TX2IUrm8F1jaCEX8EXrpy3DD+u41WGqJ1ZqbljWpiwscV+VxOM1l7sSIM1jwi2LADjhhAJkJ9dxA==}
     engines: {node: '>8.0.0'}
     peerDependencies:
       react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0
       react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0
     dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-waypoint@10.3.0(react@17.0.2):
+  /react-waypoint@10.3.0(react@18.2.0):
     resolution: {integrity: sha512-iF1y2c1BsoXuEGz08NoahaLFIGI9gTUAAOKip96HUmylRT6DUtpgoBPjk/Y8dfcFVmfVDvUzWjNXpZyKTOV0SQ==}
     peerDependencies:
       react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       consolidated-events: 2.0.2
-      prop-types: 15.7.2
-      react: 17.0.2
+      prop-types: 15.8.1
+      react: 18.2.0
       react-is: 17.0.1
     dev: false
 
-  /react-window@1.8.6(react-dom@17.0.2)(react@17.0.2):
+  /react-window@1.8.6(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-8VwEEYyjz6DCnGBsd+MgkD0KJ2/OXFULyDtorIiTz+QzwoP94tBoA7CnbtyXMm+cCeAUER5KJcPtWl9cpKbOBg==}
     engines: {node: '>8.0.0'}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0
       react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
       memoize-one: 5.1.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-zoom-pan-pinch@3.0.7(react-dom@17.0.2)(react@17.0.2):
+  /react-zoom-pan-pinch@3.0.7(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UJkk1Z7BMPIgfY+Qu4jGTlj+UyZQhrpJeCuK1gg31x57i3p8h4ZXfYWu3dFIiR+uRgfoe/koziwgCjA//T1rKA==}
     engines: {node: '>=8', npm: '>=5'}
     peerDependencies:
       react: '*'
       react-dom: '*'
     dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react@17.0.2:
-    resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
+  /react@18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
 
-  /reactcss@1.2.3(react@17.0.2):
+  /reactcss@1.2.3(react@18.2.0):
     resolution: {integrity: sha512-KiwVUcFu1RErkI97ywr8nvx8dNOpT03rbnma0SSalTYjkrPYaEajR4a/MRt6DZ46K6arDRbWMNHF+xH7G7n/8A==}
     peerDependencies:
       react: '*'
     dependencies:
       lodash: 4.17.21
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /read-pkg-up@7.0.1:
@@ -13606,18 +13605,18 @@ packages:
       redux: 4.2.0
     dev: false
 
-  /redux-notifications@4.0.1(react-dom@17.0.2)(react@17.0.2)(redux@4.2.0):
+  /redux-notifications@4.0.1(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
     resolution: {integrity: sha512-mRVaEcsvu5B4P8x8kW0uY83EQqaWL/0+/NvL4bdbHGJVg+Rwx54MgBU1s+tB6RAA2E6NX/DmQrO4EbFDcQSi+w==}
     peerDependencies:
       react: ^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0
       react-dom: ^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0
     dependencies:
       object-assign: 4.1.1
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-redux: 4.4.10(react@17.0.2)(redux@4.2.0)
-      react-transition-group: 1.2.1(react-dom@17.0.2)(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-redux: 4.4.10(react@18.2.0)(redux@4.2.0)
+      react-transition-group: 1.2.1(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - redux
     dev: false
@@ -13633,7 +13632,7 @@ packages:
   /redux@4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
     dev: false
 
   /regenerate-unicode-properties@8.2.0:
@@ -13653,7 +13652,7 @@ packages:
   /regenerator-transform@0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.22.6
     dev: true
 
   /regex-not@1.0.2:
@@ -14095,11 +14094,10 @@ packages:
       xmlchars: 2.2.0
     dev: true
 
-  /scheduler@0.20.2:
-    resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
+  /scheduler@0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
 
   /section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
@@ -14357,19 +14355,19 @@ packages:
       slate: 0.47.9(immutable@3.8.2)
     dev: false
 
-  /slate-react-placeholder@0.2.9(react@17.0.2)(slate-react@0.22.10)(slate@0.47.9):
+  /slate-react-placeholder@0.2.9(react@18.2.0)(slate-react@0.22.10)(slate@0.47.9):
     resolution: {integrity: sha512-YSJ9Gb4tGpbzPje3eNKtu26hWM8ApxTk9RzjK+6zfD5V/RMTkuWONk24y6c9lZk0OAYNZNUmrnb/QZfU3j9nag==}
     peerDependencies:
       react: '>=16.0.0'
       slate: '>=0.47.0'
       slate-react: '>=0.22.0'
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
       slate: 0.47.9(immutable@3.8.2)
-      slate-react: 0.22.10(immutable@3.8.2)(react-dom@17.0.2)(react@17.0.2)(slate@0.47.9)
+      slate-react: 0.22.10(immutable@3.8.2)(react-dom@18.2.0)(react@18.2.0)(slate@0.47.9)
     dev: false
 
-  /slate-react@0.22.10(immutable@3.8.2)(react-dom@17.0.2)(react@17.0.2)(slate@0.47.9):
+  /slate-react@0.22.10(immutable@3.8.2)(react-dom@18.2.0)(react@18.2.0)(slate@0.47.9):
     resolution: {integrity: sha512-B2Ms1u/REbdd8yKkOItKgrw/tX8klgz5l5x6PP86+oh/yqmB6EHe0QyrYlQ9fc3WBlJUVTOL+nyAP1KmlKj2/w==}
     peerDependencies:
       immutable: '>=3.8.1 || >4.0.0-rc'
@@ -14383,9 +14381,9 @@ packages:
       is-window: 1.0.2
       lodash: 4.17.21
       memoize-one: 4.1.0
-      prop-types: 15.7.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       selection-is-backward: 1.0.0
       slate: 0.47.9(immutable@3.8.2)
@@ -14394,7 +14392,7 @@ packages:
       slate-hotkeys: 0.2.11
       slate-plain-serializer: 0.7.13(immutable@3.8.2)(slate@0.47.9)
       slate-prop-types: 0.5.44(immutable@3.8.2)(slate@0.47.9)
-      slate-react-placeholder: 0.2.9(react@17.0.2)(slate-react@0.22.10)(slate@0.47.9)
+      slate-react-placeholder: 0.2.9(react@18.2.0)(slate-react@0.22.10)(slate@0.47.9)
       tiny-invariant: 1.1.0
       tiny-warning: 0.0.3
     transitivePeerDependencies:
@@ -14408,7 +14406,7 @@ packages:
       slate-react: '>=0.19.3'
     dependencies:
       slate: 0.47.9(immutable@3.8.2)
-      slate-react: 0.22.10(immutable@3.8.2)(react-dom@17.0.2)(react@17.0.2)(slate@0.47.9)
+      slate-react: 0.22.10(immutable@3.8.2)(react-dom@18.2.0)(react@18.2.0)(slate@0.47.9)
     dev: false
 
   /slate@0.47.9(immutable@3.8.2):
@@ -15954,35 +15952,25 @@ packages:
       querystring: 0.2.0
     dev: false
 
-  /use-composed-ref@1.1.0(react@17.0.2):
+  /use-composed-ref@1.1.0(react@18.2.0):
     resolution: {integrity: sha512-my1lNHGWsSDAhhVAT4MKs6IjBUtG6ZG11uUqexPH9PptiIZDQOzaF4f5tEbJ2+7qvNbtXNBbU3SfmN+fXlWDhg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
       ts-essentials: 2.0.12
     dev: false
 
-  /use-debounce@6.0.1(react@17.0.2):
+  /use-debounce@6.0.1(react@18.2.0):
     resolution: {integrity: sha512-kpvIxpa0vOLz/2I2sfNJ72mUeaT2CMNCu5BT1f2HkV9qZK27UVSOFf1sSSu+wjJE4TcR2VTXS2SM569+m3TN7Q==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
-  /use-immer@0.5.1(immer@9.0.6)(react@17.0.2):
-    resolution: {integrity: sha512-Orb7PokM+jiLQfA1oJ3B3P7Guq0c2IxUHHmBpLeEMnJiz4ZOMlj9mkqq6D7iXJsnurRX0EOB134annf3RjEWHw==}
-    peerDependencies:
-      immer: '>=2.0.0'
-      react: ^16.8.0 || ^17.0.1
-    dependencies:
-      immer: 9.0.6
-      react: 17.0.2
-    dev: false
-
-  /use-isomorphic-layout-effect@1.1.1(@types/react@17.0.3)(react@17.0.2):
+  /use-isomorphic-layout-effect@1.1.1(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==}
     peerDependencies:
       '@types/react': '*'
@@ -15991,11 +15979,11 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 17.0.3
-      react: 17.0.2
+      '@types/react': 18.2.15
+      react: 18.2.0
     dev: false
 
-  /use-latest@1.2.0(@types/react@17.0.3)(react@17.0.2):
+  /use-latest@1.2.0(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-d2TEuG6nSLKQLAfW3By8mKr8HurOlTkul0sOpxbClIv4SQ4iOd7BYr7VIzdbktUCnv7dua/60xzd8igMU6jmyw==}
     peerDependencies:
       '@types/react': '*'
@@ -16004,17 +15992,17 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 17.0.3
-      react: 17.0.2
-      use-isomorphic-layout-effect: 1.1.1(@types/react@17.0.3)(react@17.0.2)
+      '@types/react': 18.2.15
+      react: 18.2.0
+      use-isomorphic-layout-effect: 1.1.1(@types/react@18.2.15)(react@18.2.0)
     dev: false
 
-  /use-sync-external-store@1.2.0(react@17.0.2):
+  /use-sync-external-store@1.2.0(react@18.2.0):
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: false
 
   /use@3.1.1:
@@ -16051,14 +16039,14 @@ packages:
     hasBin: true
     dev: true
 
-  /validate-color@2.1.1(react-dom@17.0.2)(react@17.0.2):
+  /validate-color@2.1.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-hKG4b7TdXtqom+Uby8LyyxaGK8gEpk60T0stdKXdPSHW+sPOBjJX6B9mFUa9gwQKkNCxvz6e1nxmohZmBWlnBg==}
     peerDependencies:
       react: ^17.0.1
       react-dom: ^17.0.1
     dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /validate-npm-package-license@3.0.4:
@@ -16816,7 +16804,7 @@ packages:
       readable-stream: 3.6.0
     dev: true
 
-  /zustand@4.3.2(immer@9.0.6)(react@17.0.2):
+  /zustand@4.3.2(immer@9.0.6)(react@18.2.0):
     resolution: {integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -16829,8 +16817,8 @@ packages:
         optional: true
     dependencies:
       immer: 9.0.6
-      react: 17.0.2
-      use-sync-external-store: 1.2.0(react@17.0.2)
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
   /zwitch@1.0.5:

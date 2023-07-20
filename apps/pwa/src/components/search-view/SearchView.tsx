@@ -1,6 +1,5 @@
 import { useSearchInput } from "./useSearchInput";
 import * as React from "react";
-import { useHistory } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import Button from "../shared/button/Button";
 import Portal from "@/components/shared/portal/Portal";
@@ -17,10 +16,11 @@ import Atom from "../atom";
 import { PERIODIC_TABLE } from "@/routes";
 import { ReactComponent as NoResults } from "./no-results.svg";
 import { useQuery } from "@/hooks/useQuery";
+import { useNavigate } from "react-router-dom";
 
 function SearchView() {
   const { i18n } = useLocale();
-  const history = useHistory();
+  const navigate = useNavigate();
   const params = useQuery();
   const searchInput = useSearchInput("replace");
   const query = searchInput.value.trim();
@@ -33,7 +33,7 @@ function SearchView() {
   }, [openSearch, query]);
 
   function close() {
-    history.goBack();
+    navigate(-1);
   }
 
   const searchViewRef = React.useRef<HTMLDivElement>(null);
@@ -109,7 +109,7 @@ function ElementSearchResult({ id, match }: SearchResult) {
   const { getLocalizedElement, getElement } = useElements();
   const element = getElement(id);
   const elementLocales = getLocalizedElement(id);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   if (!elementLocales || !element) {
     return null;
@@ -127,7 +127,7 @@ function ElementSearchResult({ id, match }: SearchResult) {
         <strong aria-label="Match reason">
           {i18n(`element_data_${matchKey}`)}
         </strong>
-        <span>{elementLocales[matchKey]}</span>
+        <span>{elementLocales[matchKey] as string | number}</span>
       </>
     );
   } else {
@@ -135,7 +135,7 @@ function ElementSearchResult({ id, match }: SearchResult) {
   }
 
   function open() {
-    history.push(`${PERIODIC_TABLE}/${element.atomic}`);
+    navigate(`${PERIODIC_TABLE}/${element.atomic}`);
   }
 
   return (
