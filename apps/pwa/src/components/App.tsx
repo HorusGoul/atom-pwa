@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {
   ABOUT,
   HUB,
@@ -102,7 +102,6 @@ function App() {
                 <>
                   <SearchView />
                   <PeriodicTablePage />
-                  <Outlet />
                 </>
               }
             >

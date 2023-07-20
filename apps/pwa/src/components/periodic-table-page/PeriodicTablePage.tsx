@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
@@ -55,6 +55,8 @@ function PeriodicTablePage() {
       <div className="periodic-table-page__table">
         <PeriodicTable elementRenderer={elementRenderer} />
       </div>
+
+      <Outlet />
     </div>
   );
 }

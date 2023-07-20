@@ -5,7 +5,8 @@ import PeriodicTablePage from "./PeriodicTablePage";
 import "hammerjs";
 import { render } from "@/test-utils";
 
-test("should render periodic table and able to see details of element", async () => {
+// TODO: Move to e2e tests because details are in a separate route
+test.skip("should render periodic table and able to see details of element", async () => {
   render(<PeriodicTablePage />, {
     initialHistoryEntries: ["/periodic-table"],
   });

@@ -1,16 +1,11 @@
 import * as React from "react";
 import { screen } from "@testing-library/react";
-import { LocationGetter, render } from "@/test-utils";
+import { render } from "@/test-utils";
 import userEvent from "@testing-library/user-event";
-import { Location, MemoryRouter } from "react-router-dom";
 import TestSelection from "./TestSelection";
 
 test("should display the test entries", () => {
-  render(
-    <MemoryRouter>
-      <TestSelection />
-    </MemoryRouter>
-  );
+  render(<TestSelection />);
 
   expect(screen.getByText(/Valences Test/i)).toBeInTheDocument();
 
@@ -44,23 +39,21 @@ test.each([
     expectedPath: "/tests/periodic-table",
   },
 ])("should navigate to pages", ({ itemIdx, expectedPath }) => {
-  const route: { location?: Location } = {};
-
-  render(
-    <MemoryRouter
-      initialEntries={[
+  const { route } = render(
+    <>
+      <TestSelection />
+    </>,
+    {
+      initialHistoryEntries: [
         "/tests/valences",
         "/tests/periodic-table",
         "/tests/valences/settings",
         "/tests/periodic-table/settings",
-      ]}
-    >
-      <TestSelection />
-      <LocationGetter onLocation={(location) => (route.location = location)} />
-    </MemoryRouter>
+      ],
+    }
   );
 
   userEvent.click(screen.getAllByRole("button")[itemIdx]);
 
-  expect(route.location?.pathname).toBe(expectedPath);
+  expect(route.location.pathname).toBe(expectedPath);
 });
