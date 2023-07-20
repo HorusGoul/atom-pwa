@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Element } from "@/Element";
 import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
@@ -120,10 +120,10 @@ function ValencesTest() {
     }
   }
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function onNavbarBackButtonClick() {
-    history.push(TEST_SELECTION);
+    navigate(TEST_SELECTION);
   }
 
   function isAlreadyAnswered(question: ValencesTestQuestion): boolean {
@@ -183,7 +183,7 @@ function ValencesTest() {
             confirmAction({
               title: i18n("are_you_sure"),
               message: i18n("confirm_exit_quiz_message"),
-              onConfirm: () => history.push(TEST_VALENCES_SETTINGS),
+              onConfirm: () => navigate(TEST_VALENCES_SETTINGS),
             }),
         }}
       />

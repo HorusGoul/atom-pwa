@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Element } from "@/Element";
 import { ElementsSettings } from "@/hooks/useSettings";
 import { useElements } from "@/hooks/useElements";
@@ -23,7 +23,7 @@ interface PeriodicTableTestQuestion {
 }
 
 function PeriodicTableTest() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
   const { getElement } = useElements();
   const { confirmAction } = useConfirm();
@@ -68,7 +68,7 @@ function PeriodicTableTest() {
   const currentQuestion = questions.length ? questions[0] : null;
 
   function onNavbarBackButtonClick() {
-    history.push(TEST_SELECTION);
+    navigate(TEST_SELECTION);
   }
 
   function elementRenderer(atomic: number) {
@@ -223,7 +223,7 @@ function PeriodicTableTest() {
             confirmAction({
               title: i18n("are_you_sure"),
               message: i18n("confirm_exit_quiz_message"),
-              onConfirm: () => history.push(TEST_PERIODIC_TABLE_SETTINGS),
+              onConfirm: () => navigate(TEST_PERIODIC_TABLE_SETTINGS),
             }),
         }}
       />

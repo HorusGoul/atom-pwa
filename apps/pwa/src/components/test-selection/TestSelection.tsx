@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
 import Navbar from "../shared/navbar/Navbar";
@@ -27,7 +27,7 @@ function TestSelection() {
     },
   ];
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="test-selection">
@@ -35,7 +35,7 @@ function TestSelection() {
         className="test-selection__navbar"
         title={i18n("nav_test")}
         // TODO: replace "push" with "replace" in the future
-        onBackButtonClick={() => history.push(HUB)}
+        onBackButtonClick={() => navigate(HUB)}
       />
 
       <div className="test-selection__entries">
@@ -43,8 +43,8 @@ function TestSelection() {
           <TestEntry
             key={index}
             {...testEntry}
-            onPracticeClick={() => history.push(testEntry.testRoute)}
-            onSettingsClick={() => history.push(testEntry.settingsRoute)}
+            onPracticeClick={() => navigate(testEntry.testRoute)}
+            onSettingsClick={() => navigate(testEntry.settingsRoute)}
           />
         ))}
       </div>

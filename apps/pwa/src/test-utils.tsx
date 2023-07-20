@@ -4,14 +4,20 @@ import {
   RenderOptions,
   waitFor,
 } from "@testing-library/react";
-import { MemoryRouter, Route } from "react-router-dom";
-import { LocationDescriptor, Location } from "history";
+import {
+  MemoryRouter,
+  Route,
+  Routes,
+  useLocation,
+  Location,
+  MemoryRouterProps,
+} from "react-router-dom";
 import { ElementProvider } from "./contexts/ElementContext";
 import ConfirmProvider from "./components/shared/confirm";
 import { createPack } from "react-component-pack";
 
 interface RenderParams extends RenderOptions {
-  initialHistoryEntries?: LocationDescriptor<unknown>[];
+  initialHistoryEntries?: MemoryRouterProps["initialEntries"];
 }
 
 export function render(
@@ -31,13 +37,8 @@ export function render(
         <MemoryRouter initialEntries={initialHistoryEntries}>
           {children}
 
-          <Route
-            path="/"
-            render={({ location }) => {
-              route.location = location;
-
-              return null;
-            }}
+          <LocationGetter
+            onLocation={(location) => (route.location = location)}
           />
         </MemoryRouter>
       </ProviderPack>
@@ -52,4 +53,25 @@ export function render(
 
 export async function waitMs(ms = 1) {
   return waitFor(() => new Promise((resolve) => setTimeout(resolve, ms)));
+}
+
+export function LocationGetter({
+  onLocation,
+}: {
+  onLocation: (location: Location) => void;
+}) {
+  return (
+    <Routes>
+      <Route
+        path="*"
+        Component={function LocationGrab() {
+          const location = useLocation();
+
+          onLocation(location);
+
+          return null;
+        }}
+      />
+    </Routes>
+  );
 }

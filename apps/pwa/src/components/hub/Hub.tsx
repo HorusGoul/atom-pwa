@@ -9,7 +9,7 @@ import { useFlagStore } from "@/services/flags";
 import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Atom from "../atom";
 import DownloadApp from "../download-app/DownloadApp";
 import RateApp from "../rate-app/RateApp";
@@ -27,7 +27,7 @@ function Hub() {
   const { theme, setTheme } = useTheme();
   const { sections } = useHub();
   const { recent } = useRecent();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className={styles.hub}>
@@ -59,13 +59,13 @@ function Hub() {
               className={styles.topbarButton}
               aria-label="Settings"
               iconName="settings"
-              onClick={() => history.push(ABOUT)}
+              onClick={() => navigate(ABOUT)}
             />
           </div>
 
           <Button
             className={styles.search}
-            onClick={() => history.push({ search: "openSearch=true" })}
+            onClick={() => navigate({ search: "openSearch=true" })}
           >
             <Icon name="search" aria-hidden={true} />
 
@@ -120,7 +120,7 @@ function HubItemWithData({
   const flags = useFlagStore();
   const data = useHubItemById(item);
   const category = useHubCategoryById(data.category);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { confirmAction } = useConfirm();
   const { i18n } = useLocale();
 
@@ -158,7 +158,7 @@ function HubItemWithData({
       return;
     }
 
-    history.push(data.href);
+    navigate(data.href);
   }
 
   return (

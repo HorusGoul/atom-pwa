@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION } from "@/routes";
 import IconButton from "../../shared/icon-button/IconButton";
@@ -11,7 +11,7 @@ import { useElements } from "@/hooks/useElements";
 import PtElementSetting from "@/components/pt-element/PtElementSetting";
 
 function ValencesTestSettings() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { i18n } = useLocale();
   const {
     settings,
@@ -55,8 +55,8 @@ function ValencesTestSettings() {
   }, [resetSettings]);
 
   const onNavbarButtonClick = React.useCallback(() => {
-    history.push(TEST_SELECTION);
-  }, [history]);
+    navigate(TEST_SELECTION);
+  }, [navigate]);
 
   const onTestElementSettingsClick = React.useCallback(
     (atomic: number) => {

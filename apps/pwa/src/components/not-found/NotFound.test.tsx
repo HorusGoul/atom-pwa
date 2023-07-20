@@ -2,9 +2,8 @@ import * as React from "react";
 import { screen } from "@testing-library/react";
 import NotFound from "./NotFound";
 import userEvent from "@testing-library/user-event";
-import { render } from "@/test-utils";
-import { Location } from "history";
-import { Route } from "react-router-dom";
+import { LocationGetter, render } from "@/test-utils";
+import { Location } from "react-router-dom";
 
 test("should render NotFound page", () => {
   render(<NotFound />, {
@@ -28,13 +27,7 @@ test("should be able to navigate back to home", () => {
   render(
     <>
       <NotFound />
-      <Route
-        path="/"
-        render={({ location }) => {
-          testLocation = location;
-          return null;
-        }}
-      />
+      <LocationGetter onLocation={(location) => (testLocation = location)} />
     </>,
     {
       initialHistoryEntries: ["/not-found"],
