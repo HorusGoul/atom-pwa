@@ -247,9 +247,6 @@ importers:
       vitest:
         specifier: ^0.28.1
         version: 0.28.1(jsdom@21.1.0)(sass@1.32.8)(terser@5.19.0)
-      whatwg-fetch:
-        specifier: ^3.6.1
-        version: 3.6.2
       workbox-cli:
         specifier: ^6.1.0
         version: 6.1.2

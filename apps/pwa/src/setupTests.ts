@@ -1,6 +1,5 @@
 import { expect, afterEach } from "vitest";
 import { cleanup } from "@testing-library/react";
-import "whatwg-fetch";
 import matchers, {
   TestingLibraryMatchers,
 } from "@testing-library/jest-dom/matchers";

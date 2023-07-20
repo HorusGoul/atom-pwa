@@ -1,6 +1,5 @@
 import { useUnmounted } from "@/hooks/useUnmounted";
 import * as React from "react";
-import { useImmer } from "use-immer";
 
 interface ServiceWorkerContextType {
   waitingState: ServiceWorker["state"] | null;
@@ -32,7 +31,7 @@ export function ServiceWorkerProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [state, setState] = useImmer<State>(() => ({
+  const [state, setState] = React.useState<State>(() => ({
     waiting: null,
     waitingState: null,
   }));
@@ -56,9 +55,9 @@ export function ServiceWorkerProvider({
               installing.state === "installed" &&
               navigator.serviceWorker.controller
             ) {
-              setState((draft) => {
-                draft.waiting = installing;
-                draft.waitingState = installing.state;
+              setState({
+                waiting: installing,
+                waitingState: installing.state,
               });
             }
           });
@@ -70,9 +69,9 @@ export function ServiceWorkerProvider({
           return;
         }
 
-        setState((draft) => {
-          draft.waiting = waiting;
-          draft.waitingState = waiting.state;
+        setState({
+          waiting: waiting,
+          waitingState: waiting.state,
         });
       } catch (e) {
         window.console.error("Error during service worker registration:", e);
@@ -104,9 +103,10 @@ export function ServiceWorkerProvider({
           updateInstance();
         }
 
-        setState((draft) => {
-          draft.waitingState = waiting.state;
-        });
+        setState((current) => ({
+          ...current,
+          waitingState: waiting.state,
+        }));
       });
 
       waiting.postMessage({ type: "SKIP_WAITING" });

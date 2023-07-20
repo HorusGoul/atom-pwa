@@ -38,7 +38,6 @@
     "react-router-dom": "^5.2.0",
     "react-zoom-pan-pinch": "^3.0.7",
     "use-debounce": "^6.0.1",
-    "use-immer": "^0.5.1",
     "workbox-precaching": "^6.5.4",
     "zustand": "^4.3.2"
   },
@@ -93,7 +92,6 @@
     "vite-plugin-istanbul": "^4.0.0",
     "vite-plugin-svgr": "^2.4.0",
     "vitest": "^0.28.1",
-    "whatwg-fetch": "^3.6.1",
     "workbox-cli": "^6.1.0"
   },
   "resolutions": {
