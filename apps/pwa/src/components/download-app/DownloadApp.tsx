@@ -1,8 +1,8 @@
 import * as React from "react";
-import Icon from "../shared/icon/Icon";
+import Icon from "@/components/shared/icon/Icon";
 import "./DownloadApp.scss";
 import { useLocale } from "@/hooks/useLocale";
-import Button from "../shared/button/Button";
+import Button from "@/components/shared/button/Button";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";
 import { useFlagStore } from "@/services/flags";

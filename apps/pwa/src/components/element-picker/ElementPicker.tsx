@@ -5,8 +5,8 @@ import HyperScroller, { HyperScrollerCache } from "react-hyper-scroller";
 import { Element } from "@/Element";
 import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
-import Button from "../shared/button/Button";
-import Icon from "../shared/icon/Icon";
+import Button from "@/components/shared/button/Button";
+import Icon from "@/components/shared/icon/Icon";
 import "./ElementPicker.scss";
 
 interface ElementPickerProps {

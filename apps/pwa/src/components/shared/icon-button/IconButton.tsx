@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
-import Button, { ButtonProps } from "../button/Button";
-import Icon from "../icon/Icon";
+import Button, { ButtonProps } from "@/components/shared/button/Button";
+import Icon from "@/components/shared/icon/Icon";
 import "./IconButton.scss";
 
 interface IconButtonProps extends Omit<ButtonProps, "children"> {

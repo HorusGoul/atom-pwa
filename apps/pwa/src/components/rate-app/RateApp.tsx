@@ -1,9 +1,9 @@
 import * as React from "react";
-import Icon from "../shared/icon/Icon";
+import Icon from "@/components/shared/icon/Icon";
 import "./RateApp.scss";
 import { useLocale } from "@/hooks/useLocale";
-import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
-import Button from "../shared/button/Button";
+import SwipeableModal from "@/components/shared/swipeable-modal/SwipeableModal";
+import Button from "@/components/shared/button/Button";
 import NativeBridge from "@/NativeBridge";
 import classNames from "classnames";
 import { logEvent } from "@/services/spycat";

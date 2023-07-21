@@ -2,9 +2,9 @@ import { logEvent } from "@/services/spycat";
 import classNames from "classnames";
 import * as React from "react";
 import { useLocale } from "@/hooks/useLocale";
-import IconButton from "../shared/icon-button/IconButton";
+import IconButton from "@/components/shared/icon-button/IconButton";
 import "./TestResults.scss";
-import { useRateApp } from "../rate-app/useRateApp";
+import { useRateApp } from "@/components/rate-app/useRateApp";
 
 export interface TestResultsProps {
   gaTestName: string;

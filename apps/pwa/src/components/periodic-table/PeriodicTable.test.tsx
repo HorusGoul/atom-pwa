@@ -1,7 +1,7 @@
 import * as React from "react";
 import PeriodicTable from "./PeriodicTable";
 import { screen, waitForElementToBeRemoved } from "@testing-library/react";
-import PtElementInfo from "../pt-element/PtElementInfo";
+import PtElementInfo from "@/components/pt-element/PtElementInfo";
 import { Element } from "@/Element";
 import { render } from "@/test-utils";
 

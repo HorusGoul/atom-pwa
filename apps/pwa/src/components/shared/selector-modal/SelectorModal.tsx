@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
-import Button from "../button/Button";
-import Modal, { ModalProps } from "../modal/Modal";
+import Button from "@/components/shared/button/Button";
+import Modal, { ModalProps } from "@/components/shared/modal/Modal";
 import "./SelectorModal.scss";
 
 export interface SelectorModalOption {

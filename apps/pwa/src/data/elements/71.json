@@ -20,13 +20,7 @@
   "group": "lanthanoids",
   "yearDiscovered": 1907,
   "valency": "+3",
-  "wrongValences": [
-    "+1",
-    "+2",
-    "+2 +3",
-    "+3 +5",
-    "+2 +4"
-  ],
+  "wrongValences": ["+1", "+2", "+2 +3", "+3 +5", "+2 +4"],
   "testState": {
     "valencesTest": false,
     "ptTest": true
