@@ -36,7 +36,7 @@ interface ConfirmProviderProps {
 function ConfirmProvider({ children }: ConfirmProviderProps) {
   const { i18n } = useLocale();
   const [action, setAction] = React.useState<ConfirmAction | null>(null);
-  const [loading, setLoading] = React.useState(false);
+  const [, setLoading] = React.useState(false);
 
   const unmountedRef = useUnmounted();
 

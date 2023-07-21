@@ -1,13 +1,13 @@
 {
-  "extends": "tsconfig/react.json",
+  "extends": "@internal/tsconfig/react.json",
   "compilerOptions": {
     "types": ["vite/client", "vitest/globals"],
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["./src", "./admin"]
+  "include": ["./src", "./admin", ".eslintrc.cjs"]
 }

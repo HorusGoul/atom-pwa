@@ -1,4 +1,4 @@
-import { expect, test } from "playwright-test-coverage";
+import { test } from "playwright-test-coverage";
 import { HubPage } from "@/HubPage";
 
 test("HubPage should have a title", async ({ page }) => {
@@ -71,7 +71,8 @@ test.describe("@android", () => {
 
     await page.addInitScript(() => {
       // Mock the AtomNative bridge
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore -- TODO: Extract AtomNative interface to a common package
       window.AtomNative = {
         getDebugMode: () => true,
         isHybrid: () => true,
@@ -89,7 +90,8 @@ test.describe("@android", () => {
 
     await page.addInitScript(() => {
       // Mock the AtomNative bridge
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore -- TODO: Extract AtomNative interface to a common package
       window.AtomNative = {
         getDebugMode: () => true,
         isHybrid: () => true,
