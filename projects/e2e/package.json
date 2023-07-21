@@ -13,7 +13,7 @@
     "test:ui": "pnpm run test --ui",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src tests --ext .ts",
-    "lint:fix": "pnpm run lint --fix && prettier '{src,tests}/**/*' playwright.config.ts --write"
+    "lint:fix": "pnpm run lint --fix && prettier '{src,tests}/**/*' playwright.config.ts --write --ignore-unknown"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",

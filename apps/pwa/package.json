@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "pnpm typecheck; vite build && workbox generateSW workbox-config.js",
     "lint": "eslint src admin --ext .ts,.tsx",
-    "lint:fix": "pnpm lint --fix && prettier '{admin,src}/**/*' 'index.html' --write",
+    "lint:fix": "pnpm lint --fix && prettier '{admin,src}/**/*' 'index.html' --write --ignore-unknown",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
