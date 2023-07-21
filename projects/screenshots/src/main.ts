@@ -59,7 +59,7 @@ async function main() {
 
   try {
     console.log("Starting browser");
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch({ headless: true });
 
     for (const language of languages) {
       for (const selectedDevice of selectedDevices) {
