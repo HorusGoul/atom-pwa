@@ -45,7 +45,7 @@
       "profile": "https://github.com/mpeyper",
       "contributions": [
         "test",
-        "code", 
+        "code",
         "infra"
       ]
     },
@@ -192,7 +192,7 @@
   ],
   "contributorsPerLine": 7,
   "projectName": "atom-pwa",
-  "projectOwner": "OpenSourceRaidGuild",
+  "projectOwner": "HorusGoul",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
