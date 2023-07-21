@@ -1,4 +1,3 @@
-import { Page } from "@playwright/test";
 import { expect } from "playwright-test-coverage";
 import { mapSymbolToValency } from "./data/ValencesQuiz";
 import { QuizPage } from "./QuizPage";

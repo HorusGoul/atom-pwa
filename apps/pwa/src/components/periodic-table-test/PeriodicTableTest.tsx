@@ -7,16 +7,16 @@ import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_PERIODIC_TABLE_SETTINGS, TEST_SELECTION } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
-import PeriodicTable from "../periodic-table/PeriodicTable";
-import PtElementTest from "../pt-element/PtElementTest";
-import Card from "../shared/card/Card";
-import Navbar from "../shared/navbar/Navbar";
-import SwipeableModal from "../shared/swipeable-modal/SwipeableModal";
-import TestResults from "../test-results/TestResults";
+import PeriodicTable from "@/components/periodic-table/PeriodicTable";
+import PtElementTest from "@/components/pt-element/PtElementTest";
+import Card from "@/components/shared/card/Card";
+import Navbar from "@/components/shared/navbar/Navbar";
+import SwipeableModal from "@/components/shared/swipeable-modal/SwipeableModal";
+import TestResults from "@/components/test-results/TestResults";
 import { usePeriodicTableTestSettings } from "./hooks/usePeriodicTableTestSettings";
 import "./PeriodicTableTest.scss";
 import { useAddRecent } from "@/hooks/useRecent";
-import { useConfirm } from "../shared/confirm";
+import { useConfirm } from "@/components/shared/confirm";
 
 interface PeriodicTableTestQuestion {
   element: Element;

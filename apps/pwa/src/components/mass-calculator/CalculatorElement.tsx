@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import Button from "../shared/button/Button";
+import Button from "@/components/shared/button/Button";
 import { useLocale } from "@/hooks/useLocale";
 import { useElements } from "@/hooks/useElements";
 

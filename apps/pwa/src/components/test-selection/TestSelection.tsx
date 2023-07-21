@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
-import Navbar from "../shared/navbar/Navbar";
+import Navbar from "@/components/shared/navbar/Navbar";
 import TestEntry from "./test-entry/TestEntry";
 import "./TestSelection.scss";
 import { useAddRecent } from "@/hooks/useRecent";

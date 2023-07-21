@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useLocale } from "@/hooks/useLocale";
-import Button from "../../shared/button/Button";
-import Card from "../../shared/card/Card";
-import IconButton from "../../shared/icon-button/IconButton";
+import Button from "@/components/shared/button/Button";
+import Card from "@/components/shared/card/Card";
+import IconButton from "@/components/shared/icon-button/IconButton";
 import "./TestEntry.scss";
-import Icon from "../../shared/icon/Icon";
+import Icon from "@/components/shared/icon/Icon";
 
 interface TestEntryProps {
   title: string;

@@ -1,6 +1,6 @@
 import * as React from "react";
-import IconButton from "../shared/icon-button/IconButton";
-import Modal from "../shared/modal/Modal";
+import IconButton from "@/components/shared/icon-button/IconButton";
+import Modal from "@/components/shared/modal/Modal";
 import { useLocale } from "@/hooks/useLocale";
 import { useElements } from "@/hooks/useElements";
 import { MassCalculatorElement } from "./hooks/useMassCalculator";

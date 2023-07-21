@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import Card from "../../shared/card/Card";
+import Card from "@/components/shared/card/Card";
 import QuestionCardAnswer, {
   Answer,
 } from "./question-card-answer/QuestionCardAnswer";

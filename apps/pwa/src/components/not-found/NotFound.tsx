@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
-import Button from "../shared/button/Button";
+import Button from "@/components/shared/button/Button";
 import { logEvent } from "@/services/spycat";
 import "./NotFound.scss";
 

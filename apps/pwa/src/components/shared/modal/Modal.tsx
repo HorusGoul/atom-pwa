@@ -2,8 +2,8 @@ import classNames from "classnames";
 import * as React from "react";
 import { useEffect, ReactNode } from "react";
 import Portal from "@/components/shared/portal/Portal";
-import IconButton from "../icon-button/IconButton";
-import Overlay from "../overlay/Overlay";
+import IconButton from "@/components/shared/icon-button/IconButton";
+import Overlay from "@/components/shared/overlay/Overlay";
 import "./Modal.scss";
 
 export interface ModalProps {

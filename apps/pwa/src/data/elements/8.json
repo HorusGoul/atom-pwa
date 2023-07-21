@@ -20,14 +20,7 @@
   "group": "amphigens",
   "yearDiscovered": 1774,
   "valency": "-2",
-  "wrongValences": [
-    "-1",
-    "+2 -2",
-    "+1 -1",
-    "+1",
-    "+2 +4 +6 / -2",
-    "+2"
-  ],
+  "wrongValences": ["-1", "+2 -2", "+1 -1", "+1", "+2 +4 +6 / -2", "+2"],
   "testState": {
     "valencesTest": true,
     "ptTest": true

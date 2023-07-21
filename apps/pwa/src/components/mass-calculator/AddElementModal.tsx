@@ -1,6 +1,6 @@
 import * as React from "react";
-import Modal from "../shared/modal/Modal";
-import ElementPicker from "../element-picker/ElementPicker";
+import Modal from "@/components/shared/modal/Modal";
+import ElementPicker from "@/components/element-picker/ElementPicker";
 
 interface AddElementModalProps {
   isOpen: boolean;

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useLocale } from "@/hooks/useLocale";
 import { HUB } from "@/routes";
-import IconButton from "../shared/icon-button/IconButton";
-import ListItemSwipeAction from "../shared/list-item-swipe-action/ListItemSwipeAction";
-import Navbar from "../shared/navbar/Navbar";
+import IconButton from "@/components/shared/icon-button/IconButton";
+import ListItemSwipeAction from "@/components/shared/list-item-swipe-action/ListItemSwipeAction";
+import Navbar from "@/components/shared/navbar/Navbar";
 import AddElementModal from "./AddElementModal";
 import EditElementModal from "./EditElementModal";
 import CalculatorElement from "./CalculatorElement";

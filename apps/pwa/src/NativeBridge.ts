@@ -40,7 +40,7 @@ class NativeBridge {
     return this.exec("rateApp", [], [openMarket]);
   }
 
-  public supportsNativeMethod(methodName: keyof typeof AtomNative) {
+  public supportsNativeMethod(_methodName: keyof typeof AtomNative) {
     return !!window.AtomNative?.["rateApp"];
   }
 

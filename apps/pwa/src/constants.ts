@@ -1,4 +1,4 @@
-import packageJson from "../package.json";
+import packageJson from "@/../package.json";
 
 export const IS_DEVELOPMENT = import.meta.env.DEV;
 

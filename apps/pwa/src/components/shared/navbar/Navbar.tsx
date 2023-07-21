@@ -1,7 +1,7 @@
 import { useLocale } from "@/hooks/useLocale";
 import classNames from "classnames";
 import * as React from "react";
-import IconButton from "../icon-button/IconButton";
+import IconButton from "@/components/shared/icon-button/IconButton";
 import "./Navbar.scss";
 
 interface NavbarProps {

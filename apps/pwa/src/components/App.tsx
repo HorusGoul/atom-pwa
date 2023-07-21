@@ -11,7 +11,7 @@ import {
   TEST_SELECTION,
   TEST_VALENCES,
   TEST_VALENCES_SETTINGS,
-} from "../routes";
+} from "@/routes";
 import { useLocale } from "@/hooks/useLocale";
 import { useTheme } from "@/hooks/useTheme";
 import About from "./about/About";

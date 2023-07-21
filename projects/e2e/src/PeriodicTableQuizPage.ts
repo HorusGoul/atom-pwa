@@ -1,4 +1,3 @@
-import type { Page } from "@playwright/test";
 import { expect } from "playwright-test-coverage";
 import { mapSymbolToAtomicNumber } from "./data/PeriodicTableQuiz";
 import { QuizPage } from "./QuizPage";

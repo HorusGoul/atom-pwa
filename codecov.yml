@@ -1,0 +1,6 @@
+codecov:
+  branch: next
+
+coverage:
+  status:
+    patch: false

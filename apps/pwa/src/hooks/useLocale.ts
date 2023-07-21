@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import invariant from "invariant";
-import localePercentages from "../locales/percentages.json";
+import localePercentages from "@/locales/percentages.json";
 import { useSettings } from "./useSettings";
 import { DEFAULT_LOCALE } from "@/services/locale/defaultLocale";
 

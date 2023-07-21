@@ -20,12 +20,7 @@
   "group": "transition_metals",
   "yearDiscovered": null,
   "valency": "+2 +3 +4 +6",
-  "wrongValences": [
-    "+2 +3 +4 +5",
-    "+2 +3 +4 +6 +7",
-    "+2 +3",
-    "+1 +2 +3 +4"
-  ],
+  "wrongValences": ["+2 +3 +4 +5", "+2 +3 +4 +6 +7", "+2 +3", "+1 +2 +3 +4"],
   "testState": {
     "valencesTest": true,
     "ptTest": true

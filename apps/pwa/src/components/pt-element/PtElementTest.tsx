@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 import { useElements } from "@/hooks/useElements";
-import Icon from "../shared/icon/Icon";
+import Icon from "@/components/shared/icon/Icon";
 import "./PtElement.scss";
 import { PtElementInfoProps } from "./PtElementInfo";
 

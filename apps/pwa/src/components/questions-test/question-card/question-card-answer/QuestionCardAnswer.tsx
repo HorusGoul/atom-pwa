@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import Button, { ButtonProps } from "../../../shared/button/Button";
+import Button, { ButtonProps } from "@/components/shared/button/Button";
 
 import "./QuestionCardAnswer.scss";
 

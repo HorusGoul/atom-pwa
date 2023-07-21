@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useLocale } from "@/hooks/useLocale";
 import { useTheme, THEMES_LIST } from "@/hooks/useTheme";
-import IconButton from "../shared/icon-button/IconButton";
+import IconButton from "@/components/shared/icon-button/IconButton";
 import SelectorModal, {
   SelectorModalOption,
-} from "../shared/selector-modal/SelectorModal";
+} from "@/components/shared/selector-modal/SelectorModal";
 import "./ThemeSelector.scss";
 
 function ThemeSelector() {

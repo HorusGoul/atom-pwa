@@ -1,9 +1,9 @@
 import * as React from "react";
-import Button from "../button/Button";
+import Button from "@/components/shared/button/Button";
 import styles from "./ConfirmContext.module.scss";
 import { useUnmounted } from "@/hooks/useUnmounted";
-import SwipeableModal from "../swipeable-modal/SwipeableModal";
-import Icon from "../icon/Icon";
+import SwipeableModal from "@/components/shared/swipeable-modal/SwipeableModal";
+import Icon from "@/components/shared/icon/Icon";
 import { useLocale } from "@/hooks/useLocale";
 
 export interface ConfirmAction<T = unknown, C = unknown> {
@@ -36,7 +36,7 @@ interface ConfirmProviderProps {
 function ConfirmProvider({ children }: ConfirmProviderProps) {
   const { i18n } = useLocale();
   const [action, setAction] = React.useState<ConfirmAction | null>(null);
-  const [loading, setLoading] = React.useState(false);
+  const [, setLoading] = React.useState(false);
 
   const unmountedRef = useUnmounted();
 

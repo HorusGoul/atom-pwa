@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Spinner } from "../shared/spinner/Spinner";
+import { Spinner } from "@/components/shared/spinner/Spinner";
 
 import "./PeriodicTable.scss";
 

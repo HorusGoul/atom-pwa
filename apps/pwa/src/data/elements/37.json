@@ -20,13 +20,7 @@
   "group": "alkali_metals",
   "yearDiscovered": 1861,
   "valency": "+1",
-  "wrongValences": [
-    "+2",
-    "-1",
-    "+1 / -1",
-    "-2",
-    "+3"
-  ],
+  "wrongValences": ["+2", "-1", "+1 / -1", "-2", "+3"],
   "testState": {
     "valencesTest": true,
     "ptTest": true

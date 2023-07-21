@@ -6,16 +6,16 @@ import { useElements } from "@/hooks/useElements";
 import { useLocale } from "@/hooks/useLocale";
 import { TEST_SELECTION, TEST_VALENCES_SETTINGS } from "@/routes";
 import { shuffle } from "@/utils/shuffle";
-import { Answer } from "../questions-test/question-card/question-card-answer/QuestionCardAnswer";
-import { Question } from "../questions-test/question-card/QuestionCard";
-import QuestionsTest from "../questions-test/QuestionsTest";
-import Card from "../shared/card/Card";
-import Navbar from "../shared/navbar/Navbar";
-import TestResults from "../test-results/TestResults";
+import { Answer } from "@/components/questions-test/question-card/question-card-answer/QuestionCardAnswer";
+import { Question } from "@/components/questions-test/question-card/QuestionCard";
+import QuestionsTest from "@/components/questions-test/QuestionsTest";
+import Card from "@/components/shared/card/Card";
+import Navbar from "@/components/shared/navbar/Navbar";
+import TestResults from "@/components/test-results/TestResults";
 import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
 import { useAddRecent } from "@/hooks/useRecent";
-import { useConfirm } from "../shared/confirm";
+import { useConfirm } from "@/components/shared/confirm";
 
 interface ValencesTestQuestion extends Question {
   data: Element;
