@@ -1,0 +1,11 @@
+{
+  "extends": "@internal/tsconfig/playwright.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", ".eslintrc.cjs"],
+  "exclude": ["node_modules"]
+}
