@@ -20,22 +20,6 @@ const selectedDevices: SelectedDevice[] = [
     suffix: "portrait",
   },
   {
-    device: devices["Pixel 2 landscape"],
-    folder: "mobile",
-    suffix: "landscape",
-  },
-  {
-    device: {
-      ...devices["iPad (gen 7)"],
-      viewport: {
-        width: 1080,
-        height: 1920,
-      },
-    },
-    folder: "tablet",
-    suffix: "portrait",
-  },
-  {
     device: {
       ...devices["iPad (gen 7) landscape"],
       viewport: {
@@ -47,7 +31,13 @@ const selectedDevices: SelectedDevice[] = [
     suffix: "landscape",
   },
   {
-    device: devices["Desktop Chrome"],
+    device: {
+      ...devices["Desktop Chrome"],
+      viewport: {
+        width: 1920,
+        height: 1080,
+      },
+    },
     folder: "desktop",
   },
 ];
