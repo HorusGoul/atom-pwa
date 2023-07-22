@@ -13,6 +13,11 @@ screenshot("periodic-table", async ({ page, takeScreenshot }) => {
 
 screenshot("periodic-table-details", async ({ page, takeScreenshot }) => {
   await page.goto("/periodic-table/6");
+
+  await page.getByRole("button", { name: "1 H " }).waitFor({
+    state: "visible",
+  });
+
   await page.getByTestId("overlay").waitFor({ state: "visible" });
 
   await takeScreenshot();
@@ -22,6 +27,7 @@ screenshot("mass-calculator", async ({ page, takeScreenshot }) => {
   await page.goto("/mass-calculator");
 
   await page.getByText("Ho", { exact: true }).waitFor({ state: "visible" });
+  await page.waitForTimeout(1000);
 
   await takeScreenshot();
 });
