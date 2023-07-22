@@ -1,0 +1,34 @@
+name: Make app screenshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps chromium
+        working-directory: projects/screenshots
+
+      - name: Take screenshots
+        run: pnpm start
+        working-directory: projects/screenshots
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: projects/screenshots/screenshots
+          retention-days: 7
