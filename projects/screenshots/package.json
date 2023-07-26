@@ -4,10 +4,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "tsx src/main.ts"
+    "start": "tsx src/main.ts",
+    "start:video": "pnpm start --video",
+    "start:screenshot": "pnpm start --screenshot"
   },
   "dependencies": {
     "playwright": "^1.36.1",
+    "puppeteer-core": "^20.9.0",
+    "puppeteer-screen-recorder": "^2.1.2",
     "tsx": "^3.12.7"
   },
   "devDependencies": {
