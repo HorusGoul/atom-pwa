@@ -13,6 +13,12 @@ importers:
         specifier: 1.10.7
         version: 1.10.7
 
+  apps/ios:
+    dependencies:
+      pwa:
+        specifier: workspace:*
+        version: link:../pwa
+
   apps/pwa:
     dependencies:
       '@juggle/resize-observer':

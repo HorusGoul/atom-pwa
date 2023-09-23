@@ -7,6 +7,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:pwa": "turbo run build --filter=pwa",
+    "build:ios": "turbo run build --filter=ios",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",

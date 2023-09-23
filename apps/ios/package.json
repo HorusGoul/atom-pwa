@@ -1,0 +1,11 @@
+{
+  "name": "ios",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf ./atom/www && cp -r ../pwa/dist ./atom/www"
+  },
+  "dependencies": {
+    "pwa": "workspace:*"
+  }
+}
