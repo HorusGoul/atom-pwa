@@ -15,6 +15,8 @@ struct atomApp: App {
     init() {
         let baseURL = Bundle.main.url(forResource: "www", withExtension: nil)!
         let configuration = WebFrame.Configuration(baseURL: baseURL)
+        configuration.webViewOptions.scrollView.bounces = true;
+        
         frame = WebFrame(configuration: configuration)
     }
 

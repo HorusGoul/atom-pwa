@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,8 @@
 		A91BF53B2ABF1E0B008E18DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BF53A2ABF1E0B008E18DC /* ContentView.swift */; };
 		A91BF53D2ABF1E0C008E18DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BF53C2ABF1E0C008E18DC /* Assets.xcassets */; };
 		A91BF5412ABF1E0C008E18DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BF5402ABF1E0C008E18DC /* Preview Assets.xcassets */; };
-		A91BF5492ABF21AD008E18DC /* Peregrine in Frameworks */ = {isa = PBXBuildFile; productRef = A91BF5482ABF21AD008E18DC /* Peregrine */; };
 		A9A5B1D12ABF267900A87D66 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A9A5B1D02ABF267900A87D66 /* www */; };
+		A9A5B1DC2ABF5A9700A87D66 /* Peregrine in Frameworks */ = {isa = PBXBuildFile; productRef = A9A5B1DB2ABF5A9700A87D66 /* Peregrine */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91BF5492ABF21AD008E18DC /* Peregrine in Frameworks */,
+				A9A5B1DC2ABF5A9700A87D66 /* Peregrine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			);
 			name = atom;
 			packageProductDependencies = (
-				A91BF5482ABF21AD008E18DC /* Peregrine */,
+				A9A5B1DB2ABF5A9700A87D66 /* Peregrine */,
 			);
 			productName = atom;
 			productReference = A91BF5352ABF1E0B008E18DC /* atom.app */;
@@ -122,7 +122,7 @@
 			);
 			mainGroup = A91BF52C2ABF1E0B008E18DC;
 			packageReferences = (
-				A91BF5472ABF21AD008E18DC /* XCRemoteSwiftPackageReference "Peregrine-iOS" */,
+				A9A5B1DA2ABF5A9700A87D66 /* XCLocalSwiftPackageReference "../../../Peregrine-iOS" */,
 			);
 			productRefGroup = A91BF5362ABF1E0B008E18DC /* Products */;
 			projectDirPath = "";
@@ -374,21 +374,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		A91BF5472ABF21AD008E18DC /* XCRemoteSwiftPackageReference "Peregrine-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/peregrinejs/Peregrine-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.12.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		A9A5B1DA2ABF5A9700A87D66 /* XCLocalSwiftPackageReference "../../../Peregrine-iOS" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../Peregrine-iOS";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A91BF5482ABF21AD008E18DC /* Peregrine */ = {
+		A9A5B1DB2ABF5A9700A87D66 /* Peregrine */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A91BF5472ABF21AD008E18DC /* XCRemoteSwiftPackageReference "Peregrine-iOS" */;
 			productName = Peregrine;
 		};
 /* End XCSwiftPackageProductDependency section */

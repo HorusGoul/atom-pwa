@@ -13,7 +13,7 @@ struct ContentView: View {
 
     
     var body: some View {
-        frame.view
+        frame.view.edgesIgnoringSafeArea(.all)
     }
 }
 
