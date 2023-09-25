@@ -2,7 +2,9 @@
 @import "../../scss/theming.scss";
 
 .valences-test {
-  @extend %page;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   @include themify($themes) {
     background-color: themed("primary");

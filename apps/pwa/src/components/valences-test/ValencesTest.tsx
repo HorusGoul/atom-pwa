@@ -16,6 +16,7 @@ import { useValencesTestSettings } from "./hooks/useValencesTestSettings";
 import "./ValencesTest.scss";
 import { useAddRecent } from "@/hooks/useRecent";
 import { useConfirm } from "@/components/shared/confirm";
+import { usePreventDocumentOverscroll } from "@/hooks/usePreventDocumentOverscroll";
 
 interface ValencesTestQuestion extends Question {
   data: Element;
@@ -57,6 +58,7 @@ function ValencesTest() {
   const { confirmAction } = useConfirm();
 
   useAddRecent("valency-quiz");
+  usePreventDocumentOverscroll();
 
   function createTestQuestions(settings: ElementsSettings) {
     if (!settings.elements) {

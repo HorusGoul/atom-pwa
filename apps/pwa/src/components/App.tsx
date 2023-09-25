@@ -32,12 +32,14 @@ import { ElementProvider } from "@/contexts/ElementContext";
 import { createPack } from "react-component-pack";
 import ConfirmProvider from "./shared/confirm";
 import { ServiceWorkerProvider } from "@/contexts/ServiceWorkerContext";
+import { SafeAreaInsetProvider } from "@/contexts/SafeAreaInsetContext";
 
 const ProviderPack = createPack(
   (HelmetProvider as unknown) as React.FunctionComponent<{
     children: React.ReactNode;
   }>,
   ServiceWorkerProvider,
+  SafeAreaInsetProvider,
   ElementProvider,
   ConfirmProvider
 );

@@ -1,17 +1,2 @@
 @import "./variables.scss";
 @import "./helpers.scss";
-
-%page {
-  display: flex;
-  flex-direction: column;
-
-  max-width: 768px;
-  min-height: 100%;
-  margin: 0 auto;
-
-  overflow: hidden;
-
-  @include IEFix() {
-    min-height: unset;
-  }
-}

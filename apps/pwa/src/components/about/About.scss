@@ -3,9 +3,12 @@
 @import "../../scss/helpers.scss";
 
 .about {
-  @extend %page;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 
   @include themify($themes) {
+    background-color: themed("backgroundColor");
     color: themed("contentTextColor");
     fill: themed("contentTextColor");
   }
@@ -57,5 +60,15 @@
     @include themify($themes) {
       color: transparentize(themed("contentTextColor"), 0.22);
     }
+  }
+
+  &__content {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
   }
 }

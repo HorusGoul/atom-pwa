@@ -17,6 +17,7 @@ import { usePeriodicTableTestSettings } from "./hooks/usePeriodicTableTestSettin
 import "./PeriodicTableTest.scss";
 import { useAddRecent } from "@/hooks/useRecent";
 import { useConfirm } from "@/components/shared/confirm";
+import { usePreventDocumentOverscroll } from "@/hooks/usePreventDocumentOverscroll";
 
 interface PeriodicTableTestQuestion {
   element: Element;
@@ -29,6 +30,7 @@ function PeriodicTableTest() {
   const { confirmAction } = useConfirm();
 
   useAddRecent("periodic-table-quiz");
+  usePreventDocumentOverscroll();
 
   const {
     settings,

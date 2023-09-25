@@ -11,6 +11,7 @@ import SwipeableModal from "@/components/shared/swipeable-modal/SwipeableModal";
 import ElementInfo from "./element-info/ElementInfo";
 import "./PeriodicTablePage.scss";
 import { useAddRecent } from "@/hooks/useRecent";
+import { usePreventDocumentOverscroll } from "@/hooks/usePreventDocumentOverscroll";
 
 function PeriodicTablePage() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function PeriodicTablePage() {
   const { getElement } = useElements();
 
   useAddRecent("periodic-table");
+  usePreventDocumentOverscroll();
 
   const onNavbarBackButtonClick = () => {
     navigate(HUB);

@@ -25,38 +25,40 @@ function About() {
         onBackButtonClick={onNavbarBackButtonClick}
       />
 
-      <Card className="about__app-preferences">
-        <div className="about__subtitle">{i18n("app_settings")}</div>
+      <div className="about__content">
+        <Card className="about__app-preferences">
+          <div className="about__subtitle">{i18n("app_settings")}</div>
 
-        <div className="about__app-preferences__buttons">
-          <LocaleSelector />
-          <ThemeSelector />
-        </div>
-      </Card>
+          <div className="about__app-preferences__buttons">
+            <LocaleSelector />
+            <ThemeSelector />
+          </div>
+        </Card>
 
-      <Card className="about__about">
-        <div className="about__about__buttons">
-          <IconButton
-            link={i18n("contact_me_url")}
-            iconName="at"
-            text={i18n("contact_me")}
-          />
+        <Card className="about__about">
+          <div className="about__about__buttons">
+            <IconButton
+              link={i18n("contact_me_url")}
+              iconName="at"
+              text={i18n("contact_me")}
+            />
 
-          <IconButton
-            link="https://github.com/HorusGoul/atom-pwa"
-            iconName="source_branch"
-            text={i18n("source_code")}
-          />
+            <IconButton
+              link="https://github.com/HorusGoul/atom-pwa"
+              iconName="source_branch"
+              text={i18n("source_code")}
+            />
 
-          <IconButton
-            link={`mailto:${i18n("author_email")}`}
-            iconName="bug_report"
-            text={i18n("bug_report")}
-          />
-        </div>
-      </Card>
+            <IconButton
+              link={`mailto:${i18n("author_email")}`}
+              iconName="bug_report"
+              text={i18n("bug_report")}
+            />
+          </div>
+        </Card>
 
-      <div className="about__appVersion">{FULL_VERSION}</div>
+        <div className="about__appVersion">{FULL_VERSION}</div>
+      </div>
     </div>
   );
 }

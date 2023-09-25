@@ -3,7 +3,8 @@
 @import "../../scss/helpers.scss";
 
 .mass-calculator {
-  @extend %page;
+  min-height: 100%;
+  background-color: var(--backgroundColor);
 
   @include themify($themes) {
     color: themed("contentTextColor");
@@ -13,6 +14,8 @@
     display: flex;
     align-items: center;
     padding: 16px;
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
     z-index: 2;
 
     @include box-shadow($level: 1);
@@ -169,6 +172,16 @@
         color: themed("accent");
       }
     }
+  }
+
+  &__controls,
+  &__element-list {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  &__element-list {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 

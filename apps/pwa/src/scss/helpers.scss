@@ -18,3 +18,28 @@
     @content;
   }
 }
+
+@mixin overscroll-top($color) {
+  &::before {
+    z-index: -1;
+    position: fixed;
+    height: 50vh;
+    left: 0;
+    right: 0;
+    content: "";
+    background-color: $color;
+  }
+}
+
+@mixin overscroll-bottom($color) {
+  &::after {
+    z-index: -1;
+    position: fixed;
+    height: 50vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: $color;
+  }
+}

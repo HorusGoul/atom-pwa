@@ -7,6 +7,9 @@
   height: 100%;
 
   &__content {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+
     @include themify($themes) {
       background-color: themed("cardBackgroundColor");
       color: themed("contentTextColor");

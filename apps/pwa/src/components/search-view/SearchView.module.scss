@@ -13,6 +13,11 @@
   overflow-y: auto;
   animation: slideIn 180ms ease-in forwards;
 
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
   @media (prefers-reduced-motion) {
     animation: none;
   }

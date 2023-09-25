@@ -1,5 +1,5 @@
-@import "../../scss/common.scss";
 @import "../../scss/helpers.scss";
+@import "../../scss/common.scss";
 
 .hub {
   display: flex;
@@ -7,6 +7,7 @@
   flex-direction: column;
   background-color: var(--backgroundColor);
   color: var(--contentTextColor);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .header {
@@ -14,10 +15,32 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding-top: env(safe-area-inset-top);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -300px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
 }
 
-:global(.theme-light) .header {
-  background: linear-gradient(-130deg, #00897b 0%, #01665c 100%);
+:global(.theme-light) {
+  .hub {
+    @include overscroll-top($color: var(--primary));
+  }
+
+  .header::before {
+    background: linear-gradient(
+      -130deg,
+      var(--primary) 0%,
+      var(--primaryDarker) 100%
+    );
+  }
 }
 
 .content {
@@ -69,6 +92,7 @@
 }
 
 .logo {
+  z-index: 1;
   border-radius: 128px;
   padding: 8px;
   margin-right: auto;
