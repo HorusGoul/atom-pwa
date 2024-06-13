@@ -23,7 +23,7 @@ jobs:
         working-directory: projects/screenshots
 
       - name: Take screenshots
-        run: pnpm start
+        run: pnpm start:screenshot
         working-directory: projects/screenshots
 
       - name: Upload screenshots
