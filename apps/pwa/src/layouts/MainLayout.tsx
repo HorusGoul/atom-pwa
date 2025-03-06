@@ -40,11 +40,12 @@ function Navbar() {
     <nav
       className={cn(
         "fixed bottom-0 w-full border-t pb-safe-bottom pl-safe-left pr-safe-right shadow-xl backdrop-blur-sm dark:border-accent-400/20 dark:bg-accent-950/80",
+        "md:bottom-1/2 md:ml-safe-left md:w-16 md:translate-y-1/2 md:rounded-lg md:border md:pb-0 md:pl-0",
         shouldAnimate &&
           "duration-1000 animate-in fade-in slide-in-from-bottom",
       )}
     >
-      <ul className="grid h-16 grid-cols-4">
+      <ul className="grid h-16 grid-cols-4 md:h-auto md:grid-cols-1 md:grid-rows-4 md:space-y-4">
         <li>
           <NavbarButton
             label={i18n("Periodic Table")}
